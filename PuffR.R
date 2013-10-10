@@ -69,9 +69,9 @@ number_cells_across_x <- ifelse(is_number_cells_across_x_an_int == TRUE,
 number_cells_across_y <- ifelse(is_number_cells_across_y_an_int == TRUE,
                                 height_met_domain_m/cell_resolution_m, NULL)
 
-# Get surface data from NCDC, download via FTP
-#
+total_cells <- number_cells_across_x * number_cells_across_y
 
+# Get surface data from NCDC, download via FTP
 
 # Determine which surface stations are in the domain
 
