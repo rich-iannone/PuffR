@@ -63,7 +63,16 @@ height_met_domain_m <- 30000
 is_number_cells_across_x_an_int <- ifelse(width_met_domain_m %% cell_resolution_m != 0, FALSE, TRUE)
 is_number_cells_across_y_an_int <- ifelse(width_met_domain_m %% cell_resolution_m != 0, FALSE, TRUE)
 
+number_cells_across_x <- ifelse(is_number_cells_across_x_an_int == TRUE,
+                                width_met_domain_m/cell_resolution_m, NULL)
+
+number_cells_across_y <- ifelse(is_number_cells_across_y_an_int == TRUE,
+                                height_met_domain_m/cell_resolution_m, NULL)
+
+
 # Get surface data from NCDC, download via FTP
+
+
 # Determine which surface stations are in the domain
 
 # Construct FTP address
