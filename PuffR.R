@@ -141,7 +141,11 @@ top_UTM <- if(lat_long_grid_loc == 1) {
 # Get surface data from NCDC, download via FTP
 
 # 
+<<<<<<< HEAD
 #
+=======
+
+>>>>>>> e7856baa8c134d29540acbdb8e5aea10f21b8d57
 
 
 # Determine which surface stations are in the domain
