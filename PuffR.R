@@ -140,7 +140,6 @@ top_UTM <- if(lat_long_grid_loc == 1) {
 
 # Get surface data from NCDC, download via FTP
 
-# 
 
 
 
