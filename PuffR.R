@@ -14,6 +14,12 @@ install.packages("rgdal")
 library("rgdal")
 install.packages("plyr")
 library("plyr")
+install.packages("spdep")
+library("spdep")
+install.packages("fields")
+library("fields")
+install.packages("MBA")
+library("MBA")
 
 # Start with information on location for CALMET domain
 # Center of domain? LL? UR?
