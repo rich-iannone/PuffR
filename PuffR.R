@@ -12,6 +12,10 @@ install.packages("sp")
 library("sp")
 install.packages("rgdal")
 library("rgdal")
+install.packages("shapefiles")
+library("shapefiles")
+install.packages("raster")
+library("raster")
 install.packages("plyr")
 library("plyr")
 install.packages("spdep")
@@ -46,8 +50,9 @@ units <- c("m")
 # NOTE: with the above-entered info, should be able to obtain one EPSG code from a lookup data frame
 EPSG_code <- 32610
 proj_string <- c("+init=epsg:32610 +proj=utm +zone=10 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0")
+proj_string_longlat <- c("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
 
-# Project as UTM coordinate, round to nearest 50 m using round_any function ('plyr' package)
+# Project as UTM coordinate, round to nearest 50 m using rdound_any function ('plyr' package)
 UTM_location <- project(lat_long_dec_deg, proj_string)
 UTM_location <- round_any(UTM_location, 50, round)
 
@@ -133,6 +138,16 @@ top_UTM <- if(lat_long_grid_loc == 1) {
         NULL
         }
 
+## Need to obtain spatial points in lat/lon for LL, LR, UL, UR
+
+LL_LR_UL_UR_m <- data.frame("x" = c(left_UTM, right_UTM, left_UTM, right_UTM), 
+                                "y" = c(bottom_UTM, bottom_UTM, top_UTM, top_UTM))
+
+LL_LR_UL_UR_UTM_m <- SpatialPoints(as.matrix(LL_LR_UL_UR_m),
+                               proj4string=CRS("+init=epsg:32610"))
+
+LL_LR_UL_UR_UTM_longlat <- spTransform(LL_LR_UL_UR_UTM_m, CRS("+proj=longlat +ellps=GRS80"))
+
 
 ##----- SURF.DAT ---- Surface data
 
@@ -182,7 +197,83 @@ for (y in 2010:2010) {
                            "-", y, ".gz", sep = "")
     system(paste("curl -O ftp://ftp3.ncdc.noaa.gov/pub/data/noaa/", y,
                      "/", outputs[s, 1], sep = ""))
+    outputs[s, 2] <- ifelse(file.exists(outputs[s, 1]) == "TRUE", 'available', 'missing')
   }
 }
 
-system("gunzip -r data/raw", intern = FALSE, ignore.stderr = TRUE)
+# Extract all downloaded data files
+system("gunzip *.gz", intern = FALSE, ignore.stderr = TRUE)
+
+# Attempt to read data from files
+
+files <- list.files(pattern = "^[0-9]*-[0-9]*-[0-9]*$")
+
+column.widths <- c(4, 6, 5, 4, 2, 2, 2, 2, 1, 6,
+                   7, 5, 5, 5, 4, 3, 1, 1, 4, 1,
+                   5, 1, 1, 1, 6, 1, 1, 1, 5, 1,
+                   5, 1, 5, 1)
+
+stations <- as.data.frame(matrix(NA, length(files), 6))
+
+names(stations) <- c("USAFID", "WBAN", "YR", "LAT", "LONG", "ELEV")
+
+for (i in 1:length(files)) {
+    data <- read.fwf(files[i], column.widths)
+    data <- data[, c(2:8, 10:11, 13, 16, 19, 29, 31, 33)]
+    names(data) <- c("USAFID", "WBAN", "YR", "M", "D", "HR", "MIN", "LAT", "LONG",
+                     "ELEV", "WIND.DIR", "WIND.SPD", "TEMP", "DEW.POINT", "ATM.PRES")
+    data$LAT <- data$LAT/1000
+    data$LONG <- data$LONG/1000
+    data$WIND.SPD <- data$WIND.SPD/10
+    data$TEMP <- data$TEMP/10
+    data$DEW.POINT <- data$DEW.POINT/10
+    data$ATM.PRES <- data$ATM.PRES/10
+    write.csv(data, file = paste(files[i], ".csv", sep = ""), row.names = FALSE)
+    stations[i, 1:3] <- data[1, 1:3]
+    stations[i, 4:6] <- data[1, 8:10]
+}
+
+write.csv(stations, file = "stations.csv", row.names = FALSE)
+
+canada_raster <- raster("CAN_alt.gri")
+
+# Ctop raster to domain + a margin of 0.2 degrees
+
+
+LL_LR_UL_UR_UTM_longlat
+
+print(coordinates(LL_LR_UL_UR_UTM_longlat), digits=12)[1,1]
+
+extent_in_lat_long <- extent(coordinates(LL_LR_UL_UR_UTM_longlat)[1,1],
+                             coordinates(LL_LR_UL_UR_UTM_longlat)[2,1],
+                             coordinates(LL_LR_UL_UR_UTM_longlat)[1,2],
+                             coordinates(LL_LR_UL_UR_UTM_longlat)[3,2])
+
+
+domain_raster <- crop(canada_raster, extent_in_lat_long)
+
+plot(domain_raster)
+points(stations$LONG, stations$LAT, pch = 16, col = "black")
+points(lat_long_dec_deg[1,1], lat_long_dec_deg[1,2], pch = 15, col = "red")
+
+
+
+
+
+# Read data from stations
+# Remove any values where minutes are equal to 15, 30, or 45
+
+
+st <- read.csv(file = paste(files[1], ".csv", sep = ""))
+head(st)
+
+percent_invalid_wind.dir <- ( sum(st$WIND.DIR == 9999.9 | st$WIND.DIR == 999.9) / nrow(st) ) * 100
+
+percent_invalid_atmos_pres <- ( sum(st$ATM.PRES == 9999.9 | st$ATM.PRES == 999.9) / nrow(st) ) * 100
+
+
+st$WIND.DIR <- st$DEW.POINT <- st$ATM.PRES <- NULL
+st$TEMP[st$TEMP == 999.9] <- NA
+st$WIND.SPD[st$WIND.SPD == 999.9] <- NA
+st <- st[st$MIN == 0, ]
+
