@@ -415,7 +415,11 @@ plot_domain <- ggplot(r.df, aes(x = x, y = y)) +
                scale_fill_gradient(low = "green", high = "white") +
                geom_point(data = stations,
                           aes(x = LONG, y = LAT,
-                              colour = "red", size = 3)) +
+                              colour = "#D55E00", size = 3)) +
+               geom_text(data = stations,
+                         aes(x = LONG+.01, y = LAT, label = USAFID,
+                         colour = "#56B4E9",
+                         hjust = 0, vjust = 0)) +
                coord_equal() +
                xlim(latlong_bbox_west, latlong_bbox_east) +
                ylim(latlong_bbox_south, latlong_bbox_north) +
@@ -423,8 +427,6 @@ plot_domain <- ggplot(r.df, aes(x = x, y = y)) +
                labs(x = "Longitude") +
                labs(y = "Latitude") +
                labs(title = "Plot of Surface Stations in Meteorological Domain")
-
-
 
 # Read data from stations
 # Remove any 999 values and make as NA, remove values where minutes are equal to 15, 30, or 45
