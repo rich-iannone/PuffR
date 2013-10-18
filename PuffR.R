@@ -31,8 +31,8 @@ library("stringr")
 
 # Let's start with lat/long in decimal degrees, convert to UTM, then develop a grid
 
-lat_dec_deg <- 49.062145
-long_dec_deg <- -123.128404
+lat_dec_deg <- 34.050184
+long_dec_deg <- -118.253959
 lat_long_dec_deg <- cbind(long_dec_deg, lat_dec_deg)
 
 # Generate a PROJ.4 string from an acceptable EPSG code
@@ -49,8 +49,8 @@ datum <- c("WGS84")
 units <- c("m")
 
 # NOTE: with the above-entered info, should be able to obtain one EPSG code from a lookup data frame
-EPSG_code <- 32610
-proj_string <- c("+init=epsg:32610 +proj=utm +zone=10 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0")
+EPSG_code <- 32611
+proj_string <- paste("+init=epsg:", EPSG_code, sep = "") #+proj=utm +zone=10 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0")
 proj_string_longlat <- c("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
 
 # Project as UTM coordinate, round to nearest 50 m using rdound_any function ('plyr' package)
@@ -66,8 +66,8 @@ cell_resolution_m <- 250
 
 # What is the width and the height of the met domain in meters? Extents will be generated based on the
 # location of chosen point.
-met_domain_width_m <- 50000
-met_domain_height_m <- 50000
+met_domain_width_m <- 100000
+met_domain_height_m <- 100000
 
 # Do these length and width values accomodate an integer number of cells of the specified resolution?
 # These checks will be later part of a function in setting domain width and height
@@ -145,7 +145,7 @@ LL_LR_UL_UR_m <- data.frame("x" = c(left_UTM, right_UTM, left_UTM, right_UTM),
                                 "y" = c(bottom_UTM, bottom_UTM, top_UTM, top_UTM))
 
 LL_LR_UL_UR_UTM_m <- SpatialPoints(as.matrix(LL_LR_UL_UR_m),
-                               proj4string=CRS("+init=epsg:32610"))
+                               proj4string = CRS(paste("+init=epsg:", EPSG_code, sep = "")))
 
 LL_LR_UL_UR_UTM_longlat <- spTransform(LL_LR_UL_UR_UTM_m, CRS("+proj=longlat +ellps=GRS80"))
 
@@ -211,19 +211,19 @@ st$END <- as.numeric(substr(st$END, 1, 4))
 
 # Generate a list based on the domain location, also ignoring stations without
 # beginning years reported
-domain.list <- st[st$LON >= latlong_bbox_west & 
-                  st$LON <= latlong_bbox_east &
-                  st$LAT >= latlong_bbox_south &
-                  st$LAT <= latlong_bbox_north &
-                    (st$BEGIN <= NOAA_start_year &
-                                          st$END >= NOAA_end_year & !is.na(st$BEGIN)), ]
+
+domain.list <- subset(st, st$LON >= latlong_bbox_west & 
+                     st$LON <= latlong_bbox_east &
+                     st$LAT >= latlong_bbox_south &
+                     st$LAT <= 40 &
+                     BEGIN <= NOAA_start_year &
+                     END >= NOAA_end_year)
 
 # Initialize data frame for file status reporting
 outputs <- as.data.frame(matrix(NA, dim(domain.list)[1], 2))
 names(outputs) <- c("FILE", "STATUS")
 
 # Download the gzip-compressed data files for the years specified
-# Provide information on availability of file retrieval to working directory
 # Provide information on the number of records in data file retrieved 
 for (y in NOAA_start_year:NOAA_end_year) {
   y.domain.list <- domain.list[domain.list$BEGIN <= y & domain.list$END >= y, ]
@@ -236,6 +236,10 @@ for (y in NOAA_start_year:NOAA_end_year) {
     outputs[s, 2] <- ifelse(file.exists(outputs[s, 1]) == "TRUE", 'available', 'missing')
   }
 }
+
+# Generate report of stations and file transfers
+file_report <- cbind(y.domain.list, outputs)
+row.names(file_report) <- 1:nrow(file_report)
 
 # Extract all downloaded data files
 system("gunzip *.gz", intern = FALSE, ignore.stderr = TRUE)
@@ -305,50 +309,6 @@ for (i in 1:length(files)) {
       additional.data$PRECIP.CODE <- rep(9999, length(additional.data$string))
     }
       
-#     # opaque cloud cover: GA[1-6]
-#     number_of_sky_cover_layer_coverage_code <- sum(str_detect(additional.data$string, "GA[1-6]"),
-#                                                    na.rm = TRUE)
-#     percentage_of_sky_cover_layer_coverage_code <- (number_of_sky_cover_layer_coverage_code/
-#                                                       length(additional.data$string)) * 100
-#     if (number_of_sky_cover_layer_coverage_code > 0) {
-#       GA1_opaque_cloud_cover_in_tenths <- unlist(str_extract_all(additional.data$string,
-#                                                                  "GA1[0-9][0-9]"))
-#       GA1_opaque_cloud_cover_in_tenths <- str_replace_all(GA1_opaque_cloud_cover_in_tenths,
-#                                                           "GA1([0-9][0-9])", "\\1")
-#       GA1_opaque_cloud_cover_in_tenths <- as.numeric(GA1_opaque_cloud_cover_in_tenths)
-#         if(GA1_opaque_cloud_cover_in_tenths == "00") {
-#           0
-#         } else if (GA1_opaque_cloud_cover_in_tenths == "01") {
-#           1
-#         } else if (GA1_opaque_cloud_cover_in_tenths == "02") {
-#           2
-#         } else if (GA1_opaque_cloud_cover_in_tenths == "03") {
-#           4
-#         } else if (GA1_opaque_cloud_cover_in_tenths == "04") {
-#           5
-#         } else if (GA1_opaque_cloud_cover_in_tenths == "05") {
-#           6
-#         } else if (GA1_opaque_cloud_cover_in_tenths == "06") {
-#           7
-#         } else if (GA1_opaque_cloud_cover_in_tenths == "07") {
-#           9
-#         } else if (GA1_opaque_cloud_cover_in_tenths == "08") {
-#           10
-#         } else if (GA1_opaque_cloud_cover_in_tenths == "09") {
-#           10
-#         } else if (GA1_opaque_cloud_cover_in_tenths == "10") {
-#           10
-#         } else if (GA1_opaque_cloud_cover_in_tenths == NULL) {
-#           9999
-#         } else {
-#           9999
-#         })
-#       additional.data$OPAQUE.CC <- GA1_opaque_cloud_cover_in_tenths
-#     }
-#     
-#     if (number_of_sky_cover_layer_coverage_code == 0) {
-#       additional.data$OPAQUE.CC <- rep(9999, length(additional.data$string))
-#     }
     
     # relative humidity: RH[1-3]
     number_of_RH_lines <- sum(str_detect(additional.data$string, "RH1"), na.rm = TRUE)
@@ -429,23 +389,26 @@ plot_domain <- ggplot(r.df, aes(x = x, y = y)) +
                labs(title = "Plot of Surface Stations in Meteorological Domain")
 
 # Read data from stations
-# Remove any 999 values and make as NA, remove values where minutes are equal to 15, 30, or 45
+# Remove any 999 values and make as 9999, remove values where minutes are not equal to 0
 st <- read.csv(file = paste(files[2], ".csv", sep = ""))
 head(st)
 percent_invalid_wind.dir <- ( sum(st$WIND.DIR == 9999.9 | st$WIND.DIR == 999.9) /
                                 nrow(st) ) * 100
 percent_invalid_atmos_pres <- ( sum(st$ATM.PRES == 9999.9 | st$ATM.PRES == 999.9) /
                                   nrow(st) ) * 100
-st$WIND.DIR <- st$DEW.POINT <- st$ATM.PRES <- NULL
-st$TEMP[st$TEMP == 999.9] <- NA
-st$WIND.SPD[st$WIND.SPD == 999.9] <- NA
+#st$WIND.DIR <- st$DEW.POINT <- st$ATM.PRES <- NULL
+
+st$TEMP[st$TEMP == 999.9] <- 9999
+st$WIND.DIR[st$WIND.DIR == 999] <- 9999
+st$WIND.SPD[st$WIND.SPD == 999.9] <- 9999
+st$DEW.POINT[st$DEW.POINT == 999.9] <- 9999
+st$ATM.PRES[st$ATM.PRES == 9999.9] <- 9999
 st <- st[st$MIN == 0, ]
 
 # For a SURF.DAT file, need to have the following parameters:
-# (1)
-
-
+#
 # Variable  Description
+# --------  -----------
 # IYR       Year of data
 # IJUL      Julian day
 # IHR       Hour (00-23 LST)
@@ -459,7 +422,8 @@ st <- st[st$MIN == 0, ]
 # IPCODE    Precipitation code
 #           (0=no precipitation, 1-18=liquid precipitation, 19-45=frozen precipitation)
 
-# So far have the time elements (possibly still at +00h00), WD, WS, T (in degrees C?), and P
+# So far have the time elements (possibly still at +00h00)
+# Need to understand how long the data portion (not header) of the SURF.DAT will be 
 
 
 
