@@ -1,3 +1,8 @@
 .Rproj.user
 .Rhistory
 .RData
+CAN_alt.grd
+CAN_alt.gri
+CAN_alt.vrt
+*.csv
+*-*-*
