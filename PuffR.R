@@ -214,11 +214,10 @@ st$END <- as.numeric(substr(st$END, 1, 4))
 
 # Generate a list based on the domain location, also ignoring stations without
 # beginning years reported
-
 domain.list <- subset(st, st$LON >= latlong_bbox_west & 
                      st$LON <= latlong_bbox_east &
                      st$LAT >= latlong_bbox_south &
-                     st$LAT <= 40 &
+                     st$LAT <= latlong_bbox_north &
                      BEGIN <= NOAA_start_year &
                      END >= NOAA_end_year)
 
