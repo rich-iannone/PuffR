@@ -27,6 +27,9 @@ library("MBA")
 install.packages("stringr")
 library("stringr")
 
+# Add the CSV data file on EPSG codes
+EPSG_proj4 <- read.csv("EPSG_codes.csv", header = TRUE)
+
 # Start with information on location for CALMET domain
 
 # Let's start with lat/long in decimal degrees, convert to UTM, then develop a grid
