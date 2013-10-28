@@ -426,8 +426,32 @@ st <- st[st$MIN == 0, ]
 
 # So far have the time elements (possibly still at +00h00)
 # Need to understand how long the data portion (not header) of the SURF.DAT will be 
-
-
-
+      cat(data$YR[1],
+      "  ",
+      yday(as.POSIXct(
+           ISOdatetime(data$YR[1], data$M[1], data$D[1],
+           data$HR[1], data$MIN[1], sec = 0, tz = "GMT"))),
+      "  ",
+      # Need leading zero here
+      hour(as.POSIXct(
+           ISOdatetime(data$YR[1], data$M[1], data$D[1],
+           data$HR[1], data$MIN[1], sec = 0, tz = "GMT"))),
+      "\n",
+      "  ",            
+      data$WIND.SPD[1],
+      "  ",
+      data$WIND.DIR[1],
+      "  ",
+      data$CEIL.HGT[1],
+      "  ",
+      # Opaque sky cover here
+      "  ",
+      data$TEMP[1],
+      "  ",
+      data$RH[1],
+      "  ",
+      data$ATM.PRES[1],
+      "  ",
+      data$PRECIP.CODE[1])
 
 
