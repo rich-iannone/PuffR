@@ -390,22 +390,6 @@ plot_domain <- ggplot(r.df, aes(x = x, y = y)) +
                labs(y = "Latitude") +
                labs(title = "Plot of Surface Stations in Meteorological Domain")
 
-# Read data from stations
-# Remove any 999 values and make as 9999, remove values where minutes are not equal to 0
-st <- read.csv(file = paste(files[2], ".csv", sep = ""))
-head(st)
-percent_invalid_wind.dir <- ( sum(st$WIND.DIR == 9999.9 | st$WIND.DIR == 999.9) /
-                                nrow(st) ) * 100
-percent_invalid_atmos_pres <- ( sum(st$ATM.PRES == 9999.9 | st$ATM.PRES == 999.9) /
-                                  nrow(st) ) * 100
-#st$WIND.DIR <- st$DEW.POINT <- st$ATM.PRES <- NULL
-
-st$TEMP[st$TEMP == 999.9] <- 9999
-st$WIND.DIR[st$WIND.DIR == 999] <- 9999
-st$WIND.SPD[st$WIND.SPD == 999.9] <- 9999
-st$DEW.POINT[st$DEW.POINT == 999.9] <- 9999
-st$ATM.PRES[st$ATM.PRES == 9999.9] <- 9999
-st <- st[st$MIN == 0, ]
 
 # For a SURF.DAT file, need to have the following parameters:
 #
