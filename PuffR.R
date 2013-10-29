@@ -409,7 +409,24 @@ plot_domain <- ggplot(r.df, aes(x = x, y = y)) +
 #           (0=no precipitation, 1-18=liquid precipitation, 19-45=frozen precipitation)
 
 # So far have the time elements (possibly still at +00h00)
-# Need to understand how long the data portion (not header) of the SURF.DAT will be 
+# Need to understand how long the data portion (not header) of the SURF.DAT will be
+
+# Get stations to be included in SURF.DAT
+# need list of stations (list of USAF-WBAN strings as ID)
+
+station.select <- function(id) {
+  # id is a list of USAF/WBAN IDs, separated by a dash
+  id <- c("720046-99999", "722880-23152")
+  # test whether these files are in the 'stations' data frame
+  # and further these that the files are in the directory
+  number_of_stations <- length(id)
+  
+  
+  
+}
+
+
+
       cat(
       year(as.POSIXct(
           ISOdatetime(data$YR[1], data$M[1], data$D[1],
