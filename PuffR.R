@@ -412,6 +412,7 @@ plot_domain <- ggplot(r.df, aes(x = x, y = y)) +
 # Need to understand how long the data portion (not header) of the SURF.DAT will be
 
 # Get stations to be included in SURF.DAT
+# Need to ensure that files corresponding to the proper years are included
 # need list of stations (list of USAF-WBAN strings as ID)
 
 station.select <- function(id) {
@@ -420,13 +421,33 @@ station.select <- function(id) {
   # test whether these files are in the 'stations' data frame
   # and further these that the files are in the directory
   number_of_stations <- length(id)
-  
-  
-  
+  available_synthetic_id <- as.data.frame(paste(stations$USAFID, stations$WBAN, sep = "-"))
+  colnames(available_synthetic_id) <- c("USAF_WBAN")
+  available_station_years <- as.data.frame(paste(stations$YR))
+  selected_synthetic_id <- as.data.frame(cbind(id), row.names = NULL)
+  colnames(selected_synthetic_id) <- c("id")
+  for (i in 1:number_of_stations) {
+    selected_synthetic_id$available[i] <- id[i] %in% available_synthetic_id$USAF_WBAN
+  }
+  for (i in 1:number_of_stations) {
+    if(selected_synthetic_id$available[i] == FALSE) {
+      print("Some stations missing.")
+      # download missing station data from NOAA/NCDC
+    }
+  }
+  # Construct list of files from which data will be extracted
+  for (i in 1:nrow(selected_synthetic_id)) {
+  selected_synthetic_id$CSV[i] <- paste(selected_synthetic_id$id[i], ".csv", sep = "")
+  }
 }
 
 
+# determine number of hours in each year
 
+
+
+
+# Use selected_synthetic_id to extract data from specified stations
       cat(
       year(as.POSIXct(
           ISOdatetime(data$YR[1], data$M[1], data$D[1],
