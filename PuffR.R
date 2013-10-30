@@ -263,6 +263,8 @@ for (i in 1:length(files)) {
     names(data) <- c("USAFID", "WBAN", "YR", "M", "D", "HR", "MIN", "LAT", "LONG",
                      "ELEV", "WIND.DIR", "WIND.SPD", "CEIL.HGT", "TEMP", "DEW.POINT",
                      "ATM.PRES")
+    
+    # Recompose data and use consistent missing indicators of 9999 for missing data
     data$LAT <- data$LAT/1000
     data$LONG <- data$LONG/1000
     data$WIND.DIR <- ifelse(data$WIND.DIR == 999, 9999, data$WIND.DIR)
