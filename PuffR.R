@@ -265,10 +265,11 @@ for (i in 1:length(files)) {
                      "ATM.PRES")
     data$LAT <- data$LAT/1000
     data$LONG <- data$LONG/1000
-    data$WIND.SPD <- data$WIND.SPD/10
-    data$TEMP <- round((data$TEMP/10) + 273.2, 1)
+    data$WIND.DIR <- ifelse(data$WIND.DIR == 999, 9999, data$WIND.DIR)
+    data$WIND.SPD <- ifelse(data$WIND.SPD > 100, 9999, data$WIND.SPD/10)
+    data$TEMP <-  ifelse(data$TEMP > 100, 9999, round((data$TEMP/10) + 273.2, 1))
     data$DEW.POINT <- data$DEW.POINT/10
-    data$ATM.PRES <- data$ATM.PRES/10
+    data$ATM.PRES <- ifelse(data$ATM.PRES > 2000, 9999, data$ATM.PRES/10)
     data$CEIL.HGT <- ifelse(data$CEIL.HGT == 99999, 9999, round(data$CEIL.HGT*3.28084/100, 0))
     
     # Read data from additional data section of each file
