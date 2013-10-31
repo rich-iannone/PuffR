@@ -445,10 +445,17 @@ station.select <- function(id) {
 }
 
 
-# determine number of hours in each year
+# Define the start and end times and determine number of hours in each year
+start_time <- ISOdatetime(NOAA_start_year,1,1, hour =0, min=0, sec=0, tz= "GMT")
+end_time <- ISOdatetime(NOAA_end_year,12,31,24)
+time_difference <- difftime(end_time, start_time, units='hours')
+total_hours <- time_difference[[1]]
 
 
-
+time_series <- as.list(c(1:total_hours))
+for (i in 1:total_hours) {
+time_series[[i]] <- start_time + (3600 * (i - 1))
+}
 
 # Use selected_synthetic_id to extract data from specified stations
       cat(
