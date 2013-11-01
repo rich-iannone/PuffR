@@ -394,6 +394,9 @@ plot_domain <- ggplot(r.df, aes(x = x, y = y)) +
                labs(title = "Plot of Surface Stations in Meteorological Domain")
 
 
+
+
+
 # For a SURF.DAT file, need to have the following parameters:
 #
 # Variable  Description
@@ -411,16 +414,17 @@ plot_domain <- ggplot(r.df, aes(x = x, y = y)) +
 # IPCODE    Precipitation code
 #           (0=no precipitation, 1-18=liquid precipitation, 19-45=frozen precipitation)
 
-# So far have the time elements (possibly still at +00h00)
-# Need to understand how long the data portion (not header) of the SURF.DAT will be
 
 # Get stations to be included in SURF.DAT
 # Need to ensure that files corresponding to the proper years are included
 # need list of stations (list of USAF-WBAN strings as ID)
 
+# test data
+id <- c("720046-99999", "722880-23152")
+
 station.select <- function(id) {
   # id is a list of USAF/WBAN IDs, separated by a dash
-  id <- c("720046-99999", "722880-23152")
+  # id <- c("720046-99999", "722880-23152")
   # test whether these files are in the 'stations' data frame
   # and further that these files are in the working directory
   station_years <- c(NOAA_start_year:NOAA_end_year)
@@ -471,32 +475,32 @@ station_data_frames[[i]] <- list(read.csv(paste("/Users/riannone/Dropbox/R Proje
 #
 # Write out the SURF.DAT file
 #
-# Construct the header of the SURF.DAT file
+# Construct the file header records of the SURF.DAT file
 #
-# Begin file
+# Initialize file for writing
 cat("", file = "surf_dat.txt")
 
-# Add line 1 to file (CALMET input file type, version, text description)
+# Add line 1 to file header (dataset name [SURF.DAT], dataset version [2.1], dataset message field)
 cat("SURF.DAT        2.1             Hour Start and End Times with Seconds",
     file = "surf_dat.txt", sep = "\n", append = TRUE)
 
-# Add line 2 to file (number of comment lines to follow)
+# Add line 2 to file header (number of comment lines to follow)
 cat("1",
     file = "surf_dat.txt", sep = "\n", append = TRUE)
 
-# Add line 3 to file (single comment line)
+# Add line 3 to file header (single comment line)
 cat("Produced using R",
     file = "surf_dat.txt", sep = "\n", append = TRUE)
 
-# Add line 4 to file
+# Add line 4 to file header (map projection [NONE])
 cat("NONE",
     file = "surf_dat.txt", sep = "\n", append = TRUE)
 
-# Add line 5 to file (time zone)
+# Add line 5 to file header (time zone)
 cat("UTC-0800",
     file = "surf_dat.txt", sep = "\n", append = TRUE)
 
-# Add line 6 to file (Beginning and end times for file, number of met stations)
+# Add line 6 to file header (Beginning and end times for file, number of met stations)
 cat(year(time_series[[1]]),
       "  ",
       yday(time_series[[1]]),
@@ -540,24 +544,35 @@ for (i in 1:total_hours) {
       hour(time_series[[i]] + 3600), file = "surf_dat.txt", append = TRUE)
   cat("", file = "surf_dat.txt", sep = "\n", append = TRUE)
   for (j in 1:length(station_data_frames)) {
-    cat("  ",            
+    cat("  ",
+        # Wind speed, m/s (WS)
         station_data_frames[[j]][[1]]$WIND.SPD[i],
         "  ",
+        # Wind direction, degrees (WD)
         station_data_frames[[j]][[1]]$WIND.DIR[i],
         "  ",
+        # Ceiling height, hundreds of feet (ICEIL)
         station_data_frames[[j]][[1]]$CEIL.HGT[i],
         "  ",
-        # Opaque sky cover here
+        # Opaque sky cover, tenths (ICC)
+        # (still to prepare)
         "  ",
+        # Air temperature, K (TEMPK)
         station_data_frames[[j]][[1]]$TEMP[i],
         "  ",
+        # Relative humidity, % (IRH)
         station_data_frames[[j]][[1]]$RH[i],
         "  ",
+        # Station pressure, mb (PRES)
         station_data_frames[[j]][[1]]$ATM.PRES[i],
         "  ",
+        # Precipitation code (IPCODE) 
+        #   0 = no precipitation
+        #   1-18 = liquid precipitation
+        #   19-45 = frozen precipitation
         station_data_frames[[j]][[1]]$PRECIP.CODE[i], file="surf_dat.txt", append = TRUE)
     cat("", file = "surf_dat.txt", sep = "\n", append = TRUE) } }
 #
 #
-
-################################################################
+}
+## End of function #####################################################################
