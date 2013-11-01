@@ -453,8 +453,8 @@ station.select <- function(id) {
   selected_synthetic_id
 }
 
-outputfile <- "surf.dat"
-## Function start  ### surf_dat_generate ###############################################
+
+## Function start #### surf_dat_generate ###############################################
 surf_dat_generate <- function(startyear = NOAA_start_year,
                               endyear = NOAA_end_year,
                               outputfile = "surf.dat") {
@@ -477,12 +477,9 @@ station_data_frames[[i]] <- list(read.csv(paste("/Users/riannone/Dropbox/R Proje
                       sep = ''), header = TRUE))
 }
 
-################################################################
-#
 # Write out the SURF.DAT file
-#
 # Construct the file header records of the SURF.DAT file
-#
+
 # Initialize file for writing
 cat("", file = paste(outputfile))
 
