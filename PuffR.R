@@ -422,7 +422,8 @@ station.select <- function(id) {
   # id is a list of USAF/WBAN IDs, separated by a dash
   id <- c("720046-99999", "722880-23152")
   # test whether these files are in the 'stations' data frame
-  # and further these that the files are in the directory
+  # and further that these files are in the working directory
+  station_years <- c(NOAA_start_year:NOAA_end_year)
   number_of_stations <- length(id)
   available_synthetic_id <- as.data.frame(paste(stations$USAFID, stations$WBAN, sep = "-"))
   colnames(available_synthetic_id) <- c("USAF_WBAN")
@@ -440,66 +441,68 @@ station.select <- function(id) {
   }
   # Construct list of files from which data will be extracted
   for (i in 1:nrow(selected_synthetic_id)) {
-  selected_synthetic_id$CSV[i] <- paste(selected_synthetic_id$id[i], ".csv", sep = "")
+    for (j in 1:length(station_years)) {
+  selected_synthetic_id$CSV[i] <- paste(selected_synthetic_id$id[i], "-", station_years[j],
+                                        ".csv", sep = "")
+    }
   }
 }
 
-
+################################################################
+#
+# Write out the body of the SURF.DAT file
+#
 # Define the start and end times and determine number of hours in each year
-start_time <- ISOdatetime(NOAA_start_year,1,1, hour =0, min=0, sec=0, tz= "GMT")
+start_time <- ISOdatetime(NOAA_start_year,1,1, hour = 0, min = 0, sec = 0, tz = "GMT")
 end_time <- ISOdatetime(NOAA_end_year,12,31,24)
 time_difference <- difftime(end_time, start_time, units='hours')
 total_hours <- time_difference[[1]]
 
-
+# Create the hourly time series as a list of POSIXlt time objects
 time_series <- as.list(c(1:total_hours))
 for (i in 1:total_hours) {
 time_series[[i]] <- start_time + (3600 * (i - 1))
 }
 
 # Use selected_synthetic_id to extract data from specified stations
-      cat(
-      year(as.POSIXct(
-          ISOdatetime(data$YR[1], data$M[1], data$D[1],
-                      data$HR[1], data$MIN[1], sec = 0, tz = "GMT"))),
+for (i in 1:nrow(selected_synthetic_id)) {
+station_data_frames[[i]] <- list(read.csv(paste("/Users/riannone/Dropbox/R Projects/PuffR/", selected_synthetic_id$CSV[i],
+                      sep = ''), header = TRUE))
+}
+      
+# Construct the body of the SURF.DAT file using a nested loops that provide grouped time interval
+# headers with ordered surface station parameters
+cat("", file = "surf_dat_body.txt")
+for (i in 1:total_hours) {
+  cat(year(time_series[[i]]),
       "  ",
-      yday(as.POSIXct(
-           ISOdatetime(data$YR[1], data$M[1], data$D[1],
-                       data$HR[1], data$MIN[1], sec = 0, tz = "GMT"))),
+      yday(time_series[[i]]),
       "  ",
-      # Need leading zero here
-      hour(as.POSIXct(
-           ISOdatetime(data$YR[1], data$M[1], data$D[1],
-                       data$HR[1], data$MIN[1], sec = 0, tz = "GMT"))),
+      hour(time_series[[i]]),
       "  ",
-      year(as.POSIXct(
-           ISOdatetime(data$YR[2], data$M[2], data$D[2],
-                       data$HR[2], data$MIN[2], sec = 0, tz = "GMT"))),
+      year(time_series[[i]]+3600),
       "  ", 
-      yday(as.POSIXct(
-           ISOdatetime(data$YR[2], data$M[2], data$D[2],
-                       data$HR[2], data$MIN[2], sec = 0, tz = "GMT"))),
+      yday(time_series[[i]]+3600),
       "  ",
-      # Need leading zero here
-      hour(as.POSIXct(
-           ISOdatetime(data$YR[2], data$M[2], data$D[2],
-                       data$HR[2], data$MIN[2], sec = 0, tz = "GMT"))),
-      "\n",
-      "  ",            
-      data$WIND.SPD[1],
-      "  ",
-      data$WIND.DIR[1],
-      "  ",
-      data$CEIL.HGT[1],
-      "  ",
-      # Opaque sky cover here
-      "  ",
-      data$TEMP[1],
-      "  ",
-      data$RH[1],
-      "  ",
-      data$ATM.PRES[1],
-      "  ",
-      data$PRECIP.CODE[1])
-
-
+      hour(time_series[[i]]+3600), file = "surf_dat_body.txt", append = TRUE)
+  cat("", file = "surf_dat_body.txt", sep = "\n", append = TRUE)
+  for (j in 1:length(station_data_frames)) {
+    cat("  ",            
+        station_data_frames[[j]][[1]]$WIND.SPD[i],
+        "  ",
+        station_data_frames[[j]][[1]]$WIND.DIR[i],
+        "  ",
+        station_data_frames[[j]][[1]]$CEIL.HGT[i],
+        "  ",
+        # Opaque sky cover here
+        "  ",
+        station_data_frames[[j]][[1]]$TEMP[i],
+        "  ",
+        station_data_frames[[j]][[1]]$RH[i],
+        "  ",
+        station_data_frames[[j]][[1]]$ATM.PRES[i],
+        "  ",
+        station_data_frames[[j]][[1]]$PRECIP.CODE[i], file="surf_dat_body.txt", append = TRUE)
+    cat("", file = "surf_dat_body.txt", sep = "\n", append = TRUE) } }
+#
+################################################################
