@@ -32,6 +32,8 @@ EPSG_proj4 <- read.csv("EPSG_codes.csv", header = TRUE)
 
 # Start with information on location for CALMET domain
 
+## Function start #### define.calmet.domain ########################################
+
 # Let's start with lat/long in decimal degrees, convert to UTM, then develop a grid
 
 lat_dec_deg <- 34.050184
@@ -143,7 +145,6 @@ top_UTM <- if(lat_long_grid_loc == 1) {
         }
 
 ## Need to obtain spatial points in lat/lon for LL, LR, UL, UR
-
 LL_LR_UL_UR_m <- data.frame("x" = c(left_UTM, right_UTM, left_UTM, right_UTM), 
                                 "y" = c(bottom_UTM, bottom_UTM, top_UTM, top_UTM))
 
@@ -157,28 +158,15 @@ latlong_bbox_east <- summary(LL_LR_UL_UR_UTM_longlat)$bbox[1,2]
 latlong_bbox_north <- summary(LL_LR_UL_UR_UTM_longlat)$bbox[2,2]
 latlong_bbox_south <- summary(LL_LR_UL_UR_UTM_longlat)$bbox[2,1]
 
-
-# Experiments with making grids with the 'fields' package, this is unfinished
-
-grid.list <- list(x = seq((left_UTM + (0.5 * cell_resolution_m)), 
-                          (right_UTM - (0.5 * cell_resolution_m)), by = cell_resolution_m),
-                  y = seq((bottom_UTM + (0.5 * cell_resolution_m)), 
-                          (top_UTM - (0.5 * cell_resolution_m)), by = cell_resolution_m))
-xg <- make.surface.grid(grid.list)
-
-
-
-##----- SURF.DAT ---- Surface data
-
-# This section will focus on:
-# (1) obtaining station data from NOAA/NCDC
-# (2) inputting station data manually from a CSV
+## Function end  #### define.calmet.domain ########################################
 
 #
-# (1) NOAA/NCDC Integrated Surface Data
+# Obtain NOAA/NCDC Integrated Surface Data
 #
 
-# time parameters
+## Function start #### ncdc.station.data ###############################################
+
+# Define time parameters
 NOAA_start_year <- 2010
 NOAA_end_year <- 2010
 
@@ -313,8 +301,7 @@ for (i in 1:length(files)) {
       # put in vector of 9999 in PRECIP.CODE column of data frame
       additional.data$PRECIP.CODE <- rep(9999, length(additional.data$string))
     }
-      
-    
+
     # relative humidity: RH[1-3]
     number_of_RH_lines <- sum(str_detect(additional.data$string, "RH1"), na.rm = TRUE)
     percentage_of_RH_lines <- (number_of_RH_lines/length(additional.data$string)) * 100  
@@ -351,12 +338,13 @@ for (i in 1:length(files)) {
     stations[i, 4:6] <- data[1, 8:10]
 }
 
-
-# Experimental: get additional metadata from stations
-#  subset(read.csv("ish-history.csv"), USAF %in% stations$USAFID & WBAN %in% stations$WBAN)
-
 # Write the station data to a CSV file
 write.csv(stations, file = "stations.csv", row.names = FALSE)
+
+## End of function #### ncdc.station.data ###########################################
+
+
+## Function start #### plot.calmet.domain ###########################################
 
 # Load in a raster file for Canada 
 canada_raster <- raster("CAN_alt.gri")
@@ -392,36 +380,16 @@ plot_domain <- ggplot(r.df, aes(x = x, y = y)) +
                labs(x = "Longitude") +
                labs(y = "Latitude") +
                labs(title = "Plot of Surface Stations in Meteorological Domain")
-
-
-
-
-
-# For a SURF.DAT file, need to have the following parameters:
-#
-# Variable  Description
-# --------  -----------
-# IYR       Year of data
-# IJUL      Julian day
-# IHR       Hour (00-23 LST)
-# WS        Wind Speed (m/s)
-# WD        Wind Direction (degrees)
-# ICEIL     Ceiling Height (hundreds of feet)
-# ICC       Opaque Sky Cover (tenths)
-# TEMPK     Air temperature (K)
-# IRH       Relative humidity (percent)
-# PRES      Station Pressure
-# IPCODE    Precipitation code
-#           (0=no precipitation, 1-18=liquid precipitation, 19-45=frozen precipitation)
-
+## End of function ### plot.calmet.domain ###########################################
 
 # Get stations to be included in SURF.DAT
 # Need to ensure that files corresponding to the proper years are included
 # need list of stations (list of USAF-WBAN strings as ID)
 
-# test data
+# test data for 'station.select' function
 id <- c("720046-99999", "722880-23152")
 
+## Function start #### station.select ###############################################
 station.select <- function(id) {
   # id is a list of USAF/WBAN IDs, separated by a dash
   # id <- c("720046-99999", "722880-23152")
@@ -452,10 +420,10 @@ station.select <- function(id) {
   }
   selected_synthetic_id
 }
+## Function end   #### station.select ###############################################
 
-
-## Function start #### surf_dat_generate ###############################################
-surf_dat_generate <- function(startyear = NOAA_start_year,
+## Function start #### surf.dat.generate ###############################################
+surf.dat.generate <- function(startyear = NOAA_start_year,
                               endyear = NOAA_end_year,
                               outputfile = "surf.dat") {
   
@@ -478,6 +446,24 @@ station_data_frames[[i]] <- list(read.csv(paste("/Users/riannone/Dropbox/R Proje
 }
 
 # Write out the SURF.DAT file
+#
+# The following parameters are used:
+#
+# Name      Description
+# --------  -----------
+# IYR       Year of data
+# IJUL      Julian day
+# IHR       Hour (00-23 LST)
+# WS        Wind Speed (m/s)
+# WD        Wind Direction (degrees)
+# ICEIL     Ceiling Height (hundreds of feet)
+# ICC       Opaque Sky Cover (tenths)
+# TEMPK     Air temperature (K)
+# IRH       Relative humidity (percent)
+# PRES      Station Pressure
+# IPCODE    Precipitation code
+#           (0=no precipitation, 1-18=liquid precipitation, 19-45=frozen precipitation)
+
 # Construct the file header records of the SURF.DAT file
 
 # Initialize file for writing
@@ -579,4 +565,13 @@ for (i in 1:total_hours) {
 #
 #
 }
-## End of function #####################################################################
+## End of function #### surf.dat.generate ##############################################
+
+
+# Experiments with making grids with the 'fields' package, this is unfinished
+#
+# grid.list <- list(x = seq((left_UTM + (0.5 * cell_resolution_m)), 
+#                           (right_UTM - (0.5 * cell_resolution_m)), by = cell_resolution_m),
+#                   y = seq((bottom_UTM + (0.5 * cell_resolution_m)), 
+#                           (top_UTM - (0.5 * cell_resolution_m)), by = cell_resolution_m))
+# xg <- make.surface.grid(grid.list)
