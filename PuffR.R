@@ -372,6 +372,7 @@ for (i in 1:length(files)) {
 
 # Write the station data to a CSV file
 write.csv(stations, file = "stations.csv", row.names = FALSE)
+}
 
 ## End of function #### ncdc.station.data ###########################################
 
