@@ -166,7 +166,9 @@ latlong_bbox_south <- summary(LL_LR_UL_UR_UTM_longlat)$bbox[2,1]
 
 ## Function start #### ncdc.station.data ###############################################
 # ncdc.station.data <- function(startyear = NULL,
-#                               endyear = NULL) {
+#                               endyear = NULL,
+#                               use.calmet.bounds = TRUE,
+#                               manual.bounds = NULL) {
 
 # Check whether 'startyear' and 'endyear' are both provided
   if (is.null(startyear) | is.null(endyear)) {
