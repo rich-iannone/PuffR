@@ -453,8 +453,8 @@ station.select <- function(id) {
 # Write out the body of the SURF.DAT file
 #
 # Define the start and end times and determine number of hours in each year
-start_time <- ISOdatetime(NOAA_start_year,1,1, hour = 0, min = 0, sec = 0, tz = "GMT")
-end_time <- ISOdatetime(NOAA_end_year,12,31,24)
+start_time <- ISOdatetime(NOAA_start_year, 1, 1, hour = 0, min = 0, sec = 0, tz = "GMT")
+end_time <- ISOdatetime(NOAA_end_year, 12, 31, hour = 24, min = 0, sec = 0, tz = "GMT")
 time_difference <- difftime(end_time, start_time, units='hours')
 total_hours <- time_difference[[1]]
 
