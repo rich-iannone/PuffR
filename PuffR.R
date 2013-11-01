@@ -453,9 +453,11 @@ station.select <- function(id) {
   selected_synthetic_id
 }
 
+outputfile <- "surf.dat"
 ## Function start  ### surf_dat_generate ###############################################
 surf_dat_generate <- function(startyear = NOAA_start_year,
-                              endyear = NOAA_end_year) {
+                              endyear = NOAA_end_year,
+                              outputfile = "surf.dat") {
   
 # Define the start and end times and determine number of hours in each year
 start_time <- ISOdatetime(startyear, 1, 1, hour = 0, min = 0, sec = 0, tz = "GMT")
@@ -482,27 +484,27 @@ station_data_frames[[i]] <- list(read.csv(paste("/Users/riannone/Dropbox/R Proje
 # Construct the file header records of the SURF.DAT file
 #
 # Initialize file for writing
-cat("", file = "surf_dat.txt")
+cat("", file = paste(outputfile))
 
 # Add line 1 to file header (dataset name [SURF.DAT], dataset version [2.1], dataset message field)
 cat("SURF.DAT        2.1             Hour Start and End Times with Seconds",
-    file = "surf_dat.txt", sep = "\n", append = TRUE)
+    file = paste(outputfile), sep = "\n", append = TRUE)
 
 # Add line 2 to file header (number of comment lines to follow)
 cat("1",
-    file = "surf_dat.txt", sep = "\n", append = TRUE)
+    file = paste(outputfile), sep = "\n", append = TRUE)
 
 # Add line 3 to file header (single comment line)
 cat("Produced using R",
-    file = "surf_dat.txt", sep = "\n", append = TRUE)
+    file = paste(outputfile), sep = "\n", append = TRUE)
 
 # Add line 4 to file header (map projection [NONE])
 cat("NONE",
-    file = "surf_dat.txt", sep = "\n", append = TRUE)
+    file = paste(outputfile), sep = "\n", append = TRUE)
 
 # Add line 5 to file header (time zone)
 cat("UTC-0800",
-    file = "surf_dat.txt", sep = "\n", append = TRUE)
+    file = paste(outputfile), sep = "\n", append = TRUE)
 
 # Add line 6 to file header (Beginning and end times for file, number of met stations)
 cat(year(time_series[[1]]),
@@ -518,9 +520,9 @@ cat(year(time_series[[1]]),
       hour(time_series[[total_hours]] + 3600),
       "  ",
       nrow(selected_synthetic_id),
-      file = "surf_dat.txt", sep = '', append = TRUE)
+      file = paste(outputfile), sep = '', append = TRUE)
 
-cat("", file = "surf_dat.txt", sep = "\n", append = TRUE)
+cat("", file = paste(outputfile), sep = "\n", append = TRUE)
 
 # Add line 7- to file (5-digit identifiers for met stations used in file)
 for (i in 1:length(station_data_frames)) {
@@ -528,7 +530,7 @@ for (i in 1:length(station_data_frames)) {
             as.character(i),
             as.character(i),
             as.character(i),
-            as.character(i), sep = ''), file = "surf_dat.txt", sep = "\n", append = TRUE)
+            as.character(i), sep = ''), file = paste(outputfile), sep = "\n", append = TRUE)
   }
 
 # Construct the body of the SURF.DAT file using a nested loops that provide grouped time interval
@@ -545,8 +547,8 @@ for (i in 1:total_hours) {
       "  ", 
       yday(time_series[[i]] + 3600),
       "  ",
-      hour(time_series[[i]] + 3600), file = "surf_dat.txt", append = TRUE)
-  cat("", file = "surf_dat.txt", sep = "\n", append = TRUE)
+      hour(time_series[[i]] + 3600), file = paste(outputfile), append = TRUE)
+  cat("", file = paste(outputfile), sep = "\n", append = TRUE)
   for (j in 1:length(station_data_frames)) {
     cat("  ",
         # Wind speed, m/s (WS)
@@ -574,8 +576,9 @@ for (i in 1:total_hours) {
         #   0 = no precipitation
         #   1-18 = liquid precipitation
         #   19-45 = frozen precipitation
-        station_data_frames[[j]][[1]]$PRECIP.CODE[i], file="surf_dat.txt", append = TRUE)
-    cat("", file = "surf_dat.txt", sep = "\n", append = TRUE) } }
+        station_data_frames[[j]][[1]]$PRECIP.CODE[i], file = paste(outputfile), append = TRUE)
+    
+    cat("", file = paste(outputfile), sep = "\n", append = TRUE) } }
 #
 #
 }
