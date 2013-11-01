@@ -450,12 +450,16 @@ station.select <- function(id) {
                                         ".csv", sep = "")
     }
   }
+  selected_synthetic_id
 }
 
-
+## Function start  ### surf_dat_generate ###############################################
+surf_dat_generate <- function(startyear = NOAA_start_year,
+                              endyear = NOAA_end_year) {
+  
 # Define the start and end times and determine number of hours in each year
-start_time <- ISOdatetime(NOAA_start_year, 1, 1, hour = 0, min = 0, sec = 0, tz = "GMT")
-end_time <- ISOdatetime(NOAA_end_year, 12, 31, hour = 24, min = 0, sec = 0, tz = "GMT")
+start_time <- ISOdatetime(startyear, 1, 1, hour = 0, min = 0, sec = 0, tz = "GMT")
+end_time <- ISOdatetime(endyear, 12, 31, hour = 24, min = 0, sec = 0, tz = "GMT")
 time_difference <- difftime(end_time, start_time, units='hours')
 total_hours <- time_difference[[1]]
 
