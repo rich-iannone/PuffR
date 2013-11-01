@@ -165,10 +165,32 @@ latlong_bbox_south <- summary(LL_LR_UL_UR_UTM_longlat)$bbox[2,1]
 #
 
 ## Function start #### ncdc.station.data ###############################################
+# ncdc.station.data <- function(startyear = NULL,
+#                               endyear = NULL) {
+
+# Check whether 'startyear' and 'endyear' are both provided
+  if (is.null(startyear) | is.null(endyear)) {
+    stop("Please enter starting and ending years for surface station data")
+  } else { }
+
+# Check whether 'startyear' and 'endyear' are both numeric
+  if (!is.numeric(startyear) | !is.numeric(endyear)) {
+    stop("Please enter numeric values for the starting and ending years")
+  } else { }
+
+# Check whether 'startyear' and 'endyear' are in the correct order
+  if (startyear > endyear) {
+    stop("Please enter the starting and ending years in the correct order")
+  } else { }
+
+# Check whether 'staryear' and 'endyear' are within set bounds (1950 to current year)
+  if (startyear < 1892 | endyear < 1892 | startyear > year(Sys.Date()) | endyear > year(Sys.Date())) {
+    stop("Please enter the starting and ending years in the correct order")
+  } else { }
 
 # Define time parameters
-NOAA_start_year <- 2010
-NOAA_end_year <- 2010
+NOAA_start_year <- startyear
+NOAA_end_year <- endyear
 
 # Get hourly surface data history CSV from NOAA/NCDC FTP
 file <- "ftp://ftp.ncdc.noaa.gov/pub/data/noaa/ish-history.csv"
