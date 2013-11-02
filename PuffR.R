@@ -170,6 +170,9 @@ latlong_bbox_south <- summary(LL_LR_UL_UR_UTM_longlat)$bbox[2,1]
 #                               use.calmet.bounds = TRUE,
 #                               manual.bounds = NULL) {
 
+# Initially set use of manual bounds to FALSE
+use.manual.bounds <- FALSE
+
 # Check whether 'startyear' and 'endyear' are both provided
   if (is.null(startyear) | is.null(endyear)) {
     stop("Please enter starting and ending years for surface station data")
