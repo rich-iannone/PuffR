@@ -216,12 +216,14 @@ repeat {
 # Read in the "ish-history" CSV file
 st <- read.csv("ish-history.csv")
 
-# Get formatted list of stations from Canada ("CN") and USA ("US")
+# Get formatted list of station names and elevations
 names(st)[c(3, 10)] <- c("NAME", "ELEV")
 st <- st[, -5]
-st.can <- st[st$CTRY == "CN", ]
-st.us <- st[st$CTRY == "US", ]
-st <- merge(st.can, st.us, all = TRUE)
+
+# Previous code made subset of station data for those just in US and Canada:
+# st.can <- st[st$CTRY == "CN", ]
+# st.us <- st[st$CTRY == "US", ]
+# st <- merge(st.can, st.us, all = TRUE)
 
 # Reintroduce the decimals in the latitude, longitude, and elevation
 st$LAT <- st$LAT/1000
