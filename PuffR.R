@@ -198,6 +198,18 @@ latlong_bbox_south <- summary(LL_LR_UL_UR_UTM_longlat)$bbox[2,1]
     stop("The CALMET domain hasn't been defined. Please define a domain enter bounds manually.")
   } else { }
 
+# Check whether input to for 'manual.bounds' was made, and, if so, check whether manual bounds
+# are entered correctly
+  if (!is.null(manual.bounds)) {
+    if (!is.numeric(manual.bounds[1]) |
+          !is.numeric(manual.bounds[2]) |  
+          !is.numeric(manual.bounds[3]) |
+          !is.numeric(manual.bounds[4]) |
+          length(manual.bounds) != 4) {
+      stop("Please define manual bounds as numeric vector in the order: W, E, N, S")
+    } else { use.manual.bounds <- TRUE }
+  }
+
 # Define time parameters
 NOAA_start_year <- startyear
 NOAA_end_year <- endyear
