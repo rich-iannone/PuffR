@@ -236,12 +236,25 @@ st$END <- as.numeric(substr(st$END, 1, 4))
 
 # Generate a list based on the domain location, also ignoring stations without
 # beginning years reported
+
+
+if (use.calmet.bounds == TRUE) {
+ 
 domain.list <- subset(st, st$LON >= latlong_bbox_west & 
-                     st$LON <= latlong_bbox_east &
-                     st$LAT >= latlong_bbox_south &
-                     st$LAT <= latlong_bbox_north &
+                          st$LON <= latlong_bbox_east &
+                          st$LAT >= latlong_bbox_south &
+                          st$LAT <= latlong_bbox_north &
+                          BEGIN <= NOAA_start_year &
+                          END >= NOAA_end_year)
+} else { 
+
+domain.list <- subset(st, st$LON >= manual.bounds[1] & 
+                     st$LON <= manual.bounds[2] &
+                     st$LAT >= manual.bounds[3] &
+                     st$LAT <= manual.bounds[4] &
                      BEGIN <= NOAA_start_year &
                      END >= NOAA_end_year)
+}
 
 # Initialize data frame for file status reporting
 outputs <- as.data.frame(matrix(NA, dim(domain.list)[1], 2))
