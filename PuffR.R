@@ -194,10 +194,10 @@ use.manual.bounds <- FALSE
   } else { }
 
 # Check whether the CALMET domain bounds (from the function 'define.calmet.domain') are available
-  if (!exists(latlong_bbox_west) |
-      !exists(latlong_bbox_east) |  
-      !exists(latlong_bbox_north) |
-      !exists(latlong_bbox_south)) {
+  if (!exists("latlong_bbox_west") |
+      !exists("latlong_bbox_east") |  
+      !exists("latlong_bbox_north") |
+      !exists("latlong_bbox_south")) {
     stop("The CALMET domain hasn't been defined. Please define a domain enter bounds manually.")
   } else { }
 
