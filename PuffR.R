@@ -165,10 +165,10 @@ latlong_bbox_south <- summary(LL_LR_UL_UR_UTM_longlat)$bbox[2,1]
 #
 
 ## Function start #### ncdc.station.data ###############################################
-# ncdc.station.data <- function(startyear = NULL,
-#                               endyear = NULL,
-#                               use.calmet.bounds = TRUE,
-#                               manual.bounds = NULL) {
+ncdc.station.data <- function(startyear = NULL,
+                               endyear = NULL,
+                               use.calmet.bounds = TRUE,
+                               manual.bounds = NULL) {
 
 # Initially set use of manual bounds to FALSE
 use.manual.bounds <- FALSE
