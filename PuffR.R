@@ -38,7 +38,16 @@ EPSG_proj4 <- read.csv("EPSG_codes.csv", header = TRUE)
 
 lat_dec_deg <- 34.050184
 long_dec_deg <- -118.253959
+
+EPSG_code <- 32611
+
+projection <- "UTM"
+datum <- "WGS84"
+ellipse <- "WGS84"
+units <- "m"
+
 lat_long_dec_deg <- cbind(long_dec_deg, lat_dec_deg)
+UTM_zone <- (floor((long_dec_deg + 180)/6) %% 60) + 1
 
 # Generate a PROJ.4 string from an acceptable EPSG code
 # Include a dataframe that contains all acceptable EPSG codes for filtering
@@ -48,13 +57,8 @@ lat_long_dec_deg <- cbind(long_dec_deg, lat_dec_deg)
 # Should be the PROJ.4 string:
 # +init=epsg:32610 +proj=utm +zone=10 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0 
 
-projection <- c("utm")
-UTM_zone <- (floor((long_dec_deg + 180)/6) %% 60) + 1
-datum <- c("WGS84")
-units <- c("m")
-
 # NOTE: with the above-entered info, should be able to obtain one EPSG code from a lookup data frame
-EPSG_code <- 32611
+
 proj_string <- paste("+init=epsg:", EPSG_code, sep = "") #+proj=utm +zone=10 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0")
 proj_string_longlat <- c("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
 
