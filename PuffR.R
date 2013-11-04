@@ -53,7 +53,8 @@ UTM_zone <- (floor((long_dec_deg + 180)/6) %% 60) + 1
 # Include a dataframe that contains all acceptable EPSG codes for filtering
 # Information on this page: http://cicero.azavea.com/docs/epsg_codes.html
 
-
+EPSG_string <- subset(EPSG_proj4, EPSG_proj4$code == EPSG_code)
+EPSG_string <- EPSG_string$proj4_string
 
 # NOTE: with the above-entered info, should be able to obtain one EPSG code from a lookup data frame
 proj_string <- paste("+init=epsg:", EPSG_code, sep = "")
