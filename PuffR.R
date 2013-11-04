@@ -45,6 +45,9 @@ define.calmet.domain <- function(lat.dec.deg = NULL,
                                  domain.width.m = NULL,
                                  domain.height.m = NULL) {
 
+require(rgdal)
+require(plyr)
+  
 #lat.dec.deg <- 34.050184
 #long.dec.deg <- -118.253959
 
