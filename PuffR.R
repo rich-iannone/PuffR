@@ -60,18 +60,18 @@ require(plyr)
 
 # Where is this point located on the grid?
 # Choices are: 1 (center), 2 (lower left), 3 (lower right), 4 (upper left), 5 (upper right)
-# lat.long.grid.loc <- 1
+#lat.long.grid.loc <- 1
   
 # what is the the cell resolution (square cells) required (in meters)?
-# cell.resolution.m <- 250
+#cell.resolution.m <- 250
 
 # What is the width and the height of the met domain in meters? Extents will be generated based on the
 # location of chosen point.
-# domain.width.m <- 100000
-# domain.height.m <- 100000
+#domain.width.m <- 100000
+#domain.height.m <- 100000
 
 lat_long_dec_deg <- cbind(long.dec.deg, lat.dec.deg)
-UTM_zone <- (floor((long_dec_deg + 180)/6) %% 60) + 1
+UTM_zone <- (floor((long.dec.deg + 180)/6) %% 60) + 1
 
 # Generate a PROJ.4 string from an acceptable EPSG code
 # Include a dataframe that contains all acceptable EPSG codes for filtering
