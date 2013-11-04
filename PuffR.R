@@ -58,8 +58,7 @@ UTM_zone <- (floor((long_dec_deg + 180)/6) %% 60) + 1
 # +init=epsg:32610 +proj=utm +zone=10 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0 
 
 # NOTE: with the above-entered info, should be able to obtain one EPSG code from a lookup data frame
-
-proj_string <- paste("+init=epsg:", EPSG_code, sep = "") #+proj=utm +zone=10 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0")
+proj_string <- paste("+init=epsg:", EPSG_code, sep = "")
 proj_string_longlat <- c("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
 
 # Project as UTM coordinate, round to nearest 50 m using round_any function ('plyr' package)
