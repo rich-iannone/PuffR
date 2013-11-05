@@ -165,11 +165,18 @@ LL_LR_UL_UR_UTM_m <- SpatialPoints(as.matrix(LL_LR_UL_UR_m),
 
 LL_LR_UL_UR_UTM_longlat <- spTransform(LL_LR_UL_UR_UTM_m, CRS("+proj=longlat +ellps=GRS80"))
 
-latlong_bbox_west <- summary(LL_LR_UL_UR_UTM_longlat)$bbox[1,1]
-latlong_bbox_east <- summary(LL_LR_UL_UR_UTM_longlat)$bbox[1,2]
-latlong_bbox_north <- summary(LL_LR_UL_UR_UTM_longlat)$bbox[2,2]
-latlong_bbox_south <- summary(LL_LR_UL_UR_UTM_longlat)$bbox[2,1]
+define.calmet.domain.out <- mat.or.vec(7, 1)
 
+define.calmet.domain.out[1] <- summary(LL_LR_UL_UR_UTM_longlat)$bbox[1,1]
+define.calmet.domain.out[2] <- summary(LL_LR_UL_UR_UTM_longlat)$bbox[1,2]
+define.calmet.domain.out[3] <- summary(LL_LR_UL_UR_UTM_longlat)$bbox[2,2]
+define.calmet.domain.out[4] <- summary(LL_LR_UL_UR_UTM_longlat)$bbox[2,1]
+
+define.calmet.domain.out[5] <- number_cells_across_x
+define.calmet.domain.out[6] <- number_cells_across_y
+define.calmet.domain.out[7] <- total_cells
+
+return(define.calmet.domain.out)
 }
 ## Function end  #### define.calmet.domain ########################################
 
@@ -287,10 +294,10 @@ domain.list <- subset(st, st$LON >= manual.bounds[1] &
                           BEGIN <= NOAA_start_year &
                           END >= NOAA_end_year)
 } else if (use.calmet.bounds == TRUE) { 
-domain.list <- subset(st, st$LON >= latlong_bbox_west & 
-                          st$LON <= latlong_bbox_east &
-                          st$LAT >= latlong_bbox_south &
-                          st$LAT <= latlong_bbox_north &
+domain.list <- subset(st, st$LON >= define.calmet.domain.out[1] & 
+                          st$LON <= define.calmet.domain.out[2] &
+                          st$LAT <= define.calmet.domain.out[3] &
+                          st$LAT >= define.calmet.domain.out[4] &
                           BEGIN <= NOAA_start_year &
                           END >= NOAA_end_year)
 }
@@ -459,8 +466,8 @@ r.df <- as.data.frame(domain_raster.spdf)
 head(r.df)
 
 plot_domain <- ggplot(r.df, aes(x = x, y = y)) +
-               geom_rect(xmin = latlong_bbox_west, xmax = latlong_bbox_east,
-                         ymin = latlong_bbox_south, ymax =latlong_bbox_north) +
+               geom_rect(xmin = define.calmet.domain.out[1], xmax = define.calmet.domain.out[2],
+                         ymax = define.calmet.domain.out[3], ymin = define.calmet.domain.out[4]) +
                geom_tile(aes(fill = CAN_alt)) +
                scale_fill_gradient(low = "green", high = "white") +
                geom_point(data = stations,
@@ -471,8 +478,8 @@ plot_domain <- ggplot(r.df, aes(x = x, y = y)) +
                          colour = "#56B4E9",
                          hjust = 0, vjust = 0)) +
                coord_equal() +
-               xlim(latlong_bbox_west, latlong_bbox_east) +
-               ylim(latlong_bbox_south, latlong_bbox_north) +
+               xlim(define.calmet.domain.out[1], define.calmet.domain.out[2]) +
+               ylim(define.calmet.domain.out[4], define.calmet.domain.out[3]) +
                theme(legend.position = "none") +
                labs(x = "Longitude") +
                labs(y = "Latitude") +
