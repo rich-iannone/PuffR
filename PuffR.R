@@ -331,11 +331,11 @@ for (i in 1:length(files)) {
     data$LAT <- data$LAT/1000
     data$LONG <- data$LONG/1000
     data$WIND.DIR <- ifelse(data$WIND.DIR == 999, 999, data$WIND.DIR)
-    data$WIND.SPD <- ifelse(data$WIND.SPD > 100, 9999, data$WIND.SPD/10)
+    data$WIND.SPD <- ifelse(data$WIND.SPD > 100, 999.9, data$WIND.SPD/10)
     data$TEMP <-  ifelse(data$TEMP > 100, 9999, round((data$TEMP/10) + 273.2, 1))
-    data$DEW.POINT <- ifelse(data$DEW.POINT > 100, 9999, data$DEW.POINT/10)
-    data$ATM.PRES <- ifelse(data$ATM.PRES > 2000, 9999, data$ATM.PRES/10)
-    data$CEIL.HGT <- ifelse(data$CEIL.HGT == 99999, 9999, round(data$CEIL.HGT*3.28084/100, 0))
+    data$DEW.POINT <- ifelse(data$DEW.POINT > 100, 999.9, data$DEW.POINT/10)
+    data$ATM.PRES <- ifelse(data$ATM.PRES > 2000, 999.9, data$ATM.PRES/10)
+    data$CEIL.HGT <- ifelse(data$CEIL.HGT == 99999, 999.9, round(data$CEIL.HGT*3.28084/100, 0))
     
     # Read data from additional data section of each file
     # Additional data is of variable length and may not exist in every line of every file
