@@ -30,8 +30,6 @@ library("stringr")
 # Add the CSV data file on EPSG codes
 EPSG_proj4 <- read.csv("EPSG_codes.csv", header = TRUE)
 
-# Start with information on location for CALMET domain
-
 ## Function start #### define.calmet.domain ########################################
 define.calmet.domain <- function(lat.dec.deg = NULL,
                                  long.dec.deg = NULL,
@@ -181,7 +179,6 @@ latlong_bbox_south <- summary(LL_LR_UL_UR_UTM_longlat)$bbox[2,1]
 get.ncdc.history <- function(replace.file = FALSE) {
 
 # Check if file exists in working directory
-
   if (file.exists("ish-history.csv") &
       file.info("ish-history.csv")$size > 0 &
       replace.file == FALSE) {
@@ -200,12 +197,6 @@ st <- read.csv("ish-history.csv")
 }
 ## Function end  #### get.ncdc.history ############################################
 
-
-
-
-#
-# Obtain NOAA/NCDC Integrated Surface Data
-#
 
 ## Function start #### ncdc.station.data ###############################################
 ncdc.station.data <- function(startyear = NULL,
