@@ -395,7 +395,7 @@ for (i in 1:length(files)) {
     }
     
     if (number_of_RH_lines == 0) {
-      additional.data$RH <- rep(999.9, length(additional.data$string))
+      additional.data$RH <- rep(999.0, length(additional.data$string))
     }
     
     # Remove the string portion of the 'additional data' data frame
