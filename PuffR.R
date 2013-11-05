@@ -261,17 +261,9 @@ NOAA_start_year <- startyear
 NOAA_end_year <- endyear
 
 # Get hourly surface data history CSV from NOAA/NCDC FTP
-file <- "ftp://ftp.ncdc.noaa.gov/pub/data/noaa/ish-history.csv"
-repeat {
-  try(download.file(file, "ish-history.csv",
-                    quiet = TRUE))
-  if (file.info("ish-history.csv")$size >
-        0) {
-    break
-  }
-}
+get.ncdc.history()
 
-# Read in the "ish-history" CSV file
+# Read in the 'ish-history.csv' file
 st <- read.csv("ish-history.csv")
 
 # Get formatted list of station names and elevations
