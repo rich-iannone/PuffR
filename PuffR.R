@@ -330,7 +330,7 @@ for (i in 1:length(files)) {
     # Recompose data and use consistent missing indicators of 9999 for missing data
     data$LAT <- data$LAT/1000
     data$LONG <- data$LONG/1000
-    data$WIND.DIR <- ifelse(data$WIND.DIR == 999, 9999, data$WIND.DIR)
+    data$WIND.DIR <- ifelse(data$WIND.DIR == 999, 999, data$WIND.DIR)
     data$WIND.SPD <- ifelse(data$WIND.SPD > 100, 9999, data$WIND.SPD/10)
     data$TEMP <-  ifelse(data$TEMP > 100, 9999, round((data$TEMP/10) + 273.2, 1))
     data$DEW.POINT <- ifelse(data$DEW.POINT > 100, 9999, data$DEW.POINT/10)
