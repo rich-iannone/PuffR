@@ -512,7 +512,9 @@ station.select <- function(id) {
 surf.dat.generate <- function(startyear = NOAA_start_year,
                               endyear = NOAA_end_year,
                               outputfile = "surf.dat") {
-  
+
+require(lubridate)
+
 # Define the start and end times and determine number of hours in each year
 start_time <- ISOdatetime(startyear, 1, 1, hour = 0, min = 0, sec = 0, tz = "GMT")
 end_time <- ISOdatetime(endyear, 12, 31, hour = 24, min = 0, sec = 0, tz = "GMT")
