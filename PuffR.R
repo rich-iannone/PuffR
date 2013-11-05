@@ -368,13 +368,13 @@ for (i in 1:length(files)) {
       AA1_precip_depth_in_mm <- as.numeric(AA1_precip_depth_in_mm)/10
       
       # don't have the means yet to generate a PRECIP.DAT file, so, set to 9999 for now
-      precip_code <- rep(9999, length(additional.data$string))
+      precip_code <- rep(999, length(additional.data$string))
       additional.data$PRECIP.CODE <- precip_code
     } 
     
     if (number_of_precip_lines == 0) {
-      # put in vector of 9999 in PRECIP.CODE column of data frame
-      additional.data$PRECIP.CODE <- rep(9999, length(additional.data$string))
+      # put in vector of 999 in PRECIP.CODE column of data frame
+      additional.data$PRECIP.CODE <- rep(999, length(additional.data$string))
     }
 
     # relative humidity: RH[1-3]
