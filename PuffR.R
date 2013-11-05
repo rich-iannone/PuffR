@@ -175,6 +175,34 @@ latlong_bbox_south <- summary(LL_LR_UL_UR_UTM_longlat)$bbox[2,1]
 }
 ## Function end  #### define.calmet.domain ########################################
 
+
+
+## Function start #### get.ncdc.history ###########################################
+get.ncdc.history <- function(replace.file = FALSE) {
+
+# Check if file exists in working directory
+
+  if (file.exists("ish-history.csv") &
+      file.info("ish-history.csv")$size > 0 &
+      replace.file == FALSE) {
+  stop("The 'ish-history.csv' file is available. To download again, use 'replace.file = TRUE'")
+  } else { }
+  
+# Get hourly surface data history CSV from NOAA/NCDC FTP
+file <- "ftp://ftp.ncdc.noaa.gov/pub/data/noaa/ish-history.csv"
+repeat {
+  try(download.file(file, "ish-history.csv", quiet = TRUE))
+  if (file.info("ish-history.csv")$size > 0) { break }
+  }
+
+# Read in the "ish-history" CSV file
+st <- read.csv("ish-history.csv")
+}
+## Function end  #### get.ncdc.history ############################################
+
+
+
+
 #
 # Obtain NOAA/NCDC Integrated Surface Data
 #
