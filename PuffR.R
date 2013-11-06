@@ -314,7 +314,7 @@ for (y in NOAA_start_year:NOAA_end_year) {
     outputs[s, 1] <- paste(sprintf("%06d", y.domain.list[s,1]),
                            "-", sprintf("%05d", y.domain.list[s,2]),
                            "-", y, ".gz", sep = "")
-    system(paste("curl -O ftp://ftp3.ncdc.noaa.gov/pub/data/noaa/", y,
+    system(paste("curl -O ftp://ftp.ncdc.noaa.gov/pub/data/noaa/", y,
                      "/", outputs[s, 1], sep = ""))
     outputs[s, 2] <- ifelse(file.exists(outputs[s, 1]) == "TRUE", 'available', 'missing')
   }
