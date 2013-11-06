@@ -294,10 +294,10 @@ domain.list <- subset(st, st$LON >= manual.bounds[1] &
                           BEGIN <= NOAA_start_year &
                           END >= NOAA_end_year)
 } else if (use.calmet.bounds == TRUE) { 
-domain.list <- subset(st, st$LON >= define.calmet.domain.out[1] & 
-                          st$LON <= define.calmet.domain.out[2] &
-                          st$LAT <= define.calmet.domain.out[3] &
-                          st$LAT >= define.calmet.domain.out[4] &
+domain.list <- subset(st, st$LON >= as.numeric(unlist(read.table(file = "define.calmet.domain.out")))[1] & 
+                          st$LON <= as.numeric(unlist(read.table(file = "define.calmet.domain.out")))[2] &
+                          st$LAT <= as.numeric(unlist(read.table(file = "define.calmet.domain.out")))[3] &
+                          st$LAT >= as.numeric(unlist(read.table(file = "define.calmet.domain.out")))[4] &
                           BEGIN <= NOAA_start_year &
                           END >= NOAA_end_year)
 }
