@@ -217,6 +217,9 @@ ncdc.station.data <- function(startyear = NULL,
                                use.calmet.bounds = TRUE,
                                manual.bounds = NULL) {
 
+require(lubridate)
+require(stringr)
+  
 # Initially set use of manual bounds to FALSE
 use.manual.bounds <- FALSE
 
