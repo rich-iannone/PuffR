@@ -194,7 +194,8 @@ get.ncdc.history <- function(replace.file = FALSE) {
   if (file.exists("ish-history.csv") &
       file.info("ish-history.csv")$size > 0 &
       replace.file == FALSE) {
-  stop("The 'ish-history.csv' file is available. To download again, use 'replace.file = TRUE'")
+  stop("The 'ish-history.csv' file is available in the working directory.
+       To download again, use 'replace.file = TRUE'")
   } else { }
   
 # Get hourly surface data history CSV from NOAA/NCDC FTP
