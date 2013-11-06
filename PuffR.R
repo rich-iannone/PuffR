@@ -513,6 +513,8 @@ station.select <- function(id) {
   # test whether these files are in the 'stations' data frame
   # and further that these files are in the working directory
   stations <- read.csv("stations.csv", header = TRUE)
+  NOAA_start_year <- as.numeric(unlist(read.table(file = "NOAA.years.out")))[1]
+  NOAA_end_year <- as.numeric(unlist(read.table(file = "NOAA.years.out")))[2]
   station_years <- c(NOAA_start_year:NOAA_end_year)
   number_of_stations <- length(id)
   available_synthetic_id <- as.data.frame(paste(stations$USAFID, stations$WBAN, sep = "-"))
