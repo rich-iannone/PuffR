@@ -289,7 +289,7 @@ st$END <- as.numeric(substr(st$END, 1, 4))
 
 # Generate a list based on the domain location, also ignoring stations without beginning years reported
 
-if (use_manual_bounds == TRUE) {
+if (use.manual.bounds == TRUE) {
 domain.list <- subset(st, st$LON >= manual.bounds[1] & 
                           st$LON <= manual.bounds[2] &
                           st$LAT >= manual.bounds[3] &
