@@ -275,11 +275,6 @@ st <- read.csv("ish-history.csv")
 names(st)[c(3, 10)] <- c("NAME", "ELEV")
 st <- st[, -5]
 
-# Previous code made subset of station data for those just in US and Canada:
-# st.can <- st[st$CTRY == "CN", ]
-# st.us <- st[st$CTRY == "US", ]
-# st <- merge(st.can, st.us, all = TRUE)
-
 # Reintroduce the decimals in the latitude, longitude, and elevation
 st$LAT <- st$LAT/1000
 st$LON <- st$LON/1000
@@ -289,9 +284,7 @@ st$ELEV <- st$ELEV/10
 st$BEGIN <- as.numeric(substr(st$BEGIN, 1, 4))
 st$END <- as.numeric(substr(st$END, 1, 4))
 
-# Generate a list based on the domain location, also ignoring stations without
-# beginning years reported
-
+# Generate a list based on the domain location, also ignoring stations without beginning years reported
 
 if (use_manual_bounds == TRUE) {
 domain.list <- subset(st, st$LON >= manual.bounds[1] & 
