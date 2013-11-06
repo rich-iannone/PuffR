@@ -241,11 +241,12 @@ use.manual.bounds <- FALSE
   } else { }
 
 # Check whether the CALMET domain bounds (from the function 'define.calmet.domain') are available
-  if (!exists("latlong_bbox_west") |
-      !exists("latlong_bbox_east") |  
-      !exists("latlong_bbox_north") |
-      !exists("latlong_bbox_south")) {
-    stop("The CALMET domain hasn't been defined. Please define a domain enter bounds manually.")
+  if (!file.exists("define.calmet.domain.out") {
+    stop("The CALMET domain hasn't been defined. Please define domain theses bounds by:
+         (1) entering manually: ncdc.station.data(startyear = [start year],
+                                                  endyear = [end year],
+                                                  manual.bounds = c([W], [E], [N], [S])
+         (2) using the 'define.calmet.domain' function")
   } else { }
 
 # Check whether input to for 'manual.bounds' was made, and, if so, check whether manual bounds
