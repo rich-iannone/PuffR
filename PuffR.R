@@ -241,7 +241,7 @@ use.manual.bounds <- FALSE
   } else { }
 
 # Check whether the CALMET domain bounds (from the function 'define.calmet.domain') are available
-  if (!file.exists("define.calmet.domain.out") {
+  if (!file.exists("define.calmet.domain.out")) {
     stop("The CALMET domain hasn't been defined. Please define domain theses bounds by:
          (1) entering manually: ncdc.station.data(startyear = [start year],
                                                   endyear = [end year],
