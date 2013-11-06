@@ -178,7 +178,10 @@ define.calmet.domain.out[5] <- number_cells_across_x
 define.calmet.domain.out[6] <- number_cells_across_y
 define.calmet.domain.out[7] <- total_cells
 
-return(define.calmet.domain.out)
+write.table(define.calmet.domain.out, file = "define.calmet.domain.out",
+            col.names = FALSE, row.names = FALSE)
+
+print(define.calmet.domain.out)
 }
 ## Function end  #### define.calmet.domain ########################################
 
