@@ -440,9 +440,12 @@ for (i in 1:length(files)) {
 # Write the station data to a CSV file
 write.csv(stations, file = "stations.csv", row.names = FALSE)
 
-
-NOAA.years[1] <- NOAA_start_year
-NOAA.years[2] <- NOAA_end_year
+# Group beginning and end years into single vector and write table
+NOAA.years.out <- mat.or.vec(2, 1)
+NOAA.years.out[1] <- NOAA_start_year
+NOAA.years.out[2] <- NOAA_end_year
+write.table(NOAA.years.out, file = "NOAA.years.out",
+            col.names = FALSE, row.names = FALSE)
 
 # Remove objects from the workspace
 #rm(use.manual.bounds, domain.list, y.domain.list, outputs, files, file_report,
