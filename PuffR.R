@@ -537,6 +537,7 @@ station.select <- function(id) {
   }
   write.csv(selected_synthetic_id, file = "selected_synthetic_id.csv",
             row.names = FALSE)
+  selected_synthetic_id
 }
 ## Function end   #### station.select ###############################################
 
