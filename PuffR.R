@@ -503,9 +503,6 @@ plot_domain <- ggplot(r.df, aes(x = x, y = y)) +
 # Need to ensure that files corresponding to the proper years are included
 # need list of stations (list of USAF-WBAN strings as ID)
 
-# test data for 'station.select' function
-id <- c("720046-99999", "722880-23152")
-
 ## Function start #### station.select ###############################################
 station.select <- function(id) {
   # id is a list of USAF/WBAN IDs, separated by a dash
