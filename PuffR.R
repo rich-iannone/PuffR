@@ -433,8 +433,8 @@ for (i in 1:length(files)) {
     stations[i, 1:3] <- data[1, 1:3]
     stations[i, 4:6] <- data[1, 8:10]
     
-    write.csv(define.calmet.domain.out, file = "define.calmet.domain.out",
-                col.names = FALSE, row.names = FALSE) 
+#    write.csv(define.calmet.domain.out, file = "define.calmet.domain.out",
+#                col.names = FALSE, row.names = FALSE) 
 }
 
 # Write the station data to a CSV file
