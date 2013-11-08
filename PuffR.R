@@ -223,8 +223,9 @@ ncdc.station.data <- function(startyear = NULL,
                                manual.bounds = NULL) {
 
 require(lubridate)
+require(plyr)
 require(stringr)
-  
+
 # Initially set use of manual bounds to FALSE
 use.manual.bounds <- FALSE
 
