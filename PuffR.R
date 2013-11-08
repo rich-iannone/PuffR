@@ -396,7 +396,7 @@ for (i in 1:length(files)) {
       
       AA1_precip_rate_in_mm_per_hour <- AA1_precip_depth_in_mm / AA1_precip_period_in_hours
       
-      additional.data$PRECIP.RATE <- AA1_precip_rate_in_mm_per_hour
+      additional.data$PRECIP.RATE <- round_any(AA1_precip_rate_in_mm_per_hour, 0.1, f = round)
       
     } 
     
