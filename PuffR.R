@@ -450,16 +450,6 @@ NOAA.years.out[2] <- NOAA_end_year
 write.table(NOAA.years.out, file = "NOAA.years.out",
             col.names = FALSE, row.names = FALSE)
 
-# Remove objects from the workspace
-#rm(use.manual.bounds, domain.list, y.domain.list, outputs, files, file_report,
-#   number_of_add_lines, percentage_of_add_lines,
-#   percentage_of_precip_lines, percentage_of_precip_lines2,
-#   number_of_precip_lines, number_of_precip_lines2, 
-#   AA1_precip_period_in_hours, AA1_precip_depth_in_mm, precip_code,
-#   number_of_RH_lines, percentage_of_RH_lines, number_of_RH_lines2,
-#   percentage_of_RH_lines2, RH1_RH_in_percent,
-#   data, additional.data)
-
 }
 ## End of function #### ncdc.station.data ###########################################
 
