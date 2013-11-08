@@ -427,11 +427,18 @@ for (i in 1:length(files)) {
       additional.data$RH <- rep(999.0, length(additional.data$string))
     }
     
+    
+    
     # Remove the string portion of the 'additional data' data frame
     additional.data$string <- NULL
     
     # Column bind the 'data' and 'additional data' data frame
     data <- cbind(data, additional.data)
+    
+    # Calculate the RH using the August-Roche-Magnus approximation
+    RH <- 100 * (exp((17.625 * data$DEW.POINT) / (243.04 + data$DEW.POINT))/
+                 exp((17.625 * data$TEMP) / (243.04 + data$TEMP)))
+    data$RH <- RH
     
     # Write CSV file for each station, combining data elements from the mandatory data
     # section and the additional data section
