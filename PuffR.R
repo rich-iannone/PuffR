@@ -428,8 +428,6 @@ for (i in 1:length(files)) {
       additional.data$RH <- rep(999.0, length(additional.data$string))
     }
     
-    
-    
     # Remove the string portion of the 'additional data' data frame
     additional.data$string <- NULL
     
@@ -440,6 +438,51 @@ for (i in 1:length(files)) {
     RH <- 100 * (exp((17.625 * data$DEW.POINT) / (243.04 + data$DEW.POINT))/
                  exp((17.625 * data$TEMP) / (243.04 + data$TEMP)))
     data$RH <- RH
+    
+    # Calculate the precipitation code
+    # 
+    # 
+    # 
+    # Category        Temperature   Rate (mm/hr)    Code
+    # -------------   -----------   -------------   ----
+    # Light Rain      >0 deg C      R < 2.5         1
+    # Moderate Rain   >0 deg C      2.5 ≤ R < 7.6   2
+    # Heavy Rain      >0 deg C      R ≤ 7.6         3
+    # Light Snow      <=0 deg C     R < 2.5         19
+    # Moderate Snow   <=0 deg C     2.5 ≤ R < 7.6   20
+    # Heavy Snow      <=0 deg C     R ≤ 7.6         21
+    
+    # test data
+    #
+    # TEMP <- c(seq(-4, 4, by = 0.5), NA)
+    # PRECIP.RATE <- c(seq(-4, 4, by = 0.5), NA)
+    # data <- as.data.frame(cbind(TEMP, PRECIP.RATE))
+    
+    PRECIP.CODE <- mat.or.vec(nrow(data), 1)
+    for (i in 1:nrow(data)) {
+    PRECIP.CODE[i] <- if (is.na(data$TEMP[i]) || is.na(data$PRECIP.RATE)) {
+                     NA
+                   } else if  (data$TEMP[i] > 0 && data$PRECIP.RATE[i] < 2.5 ) {
+                     1
+                   } else if (data$TEMP[i] > 0 && data$PRECIP.RATE[i] >= 2.5 & 
+                              data$PRECIP.RATE[i] < 7.6) {
+                     2
+                   } else if (data$TEMP[i] > 0 && data$PRECIP.RATE[i] >= 7.6 ) {
+                     3
+                   } else if (data$TEMP[i] <= 0 && data$PRECIP.RATE[i] < 2.5 ) {
+                     19
+                   } else if (data$TEMP[i] <= 0 && data$PRECIP.RATE[i] >= 2.5 &
+                              data$PRECIP.RATE < 7.6 ) { 
+                     20
+                   } else if (data$TEMP[i] <= 0 && data$PRECIP.RATE[i] >= 7.6) {
+                     21
+                   #} else if (is.na(data$TEMP[i]) || is.na(data$PRECIP.RATE)) {
+                    # NA
+                   } else { NA }
+    }
+    
+    # Add precipitation code to the data frame
+    data$PRECIP.CODE <- PRECIP.CODE
     
     # Write CSV file for each station, combining data elements from the mandatory data
     # section and the additional data section
