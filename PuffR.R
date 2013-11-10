@@ -428,14 +428,17 @@ for (i in 1:length(files)) {
     # Moderate Snow   <=0 deg C     2.5 ≤ R < 7.6   20
     # Heavy Snow      <=0 deg C     R ≤ 7.6         21
     
-     PRECIP.CODE <- ifelse(data$PRECIP.RATE == 0, 9999,
-                    ifelse(data$TEMP > 0 & data$PRECIP.RATE > 0 & data$PRECIP.RATE < 2.5, 1,
-                    ifelse(data$TEMP > 0 & data$PRECIP.RATE >= 2.5 & data$PRECIP.RATE < 7.6, 2,
-                    ifelse(data$TEMP > 0 & data$PRECIP.RATE >= 7.6, 3,
-                    ifelse(data$TEMP <= 0 & data$PRECIP.RATE > 0 & data$PRECIP.RATE < 2.5, 19,
-                    ifelse(data$TEMP <= 0 & data$PRECIP.RATE >= 2.5 & data$PRECIP.RATE < 7.6, 20,
-                    ifelse(data$TEMP <= 0 & data$PRECIP.RATE >= 7.6 & data$PRECIP.RATE < 7.6, 21,
-                    ifelse(data$TEMP == NA | data$PRECIP.RATE == NA, NA))))))))
+    PRECIP.CODE <- ifelse(data$PRECIP.RATE == 0, 9999,
+                   ifelse(data$PRECIP.RATE == NA, 9999,       
+                   ifelse(data$TEMP == NA, 9999,
+                   ifelse(data$TEMP == 999.9, 9999,
+                   ifelse(data$TEMP > 0 & data$PRECIP.RATE > 0 & data$PRECIP.RATE < 2.5, 1,
+                   ifelse(data$TEMP > 0 & data$PRECIP.RATE >= 2.5 & data$PRECIP.RATE < 7.6, 2,
+                   ifelse(data$TEMP > 0 & data$PRECIP.RATE >= 7.6, 3,
+                   ifelse(data$TEMP <= 0 & data$PRECIP.RATE > 0 & data$PRECIP.RATE < 2.5, 19,
+                   ifelse(data$TEMP <= 0 & data$PRECIP.RATE >= 2.5 & data$PRECIP.RATE < 7.6, 20,
+                   ifelse(data$TEMP <= 0 & data$PRECIP.RATE >= 7.6 & data$PRECIP.RATE < 7.6, 21))))))))))
+    
   
     # Add precipitation code to the data frame
     data$PRECIP.CODE <- PRECIP.CODE
