@@ -428,34 +428,18 @@ for (i in 1:length(files)) {
     # Moderate Snow   <=0 deg C     2.5 ≤ R < 7.6   20
     # Heavy Snow      <=0 deg C     R ≤ 7.6         21
     
-    # test data
-    #
-    # TEMP <- c(seq(-4, 4, by = 0.5), NA)
-    # PRECIP.RATE <- c(seq(-4, 4, by = 0.5), NA)
-    # data <- as.data.frame(cbind(TEMP, PRECIP.RATE))
-    
-    PRECIP.CODE <- mat.or.vec(nrow(data), 1)
-    for (i in 1:nrow(data)) {
-      PRECIP.CODE[i] <- if (is.na(data$TEMP[i]) || is.na(data$PRECIP.RATE[i])) {
-        next 
-        } else if (data$TEMP[i] > 0 & data$PRECIP.RATE[i] < 2.5) {
-        1
-        } else if (data$TEMP[i] > 0 & data$PRECIP.RATE[i] >= 2.5 & data$PRECIP.RATE[i] < 7.6) {
-        2
-        } else if (data$TEMP[i] > 0 & data$PRECIP.RATE[i] >= 7.6) {
-        3
-        } else if (data$TEMP[i] <= 0 & data$PRECIP.RATE[i] < 2.5) {
-        19
-        } else if (data$TEMP[i] <= 0 & data$PRECIP.RATE[i] >= 2.5 & data$PRECIP.RATE < 7.6) {
-        20
-        } else if (data$TEMP[i] <= 0 & data$PRECIP.RATE[i] >= 7.6) {
-        21
-        } else {NA}
-    }
-    
+     PRECIP.CODE <- ifelse(data$PRECIP.RATE == 0, 9999,
+                    ifelse(data$TEMP > 0 & data$PRECIP.RATE > 0 & data$PRECIP.RATE < 2.5, 1,
+                    ifelse(data$TEMP > 0 & data$PRECIP.RATE >= 2.5 & data$PRECIP.RATE < 7.6, 2,
+                    ifelse(data$TEMP > 0 & data$PRECIP.RATE >= 7.6, 3,
+                    ifelse(data$TEMP <= 0 & data$PRECIP.RATE > 0 & data$PRECIP.RATE < 2.5, 19,
+                    ifelse(data$TEMP <= 0 & data$PRECIP.RATE >= 2.5 & data$PRECIP.RATE < 7.6, 20,
+                    ifelse(data$TEMP <= 0 & data$PRECIP.RATE >= 7.6 & data$PRECIP.RATE < 7.6, 21,
+                    ifelse(data$TEMP == NA | data$PRECIP.RATE == NA, NA))))))))
+  
     # Add precipitation code to the data frame
     data$PRECIP.CODE <- PRECIP.CODE
-    
+          
     # Write CSV file for each station, combining data elements from the mandatory data
     # section and the additional data section
     write.csv(data, file = paste(files[i], ".csv", sep = ""), row.names = FALSE)
