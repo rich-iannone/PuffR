@@ -460,25 +460,21 @@ for (i in 1:length(files)) {
     
     PRECIP.CODE <- mat.or.vec(nrow(data), 1)
     for (i in 1:nrow(data)) {
-    PRECIP.CODE[i] <- if (is.na(data$TEMP[i]) || is.na(data$PRECIP.RATE)) {
-                     NA
-                   } else if  (data$TEMP[i] > 0 && data$PRECIP.RATE[i] < 2.5 ) {
-                     1
-                   } else if (data$TEMP[i] > 0 && data$PRECIP.RATE[i] >= 2.5 & 
-                              data$PRECIP.RATE[i] < 7.6) {
-                     2
-                   } else if (data$TEMP[i] > 0 && data$PRECIP.RATE[i] >= 7.6 ) {
-                     3
-                   } else if (data$TEMP[i] <= 0 && data$PRECIP.RATE[i] < 2.5 ) {
-                     19
-                   } else if (data$TEMP[i] <= 0 && data$PRECIP.RATE[i] >= 2.5 &
-                              data$PRECIP.RATE < 7.6 ) { 
-                     20
-                   } else if (data$TEMP[i] <= 0 && data$PRECIP.RATE[i] >= 7.6) {
-                     21
-                   #} else if (is.na(data$TEMP[i]) || is.na(data$PRECIP.RATE)) {
-                    # NA
-                   } else { NA }
+      PRECIP.CODE[i] <- if (is.na(data$TEMP[i]) || is.na(data$PRECIP.RATE[i])) {
+        next 
+        } else if (data$TEMP[i] > 0 & data$PRECIP.RATE[i] < 2.5) {
+        1
+        } else if (data$TEMP[i] > 0 & data$PRECIP.RATE[i] >= 2.5 & data$PRECIP.RATE[i] < 7.6) {
+        2
+        } else if (data$TEMP[i] > 0 & data$PRECIP.RATE[i] >= 7.6) {
+        3
+        } else if (data$TEMP[i] <= 0 & data$PRECIP.RATE[i] < 2.5) {
+        19
+        } else if (data$TEMP[i] <= 0 & data$PRECIP.RATE[i] >= 2.5 & data$PRECIP.RATE < 7.6) {
+        20
+        } else if (data$TEMP[i] <= 0 & data$PRECIP.RATE[i] >= 7.6) {
+        21
+        } else {NA}
     }
     
     # Add precipitation code to the data frame
