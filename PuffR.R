@@ -402,8 +402,8 @@ for (i in 1:length(files)) {
     } 
     
     if (number_of_precip_lines == 0) {
-      # put in vector of 999 in PRECIP.CODE column of data frame
-      additional.data$PRECIP.RATE <- rep(999, length(additional.data$string))
+      # put in vector of NAs in PRECIP.CODE column of data frame
+      additional.data$PRECIP.RATE <- rep(NA, length(additional.data$string))
     }
 
     # relative humidity: RH[1-3]
