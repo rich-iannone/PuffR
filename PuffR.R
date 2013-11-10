@@ -439,7 +439,6 @@ for (i in 1:length(files)) {
                    ifelse(data$TEMP <= 0 & data$PRECIP.RATE >= 2.5 & data$PRECIP.RATE < 7.6, 20,
                    ifelse(data$TEMP <= 0 & data$PRECIP.RATE >= 7.6 & data$PRECIP.RATE < 7.6, 21))))))))))
     
-  
     # Add precipitation code to the data frame
     data$PRECIP.CODE <- PRECIP.CODE
           
