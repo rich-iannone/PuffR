@@ -375,57 +375,24 @@ for (i in 1:length(files)) {
     number_of_precip_lines <- sum(str_detect(additional.data$string, "AA1"), na.rm = TRUE)
     percentage_of_precip_lines <- (number_of_precip_lines/length(additional.data$string)) * 100
     
-    if (number_of_precip_lines > 0) {
-      number_of_precip_lines2 <- ifelse(number_of_precip_lines > 0,
-                                        sum(str_detect(additional.data$string,
-                                                       "AA2"), na.rm = TRUE), 0)
-      percentage_of_precip_lines2 <- ifelse(number_of_precip_lines2 > 0,
-                                            (number_of_precip_lines2/
-                                               length(additional.data$string)) * 100, 0)
-     
-      
+    if (number_of_precip_lines > 0) {      
       AA1_precip_period_in_hours <- as.character(str_extract_all(additional.data$string, "AA1[0-9][0-9]"))
       AA1_precip_period_in_hours <- str_replace_all(AA1_precip_period_in_hours,
                                                     "AA1([0-9][0-9])", "\\1")
-      AA1_precip_period_in_hours <- as.numeric(AA1_precip_period_in_hours)
-      
+      AA1_precip_period_in_hours <- as.numeric(AA1_precip_period_in_hours)     
       AA1_precip_depth_in_mm <- as.character(str_extract_all(additional.data$string,
                                                        "AA1[0-9][0-9][0-9][0-9][0-9][0-9]"))
       AA1_precip_depth_in_mm <- str_replace_all(AA1_precip_depth_in_mm,
                                                 "AA1[0-9][0-9]([0-9][0-9][0-9][0-9])", "\\1")
       AA1_precip_depth_in_mm <- as.numeric(AA1_precip_depth_in_mm)/10
-      
-      AA1_precip_rate_in_mm_per_hour <- AA1_precip_depth_in_mm / AA1_precip_period_in_hours
-      
+      AA1_precip_rate_in_mm_per_hour <- AA1_precip_depth_in_mm / AA1_precip_period_in_hours      
       additional.data$PRECIP.RATE <- round_any(AA1_precip_rate_in_mm_per_hour, 0.1, f = round)
       
     } 
     
     if (number_of_precip_lines == 0) {
-      # put in vector of NAs in PRECIP.CODE column of data frame
+      # put in vector of NAs in PRECIP.RATE column of data frame
       additional.data$PRECIP.RATE <- rep(NA, length(additional.data$string))
-    }
-
-    # relative humidity: RH[1-3]
-    number_of_RH_lines <- sum(str_detect(additional.data$string, "RH1"), na.rm = TRUE)
-    percentage_of_RH_lines <- (number_of_RH_lines/length(additional.data$string)) * 100  
-    if (number_of_RH_lines > 0) {
-      number_of_RH_lines2 <- ifelse(number_of_RH_lines > 0,
-                                    sum(str_detect(additional.data$string, "RH2"),
-                                        na.rm = TRUE), 0)
-      percentage_of_RH_lines2 <- ifelse(number_of_RH_lines2 > 0,
-                                        (number_of_RH_lines2/
-                                           length(additional.data$string)) * 100, 0)
-      RH1_percentage <- as.character(str_extract_all(additional.data$string, 
-                                                     "RH1[0-9][0-9][0-9][0-9][0-9][0-9][0-9]"))
-      RH1_percentage <- str_replace_all(RH1_percentage,
-                                           "RH1[0-9][0-9][0-9][0-9]([0-9][0-9][0-9])", "\\1")
-      RH1_percentage <- as.numeric(RH1_percentage)
-      additional.data$RH.PCT <- RH1_percentage
-    }
-    
-    if (number_of_RH_lines == 0) {
-      additional.data$RH <- rep(999.0, length(additional.data$string))
     }
     
     # Remove the string portion of the 'additional data' data frame
@@ -435,9 +402,11 @@ for (i in 1:length(files)) {
     data <- cbind(data, additional.data)
     
     # Calculate the RH using the August-Roche-Magnus approximation
-    RH <- 100 * (exp((17.625 * data$DEW.POINT) / (243.04 + data$DEW.POINT))/
-                 exp((17.625 * data$TEMP) / (243.04 + data$TEMP)))
-    data$RH <- RH
+    RH <- ifelse(data$TEMP == 999.9 | data$DEW.POINT == 999.9, NA, 
+           100 * (exp((17.625 * data$DEW.POINT) / (243.04 + data$DEW.POINT))/
+                    exp((17.625 * (data$TEMP - 273.2)) / (243.04 + (data$TEMP - 273.2)))))
+    
+    data$RH <- round_any(as.numeric(RH), 0.1, f = round)
     
     # Calculate the precipitation code
     # 
