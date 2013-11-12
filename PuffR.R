@@ -457,6 +457,7 @@ write.table(NOAA.years.out, file = "NOAA.years.out",
 require(sp)
 require(raster)
 require(rgdal)
+require(rworldmap)
 
 # Get lat/long extents
 extent_in_lat_long <- extent(
