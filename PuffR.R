@@ -294,7 +294,6 @@ st$BEGIN <- as.numeric(substr(st$BEGIN, 1, 4))
 st$END <- as.numeric(substr(st$END, 1, 4))
 
 # Generate a list based on the domain location, also ignoring stations without beginning years reported
-
 if (use.manual.bounds == TRUE) {
 domain.list <- subset(st, st$LON >= manual.bounds[1] & 
                           st$LON <= manual.bounds[2] &
@@ -410,8 +409,6 @@ for (i in 1:length(files)) {
     
     # Calculate the precipitation code
     # 
-    # 
-    # 
     # Category        Temperature   Rate (mm/hr)    Code
     # -------------   -----------   -------------   ----
     # Light Rain      >0 deg C      R < 2.5         1
@@ -438,8 +435,6 @@ for (i in 1:length(files)) {
     stations[i, 1:3] <- data[1, 1:3]
     stations[i, 4:6] <- data[1, 8:10]
     
-#    write.csv(define.calmet.domain.out, file = "define.calmet.domain.out",
-#                col.names = FALSE, row.names = FALSE) 
 }
 
 # Write the station data to a CSV file
