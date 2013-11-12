@@ -458,14 +458,20 @@ write.table(NOAA.years.out, file = "NOAA.years.out",
 
 ## Function start #### plot.calmet.domain ###########################################
 
+
+require(sp)
+require(raster)
+require(rgdal)
+
+# Get lat/long extents
+extent_in_lat_long <- extent(
+                      as.numeric(unlist(read.table(file = "define.calmet.domain.out")))[1],
+                      as.numeric(unlist(read.table(file = "define.calmet.domain.out")))[2],
+                      as.numeric(unlist(read.table(file = "define.calmet.domain.out")))[4],
+                      as.numeric(unlist(read.table(file = "define.calmet.domain.out")))[3])
+
 # Load in a raster file for Canada 
 canada_raster <- raster("CAN_alt.gri")
-
-# Crop raster to domain + a margin of 0.2 degrees
-extent_in_lat_long <- extent(coordinates(LL_LR_UL_UR_UTM_longlat)[1,1],
-                             coordinates(LL_LR_UL_UR_UTM_longlat)[2,1],
-                             coordinates(LL_LR_UL_UR_UTM_longlat)[1,2],
-                             coordinates(LL_LR_UL_UR_UTM_longlat)[3,2])
 
 domain_raster <- crop(canada_raster, extent_in_lat_long)
 
