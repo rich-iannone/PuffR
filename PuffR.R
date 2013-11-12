@@ -453,13 +453,9 @@ write.table(NOAA.years.out, file = "NOAA.years.out",
 
 ## Function start #### plot.calmet.domain ###########################################
 plot.calmet.domain <- function() {
-
-require(ggplot2)
+  
 require(ggmap)
-require(sp)
-require(rgeos)
-require(rgdal)
-
+require(raster)
 
 # Get lat/long extents
 extent_in_lat_long <- extent(
@@ -467,9 +463,6 @@ extent_in_lat_long <- extent(
                       as.numeric(unlist(read.table(file = "define.calmet.domain.out")))[2],
                       as.numeric(unlist(read.table(file = "define.calmet.domain.out")))[4],
                       as.numeric(unlist(read.table(file = "define.calmet.domain.out")))[3])
-
-# Load in 'stations.csv' as data frame
-stations <- read.csv("stations.csv", header = TRUE)
 
 #Determine the center of the map using the mid-points of the bounding lat/long coordinates
 mid_pt_lat <- (as.numeric(unlist(read.table(file = "define.calmet.domain.out")))[3] +
@@ -480,12 +473,15 @@ mid_pt_long <- (as.numeric(unlist(read.table(file = "define.calmet.domain.out"))
 # Define the map using the 'ggmap' package
 the_map <- get_map(location = c(mid_pt_long, mid_pt_lat), zoom = 10, maptype = 'roadmap')
 
-# Plot the map with overlay points for the stations
+# Plot the map with overlay points for the stations, reading data from the 'stations.csv' file
 map <- ggmap(the_map) + 
-       geom_point(data = stations, aes(x = stations$LONG, y = stations$LAT),
+       geom_point(data = read.csv("stations.csv", header = TRUE),
+                  aes(x = read.csv("stations.csv", header = TRUE)$LONG,
+                      y = read.csv("stations.csv", header = TRUE)$LAT),
                                        size = 3) +
-       geom_text(data = stations,
-                 aes(x = LONG + 0.005, y = LAT, label = USAFID,
+       geom_text(data = read.csv("stations.csv", header = TRUE),
+                 aes(x = read.csv("stations.csv", header = TRUE)$LONG + 0.005, 
+                     y = read.csv("stations.csv", header = TRUE)$LAT, label = USAFID,
                  hjust = 0, vjust = 0), size = 3) +
        coord_equal() +
        labs(x = "Longitude") +
