@@ -452,6 +452,7 @@ write.table(NOAA.years.out, file = "NOAA.years.out",
 
 
 ## Function start #### plot.calmet.domain ###########################################
+plot.calmet.domain <- function() {
 
 require(ggplot2)
 require(ggmap)
@@ -490,7 +491,8 @@ map <- ggmap(the_map) +
        labs(x = "Longitude") +
        labs(y = "Latitude") +
        labs(title = "Plot of Surface Stations in Meteorological Domain")
-
+map
+}
 ## End of function ### plot.calmet.domain ###########################################
 
 # Get stations to be included in SURF.DAT
