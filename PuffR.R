@@ -454,12 +454,11 @@ write.table(NOAA.years.out, file = "NOAA.years.out",
 ## Function start #### plot.calmet.domain ###########################################
 
 require(ggplot2)
+require(ggmap)
 require(sp)
-require(raster)
 require(rgeos)
 require(rgdal)
-require(rworldmap)
-require(rworldxtra)
+
 
 # Get lat/long extents
 extent_in_lat_long <- extent(
@@ -468,45 +467,29 @@ extent_in_lat_long <- extent(
                       as.numeric(unlist(read.table(file = "define.calmet.domain.out")))[4],
                       as.numeric(unlist(read.table(file = "define.calmet.domain.out")))[3])
 
-# Load in world map from 'rworldmap' package at high resolution (requires 'rworldxtra')
-world <- getMap(resolution = "high")
+# Load in 'stations.csv' as data frame
+stations <- read.csv("stations.csv", header = TRUE)
 
-# Crop the world map to the CALMET domain extents
-world.cropped <- crop(world, extent_in_lat_long)
+#Determine the center of the map using the mid-points of the bounding lat/long coordinates
+mid_pt_lat <- (as.numeric(unlist(read.table(file = "define.calmet.domain.out")))[3] +
+                 as.numeric(unlist(read.table(file = "define.calmet.domain.out")))[4] ) / 2
+mid_pt_long <- (as.numeric(unlist(read.table(file = "define.calmet.domain.out")))[1] +
+                as.numeric(unlist(read.table(file = "define.calmet.domain.out")))[2] ) / 2
 
-# Load in a raster file for Canada 
-#canada_raster <- raster("CAN_alt.gri")
-#domain_raster <- crop(canada_raster, extent_in_lat_long)
+# Define the map using the 'ggmap' package
+the_map <- get_map(location = c(mid_pt_long, mid_pt_lat), zoom = 10, maptype = 'roadmap')
 
-domain.spixeldf <- as(world.cropped, "SpatialPixelsDataFrame")
-#domain_raster.spixeldf <- as(domain_raster, "SpatialPixelsDataFrame")
-
-#r.df <- as.data.frame(domain_raster.spixeldf)
-#head(r.df)
-
-plot_domain <- ggplot(r.df, aes(x = x, y = y)) +
-               geom_rect(xmin = define.calmet.domain.out[1], xmax = define.calmet.domain.out[2],
-                         ymax = define.calmet.domain.out[3], ymin = define.calmet.domain.out[4]) +
-               geom_tile(aes(fill = CAN_alt)) +
-               scale_fill_gradient(low = "green", high = "white") +
-               geom_point(data = stations,
-                          aes(x = LONG, y = LAT,
-                              colour = "#D55E00", size = 3)) +
-               geom_text(data = stations,
-                         aes(x = LONG+.01, y = LAT, label = USAFID,
-                         colour = "#56B4E9",
-                         hjust = 0, vjust = 0)) +
-               coord_equal() +
-               xlim(define.calmet.domain.out[1], define.calmet.domain.out[2]) +
-               ylim(define.calmet.domain.out[4], define.calmet.domain.out[3]) +
-               theme(legend.position = "none") +
-               labs(x = "Longitude") +
-               labs(y = "Latitude") +
-               labs(title = "Plot of Surface Stations in Meteorological Domain")
-
-# Use mapBubbles function to draw stations onto map
-mapBubbles(world.cropped)
-
+# Plot the map with overlay points for the stations
+map <- ggmap(the_map) + 
+       geom_point(data = stations, aes(x = stations$LONG, y = stations$LAT),
+                                       size = 3) +
+       geom_text(data = stations,
+                 aes(x = LONG + 0.005, y = LAT, label = USAFID,
+                 hjust = 0, vjust = 0), size = 3) +
+       coord_equal() +
+       labs(x = "Longitude") +
+       labs(y = "Latitude") +
+       labs(title = "Plot of Surface Stations in Meteorological Domain")
 
 ## End of function ### plot.calmet.domain ###########################################
 
