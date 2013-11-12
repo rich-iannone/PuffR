@@ -1,5 +1,5 @@
 .Rproj.user
-*.Rproj
+PuffR.Rproj
 .Rhistory
 *.RData
 CAN_alt.grd
@@ -10,4 +10,4 @@ CAN_alt.vrt
 *.txt
 *.dat
 *.out
-PuffR.R
+ggmapTemp.png

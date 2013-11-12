@@ -453,11 +453,13 @@ write.table(NOAA.years.out, file = "NOAA.years.out",
 
 ## Function start #### plot.calmet.domain ###########################################
 
-
+require(ggplot2)
 require(sp)
 require(raster)
+require(rgeos)
 require(rgdal)
 require(rworldmap)
+require(rworldxtra)
 
 # Get lat/long extents
 extent_in_lat_long <- extent(
@@ -466,14 +468,21 @@ extent_in_lat_long <- extent(
                       as.numeric(unlist(read.table(file = "define.calmet.domain.out")))[4],
                       as.numeric(unlist(read.table(file = "define.calmet.domain.out")))[3])
 
+# Load in world map from 'rworldmap' package at high resolution (requires 'rworldxtra')
+world <- getMap(resolution = "high")
+
+# Crop the world map to the CALMET domain extents
+world.cropped <- crop(world, extent_in_lat_long)
+
 # Load in a raster file for Canada 
-canada_raster <- raster("CAN_alt.gri")
+#canada_raster <- raster("CAN_alt.gri")
+#domain_raster <- crop(canada_raster, extent_in_lat_long)
 
-domain_raster <- crop(canada_raster, extent_in_lat_long)
+domain.spixeldf <- as(world.cropped, "SpatialPixelsDataFrame")
+#domain_raster.spixeldf <- as(domain_raster, "SpatialPixelsDataFrame")
 
-domain_raster.spdf <- as(domain_raster, "SpatialPixelsDataFrame")
-r.df <- as.data.frame(domain_raster.spdf)
-head(r.df)
+#r.df <- as.data.frame(domain_raster.spixeldf)
+#head(r.df)
 
 plot_domain <- ggplot(r.df, aes(x = x, y = y)) +
                geom_rect(xmin = define.calmet.domain.out[1], xmax = define.calmet.domain.out[2],
@@ -494,6 +503,11 @@ plot_domain <- ggplot(r.df, aes(x = x, y = y)) +
                labs(x = "Longitude") +
                labs(y = "Latitude") +
                labs(title = "Plot of Surface Stations in Meteorological Domain")
+
+# Use mapBubbles function to draw stations onto map
+mapBubbles(world.cropped)
+
+
 ## End of function ### plot.calmet.domain ###########################################
 
 # Get stations to be included in SURF.DAT
