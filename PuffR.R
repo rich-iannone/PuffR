@@ -226,13 +226,6 @@ require(lubridate)
 require(plyr)
 require(stringr)
 
-startyear <- 2010
-endyear <- 2010
-use.calmet.bounds <- TRUE
-manual.bounds <- NULL
-
-
-
 # Initially set use of manual bounds to FALSE
 use.manual.bounds <- FALSE
 
