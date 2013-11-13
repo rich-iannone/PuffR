@@ -96,4 +96,4 @@ define.calmet.domain(lat.dec.deg = 34.050184,
                     cell.resolution.m = 250,
                     domain.width.m = 100000,
                     domain.height.m = 100000)
-
+}
