@@ -133,12 +133,23 @@ LL_LR_UL_UR_UTM_m <- SpatialPoints(as.matrix(LL_LR_UL_UR_m),
 
 LL_LR_UL_UR_UTM_longlat <- spTransform(LL_LR_UL_UR_UTM_m, CRS("+proj=longlat +ellps=GRS80"))
 
+LL_LR_UL_UR_UTM_longlat.df <- as.data.frame(LL_LR_UL_UR_UTM_longlat)
+
 latlong_bbox <- mat.or.vec(4, 1)
 
-latlong_bbox[1] <- summary(LL_LR_UL_UR_UTM_longlat)$bbox[1,1]
-latlong_bbox[2] <- summary(LL_LR_UL_UR_UTM_longlat)$bbox[1,2]
-latlong_bbox[3] <- summary(LL_LR_UL_UR_UTM_longlat)$bbox[2,2]
-latlong_bbox[4] <- summary(LL_LR_UL_UR_UTM_longlat)$bbox[2,1]
+# Return vector with: [1] - [4] bounding box lat/long coordinates (W, E, N, S),
+# [5] number of cells in x direction, [6] number of cells in y direction,
+# [7] total number of cells
+define.calmet.domain.out[1] <- LL_LR_UL_UR_UTM_longlat.df[1,1]
+define.calmet.domain.out[2] <- LL_LR_UL_UR_UTM_longlat.df[1,2]
+define.calmet.domain.out[3] <- LL_LR_UL_UR_UTM_longlat.df[2,2]
+define.calmet.domain.out[4] <- LL_LR_UL_UR_UTM_longlat.df[2,1]
+define.calmet.domain.out[5] <- number_cells_across_x
+define.calmet.domain.out[6] <- number_cells_across_y
+define.calmet.domain.out[7] <- total_cells
 
-return(latlong_bbox)
+write.table(define.calmet.domain.out, file = "define.calmet.domain.out",
+            col.names = FALSE, row.names = FALSE)
+
+print(define.calmet.domain.out)
 }
