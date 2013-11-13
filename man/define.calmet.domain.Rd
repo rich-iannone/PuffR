@@ -2,10 +2,10 @@
 \alias{define.calmet.domain}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+Define the CALMET domain
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This function allows for the definition of the CALMET domain. The position and size of the domain are set in both lat/long and UTM coordinates. The number and size of the contained grid cells are also set with this function.
 }
 \usage{
 define.calmet.domain(lat.dec.deg = NULL,
