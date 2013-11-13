@@ -42,7 +42,7 @@ UTM_zone <- (floor((long.dec.deg + 180)/6) %% 60) + 1
 # Generate a PROJ.4 string from an acceptable EPSG code
 # Include a dataframe that contains all acceptable EPSG codes for filtering
 # Information on this page: http://cicero.azavea.com/docs/epsg_codes.html
-
+data(EPSG_proj4)
 EPSG_string <- subset(EPSG_proj4, EPSG_proj4$code == EPSG_code)
 EPSG_string <- EPSG_string$proj4_string
 
