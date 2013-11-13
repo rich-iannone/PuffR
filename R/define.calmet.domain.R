@@ -135,7 +135,7 @@ LL_LR_UL_UR_UTM_longlat <- spTransform(LL_LR_UL_UR_UTM_m, CRS("+proj=longlat +el
 
 LL_LR_UL_UR_UTM_longlat.df <- as.data.frame(LL_LR_UL_UR_UTM_longlat)
 
-latlong_bbox <- mat.or.vec(4, 1)
+define.calmet.domain.out <- mat.or.vec(7, 1)
 
 # Return vector with: [1] - [4] bounding box lat/long coordinates (W, E, N, S),
 # [5] number of cells in x direction, [6] number of cells in y direction,
