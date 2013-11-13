@@ -3,39 +3,59 @@
 \alias{PuffR}
 \docType{package}
 \title{
-What the package does (short line)
-~~ package title ~~
+A collection of tools to help with dispersion modelling using CALPUFF
+~~ PuffR ~~
 }
 \description{
-More about what it does (maybe more than one line)
-~~ A concise (1-5 lines) description of the package ~~
+This package allows for the discovery, retrieval, organization, and production of inputs for the CALPUFF model.  
 }
 \details{
 \tabular{ll}{
 Package: \tab PuffR\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
+Version: \tab 0.1\cr
 Date: \tab 2013-11-12\cr
-License: \tab What license is it under?\cr
+License: \tab MIT\cr
 }
-~~ An overview of how to use the package, including the most important functions ~~
+
 }
 \author{
-Who wrote it
+Richard Iannone
 
-Maintainer: Who to complain to <yourfault@somewhere.net>
-~~ The author and/or maintainer of the package ~~
+Maintainer: Richard Iannone <riannone@me.com>
+
 }
 \references{
-~~ Literature or other references for background information ~~
+
 }
-~~ Optionally other standard keywords, one per line, from file KEYWORDS in the R documentation ~~
-~~ directory ~~
+
 \keyword{ package }
 \seealso{
-~~ Optional links to other man pages, e.g. ~~
-~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
+
 }
 \examples{
-~~ simple examples of the most important functions ~~
+# Create a CALMET domain of 100 by 100 km
+# in the Los Angeles area
+define.calmet.domain(lat.dec.deg = 34.050184,
+                    long.dec.deg = -118.253959,
+                    lat.long.grid.loc = 1,
+                    EPSG_code = 32611,
+                    cell.resolution.m = 250,
+                    domain.width.m = 100000,
+                    domain.height.m = 100000)
+
+# Get surface station data from NCDC
+ncdc.station.data(startyear = 2010,
+                  endyear = 2010,
+                  use.calmet.bounds = TRUE)
+                  
+# Select only 3 stations from the retrieved
+# stations in the domain
+# The ormat for each station is [USAF]-[WBAN]
+station.select(id = c("720046-99999",
+                      "722950-23174",
+                      "722886-23130"))
+
+# Create a 'SURF.DAT' file for CALMET
+surf.dat.generate()
 }
