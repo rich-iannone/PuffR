@@ -2,10 +2,10 @@
 \alias{get.ncdc.history}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+Retrieve the NCDC history data file.
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This function opens a connection to the NCDC FTP server for downloading of the surface station history file. It is not essential to use this function in a normal workflow since the 'ncdc.station.data' function will normally retrieve this file during its operation. This function is useful if just the file is desired for inspection.
 }
 \usage{
 get.ncdc.history(replace.file = FALSE)
@@ -13,7 +13,7 @@ get.ncdc.history(replace.file = FALSE)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{replace.file}{
-%%     ~~Describe \code{replace.file} here~~
+selecting 'yes' will overwrite history file if it exists in the working directory.
 }
 }
 \details{
@@ -30,7 +30,7 @@ get.ncdc.history(replace.file = FALSE)
 %% ~put references to the literature/web site here ~
 }
 \author{
-%%  ~~who you are~~
+Richard Iannone
 }
 \note{
 %%  ~~further notes~~
@@ -42,37 +42,8 @@ get.ncdc.history(replace.file = FALSE)
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function (replace.file = FALSE) 
-{
-    file <- "ftp://ftp.ncdc.noaa.gov/pub/data/noaa/ish-history.csv"
-    if (replace.file == TRUE) {
-        repeat {
-            try(download.file(file, "ish-history.csv", quiet = TRUE))
-            if (file.info("ish-history.csv")$size > 0) {
-                break
-            }
-        }
-    }
-    else {
-    }
-    if (file.exists("ish-history.csv") & file.info("ish-history.csv")$size > 
-        0 & replace.file == FALSE) {
-    }
-    else {
-        repeat {
-            try(download.file(file, "ish-history.csv", quiet = TRUE))
-            if (file.info("ish-history.csv")$size > 0) {
-                break
-            }
-        }
-    }
-    st <- read.csv("ish-history.csv")
-  }
+# Obtain the NCDC history file
+get.ncdc.history
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
