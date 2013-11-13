@@ -152,6 +152,17 @@ for (i in 1:length(files)) {
     number_of_add_lines <- sum(str_detect(additional.data$string, "ADD"), na.rm = TRUE)
     percentage_of_add_lines <- (number_of_add_lines/length(additional.data$string)) * 100
     
+    # opaque sky cover: GF1
+    number_of_sky_cover_lines <- sum(str_detect(additional.data$string, "GF1"), na.rm = TRUE)
+    percentage_of_sky_cover_lines <- (number_of_sky_cover_lines/length(additional.data$string)) * 100
+    
+    if (number_of_sky_cover_lines > 0) {      
+      GF1_sky_cover_coverage_code <- as.character(str_extract_all(additional.data$string, "GF1[0-9][0-9]"))
+      GF1_sky_cover_coverage_code <- str_replace_all(GF1_sky_cover_coverage_code,
+                                                    "GF1([0-9][0-9])", "\\1")
+      GF1_sky_cover_coverage_code <- as.numeric(GF1_sky_cover_coverage_code)  
+    }
+      
     # precipitation: AA[1-2]
     number_of_precip_lines <- sum(str_detect(additional.data$string, "AA1"), na.rm = TRUE)
     percentage_of_precip_lines <- (number_of_precip_lines/length(additional.data$string)) * 100
