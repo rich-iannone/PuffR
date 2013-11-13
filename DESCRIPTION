@@ -3,7 +3,7 @@ Type: Package
 Title: A set of tools to help with CALPUFF dispersion modelling.
 Version: 0.1
 Date: 2013-11-12
-Author: Richard Iannone
+Author: Richard Iannone <riannone@me.com>
 Maintainer: Richard Iannone <riannone@me.com>
 Description: These functions allow you to collect data and generate the appropriate input files.
 License: MIT
