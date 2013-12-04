@@ -1,5 +1,4 @@
-surf.dat.generate <-
-function(startyear = NOAA_start_year,
+surf.dat.generate <- function(startyear = NOAA_start_year,
                               endyear = NOAA_end_year,
                               outputfile = "surf.dat") {
 
