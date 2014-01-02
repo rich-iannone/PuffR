@@ -38,6 +38,5 @@ Richard Iannone
 
 \examples{
 # Plot all stations in NCDC database in the defined CALMET domain
-
 plot.calmet.domain()
 }
