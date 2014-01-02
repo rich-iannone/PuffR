@@ -43,6 +43,5 @@ Richard Iannone
 
 \examples{
 # Obtain the NCDC history file
-
 get.ncdc.history()
 }
