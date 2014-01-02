@@ -52,6 +52,5 @@ Richard Iannone
 
 \examples{
 # Generate "surf.dat" from previously defined period
-
 surf.dat.generate()
 }
