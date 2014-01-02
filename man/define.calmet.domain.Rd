@@ -86,7 +86,6 @@ Richard Iannone
 \examples{
 # Create a CALMET domain of 100 by 100 km in the Los Angeles area.
 # Chosen lat/long coordinates are for the center of the domain. 
-
 define.calmet.domain(lat.dec.deg = 34.050184,
                     long.dec.deg = -118.253959,
                     lat.long.grid.loc = 1,
