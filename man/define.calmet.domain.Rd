@@ -1,12 +1,13 @@
 \name{Define the CALMET domain}
 \alias{define.calmet.domain}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Define the CALMET domain
 }
+
 \description{
 This function allows for the definition of the CALMET domain. The position and size of the domain are set in both lat/long and UTM coordinates. The number and size of the contained grid cells are also set with this function.
 }
+
 \usage{
 define.calmet.domain(lat.dec.deg = NULL,
                      long.dec.deg = NULL,
@@ -20,7 +21,7 @@ define.calmet.domain(lat.dec.deg = NULL,
                      domain.width.m = NULL,
                      domain.height.m = NULL)
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{lat.dec.deg}{
 the latitude of the CALMET domain in decimal degrees. The location of this point is defined in the lat.long.grid.loc argument.
@@ -56,31 +57,32 @@ the desired width of the meteorological domain in meters.
 the desired height of the meteorological domain in meters.
 }
 }
+
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+
 }
+
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+
 }
+
 \references{
-%% ~put references to the literature/web site here ~
+
 }
+
 \author{
 Richard Iannone
 }
+
 \note{
-%%  ~~further notes~~
+
 }
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+
 }
+
 \examples{
 # Create a CALMET domain of 100 by 100 km in the Los Angeles area.
 # Chosen lat/long coordinates are for the center of the domain. 
