@@ -2,7 +2,7 @@ UA.stationDL <-
   function() {
     
     #
-    # download the selected data and produce a data frame
+    # Download the selected data and produce a data frame
     #
     
   }
