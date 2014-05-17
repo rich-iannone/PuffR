@@ -1,8 +1,7 @@
-ncdc.station.data <-
-function(startyear = NULL,
-                               endyear = NULL,
-                               use.calmet.bounds = TRUE,
-                               manual.bounds = NULL) {
+ncdc.station.data <- function(startyear = NULL,
+                              endyear = NULL,
+                              use.calmet.bounds = TRUE,
+                              manual.bounds = NULL){
 
 require(lubridate)
 require(plyr)

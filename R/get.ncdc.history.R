@@ -1,5 +1,4 @@
-get.ncdc.history <-
-function(replace.file = FALSE) {
+get.ncdc.history <- function(replace.file = FALSE) {
 
 # Get hourly surface data history CSV from NOAA/NCDC FTP
 file <- "ftp://ftp.ncdc.noaa.gov/pub/data/noaa/ish-history.csv"
