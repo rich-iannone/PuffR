@@ -1,5 +1,13 @@
-plot.calmet.domain <-
-function() {
+#' Plot met stations in the CALMET domain
+#' @description Plot all surface meteorological stations in CALMET domain
+#' @export plot.calmet.domain
+#' @examples
+#' \dontrun{
+#' # Plot all stations in NCDC database in the defined CALMET domain
+#' plot.calmet.domain()
+#'}
+
+plot.calmet.domain <- function(){
   
 require(ggmap)
 require(raster)
@@ -34,5 +42,7 @@ map <- ggmap(the_map) +
        labs(x = "Longitude") +
        labs(y = "Latitude") +
        labs(title = "Plot of Surface Stations in Meteorological Domain")
+
 map
+
 }
