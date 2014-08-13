@@ -1,3 +1,14 @@
+#' Retrieve the NCDC history data file
+#' @description This function initiates a download of the NCDC surface station history file.
+#' @param replace.file selecting 'yes' will overwrite history file if it exists in the working directory.
+#' @export get.ncdc.history
+#' @examples
+#' \dontrun{
+#' # Obtain the NCDC history file
+#' get.ncdc.history()
+#'}
+
+
 get.ncdc.history <- function(replace.file = FALSE) {
 
 # Get hourly surface data history CSV from NOAA/NCDC FTP
