@@ -5,5 +5,6 @@ Version: 0.1
 Date: 2013-11-12
 Author: Richard Iannone <riannone@me.com>
 Maintainer: Richard Iannone <riannone@me.com>
-Description: These functions allow you to collect data and generate the appropriate input files.
+Description: These functions allow you to collect data and generate the
+    appropriate input files.
 License: MIT
