@@ -1,3 +1,18 @@
+#' Obtain NCDC station data
+#' @description Obtain NCDC station data for all stations residing in the CALMET domain during a specied time period.
+#' @param startyear the year for the start of data retrieval.
+#' @param endyear the year for the end of data retrieval.
+#' @param use.calmet.bounds a 'TRUE' or 'FALSE' option on whether to use the same bounds as the previously defined CALMET domain.
+#' @param manual.bounds option to specify boundaries using lat/long coordinates in decimal degrees.
+#' @export ncdc.station.data
+#' @examples
+#' \dontrun{
+#' # Get 2010 station data for a previously defined domain
+#' ncdc.station.data(startyear = 2010,
+#'                   endyear = 2010,
+#'                   use.calmet.bounds = TRUE)
+#'}
+
 ncdc.station.data <- function(startyear = NULL,
                               endyear = NULL,
                               use.calmet.bounds = TRUE,
