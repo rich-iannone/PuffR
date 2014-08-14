@@ -3,3 +3,4 @@
 export(define.calmet.domain)
 export(get.ncdc.history)
 export(ncdc.station.data)
+export(plot.calmet.domain)
