@@ -1,3 +1,15 @@
+#' Create SURF.DAT
+#' @description Generate a SURF.DAT input file for CALMET
+#' @param startyear the starting year for the SURF.DAT file.
+#' @param endyear the ending year for the SURF.DAT file.
+#' @param outputfile the specified filename for the SURF.DAT file. Defaults to "surf.dat".
+#' @export surf.dat.generate
+#' @examples
+#' \dontrun{
+#' # Generate "surf.dat" from previously defined period
+#' surf.dat.generate()
+#'}
+
 surf.dat.generate <- function(startyear = NOAA_start_year,
                               endyear = NOAA_end_year,
                               outputfile = "surf.dat"){
