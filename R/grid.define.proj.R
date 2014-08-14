@@ -16,6 +16,12 @@
     stop("The chosen projection is not valid.")
   
   }
+  
+  # If pmap either of TTM, LCC, or LAZA, a false easting and false northing
+  # are required
+  if (pmap %in% c("TTM", 'LCC', "LAZA")){
+    
+  }
     
     #
     # Define grid projection and datum
