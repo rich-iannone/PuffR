@@ -6,6 +6,9 @@
                                  datum, nx, ny,
                                  dgridkm, xorigkm, yorigkm,
                                  nz, zface){
+  
+  # Define the valid grid projections
+  possible_projections <- c("UTM", "TTM", "LCC", "PS", "EM", "LAZA")
     
     #
     # Define grid projection and datum
