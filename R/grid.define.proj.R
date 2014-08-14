@@ -9,6 +9,13 @@
   
   # Define the valid grid projections
   possible_projections <- c("UTM", "TTM", "LCC", "PS", "EM", "LAZA")
+  
+  # Stop function of pmap not part of 'possible_projections' set
+  if (!(pmap %in% possible_projections)){
+    
+    stop("The chosen projection is not valid.")
+  
+  }
     
     #
     # Define grid projection and datum
