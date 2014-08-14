@@ -24,13 +24,22 @@
   }
   
   # Validate use of UTM zone
-
-  
   if (pmap == "UTM"){
     
     if (!(iutmzn %in% seq(1, 60, 1))){
       
       stop("The UTM zone must be an integer from 1 to 60")
+      
+    }
+    
+  }
+  
+  # Validate use of hemisphere for UTM zone
+  if (pmap == "UTM"){
+    
+    if (!(iutmzn %in% c("N", "S"))){
+      
+      stop("The UTM zone must either be in the northern (N) or southern (S) hemisphere.")
       
     }
     
