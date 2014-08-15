@@ -1,9 +1,9 @@
 2_define_proj_levels <- function(pmap = "UTM",
                                  feast = 0.0, fnorth = 0.0,
                                  iutmzn, utmhem = "N",
-                                 rlat0, rlon0,
-                                 xlat1, xlat2,
-                                 datum, nx, ny,
+                                 rlat0 = "40N", rlon0 = "90W",
+                                 xlat1 = "30N", xlat2 = "60N",
+                                 datum = "WGS-84", nx, ny,
                                  dgridkm, xorigkm, yorigkm,
                                  nz, zface){
   
