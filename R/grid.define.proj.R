@@ -5,7 +5,8 @@
                                  xlat1 = "30N", xlat2 = "60N",
                                  datum = "WGS-84", nx, ny,
                                  dgridkm, xorigkm, yorigkm,
-                                 nz, zface){
+                                 nz = 12,
+                                 zface = c(0,20,40,80,100,150,200,300,400,800,1400,2000,3000)){
   
   # Define the valid grid projections
   possible_projections <- c("UTM", "TTM", "LCC", "PS", "EM", "LAZA")
