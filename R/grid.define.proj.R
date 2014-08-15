@@ -46,5 +46,18 @@
     
   }
   
+  # Verify that 'nx' and 'ny' are non-zero, positive, integer values
+  if (nx == 0 | nx == 0){
+    stop("nx or ny cannot be equal to 0.")
+  }
+
+  if (nx < 0 | ny < 0){
+    stop("nx or ny cannot be negative numbers.")
+  }
+  
+  if (!is.integer(nx) | !is.integer(ny)){
+    stop("nx or ny must be integer values.")
+  }  
+  
 
 }
