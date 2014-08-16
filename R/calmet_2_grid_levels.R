@@ -117,5 +117,10 @@ calmet_2_grid_levels <- function(calmet_inp,
   
   # Read in the working calmet.inp file as a character vector
   calmet_inp_working <- readLines(calmet_inp)
+  
+  # Generate a vector list of calmet.inp keywords
+  keywords <- c("PMAP", "FEAST", "FNORTH", "IUTMZN", "UTMHEM", "RLAT0", "RLON0", 
+                "XLAT1", "XLAT2", "DATUM", "NX", "NY", "DGRIDKM", "XORIGKM", "YORIGKM", 
+                "NZ", "ZFACE")
 
 }
