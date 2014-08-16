@@ -110,5 +110,12 @@ calmet_2_grid_levels <- function(calmet_inp,
   
   # Generate a formatted character string for 'zface'
   zface <- paste(zface, collapse = ", ")
+  
+  ####
+  # Add parameters to working 'calmet.inp' file
+  ####
+  
+  # Read in the working calmet.inp file as a character vector
+  calmet_inp_working <- readLines(calmet_inp)
 
 }
