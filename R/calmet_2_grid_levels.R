@@ -122,5 +122,11 @@ calmet_2_grid_levels <- function(calmet_inp,
   keywords <- c("PMAP", "FEAST", "FNORTH", "IUTMZN", "UTMHEM", "RLAT0", "RLON0", 
                 "XLAT1", "XLAT2", "DATUM", "NX", "NY", "DGRIDKM", "XORIGKM", "YORIGKM", 
                 "NZ", "ZFACE")
+  
+  # Generate a vector list of the formatted replacements
+  replacements <- c(pmap, feast, fnorth, iutmzn, utmhem, rlat0, rlon0, 
+                    xlat1, xlat2, datum, nx, ny, dgridkm, xorigkm, yorigkm, 
+                    nz, zface)  
+  
 
 }
