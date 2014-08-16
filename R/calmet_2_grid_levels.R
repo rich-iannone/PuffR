@@ -49,16 +49,21 @@ calmet_2_grid_levels <- function(calmet_inp,
   
   # Verify that 'nx' and 'ny' are non-zero, positive, integer values
   if (nx == 0 | nx == 0){
+  
     stop("nx or ny cannot be equal to 0.")
+  
   }
 
   if (nx < 0 | ny < 0){
+  
     stop("nx or ny cannot be negative numbers.")
+  
   }
   
-  if (!is.integer(nx) | !is.integer(ny)){
+  if (nx %% 1 != 0 | ny %% 1 != 0){
+    
     stop("nx or ny must be integer values.")
-  }  
   
+  }
 
 }
