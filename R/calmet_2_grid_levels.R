@@ -107,5 +107,8 @@ calmet_2_grid_levels <- function(calmet_inp,
     stop("The levels specified must all be unique")
     
   }
+  
+  # Generate a formatted character string for 'zface'
+  zface <- paste(zface, collapse = ", ")
 
 }
