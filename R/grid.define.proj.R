@@ -1,4 +1,4 @@
-2_define_proj_levels <- function(pmap = "UTM",
+2_calmet_grid_levels <- function(pmap = "UTM",
                                  feast = 0.0, fnorth = 0.0,
                                  iutmzn, utmhem = "N",
                                  rlat0 = "40N", rlon0 = "90W",
