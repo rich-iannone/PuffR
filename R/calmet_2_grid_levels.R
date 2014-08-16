@@ -87,5 +87,25 @@ calmet_2_grid_levels <- function(calmet_inp,
     stop("nx or ny must be integer values.")
   
   }
+  
+  # Verify that 'nz' has a starting '0' level and that there are 'nz + 1'
+  # total levels with no duplication in levels
+  if (!(0 %in% zface)){
+    
+    stop("A '0' level must be included in the 'zface' parameter list")
+  
+  }
+  
+  if (length(zface) != (nz + 1)){
+    
+    stop("The total number of levels specified must be of length 'nz' + 1")
+    
+  }
+  
+  if (any(duplicated(zface))){
+    
+    stop("The levels specified must all be unique")
+    
+  }
 
 }
