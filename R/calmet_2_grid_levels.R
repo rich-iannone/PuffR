@@ -61,7 +61,7 @@ calmet_2_grid_levels <- function(calmet_inp,
   # Validate use of hemisphere for UTM zone
   if (pmap == "UTM"){
     
-    if (!(iutmzn %in% c("N", "S"))){
+    if (!(utmhem %in% c("N", "S"))){
       
       stop("The UTM zone must either be in the northern (N) or southern (S) hemisphere.")
       
