@@ -1,3 +1,25 @@
+#' Set CALMET parameters for the map projection, datum, and grid definitions
+#' @description This function validates and writes CALMET parameters for the map projection, datum, and grid definitions to the working CALMET.INP file.
+#' @param calmet_inp the absolute path and filename for the working CALMET input file.
+#' @param pmap the projection of the CALMET domain.
+#' @param feast the false easting at the projection origin for TTM, LCC, or LAZA projection types.
+#' @param fnorth the false northing at the projection origin for TTM, LCC, or LAZA projection types.
+#' @param iutmzn the UTM zone.
+#' @param utmhem the UTM hemisphere.
+#' @param rlat0 latitude (decimal degrees) of projection origin for TTM, LCC, PS, EM, or LAZA projection types.
+#' @param rlon0 longitude (decimal degrees) of projection origin for TTM, LCC, PS, EM, or LAZA projection types.
+#' @param xlat1 the lower matching parallel of latitude (decimal degrees) for LCC or PS projection types.
+#' @param xlat2 the upper matching parallel of latitude (decimal degrees) for LCC or PS projection types.
+#' @param datum the datum-region for output coordinates.
+#' @param nx the number of grid cells in the x direction.
+#' @param ny the number of grid cells in the y direction.
+#' @param dgridkm the grid spacing in units of km.
+#' @param xorigkm the reference grid x coordinate (in km) of the southwest corner of grid cell (1, 1).
+#' @param yorigkm the reference grid y coordinate (in km) of the southwest corner of grid cell (1, 1).
+#' @param nz the number of vertical levels.
+#' @param zface a vector containing cell face heights in meters.
+#' @export calmet_2_grid_levels
+
 calmet_2_grid_levels <- function(calmet_inp,
                                  pmap = "UTM",
                                  feast = 0.0, fnorth = 0.0,
