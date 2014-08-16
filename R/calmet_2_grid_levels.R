@@ -1,4 +1,5 @@
-calmet_2_grid_levels <- function(pmap = "UTM",
+calmet_2_grid_levels <- function(calmet_inp,
+                                 pmap = "UTM",
                                  feast = 0.0, fnorth = 0.0,
                                  iutmzn, utmhem = "N",
                                  rlat0 = "40N", rlon0 = "90W",
