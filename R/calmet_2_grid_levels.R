@@ -128,5 +128,24 @@ calmet_2_grid_levels <- function(calmet_inp,
                     xlat1, xlat2, datum, nx, ny, dgridkm, xorigkm, yorigkm, 
                     nz, zface)  
   
+  # Create function to replace parameter in input file
+  replace_in_inp <- function(calmet_inp_working,
+                             keyword,
+                             replacement){
+
+    for (i in 1:length(keyword)){
+    
+      calmet_inp_working[grep(keyword[i], calmet_inp_working)] <-
+        gsub("=.*!", paste("= ", replacement[i], " !", sep = ''),
+             calmet_inp_working[grep(keyword[i], calmet_inp_working)])
+      
+    }
+    
+    # Remove space characters in lines with no text characters
+    calmet_inp_working <- gsub("^[ ]*$", "", calmet_inp_working)
+    
+    return(calmet_inp_working)
+    
+  }
 
 }
