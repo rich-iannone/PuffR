@@ -3,7 +3,14 @@
 #' @param calmet_inp the absolute path and filename for the working CALMET input file.
 #' @export calmet_4_met_data_opts
 
-calmet_4_met_data_opts <- function(calmet_inp){
+calmet_4_met_data_opts <- function(calmet_inp,
+                                   noobs = 0,
+                                   nssta,
+                                   npsta,
+                                   icloud = 0,
+                                   iforms = 2,
+                                   iformp = 2,
+                                   iformc = 2){
   
   
 }
