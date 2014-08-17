@@ -28,23 +28,23 @@
 #'                      domain.height.m = 100000)
 #'}
 
-calmet_define_domain <- function(lat.dec.deg = NULL,
-                                 long.dec.deg = NULL,
-                                 lat.long.grid.loc = 1,
+calmet_define_domain <- function(lat_dec_deg = NULL,
+                                 long_dec_deg = NULL,
+                                 lat_long_grid_loc = 1,
                                  EPSG_code = NULL,
                                  projection = "UTM",
                                  datum = "WGS84",
                                  ellipse = "WGS84",
                                  units = "m",
-                                 cell.resolution.m = 250,
-                                 domain.width.m = NULL,
-                                 domain.height.m = NULL) {
+                                 cell_resolution_m = 250,
+                                 domain_width_m = NULL,
+                                 domain_height_m = NULL) {
 
 require(rgdal)
 require(plyr)
   
-#lat.dec.deg <- 34.050184
-#long.dec.deg <- -118.253959
+#lat_dec_deg <- 34.050184
+#long_dec_deg <- -118.253959
 
 #EPSG_code <- 32611
 
@@ -55,18 +55,18 @@ require(plyr)
 
 # Where is this point located on the grid?
 # Choices are: 1 (center), 2 (lower left), 3 (lower right), 4 (upper left), 5 (upper right)
-#lat.long.grid.loc <- 1
+#lat_long_grid_loc <- 1
   
 # what is the the cell resolution (square cells) required (in meters)?
-#cell.resolution.m <- 250
+#cell_resolution_m <- 250
 
 # What is the width and the height of the met domain in meters? Extents will be generated based on the
 # location of chosen point.
-#domain.width.m <- 100000
-#domain.height.m <- 100000
+#domain_width_m <- 100000
+#domain_height_m <- 100000
 
-lat_long_dec_deg <- cbind(long.dec.deg, lat.dec.deg)
-UTM_zone <- (floor((long.dec.deg + 180)/6) %% 60) + 1
+lat_long_dec_deg <- cbind(long_dec_deg, lat_dec_deg)
+UTM_zone <- (floor((long_dec_deg + 180)/6) %% 60) + 1
 
 # Generate a PROJ.4 string from an acceptable EPSG code
 # Include a dataframe that contains all acceptable EPSG codes for filtering
@@ -85,69 +85,69 @@ UTM_location <- round_any(UTM_location, 50, round)
 
 # Do these length and width values accomodate an integer number of cells of the specified resolution?
 # These checks will be later part of a function in setting domain width and height
-is_number_cells_across_x_an_int <- ifelse(domain.width.m %% cell.resolution.m != 0, FALSE, TRUE)
-is_number_cells_across_y_an_int <- ifelse(domain.height.m %% cell.resolution.m != 0, FALSE, TRUE)
+is_number_cells_across_x_an_int <- ifelse(domain_width_m %% cell_resolution_m != 0, FALSE, TRUE)
+is_number_cells_across_y_an_int <- ifelse(domain_height_m %% cell_resolution_m != 0, FALSE, TRUE)
 
 number_cells_across_x <- ifelse(is_number_cells_across_x_an_int == TRUE,
-                                domain.width.m/cell.resolution.m, NULL)
+                                domain_width_m/cell_resolution_m, NULL)
 
 number_cells_across_y <- ifelse(is_number_cells_across_y_an_int == TRUE,
-                                domain.height.m/cell.resolution.m, NULL)
+                                domain_height_m/cell_resolution_m, NULL)
 
 total_cells <- number_cells_across_x * number_cells_across_y
 
 # Get extents of UTM grid (left, right, bottom, top)
-left_UTM <- if(lat.long.grid.loc == 1) {
-          UTM_location[1,1] - (0.5 * domain.width.m)
-          } else if (lat.long.grid.loc == 2) {
+left_UTM <- if(lat_long_grid_loc == 1) {
+          UTM_location[1,1] - (0.5 * domain_width_m)
+          } else if (lat_long_grid_loc == 2) {
           UTM_location[1,1]
-          } else if (lat.long.grid.loc == 3) {
-          UTM_location[1,1] - domain.width.m
-          } else if (lat.long.grid.loc == 4) {
+          } else if (lat_long_grid_loc == 3) {
+          UTM_location[1,1] - domain_width_m
+          } else if (lat_long_grid_loc == 4) {
             UTM_location[1,1]
-          } else if (lat.long.grid.loc == 5) {
-            UTM_location[1,1] - domain.width.m
+          } else if (lat_long_grid_loc == 5) {
+            UTM_location[1,1] - domain_width_m
           } else {
           NULL
           }
 
-right_UTM <- if(lat.long.grid.loc == 1) {
-          UTM_location[1,1] + (0.5 * domain.width.m)
-          } else if (lat.long.grid.loc == 2) {
-          UTM_location[1,1] + domain.width.m
-          } else if (lat.long.grid.loc == 3) {
+right_UTM <- if(lat_long_grid_loc == 1) {
+          UTM_location[1,1] + (0.5 * domain_width_m)
+          } else if (lat_long_grid_loc == 2) {
+          UTM_location[1,1] + domain_width_m
+          } else if (lat_long_grid_loc == 3) {
           UTM_location[1,1]
-          } else if (lat.long.grid.loc == 4) {
-          UTM_location[1,1] + domain.width.m
-          } else if (lat.long.grid.loc == 5) {
+          } else if (lat_long_grid_loc == 4) {
+          UTM_location[1,1] + domain_width_m
+          } else if (lat_long_grid_loc == 5) {
           UTM_location[1,1]
           } else {
           NULL
           }
 
-bottom_UTM <- if(lat.long.grid.loc == 1) {
-          UTM_location[1,2] - (0.5 * domain.height.m)
-          } else if (lat.long.grid.loc == 2) {
+bottom_UTM <- if(lat_long_grid_loc == 1) {
+          UTM_location[1,2] - (0.5 * domain_height_m)
+          } else if (lat_long_grid_loc == 2) {
           UTM_location[1,2]
-          } else if (lat.long.grid.loc == 3) {
+          } else if (lat_long_grid_loc == 3) {
           UTM_location[1,2]
-          } else if (lat.long.grid.loc == 4) {
-          UTM_location[1,2] - domain.height.m
-          } else if (lat.long.grid.loc == 5) {
-          UTM_location[1,2] - domain.height.m
+          } else if (lat_long_grid_loc == 4) {
+          UTM_location[1,2] - domain_height_m
+          } else if (lat_long_grid_loc == 5) {
+          UTM_location[1,2] - domain_height_m
           } else {
           NULL
           }
 
-top_UTM <- if(lat.long.grid.loc == 1) {
-        UTM_location[1,2] + (0.5 * domain.height.m)
-        } else if (lat.long.grid.loc == 2) {
-        UTM_location[1,2] + domain.height.m
-        } else if (lat.long.grid.loc == 3) {
-        UTM_location[1,2] + domain.height.m
-        } else if (lat.long.grid.loc == 4) {
+top_UTM <- if(lat_long_grid_loc == 1) {
+        UTM_location[1,2] + (0.5 * domain_height_m)
+        } else if (lat_long_grid_loc == 2) {
+        UTM_location[1,2] + domain_height_m
+        } else if (lat_long_grid_loc == 3) {
+        UTM_location[1,2] + domain_height_m
+        } else if (lat_long_grid_loc == 4) {
         UTM_location[1,2]
-        } else if (lat.long.grid.loc == 5) {
+        } else if (lat_long_grid_loc == 5) {
         UTM_location[1,2]
         } else {
         NULL
@@ -164,21 +164,22 @@ LL_LR_UL_UR_UTM_longlat <- spTransform(LL_LR_UL_UR_UTM_m, CRS("+proj=longlat +el
 
 LL_LR_UL_UR_UTM_longlat.df <- as.data.frame(LL_LR_UL_UR_UTM_longlat)
 
-define.calmet.domain.out <- mat.or.vec(7, 1)
+define_calmet_domain_out <- mat.or.vec(7, 1)
 
 # Return vector with: [1] - [4] bounding box lat/long coordinates (W, E, N, S),
 # [5] number of cells in x direction, [6] number of cells in y direction,
 # [7] total number of cells
-define.calmet.domain.out[1] <- LL_LR_UL_UR_UTM_longlat.df[1,1]
-define.calmet.domain.out[2] <- LL_LR_UL_UR_UTM_longlat.df[1,2]
-define.calmet.domain.out[3] <- LL_LR_UL_UR_UTM_longlat.df[2,2]
-define.calmet.domain.out[4] <- LL_LR_UL_UR_UTM_longlat.df[2,1]
-define.calmet.domain.out[5] <- number_cells_across_x
-define.calmet.domain.out[6] <- number_cells_across_y
-define.calmet.domain.out[7] <- total_cells
+define_calmet_domain_out[1] <- LL_LR_UL_UR_UTM_longlat.df[1,1]
+define_calmet_domain_out[2] <- LL_LR_UL_UR_UTM_longlat.df[1,2]
+define_calmet_domain_out[3] <- LL_LR_UL_UR_UTM_longlat.df[2,2]
+define_calmet_domain_out[4] <- LL_LR_UL_UR_UTM_longlat.df[2,1]
+define_calmet_domain_out[5] <- number_cells_across_x
+define_calmet_domain_out[6] <- number_cells_across_y
+define_calmet_domain_out[7] <- total_cells
 
-write.table(define.calmet.domain.out, file = "define.calmet.domain.out",
+write.table(define_calmet_domain_out, file = "define_calmet_domain.out",
             col.names = FALSE, row.names = FALSE)
 
 print(define.calmet.domain.out)
+
 }
