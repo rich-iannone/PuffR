@@ -3,15 +3,17 @@
 \alias{calmet_define_domain}
 \title{Define the CALMET domain}
 \usage{
-calmet_define_domain(lat.dec.deg = NULL, long.dec.deg = NULL,
-  lat.long.grid.loc = 1, EPSG_code = NULL, projection = "UTM",
+calmet_define_domain(lat_dec_deg = NULL, long_dec_deg = NULL,
+  lat_long_grid_loc = 1, EPSG_code = NULL, projection = "UTM",
   datum = "WGS84", ellipse = "WGS84", units = "m",
-  cell.resolution.m = 250, domain.width.m = NULL, domain.height.m = NULL)
+  cell_resolution_m = 250, domain_width_m = NULL, domain_height_m = NULL)
 }
 \arguments{
-\item{lat.dec.deg}{the longitude of the CALMET domain in decimal degrees. The location of this point is defined in the lat.long.grid.loc argument.}
+\item{lat_dec_deg}{the latitude of the CALMET domain in decimal degrees. The location of this point is defined in the lat_long_grid_loc argument.}
 
-\item{lat.long.grid.loc}{the location of the lat/long inputs in relation to the domain. Choices are: 1 (center), 2 (lower left), 3 (lower right), 4 (upper left), 5 (upper right).}
+\item{long_dec_deg}{the longitude of the CALMET domain in decimal degrees. The location of this point is defined in the lat_long_grid_loc argument.}
+
+\item{lat_long_grid_loc}{the location of the lat/long inputs in relation to the domain. Choices are: 1 (center), 2 (lower left), 3 (lower right), 4 (upper left), 5 (upper right).}
 
 \item{EPSG_code}{an EPSG code allows for the lookup of an appropriate PROJ.4 string. Information on EPSG codes is available on this page: http://cicero.azavea.com/docs/epsg_codes.html.}
 
@@ -23,11 +25,11 @@ calmet_define_domain(lat.dec.deg = NULL, long.dec.deg = NULL,
 
 \item{units}{the alternate units of the domain for CALMET. Default is "m".}
 
-\item{cell.resolution.m}{the desired height and width of each square cell in the meteorological domain.}
+\item{cell_resolution_m}{the desired height and width of each square cell in the meteorological domain.}
 
-\item{domain.width.m}{the desired width of the meteorological domain in meters.}
+\item{domain_width_m}{the desired width of the meteorological domain in meters.}
 
-\item{domain.height.m}{the desired height of the meteorological domain in meters.}
+\item{domain_height_m}{the desired height of the meteorological domain in meters.}
 }
 \description{
 Define the CALMET domain
@@ -36,17 +38,17 @@ Define the CALMET domain
 \dontrun{
 # Create a CALMET domain of 100 by 100 km in the Los Angeles area.
 # Chosen lat/long coordinates are for the center of the domain.
-define_calmet_domain(lat.dec.deg = 34.050184,
-                     long.dec.deg = -118.253959,
-                     lat.long.grid.loc = 1,
+define_calmet_domain(lat_dec_deg = 34.050184,
+                     long_dec_deg = -118.253959,
+                     lat_long_grid_loc = 1,
                      EPSG_code = 32611,
                      projection = "UTM",
                      datum = "WGS84",
                      ellipse = "WGS84",
                      units = "m",
-                     cell.resolution.m = 250,
-                     domain.width.m = 100000,
-                     domain.height.m = 100000)
+                     cell_resolution_m = 250,
+                     domain_width_m = 100000,
+                     domain_height_m = 100000)
 }
 }
 
