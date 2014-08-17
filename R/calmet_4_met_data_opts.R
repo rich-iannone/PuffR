@@ -12,5 +12,8 @@ calmet_4_met_data_opts <- function(calmet_inp,
                                    iformp = 2,
                                    iformc = 2){
   
+  # Generate a vector list of calmet.inp keywords
+  keywords <- c("NOOBS", "NSSTA", "NPSTA", "ICLOUD", "IFORMS", "IFORMP", "IFORMC")  
+  
   
 }
