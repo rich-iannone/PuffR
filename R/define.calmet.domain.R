@@ -28,17 +28,17 @@
 #'                      domain.height.m = 100000)
 #'}
 
-define.calmet.domain <- function(lat.dec.deg = NULL,
-                                long.dec.deg = NULL,
-                                lat.long.grid.loc = 1,
-                                EPSG_code = NULL,
-                                projection = "UTM",
-                                datum = "WGS84",
-                                ellipse = "WGS84",
-                                units = "m",
-                                cell.resolution.m = 250,
-                                domain.width.m = NULL,
-                                domain.height.m = NULL) {
+calmet_define_domain <- function(lat.dec.deg = NULL,
+                                 long.dec.deg = NULL,
+                                 lat.long.grid.loc = 1,
+                                 EPSG_code = NULL,
+                                 projection = "UTM",
+                                 datum = "WGS84",
+                                 ellipse = "WGS84",
+                                 units = "m",
+                                 cell.resolution.m = 250,
+                                 domain.width.m = NULL,
+                                 domain.height.m = NULL) {
 
 require(rgdal)
 require(plyr)
