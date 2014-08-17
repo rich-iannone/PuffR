@@ -15,5 +15,7 @@ calmet_4_met_data_opts <- function(calmet_inp,
   # Generate a vector list of calmet.inp keywords
   keywords <- c("NOOBS", "NSSTA", "NPSTA", "ICLOUD", "IFORMS", "IFORMP", "IFORMC")  
   
+  # Generate a vector list of the formatted replacements
+  replacements <- c(noobs, nssta, npsta, icloud, iforms, iformp, iformc)
   
 }
