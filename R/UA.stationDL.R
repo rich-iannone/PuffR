@@ -1,13 +1,27 @@
-UA.stationDL <- function(start_date,
-                         end_date,
-                         hour_type = "0z,12z",
-                         level_type = "all",
-                         wind_units = "tenths_ms",
-                         station_number = NULL,
-                         station_wban_wmo = NULL,
-                         output_file_path = "working",
-                         output_file_name = "FSL-Sounding.txt",
-                         details_in_file_name = TRUE){
+#' Download the upper air data and produce a data frame.
+#' @description This function allows for the downloading and processing of upper air sounding data.
+#' @param start_date the starting date of the sounding data request in the format "YYYY-MM-DD". The earliest sounding for the specified date will be included in the request.
+#' @param end_date the end date of the sounding data request in the format "YYYY-MM-DD". The last sounding for the specified date will be included in the request.
+#' @param hour_type the types of hours to be supplied in the returned dataset. The default is "0z,12z", which includes sounding data from launches near 12:00 UTC and those near 24:00 UTC. The option "all" provides all of the soundings available from the dataset, and the options "12z" and "0z" provide data from those soundings launched near 12:00 UTC or 24:00 UTC, respectively.
+#' @param level_type the types of levels to be supplied in the returned dataset. The default is "all", which includes all sounding types. Other options are "mandatory" (includes only the mandatory-type levels) and "mandatory_and_significant" (includes only the mandatory- and significant-type levels).
+#' @param wind_units the desired wind units for the sounding data request. Options are tenths of meters per second ("tenths_ms", the default) and "knots".
+#' @param station_number the selection of the desired sounding site can be performed by identifying a line number from the dataframe supplied by the 'get.sounding.stations' function.
+#' @param station_wban_wmo the selection of the desired sounding site for the data request can be achieved by supplying WBAN and WMO numbers in the form of "XXXXX-YYYYY" (WBAN first, WMO second).
+#' @param output_file_path the output file path for the retrieved sounding data can be specified here by using "working", which sets the path to the current working directory, or, by specifying an absolute path.
+#' @param output_file_name the desired filename for the retrieved sounding data, including an extension such as ".txt" or ".dat". The default is "FSL-Sounding.txt", so, not modifying this argument over several uses (especially in conjunction with a "FALSE" setting for the 'details_in_file_name' argument) may result in overwriting previously generated files.
+#' @param details_in_file_name incorporates details about the sounding data into the filename. Set to "TRUE" by default to provide self-describing filenames and reducing the risk of overwriting files. Setting to "FALSE" strictly uses the filename specified in the 'output_file_name' argument.
+#' @export calmet_UA_station_DL
+
+calmet_UA_station_DL <- function(start_date,
+                                 end_date,
+                                 hour_type = "0z,12z",
+                                 level_type = "all",
+                                 wind_units = "tenths_ms",
+                                 station_number = NULL,
+                                 station_wban_wmo = NULL,
+                                 output_file_path = "working",
+                                 output_file_name = "FSL-Sounding.txt",
+                                 details_in_file_name = TRUE){
   
   # Obtain the HTML source from a URI containing a query
   URI <- getURL(paste("http://www.esrl.noaa.gov/raobs/intl/GetRaobs.cgi?",
