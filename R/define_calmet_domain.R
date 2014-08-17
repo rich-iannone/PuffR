@@ -11,12 +11,12 @@
 #' @param cell_resolution_m the desired height and width of each square cell in the meteorological domain.
 #' @param domain_width_m the desired width of the meteorological domain in meters.
 #' @param domain_height_m the desired height of the meteorological domain in meters.
-#' @export define_calmet_domain
+#' @export calmet_define_domain
 #' @examples
 #' \dontrun{
 #' # Create a CALMET domain of 100 by 100 km in the Los Angeles area.
 #' # Chosen lat/long coordinates are for the center of the domain. 
-#' define_calmet_domain(lat_dec_deg = 34.050184,
+#' calmet_define_domain(lat_dec_deg = 34.050184,
 #'                      long_dec_deg = -118.253959,
 #'                      lat_long_grid_loc = 1,
 #'                      EPSG_code = 32611,
@@ -165,20 +165,20 @@ LL_LR_UL_UR_UTM_longlat <- spTransform(LL_LR_UL_UR_UTM_m, CRS("+proj=longlat +el
 
 LL_LR_UL_UR_UTM_longlat.df <- as.data.frame(LL_LR_UL_UR_UTM_longlat)
 
-define_calmet_domain_out <- mat.or.vec(7, 1)
+calmet_define_domain_out <- mat.or.vec(7, 1)
 
 # Return vector with: [1] - [4] bounding box lat/long coordinates (W, E, N, S),
 # [5] number of cells in x direction, [6] number of cells in y direction,
 # [7] total number of cells
-define_calmet_domain_out[1] <- LL_LR_UL_UR_UTM_longlat.df[1,1]
-define_calmet_domain_out[2] <- LL_LR_UL_UR_UTM_longlat.df[1,2]
-define_calmet_domain_out[3] <- LL_LR_UL_UR_UTM_longlat.df[2,2]
-define_calmet_domain_out[4] <- LL_LR_UL_UR_UTM_longlat.df[2,1]
-define_calmet_domain_out[5] <- number_cells_across_x
-define_calmet_domain_out[6] <- number_cells_across_y
-define_calmet_domain_out[7] <- total_cells
+calmet_define_domain_out[1] <- LL_LR_UL_UR_UTM_longlat.df[1,1]
+calmet_define_domain_out[2] <- LL_LR_UL_UR_UTM_longlat.df[1,2]
+calmet_define_domain_out[3] <- LL_LR_UL_UR_UTM_longlat.df[2,2]
+calmet_define_domain_out[4] <- LL_LR_UL_UR_UTM_longlat.df[2,1]
+calmet_define_domain_out[5] <- number_cells_across_x
+calmet_define_domain_out[6] <- number_cells_across_y
+calmet_define_domain_out[7] <- total_cells
 
-write.table(define_calmet_domain_out, file = "define_calmet_domain.out",
+write.table(calmet_define_domain_out, file = "calmet_define_domain.out",
             col.names = FALSE, row.names = FALSE)
 
 print(define.calmet.domain.out)
