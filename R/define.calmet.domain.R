@@ -10,12 +10,12 @@
 #' @param cell.resolution.m the desired height and width of each square cell in the meteorological domain.
 #' @param domain.width.m the desired width of the meteorological domain in meters.
 #' @param domain.height.m the desired height of the meteorological domain in meters.
-#' @export define.calmet.domain
+#' @export define_calmet_domain
 #' @examples
 #' \dontrun{
 #' # Create a CALMET domain of 100 by 100 km in the Los Angeles area.
 #' # Chosen lat/long coordinates are for the center of the domain. 
-#' define.calmet.domain(lat.dec.deg = 34.050184,
+#' define_calmet_domain(lat.dec.deg = 34.050184,
 #'                      long.dec.deg = -118.253959,
 #'                      lat.long.grid.loc = 1,
 #'                      EPSG_code = 32611,
