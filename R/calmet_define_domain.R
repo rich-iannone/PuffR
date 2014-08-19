@@ -158,4 +158,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
                   lon = floor(long_dec_deg),
                   lat = floor(lat_dec_deg))
   
+  # Generate Extents object in long/lat projection for cropping
+  bbox_longlat <- extent(LL_LR_UL_UR_longlat_SP)
+  
 }
