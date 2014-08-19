@@ -149,4 +149,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
                                  ext = bbox_UTM,
                                  crs = proj_string_UTM)
   
+  # Create a SpatialPoints object for lat/lon values of LL, LR, UL, and UR through a
+  # spatial transform
+  LL_LR_UL_UR_longlat_SP <- spTransform(LL_LR_UL_UR_UTM_m_SP, CRS("+proj=longlat +ellps=GRS80"))
 }
