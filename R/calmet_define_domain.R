@@ -46,5 +46,11 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Determine the UTM zone
   UTM_zone <- (floor((long_dec_deg + 180)/6) %% 60) + 1
     
+  # Define the PROJ.4 projection strings for long/lat and UTM projections
+  proj_string_longlat <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
 
+  proj_string_UTM <- paste("+proj=utm +zone=",
+                           UTM_zone,
+                           " +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
+                           sep = '')
 }
