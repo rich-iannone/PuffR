@@ -43,6 +43,9 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Get matrix of longitude and latitude for chosen point
   lat_long_dec_deg <- cbind(long_dec_deg, lat_dec_deg)
   
+  # Determine the UTM zone
+  UTM_zone <- (floor((long_dec_deg + 180)/6) %% 60) + 1
+    
   
 # what is the the cell resolution (square cells) required (in meters)?
 #cell_resolution_m <- 250
