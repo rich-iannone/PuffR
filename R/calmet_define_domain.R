@@ -29,6 +29,10 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   require(sp)
   require(raster)
   
+  # Where is this point located on the grid?
+  # Choices are: 1 (center), 2 (lower left), 3 (lower right), 4 (upper left), 5 (upper right)
+  lat_long_grid_loc <- 1
+  
   
 # what is the the cell resolution (square cells) required (in meters)?
 #cell_resolution_m <- 250
