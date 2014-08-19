@@ -140,4 +140,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   LL_LR_UL_UR_UTM_m_SP <- SpatialPoints(as.matrix(LL_LR_UL_UR_UTM_m_DF),
                                         proj4string = CRS(proj_string_UTM))
   
+  # Generate Extent object in UTM
+  bbox_UTM <- extent(LL_LR_UL_UR_UTM_m_SP)
+  
 }
