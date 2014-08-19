@@ -13,12 +13,6 @@
 #' calmet_define_domain(lat_dec_deg = 34.050184,
 #'                      long_dec_deg = -118.253959,
 #'                      lat_long_grid_loc = 1,
-#'                      EPSG_code = 32611,
-#'                      projection = "UTM",
-#'                      datum = "WGS84",
-#'                      ellipse = "WGS84",
-#'                      units = "m",
-#'                      cell_resolution_m = 250,
 #'                      domain_width_m = 100000,
 #'                      domain_height_m = 100000)
 #'}
@@ -27,11 +21,6 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
                                  long_dec_deg = NULL,
                                  lat_long_grid_loc = 1,
                                  EPSG_code = NULL,
-                                 projection = "UTM",
-                                 datum = "WGS84",
-                                 ellipse = "WGS84",
-                                 units = "m",
-                                 cell_resolution_m = 250,
                                  domain_width_m = NULL,
                                  domain_height_m = NULL) {
 
