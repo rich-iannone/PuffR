@@ -152,4 +152,10 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Create a SpatialPoints object for lat/lon values of LL, LR, UL, and UR through a
   # spatial transform
   LL_LR_UL_UR_longlat_SP <- spTransform(LL_LR_UL_UR_UTM_m_SP, CRS("+proj=longlat +ellps=GRS80"))
+  
+  # Obtain DEM data projected as long/lat for the domain as a RasterLayer object
+  srtm <- getData('SRTM',
+                  lon = floor(long_dec_deg),
+                  lat = floor(lat_dec_deg))
+  
 }
