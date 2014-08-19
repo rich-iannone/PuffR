@@ -58,4 +58,10 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # 'round_any' function from the 'plyr' package
   UTM_location <- project(lat_long_dec_deg, proj_string_UTM)
   UTM_location <- round_any(UTM_location, 250, round)
+  
+  # Do these length and width values accomodate an integer number of cells of the specified resolution?
+  # These checks will be later part of a function in setting domain width and height
+  is_number_cells_across_x_an_int <- ifelse(domain_width_m %% cell_resolution_m != 0, FALSE, TRUE)
+  is_number_cells_across_y_an_int <- ifelse(domain_height_m %% cell_resolution_m != 0, FALSE, TRUE)
+  
 }
