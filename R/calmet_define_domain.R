@@ -161,7 +161,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Generate Extents object in long/lat projection for cropping
   bbox_longlat <- extent(LL_LR_UL_UR_longlat_SP)
   
-  # Crop DEM data using 'bbox' Extent object in lat/long projection
+  # Crop DEM data using 'bbox' Extent object in lat/lon projection
   srtm_cropped <- crop(srtm, bbox_longlat)
   
   # Reproject cropped RasterLayer object from lat/lon to UTM
@@ -174,15 +174,16 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Crop DEM data again using 'bbox' Extent object in UTM projection
   srtm_UTM_resampled <- resample(srtm_UTM, LL_LR_UL_UR_UTM_m_RL)
   
-  # Extract heights from the resampled DEM
+  # Extract heights from the resampled DEM in UTM
   gridded_heights_UTM_m_vector <- srtm_UTM_resampled@data@values
   
-  # Create a data frame for the extracted heights in row-major order
+  # Create a data frame for the extracted heights in UTM, in row-major order
   gridded_heights_UTM_m_df <- as.data.frame(matrix(gridded_heights_UTM_m_vector,
                                          nrow = number_cells_across_y,
                                          ncol = number_cells_across_x))
   
-  # Generate a vector of comma-delimited strings for inclusion in the GEO.DAT file
+  # Generate a vector of comma-delimited strings containing heights of every row of cells;
+  # this is for writing to a file and eventual inclusion in the GEO.DAT file
   for (i in 1:nrow(gridded_heights_UTM_m_df)){
   
     if (i == 1) gridded_heights_UTM_m_row_major_strings <- vector(mode = "character", length = 0)
