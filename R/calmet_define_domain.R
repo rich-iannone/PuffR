@@ -177,4 +177,9 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Extract heights from the resampled DEM
   gridded_heights_UTM_m_vector <- srtm_UTM_resampled@data@values
   
+  # Create a data frame for the extracted heights in row-major order
+  gridded_heights_UTM_m_df <- as.data.frame(matrix(gridded_heights_UTM_m_vector,
+                                         nrow = number_cells_across_y,
+                                         ncol = number_cells_across_x))
+  
 }
