@@ -10,4 +10,7 @@ CAN_alt.vrt
 *.txt
 *.dat
 *.out
+*.hdr
+*.tfw
+*.tif
 ggmapTemp.png
