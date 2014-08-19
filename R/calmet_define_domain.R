@@ -174,4 +174,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Crop DEM data again using 'bbox' Extent object in UTM projection
   srtm_UTM_resampled <- resample(srtm_UTM, LL_LR_UL_UR_UTM_m_RL)
   
+  # Extract heights from the resampled DEM
+  gridded_heights_UTM_m_vector <- srtm_UTM_resampled@data@values
+  
 }
