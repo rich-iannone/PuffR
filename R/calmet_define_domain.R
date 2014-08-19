@@ -23,23 +23,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
                                  EPSG_code = NULL,
                                  domain_width_m = NULL,
                                  domain_height_m = NULL) {
-
-require(rgdal)
-require(plyr)
   
-#lat_dec_deg <- 34.050184
-#long_dec_deg <- -118.253959
-
-#EPSG_code <- 32611
-
-# projection <- "UTM"
-# datum <- "WGS84"
-# ellipse <- "WGS84"
-# units <- "m"
-
-# Where is this point located on the grid?
-# Choices are: 1 (center), 2 (lower left), 3 (lower right), 4 (upper left), 5 (upper right)
-#lat_long_grid_loc <- 1
   
 # what is the the cell resolution (square cells) required (in meters)?
 #cell_resolution_m <- 250
