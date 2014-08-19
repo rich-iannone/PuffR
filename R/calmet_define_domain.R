@@ -143,4 +143,10 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Generate Extent object in UTM
   bbox_UTM <- extent(LL_LR_UL_UR_UTM_m_SP)
   
+  # Create a RasterLayer object for UTM values
+  LL_LR_UL_UR_UTM_m_RL <- raster(nrows = number_cells_across_x,
+                                 ncols = number_cells_across_x,
+                                 ext = bbox_UTM,
+                                 crs = proj_string_UTM)
+  
 }
