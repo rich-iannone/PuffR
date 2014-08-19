@@ -161,4 +161,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Generate Extents object in long/lat projection for cropping
   bbox_longlat <- extent(LL_LR_UL_UR_longlat_SP)
   
+  # Crop DEM data using 'bbox' Extent object in lat/long projection
+  srtm_cropped <- crop(srtm, bbox_longlat)
+  
 }
