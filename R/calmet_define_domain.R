@@ -182,4 +182,15 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
                                          nrow = number_cells_across_y,
                                          ncol = number_cells_across_x))
   
+  # Generate a vector of comma-delimited strings for inclusion in the GEO.DAT file
+  for (i in 1:nrow(gridded_heights_UTM_m_df)){
+  
+    if (i == 1) gridded_heights_UTM_m_row_major_strings <- vector(mode = "character", length = 0)
+  
+    string <- paste(round(gridded_heights_UTM_m_df[i, ], digits = 2), collapse = ", ")
+    
+    gridded_heights_UTM_m_row_major_strings <- c(gridded_heights_UTM_m_row_major_strings, string)
+    
+  }
+  
 }
