@@ -68,4 +68,8 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   number_cells_across_x <- ifelse(is_number_cells_across_x_an_int == TRUE,
                                   domain_width_m/cell_resolution_m, NULL)
   
+  # Get the number of cells in the y direction
+  number_cells_across_y <- ifelse(is_number_cells_across_y_an_int == TRUE,
+                                  domain_height_m/cell_resolution_m, NULL)
+  
 }
