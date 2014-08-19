@@ -75,4 +75,61 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Get the total number of cells
   total_cells <- number_cells_across_x * number_cells_across_y
   
+  # Get extents of UTM grid (left, right, bottom, top) in meters
+  left_UTM <- if(lat_long_grid_loc == 1) {
+    UTM_location[1,1] - (0.5 * domain_width_m)
+  } else if (lat_long_grid_loc == 2) {
+    UTM_location[1,1]
+  } else if (lat_long_grid_loc == 3) {
+    UTM_location[1,1] - domain_width_m
+  } else if (lat_long_grid_loc == 4) {
+    UTM_location[1,1]
+  } else if (lat_long_grid_loc == 5) {
+    UTM_location[1,1] - domain_width_m
+  } else {
+    NULL
+  }
+  
+  right_UTM <- if(lat_long_grid_loc == 1) {
+    UTM_location[1,1] + (0.5 * domain_width_m)
+  } else if (lat_long_grid_loc == 2) {
+    UTM_location[1,1] + domain_width_m
+  } else if (lat_long_grid_loc == 3) {
+    UTM_location[1,1]
+  } else if (lat_long_grid_loc == 4) {
+    UTM_location[1,1] + domain_width_m
+  } else if (lat_long_grid_loc == 5) {
+    UTM_location[1,1]
+  } else {
+    NULL
+  }
+  
+  bottom_UTM <- if(lat_long_grid_loc == 1) {
+    UTM_location[1,2] - (0.5 * domain_height_m)
+  } else if (lat_long_grid_loc == 2) {
+    UTM_location[1,2]
+  } else if (lat_long_grid_loc == 3) {
+    UTM_location[1,2]
+  } else if (lat_long_grid_loc == 4) {
+    UTM_location[1,2] - domain_height_m
+  } else if (lat_long_grid_loc == 5) {
+    UTM_location[1,2] - domain_height_m
+  } else {
+    NULL
+  }
+  
+  top_UTM <- if(lat_long_grid_loc == 1) {
+    UTM_location[1,2] + (0.5 * domain_height_m)
+  } else if (lat_long_grid_loc == 2) {
+    UTM_location[1,2] + domain_height_m
+  } else if (lat_long_grid_loc == 3) {
+    UTM_location[1,2] + domain_height_m
+  } else if (lat_long_grid_loc == 4) {
+    UTM_location[1,2]
+  } else if (lat_long_grid_loc == 5) {
+    UTM_location[1,2]
+  } else {
+    NULL
+  }
+  
 }
