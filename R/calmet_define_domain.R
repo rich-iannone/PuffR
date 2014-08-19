@@ -40,6 +40,9 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   domain_width_m <- round_any(domain_width_m, 250, round)
   domain_height_m <- round_any(domain_height_m, 250, round)
   
+  # Get matrix of longitude and latitude for chosen point
+  lat_long_dec_deg <- cbind(long_dec_deg, lat_dec_deg)
+  
   
 # what is the the cell resolution (square cells) required (in meters)?
 #cell_resolution_m <- 250
