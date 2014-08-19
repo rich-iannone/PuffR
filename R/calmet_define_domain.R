@@ -24,6 +24,12 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
                                  domain_width_m = NULL,
                                  domain_height_m = NULL) {
   
+  # Add require statements
+  require(rgdal)
+  require(plyr)
+  require(sp)
+  require(raster)
+  
   
 # what is the the cell resolution (square cells) required (in meters)?
 #cell_resolution_m <- 250
