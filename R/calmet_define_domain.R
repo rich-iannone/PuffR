@@ -132,4 +132,8 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
     NULL
   }
   
+  # Create a data frame object for UTM values of LL, LR, UL, and UR
+  LL_LR_UL_UR_UTM_m_DF <- data.frame("x" = c(left_UTM, right_UTM, left_UTM, right_UTM), 
+                                     "y" = c(bottom_UTM, bottom_UTM, top_UTM, top_UTM))
+  
 }
