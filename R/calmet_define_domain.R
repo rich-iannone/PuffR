@@ -178,6 +178,9 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Create a SpatialPixelsDataFrame from the resampled data
   srtm_UTM_resampled.SPDF <- as(srtm_UTM_resampled, "SpatialPixelsDataFrame")
   
+  # Create a data frame for plotting in ggplot
+  srtm_UTM_resampled.df <- as.data.frame(srtm_UTM_resampled.SPDF)
+  
   # Extract heights from the resampled DEM in UTM
   gridded_heights_UTM_m_vector <- srtm_UTM_resampled@data@values
   
