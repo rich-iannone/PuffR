@@ -194,6 +194,9 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
                                          nrow = number_cells_across_y,
                                          ncol = number_cells_across_x))
   
+  # Replace NA values with 0 values
+  gridded_heights_UTM_m_df[is.na(gridded_heights_UTM_m_df)] <- 0
+  
   # Generate a vector of comma-delimited strings containing heights of every row of cells;
   # this is for writing to a file and eventual inclusion in the GEO.DAT file
   for (i in 1:nrow(gridded_heights_UTM_m_df)){
