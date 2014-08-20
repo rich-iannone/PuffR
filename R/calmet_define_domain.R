@@ -181,6 +181,11 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Create a data frame for plotting in ggplot
   srtm_UTM_resampled.df <- as.data.frame(srtm_UTM_resampled.SPDF)
   
+  # Plot the grid using ggplot
+  g <- ggplot(srtm_UTM_resampled.df, aes(x = x, y = y)) +
+    geom_tile(aes(fill = srtm_13_06)) +
+    coord_equal()
+  
   # Extract heights from the resampled DEM in UTM
   gridded_heights_UTM_m_vector <- srtm_UTM_resampled@data@values
   
