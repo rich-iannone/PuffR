@@ -21,7 +21,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
                                  long_dec_deg = NULL,
                                  lat_long_grid_loc = 1,
                                  domain_width_m = NULL,
-                                 domain_height_m = NULL) {
+                                 domain_height_m = NULL){
   
   # Add require statements
   require(rgdal)
@@ -46,9 +46,10 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Determine the UTM zone
   UTM_zone <- (floor((long_dec_deg + 180)/6) %% 60) + 1
     
-  # Define the PROJ.4 projection strings for long/lat and UTM projections
+  # Define a PROJ.4 projection string for a lat/lon projection
   proj_string_longlat <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
 
+  # Define a PROJ.4 projection string for a UTM projection
   proj_string_UTM <- paste("+proj=utm +zone=",
                            UTM_zone,
                            " +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
