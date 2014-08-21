@@ -97,6 +97,10 @@ calmet_surface_met <- function(start_year,
   LL_LR_UL_UR_UTM_m_DF <- data.frame("x" = c(left_UTM, right_UTM, left_UTM, right_UTM), 
                                      "y" = c(bottom_UTM, bottom_UTM, top_UTM, top_UTM))
   
+  # Create a SpatialPoints object for UTM values of LL, LR, UL, and UR
+  LL_LR_UL_UR_UTM_m_SP <- SpatialPoints(as.matrix(LL_LR_UL_UR_UTM_m_DF),
+                                        proj4string = CRS(proj_string_UTM))
+  
   # Define the start and end times and determine number of hours in each year
   start_time <- ISOdatetime(startyear, 1, 1, hour = 0, min = 0, sec = 0, tz = "GMT")
   end_time <- ISOdatetime(endyear, 12, 31, hour = 24, min = 0, sec = 0, tz = "GMT")
