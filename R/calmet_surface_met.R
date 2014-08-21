@@ -238,8 +238,8 @@ calmet_surface_met <- function(start_year,
   
   # Construct the body of the SURF.DAT file using a nested loops that provide grouped time interval
   # headers with ordered surface station parameters
-  
-  for (i in 1:total_hours) {
+  for (i in 1:total_hours){
+    
     cat(year(time_series[[i]]),
         "  ",
         yday(time_series[[i]]),
@@ -250,9 +250,12 @@ calmet_surface_met <- function(start_year,
         "  ", 
         yday(time_series[[i]] + 3600),
         "  ",
-        hour(time_series[[i]] + 3600), file = paste(outputfile), append = TRUE)
-    cat("", file = paste(outputfile), sep = "\n", append = TRUE)
-    for (j in 1:length(station_data_frames)) {
+        hour(time_series[[i]] + 3600), file = paste(output_file), append = TRUE)
+    
+    cat("", file = paste(output_file), sep = "\n", append = TRUE)
+    
+    for (j in 1:length(station_data_frames)){
+      
       cat("  ",
           # Wind speed, m/s (WS)
           station_data_frames[[j]][[1]]$WIND.SPD[i],
