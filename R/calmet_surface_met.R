@@ -282,9 +282,13 @@ calmet_surface_met <- function(start_year,
           #   0 = no precipitation
           #   1-18 = liquid precipitation
           #   19-45 = frozen precipitation
-          station_data_frames[[j]][[1]]$PRECIP.CODE[i], file = paste(outputfile), append = TRUE)
+          station_data_frames[[j]][[1]]$PRECIP.CODE[i],
+          file = paste(output_file), append = TRUE)
       
-      cat("", file = paste(outputfile), sep = "\n", append = TRUE) } }
-  #
-  #
+      cat("", file = output_file, sep = "\n", append = TRUE)
+      
+    } 
+    
+  }
+  
 }
