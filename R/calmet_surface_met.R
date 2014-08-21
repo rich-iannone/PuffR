@@ -104,6 +104,12 @@ calmet_surface_met <- function(start_year,
   # Generate Extent object in UTM
   bbox_UTM <- extent(LL_LR_UL_UR_UTM_m_SP)
   
+  # Create a RasterLayer object for UTM values
+  LL_LR_UL_UR_UTM_m_RL <- raster(nrows = number_cells_across_x,
+                                 ncols = number_cells_across_x,
+                                 ext = bbox_UTM,
+                                 crs = proj_string_UTM)
+  
   # Define the start and end times and determine number of hours in each year
   start_time <- ISOdatetime(startyear, 1, 1, hour = 0, min = 0, sec = 0, tz = "GMT")
   end_time <- ISOdatetime(endyear, 12, 31, hour = 24, min = 0, sec = 0, tz = "GMT")
