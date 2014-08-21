@@ -9,10 +9,10 @@
 #' @examples
 #' \dontrun{
 #' # Create a CALMET domain of 100 by 100 km in the Los Angeles area.
-#' # Chosen lat/long coordinates are for the center of the domain. 
+#' # Chosen lat/lon coordinates are for the center of the domain. 
 #' calmet_define_domain(lat_dec_deg = 34.050184,
-#'                      long_dec_deg = -118.253959,
-#'                      lat_long_grid_loc = 1,
+#'                      lon_dec_deg = -118.253959,
+#'                      lat_lon_grid_loc = 1,
 #'                      domain_width_m = 100000,
 #'                      domain_height_m = 100000)
 #'}
