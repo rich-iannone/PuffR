@@ -230,11 +230,10 @@ calmet_surface_met <- function(start_year,
   
   # Add line 7- to file (5-digit identifiers for met stations used in file)
   for (i in 1:length(station_data_frames)) {
-    cat(paste(as.character(i),
-              as.character(i),
-              as.character(i),
-              as.character(i),
-              as.character(i), sep = ''), file = paste(outputfile), sep = "\n", append = TRUE)
+    
+    cat(paste(formatC(i, digits = 5, flag = "0")),
+        file = output_file, sep = "\n", append = TRUE)
+    
   }
   
   # Construct the body of the SURF.DAT file using a nested loops that provide grouped time interval
