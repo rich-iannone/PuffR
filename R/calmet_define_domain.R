@@ -194,8 +194,8 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   
   # Create a data frame for the extracted heights in UTM, in row-major order
   gridded_heights_UTM_m_df <- as.data.frame(matrix(gridded_heights_UTM_m_vector,
-                                         nrow = number_cells_across_y,
-                                         ncol = number_cells_across_x))
+                                                   nrow = number_cells_across_y,
+                                                   ncol = number_cells_across_x))
   
   # Replace NA values with 0 values
   gridded_heights_UTM_m_df[is.na(gridded_heights_UTM_m_df)] <- 0
@@ -203,9 +203,9 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Generate a vector of comma-delimited strings containing heights of every row of cells;
   # this is for writing to a file and eventual inclusion in the GEO.DAT file
   for (i in 1:nrow(gridded_heights_UTM_m_df)){
-  
+    
     if (i == 1) gridded_heights_UTM_m_row_major_strings <- vector(mode = "character", length = 0)
-  
+    
     string <- paste(round(gridded_heights_UTM_m_df[i, ], digits = 2), collapse = ", ")
     
     gridded_heights_UTM_m_row_major_strings <- c(gridded_heights_UTM_m_row_major_strings, string)
