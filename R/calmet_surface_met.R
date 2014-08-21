@@ -188,27 +188,27 @@ calmet_surface_met <- function(start_year,
   # Construct the file header records of the SURF.DAT file
   
   # Initialize file for writing
-  cat("", file = paste(outputfile))
+  cat("", file = paste(output_file))
   
   # Add line 1 to file header (dataset name [SURF.DAT], dataset version [2.1], dataset message field)
   cat("SURF.DAT        2.1             Hour Start and End Times with Seconds",
-      file = paste(outputfile), sep = "\n", append = TRUE)
+      file = paste(output_file), sep = "\n", append = TRUE)
   
   # Add line 2 to file header (number of comment lines to follow)
   cat("1",
-      file = paste(outputfile), sep = "\n", append = TRUE)
+      file = paste(output_file), sep = "\n", append = TRUE)
   
   # Add line 3 to file header (single comment line)
   cat("Produced using R",
-      file = paste(outputfile), sep = "\n", append = TRUE)
+      file = paste(output_file), sep = "\n", append = TRUE)
   
   # Add line 4 to file header (map projection [NONE])
   cat("NONE",
-      file = paste(outputfile), sep = "\n", append = TRUE)
+      file = paste(output_file), sep = "\n", append = TRUE)
   
   # Add line 5 to file header (time zone)
   cat("UTC-0800",
-      file = paste(outputfile), sep = "\n", append = TRUE)
+      file = paste(output_file), sep = "\n", append = TRUE)
   
   # Add line 6 to file header (Beginning and end times for file, number of met stations)
   cat(year(time_series[[1]]),
