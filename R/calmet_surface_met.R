@@ -27,6 +27,8 @@ calmet_surface_met <- function(start_year,
   # Add require statements
   require(lubridate)
   
+  # Define the cell resolution (square cells) as 250 m
+  cell_resolution_m <- 250
   
   # Define the start and end times and determine number of hours in each year
   start_time <- ISOdatetime(startyear, 1, 1, hour = 0, min = 0, sec = 0, tz = "GMT")
