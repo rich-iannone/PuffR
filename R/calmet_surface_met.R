@@ -33,6 +33,9 @@ calmet_surface_met <- function(start_year,
   # Determine the UTM zone
   UTM_zone <- (floor((lon_dec_deg + 180)/6) %% 60) + 1
   
+  # Define a PROJ.4 projection string for a lat/lon projection
+  proj_string_longlat <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+  
   # Define the start and end times and determine number of hours in each year
   start_time <- ISOdatetime(startyear, 1, 1, hour = 0, min = 0, sec = 0, tz = "GMT")
   end_time <- ISOdatetime(endyear, 12, 31, hour = 24, min = 0, sec = 0, tz = "GMT")
