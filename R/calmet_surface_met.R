@@ -133,8 +133,11 @@ calmet_surface_met <- function(start_year,
   
   # Create the hourly time series as a list of POSIXlt time objects
   time_series <- as.list(c(1:total_hours))
+  
   for (i in 1:total_hours) {
+    
     time_series[[i]] <- start_time + (3600 * (i - 1))
+    
   }
   
   # Use CSV_files to extract data from specified stations
@@ -145,6 +148,23 @@ calmet_surface_met <- function(start_year,
     station_data_frames[[i]] <- list(read.csv(CSV_files[i], header = TRUE))
     
   }
+  
+  # Validate the individual CSV files, present a table several pieces of
+  # information related to the data availablity and the data quality
+  # 1. Elements where data is available
+  # 2. Data completeness for each of the elements
+  # 3. Whether the station has cloud opacity and ceiling height fields
+  # 4. A data completeness and data quality score (from 1 to 10)
+  
+  # Save the data frame to disk as a CSV file
+  
+  # Ask the user which files to use, or, ask what DC/DQ is the minimum for
+  # excluding stations
+  
+  # Generate a list of CSV files that are accepted by the user
+  
+  # Determine whether the selected stations, when taken together, provide
+  # the minimum data completeness for the SURF.DAT file
   
   # Write out the SURF.DAT file
   #
