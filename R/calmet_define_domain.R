@@ -32,7 +32,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   
   # Where is this point located on the grid?
   # Choices are: 1 (center), 2 (lower left), 3 (lower right), 4 (upper left), 5 (upper right)
-  lat_long_grid_loc <- 1
+  lat_lon_grid_loc <- 1
   
   # Define the cell resolution (square cells) as 250 m
   cell_resolution_m <- 250
@@ -42,14 +42,14 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   domain_height_m <- round_any(domain_height_m, 250, round)
   
   # Get matrix of longitude and latitude for chosen point
-  lat_long_dec_deg <- cbind(long_dec_deg, lat_dec_deg)
+  lat_lon_dec_deg <- cbind(lon_dec_deg, lat_dec_deg)
   
   # Determine the UTM zone
-  UTM_zone <- (floor((long_dec_deg + 180)/6) %% 60) + 1
-    
+  UTM_zone <- (floor((lon_dec_deg + 180)/6) %% 60) + 1
+  
   # Define a PROJ.4 projection string for a lat/lon projection
   proj_string_longlat <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
-
+  
   # Define a PROJ.4 projection string for a UTM projection
   proj_string_UTM <- paste("+proj=utm +zone=",
                            UTM_zone,
@@ -58,7 +58,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   
   # Project as UTM coordinates from the determined UTM zone, round to nearest 250 m using the
   # 'round_any' function from the 'plyr' package
-  UTM_location <- project(lat_long_dec_deg, proj_string_UTM)
+  UTM_location <- project(lat_lon_dec_deg, proj_string_UTM)
   UTM_location <- round_any(UTM_location, 250, round)
   
   # Do these length and width values accomodate an integer number of cells of the specified resolution?
@@ -78,57 +78,57 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   total_cells <- number_cells_across_x * number_cells_across_y
   
   # Get extents of UTM grid (left, right, bottom, top) in meters
-  left_UTM <- if(lat_long_grid_loc == 1) {
+  left_UTM <- if(lat_lon_grid_loc == 1) {
     UTM_location[1,1] - (0.5 * domain_width_m)
-  } else if (lat_long_grid_loc == 2) {
+  } else if (lat_lon_grid_loc == 2) {
     UTM_location[1,1]
-  } else if (lat_long_grid_loc == 3) {
+  } else if (lat_lon_grid_loc == 3) {
     UTM_location[1,1] - domain_width_m
-  } else if (lat_long_grid_loc == 4) {
+  } else if (lat_lon_grid_loc == 4) {
     UTM_location[1,1]
-  } else if (lat_long_grid_loc == 5) {
+  } else if (lat_lon_grid_loc == 5) {
     UTM_location[1,1] - domain_width_m
   } else {
     NULL
   }
   
-  right_UTM <- if(lat_long_grid_loc == 1) {
+  right_UTM <- if(lat_lon_grid_loc == 1) {
     UTM_location[1,1] + (0.5 * domain_width_m)
-  } else if (lat_long_grid_loc == 2) {
+  } else if (lat_lon_grid_loc == 2) {
     UTM_location[1,1] + domain_width_m
-  } else if (lat_long_grid_loc == 3) {
+  } else if (lat_lon_grid_loc == 3) {
     UTM_location[1,1]
-  } else if (lat_long_grid_loc == 4) {
+  } else if (lat_lon_grid_loc == 4) {
     UTM_location[1,1] + domain_width_m
-  } else if (lat_long_grid_loc == 5) {
+  } else if (lat_lon_grid_loc == 5) {
     UTM_location[1,1]
   } else {
     NULL
   }
   
-  bottom_UTM <- if(lat_long_grid_loc == 1) {
+  bottom_UTM <- if(lat_lon_grid_loc == 1) {
     UTM_location[1,2] - (0.5 * domain_height_m)
-  } else if (lat_long_grid_loc == 2) {
+  } else if (lat_lon_grid_loc == 2) {
     UTM_location[1,2]
-  } else if (lat_long_grid_loc == 3) {
+  } else if (lat_lon_grid_loc == 3) {
     UTM_location[1,2]
-  } else if (lat_long_grid_loc == 4) {
+  } else if (lat_lon_grid_loc == 4) {
     UTM_location[1,2] - domain_height_m
-  } else if (lat_long_grid_loc == 5) {
+  } else if (lat_lon_grid_loc == 5) {
     UTM_location[1,2] - domain_height_m
   } else {
     NULL
   }
   
-  top_UTM <- if(lat_long_grid_loc == 1) {
+  top_UTM <- if(lat_lon_grid_loc == 1) {
     UTM_location[1,2] + (0.5 * domain_height_m)
-  } else if (lat_long_grid_loc == 2) {
+  } else if (lat_lon_grid_loc == 2) {
     UTM_location[1,2] + domain_height_m
-  } else if (lat_long_grid_loc == 3) {
+  } else if (lat_lon_grid_loc == 3) {
     UTM_location[1,2] + domain_height_m
-  } else if (lat_long_grid_loc == 4) {
+  } else if (lat_lon_grid_loc == 4) {
     UTM_location[1,2]
-  } else if (lat_long_grid_loc == 5) {
+  } else if (lat_lon_grid_loc == 5) {
     UTM_location[1,2]
   } else {
     NULL
@@ -157,7 +157,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   
   # Obtain DEM data projected as long/lat for the domain as a RasterLayer object
   srtm <- getData('SRTM',
-                  lon = floor(long_dec_deg),
+                  lon = floor(lon_dec_deg),
                   lat = floor(lat_dec_deg))
   
   # Generate Extents object in long/lat projection for cropping
