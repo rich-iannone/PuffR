@@ -110,6 +110,9 @@ calmet_surface_met <- function(start_year,
                                  ext = bbox_UTM,
                                  crs = proj_string_UTM)
   
+  # Create a SpatialPoints object for lat/lon values of LL, LR, UL, and UR through a
+  # spatial transform
+  LL_LR_UL_UR_longlat_SP <- spTransform(LL_LR_UL_UR_UTM_m_SP, CRS("+proj=longlat +ellps=GRS80"))
   # Define the start and end times and determine number of hours in each year
   start_time <- ISOdatetime(startyear, 1, 1, hour = 0, min = 0, sec = 0, tz = "GMT")
   end_time <- ISOdatetime(endyear, 12, 31, hour = 24, min = 0, sec = 0, tz = "GMT")
