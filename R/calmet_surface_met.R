@@ -15,9 +15,6 @@
 #' calmet_surface_met()
 #'}
 
-surf.dat.generate <- function(startyear = NOAA_start_year,
-                              endyear = NOAA_end_year,
-                              outputfile = "surf.dat"){
   
   require(lubridate)
   
