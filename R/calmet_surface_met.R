@@ -24,6 +24,7 @@ calmet_surface_met <- function(start_year,
                                domain_height_m = NULL
                                output_file = "surf.dat"){
   
+  # Add require statements
   require(lubridate)
   
   NOAA_start_year <- as.numeric(unlist(read.table(file = "NOAA.years.out")))[1]
