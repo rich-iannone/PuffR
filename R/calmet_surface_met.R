@@ -122,6 +122,9 @@ calmet_surface_met <- function(start_year,
                                end_year = end_year,
                                bbox_lat_lon = bbox_lat_lon)
   
+  # Generate a file list for the newly-generated CSV files
+  CSV_files <- list.files(path = ".", pattern = "[0-9]*-[0-9]*-[0-9]*.csv")
+  
   # Define the start and end times and determine number of hours in each year
   start_time <- ISOdatetime(startyear, 1, 1, hour = 0, min = 0, sec = 0, tz = "GMT")
   end_time <- ISOdatetime(endyear, 12, 31, hour = 24, min = 0, sec = 0, tz = "GMT")
