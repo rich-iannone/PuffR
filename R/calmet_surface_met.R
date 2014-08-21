@@ -226,7 +226,7 @@ calmet_surface_met <- function(start_year,
       length(CSV_files),
       file = paste(output_file), sep = '', append = TRUE)
   
-  cat("", file = paste(outputfile), sep = "\n", append = TRUE)
+  cat("", file = paste(output_file), sep = "\n", append = TRUE)
   
   # Add line 7- to file (5-digit identifiers for met stations used in file)
   for (i in 1:length(station_data_frames)) {
