@@ -36,6 +36,62 @@ calmet_surface_met <- function(start_year,
   # Define a PROJ.4 projection string for a lat/lon projection
   proj_string_longlat <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
   
+  # Get extents of UTM grid (left, right, bottom, top) in meters
+  left_UTM <- if(lat_lon_grid_loc == 1) {
+    UTM_location[1,1] - (0.5 * domain_width_m)
+  } else if (lat_lon_grid_loc == 2) {
+    UTM_location[1,1]
+  } else if (lat_lon_grid_loc == 3) {
+    UTM_location[1,1] - domain_width_m
+  } else if (lat_lon_grid_loc == 4) {
+    UTM_location[1,1]
+  } else if (lat_lon_grid_loc == 5) {
+    UTM_location[1,1] - domain_width_m
+  } else {
+    NULL
+  }
+  
+  right_UTM <- if(lat_lon_grid_loc == 1) {
+    UTM_location[1,1] + (0.5 * domain_width_m)
+  } else if (lat_lon_grid_loc == 2) {
+    UTM_location[1,1] + domain_width_m
+  } else if (lat_lon_grid_loc == 3) {
+    UTM_location[1,1]
+  } else if (lat_lon_grid_loc == 4) {
+    UTM_location[1,1] + domain_width_m
+  } else if (lat_lon_grid_loc == 5) {
+    UTM_location[1,1]
+  } else {
+    NULL
+  }
+  
+  bottom_UTM <- if(lat_lon_grid_loc == 1) {
+    UTM_location[1,2] - (0.5 * domain_height_m)
+  } else if (lat_lon_grid_loc == 2) {
+    UTM_location[1,2]
+  } else if (lat_lon_grid_loc == 3) {
+    UTM_location[1,2]
+  } else if (lat_lon_grid_loc == 4) {
+    UTM_location[1,2] - domain_height_m
+  } else if (lat_lon_grid_loc == 5) {
+    UTM_location[1,2] - domain_height_m
+  } else {
+    NULL
+  }
+  
+  top_UTM <- if(lat_lon_grid_loc == 1) {
+    UTM_location[1,2] + (0.5 * domain_height_m)
+  } else if (lat_lon_grid_loc == 2) {
+    UTM_location[1,2] + domain_height_m
+  } else if (lat_lon_grid_loc == 3) {
+    UTM_location[1,2] + domain_height_m
+  } else if (lat_lon_grid_loc == 4) {
+    UTM_location[1,2]
+  } else if (lat_lon_grid_loc == 5) {
+    UTM_location[1,2]
+  } else {
+    NULL
+  }
   # Define the start and end times and determine number of hours in each year
   start_time <- ISOdatetime(startyear, 1, 1, hour = 0, min = 0, sec = 0, tz = "GMT")
   end_time <- ISOdatetime(endyear, 12, 31, hour = 24, min = 0, sec = 0, tz = "GMT")
