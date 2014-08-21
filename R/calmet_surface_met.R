@@ -137,8 +137,8 @@ calmet_surface_met <- function(start_year,
     time_series[[i]] <- start_time + (3600 * (i - 1))
   }
   
-  # Use selected_synthetic_id to extract data from specified stations
-  station_data_frames <- as.list(c(1:nrow(selected_synthetic_id)))
+  # Use CSV_files to extract data from specified stations
+  station_data_frames <- as.list(c(1:length(CSV_files)))
   
   for (i in 1:nrow(selected_synthetic_id)) {
     station_data_frames[[i]] <- list(read.csv(paste(selected_synthetic_id$CSV[i]), header = TRUE))
