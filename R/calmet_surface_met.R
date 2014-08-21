@@ -223,8 +223,8 @@ calmet_surface_met <- function(start_year,
       "  ",
       hour(time_series[[total_hours]] + 3600),
       "  ",
-      nrow(selected_synthetic_id),
-      file = paste(outputfile), sep = '', append = TRUE)
+      length(CSV_files),
+      file = paste(output_file), sep = '', append = TRUE)
   
   cat("", file = paste(outputfile), sep = "\n", append = TRUE)
   
