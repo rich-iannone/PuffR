@@ -27,9 +27,6 @@ calmet_surface_met <- function(start_year,
   # Add require statements
   require(lubridate)
   
-  NOAA_start_year <- as.numeric(unlist(read.table(file = "NOAA.years.out")))[1]
-  NOAA_end_year <- as.numeric(unlist(read.table(file = "NOAA.years.out")))[2]
-  selected_synthetic_id <- read.csv("selected_synthetic_id.csv", header = TRUE)
   
   # Define the start and end times and determine number of hours in each year
   start_time <- ISOdatetime(startyear, 1, 1, hour = 0, min = 0, sec = 0, tz = "GMT")
