@@ -14,7 +14,7 @@ While CALPUFF is indeed great, the workflow for atmospheric dispersion modelling
 
 — allow the user to provide a minimal selection of parameters (relying on a very sensible selection of defaults); the PuffR package will then collect, analyze, and prepare model inputs with the best publicly available data
 
-- include the ability to store presets that can be shared across projects
+— include the ability to store presets (e.g., for model domains, receptors, emissions sources, etc.) that can be shared across projects
 
 — have a useful help system and documentation library (with copious examples) available to aid in the understanding of every option/switch/setting in CALMET/CALPUFF/CALSUM/CALPOST
 
