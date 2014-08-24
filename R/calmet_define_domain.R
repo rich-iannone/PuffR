@@ -333,6 +333,9 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
           axis.title = element_text(size = rel(1.2)),
           legend.title = element_text(size = rel(1.2)))
   
+  # Reclass the 'CALMET_categories' back to the 'numeric' type
+  UTM_gridded_values$CALMET_categories <- as.numeric(UTM_gridded_values$CALMET_categories)
+  
   # Get data frame containing micrometeorological parameters per land use category
   # per season
   mmet_seasons <- calmet_seasonal_micrometeorology()
