@@ -294,4 +294,20 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   UTM_gridded_values$CALMET_categories <- as.factor(UTM_gridded_values$CALMET_categories)
   
   
+  # Plot the grid of land use categories using ggplot
+    h <- ggplot(UTM_gridded_values, aes(x = x, y = y,
+                                        fill = CALMET_categories)) +
+    geom_tile(aes(fill = CALMET_categories)) +
+    scale_fill_manual(values = cols, breaks = names(cols), name = "Land Use\nCategories") +
+    coord_equal() +
+    theme_bw(base_size = 12, base_family = "") +
+    labs(x = "UTM Easting, m") +
+    labs(y = "UTM Northing, m") +
+    theme(axis.text = element_text(size = rel(1.2)),
+          axis.title = element_text(size = rel(1.2)),
+          legend.title = element_text(size = rel(1.2)))
+  
+  
+  
+  
 }
