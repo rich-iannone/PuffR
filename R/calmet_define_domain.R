@@ -290,4 +290,8 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
             "80" = "moccasin",
             "90" = "honeydew")
   
+  # Reclass the 'CALMET_categories' for the purpose of generating a ggplot object
+  UTM_gridded_values$CALMET_categories <- as.factor(UTM_gridded_values$CALMET_categories)
+  
+  
 }
