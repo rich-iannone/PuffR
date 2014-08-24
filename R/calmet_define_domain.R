@@ -270,4 +270,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
     
   }
   
+  # Write the formatted text to disk
+  cat(gridded_heights_UTM_m_row_major_strings, file = "LU.txt", sep = "\n")
+  
 }
