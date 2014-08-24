@@ -28,6 +28,9 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   require(plyr)
   require(sp)
   require(raster)
+  require(ggplot2)
+  require(stringr)
+  require(MODISTools)
   
   # Where is this point located on the grid?
   # Choices are: 1 (center), 2 (lower left), 3 (lower right), 4 (upper left), 5 (upper right)
