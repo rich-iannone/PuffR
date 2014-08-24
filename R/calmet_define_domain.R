@@ -295,8 +295,10 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
     
   }
   
-  # Write the formatted LU category text to disk
-  cat(gridded_CALMET_categories_strings, file = "LU.txt", sep = "\n")
+  # Write the LU category subheader and data to disk
+  geo_dat_h_LU <- "0  --- LAND USE CATEGORIES  0 - DEFAULT CATEGORIES  1 - NEW CATEGORIES"
+  cat(geo_dat_h_LU, file = "LU.txt", sep = "\n", append = FALSE)
+  cat(gridded_CALMET_categories_strings, file = "LU.txt", sep = "\n", append = TRUE)
   
   # Create new data frame object 'UTM_gridded_values' that contains gridded heights and
   # LU categories
