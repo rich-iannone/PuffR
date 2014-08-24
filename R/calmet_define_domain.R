@@ -229,4 +229,5 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   modis_coordinates <- cbind(modis_coordinates, start.date)
   modis_coordinates <- cbind(modis_coordinates, end.date)
   
+  MCD12Q1_Bands <- GetBands(Product = "MCD12Q1")
 }
