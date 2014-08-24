@@ -152,7 +152,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Create a data frame for plotting in ggplot
   srtm_UTM_resampled.df <- as.data.frame(srtm_UTM_resampled.SPDF)
   
-  # Plot the grid using ggplot
+  # Plot the grid of heights using ggplot
   g <- ggplot(srtm_UTM_resampled.df, aes(x = x, y = y, fill = srtm_UTM_resampled.df[,3])) +
     geom_tile(aes(fill = srtm_UTM_resampled.df[,3])) +
     scale_fill_gradient(low = "green", high = "red",
