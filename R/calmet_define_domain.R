@@ -219,4 +219,8 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Create a SpatialPixels object from the generated RasterLayer object
   srtm_latlon_SP <- as(srtm_latlon_RL, "SpatialPixels")
   
+  # Extract lat/lon coordinates from 'srtm_latlon_SP'
+  modis_coordinates <- as.data.frame(srtm_latlon_SP@coords)
+  colnames(modis_coordinates) <- c("long", "lat")
+  
 }
