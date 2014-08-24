@@ -154,16 +154,16 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   
   # Plot the grid using ggplot
   g <- ggplot(srtm_UTM_resampled.df, aes(x = x, y = y, fill = srtm_UTM_resampled.df[,3])) +
-       geom_tile(aes(fill = srtm_UTM_resampled.df[,3])) +
-       scale_fill_gradient(low = "green", high = "red",
-                           guide = guide_legend(title = "Heights")) +
-       coord_equal() +
-       theme_bw(base_size = 12, base_family = "") +
-       labs(x = "UTM Easting, m") +
-       labs(y = "UTM Northing, m") +
-       theme(axis.text = element_text(size = rel(1.2)),
-             axis.title = element_text(size = rel(1.2)),
-             legend.title = element_text(size = rel(1.2)))
+    geom_tile(aes(fill = srtm_UTM_resampled.df[,3])) +
+    scale_fill_gradient(low = "green", high = "red",
+                        guide = guide_legend(title = "Heights")) +
+    coord_equal() +
+    theme_bw(base_size = 12, base_family = "") +
+    labs(x = "UTM Easting, m") +
+    labs(y = "UTM Northing, m") +
+    theme(axis.text = element_text(size = rel(1.2)),
+          axis.title = element_text(size = rel(1.2)),
+          legend.title = element_text(size = rel(1.2)))
   
   # Extract heights from the resampled DEM in UTM
   gridded_heights_UTM_m_vector <- srtm_UTM_resampled@data@values
