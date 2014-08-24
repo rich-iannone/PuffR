@@ -275,4 +275,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Write the formatted LU category text to disk
   cat(gridded_CALMET_categories_strings, file = "LU.txt", sep = "\n")
   
+  # Create new data frame object 'UTM_gridded_values' that contains gridded heights and
+  # LU categories
+  UTM_gridded_values <- cbind(srtm_UTM_resampled.df, as.data.frame(CALMET_categories))
 }
