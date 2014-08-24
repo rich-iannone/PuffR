@@ -223,4 +223,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   modis_coordinates <- as.data.frame(srtm_latlon_SP@coords)
   colnames(modis_coordinates) <- c("long", "lat")
   
+  start.date <- rep(2008, nrow(modis_coordinates))
+  end.date <- rep(2008, nrow(modis_coordinates))
+  
 }
