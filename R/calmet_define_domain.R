@@ -216,4 +216,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
                            ncols = number_cells_across_x,
                            crs = proj_string_longlat)
   
+  # Create a SpatialPixels object from the generated RasterLayer object
+  srtm_latlon_SP <- as(srtm_latlon_RL, "SpatialPixels")
+  
 }
