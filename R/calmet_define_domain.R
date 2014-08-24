@@ -236,4 +236,18 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
                Size = c(0,0), TimeSeriesLength = 1)
   
   file_list <- list.files(pattern = ".*_MCD12Q1.asc")
+  
+  for (i in 1:length(file_list)){
+    
+    if (i == 1) IGBP_Type_1_class_no <- vector(mode = "numeric", length = 0)
+    
+    class_no <- 
+      as.numeric(unlist(str_split(readLines(con = file_list[i])[1],
+                                  pattern = ","))[length(unlist(str_split(readLines(con = file_list[i])[1],
+                                                                          pattern = ",")))])
+    
+    IGBP_Type_1_class_no <- c(IGBP_Type_1_class_no, code)
+    
+  }
+  
 }
