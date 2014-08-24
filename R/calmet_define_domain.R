@@ -31,7 +31,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   require(ggplot2)
   require(stringr)
   require(MODISTools)
-  
+    
   # Where is this point located on the grid?
   # Choices are: 1 (center), 2 (lower left), 3 (lower right), 4 (upper left), 5 (upper right)
   lat_lon_grid_loc <- 1
@@ -48,6 +48,9 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   
   # Determine the UTM zone
   UTM_zone <- (floor((lon_dec_deg + 180)/6) %% 60) + 1
+  
+  # Determine whether domain is in Northern Hemisphere or Southern Hemisphere
+  UTM_hemisphere <- ifelse(lat_dec_deg >= 0, "N", "S")
   
   # Define a PROJ.4 projection string for a lat/lon projection
   proj_string_longlat <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
