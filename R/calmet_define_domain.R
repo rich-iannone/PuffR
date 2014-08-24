@@ -273,7 +273,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
                                   pattern = ","))[length(unlist(str_split(readLines(con = file_list[i])[1],
                                                                           pattern = ",")))])
     
-    IGBP_Type_1_class_no <- c(IGBP_Type_1_class_no, code)
+    IGBP_Type_1_class_no <- c(IGBP_Type_1_class_no, class_no)
     
   }
   
