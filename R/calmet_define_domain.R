@@ -235,4 +235,5 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
                Bands = c("Land_Cover_Type_1"),
                Size = c(0,0), TimeSeriesLength = 1)
   
+  file_list <- list.files(pattern = ".*_MCD12Q1.asc")
 }
