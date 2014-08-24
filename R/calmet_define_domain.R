@@ -321,8 +321,8 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   UTM_gridded_values$CALMET_categories <- as.factor(UTM_gridded_values$CALMET_categories)
   
   # Plot the grid of land use categories using ggplot
-    h <- ggplot(UTM_gridded_values, aes(x = x, y = y,
-                                        fill = CALMET_categories)) +
+  h <- ggplot(UTM_gridded_values, aes(x = x, y = y,
+                                      fill = CALMET_categories)) +
     geom_tile(aes(fill = CALMET_categories)) +
     scale_fill_manual(values = cols, breaks = names(cols), name = "Land Use\nCategories") +
     coord_equal() +
