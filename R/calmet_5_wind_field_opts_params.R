@@ -1,4 +1,4 @@
-#' Set CALMET parameters for wind field options and parameters
+#' Set CALMET parameters for wind field options and other options
 #' @description This function validates and writes CALMET parameters for wind field options and parameters to the working CALMET.INP file.
 #' @param calmet_inp the absolute path and filename for the working CALMET input file.
 #' @param iwfcod 
@@ -58,7 +58,6 @@
 #' @param nlb 
 #' @param metbxid 
 #' @export calmet_5_wind_field_opts_params
-
 
 calmet_5_wind_field_opts_params <- function(calmet_inp,
                                             iwfcod,
@@ -126,3 +125,16 @@ calmet_5_wind_field_opts_params <- function(calmet_inp,
                 "ISURFT", "IDIOPT2", "IUPT", "ZUPT", "IDIOPT3", "IUPWND", "ZUPWND", "IDIOPT4", "IDIOPT5",
                 "LLBREZE", "NBOX", "XG1", "XG2", "YG1", "YG2", "XBCST", "YBCST", "XECST", "YECST",
                 "NLB", "METBXID")
+  
+  # Generate a vector list of the formatted replacements
+  replacements <- c(iwfcod, ifradj, ikine, iobr, islope, iextrp, icalm, bias, rmin2, iprog,
+                    isteppg, igfmet, lvary, rmax1, rmax2, rmax3, rmin, terrad, r1, r2, rprog,
+                    divlim, niter, nsmth, nintr2, critfn, alpha, fextr2, nbar, kbar, xbbar,
+                    ybbar, xebar, yebar, idiopt1, isurft, idiopt2, iupt, zupt, idiopt3,
+                    iupwnd, zupwnd, idiopt4, idiopt5, llbreze, nbox, xg1, xg2, yg1, yg2,
+                    xbcst, ybcst, xecst, yecst, nlb, metbxid)
+  
+  # Modify all parameters in working calmet.inp vector
+  calmet_inp_working <- replace_in_inp(calmet_inp_working = calmet_inp_working,
+                                       keyword = keywords,
+                                       replacement = replacements)  
