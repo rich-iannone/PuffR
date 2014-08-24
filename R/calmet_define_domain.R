@@ -340,4 +340,17 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # per season
   mmet_seasons <- calmet_seasonal_micrometeorology()
   
+  # Get the corresponding micrometeorological parameters by gridded CALMET category by season
+  mmet_winter <- join(data.frame(CALMET_categories = UTM_gridded_values$CALMET_categories),
+                    subset(mmet_seasons, season == "Winter"))
+  
+  mmet_spring <- join(data.frame(CALMET_categories = UTM_gridded_values$CALMET_categories),
+                      subset(mmet_seasons, season == "Spring"))
+  
+  mmet_summer <- join(data.frame(CALMET_categories = UTM_gridded_values$CALMET_categories),
+                      subset(mmet_seasons, season == "Summer"))
+  
+  mmet_fall <- join(data.frame(CALMET_categories = UTM_gridded_values$CALMET_categories),
+                      subset(mmet_seasons, season == "Fall"))
+  
 }
