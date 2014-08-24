@@ -189,6 +189,6 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   }
   
   # Write the formatted text to disk
-  cat(gridded_heights_UTM_m_row_major_strings, file = output_file, sep = "\n")
+  cat(gridded_heights_UTM_m_row_major_strings, file = "heights.txt", sep = "\n")
   
 }
