@@ -234,7 +234,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   MODISSubsets(LoadDat = modis_coordinates, Products = "MCD12Q1",
                Bands = c("Land_Cover_Type_1"),
                Size = c(0,0), TimeSeriesLength = 1)
-  
+
   file_list <- list.files(pattern = ".*_MCD12Q1.asc")
   
   for (i in 1:length(file_list)){
@@ -250,7 +250,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
     
   }
   
-  # Get the Corresponding CALMET category from the IGBP Type 1 class data
+  # Get the corresponding CALMET category from the IGBP Type 1 class data
   CALMET_categories <- join(as.data.frame(IGBP_Type_1_class_no), LU_classification)[,3]
   
   # Create a data frame for the LU categories, in row-major order
@@ -258,7 +258,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
                                                     nrow = number_cells_across_y,
                                                     ncol = number_cells_across_x))
   
-  # Generate a vector of comma-delimited strings containing LU categories of every row of cells;
+  # Generate a vector of space-delimited strings containing LU categories of every row of cells;
   # this is for writing to a file and eventual inclusion in the GEO.DAT file
   for (i in 1:nrow(gridded_CALMET_categories)){
     
@@ -270,7 +270,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
     
   }
   
-  # Write the formatted text to disk
+  # Write the formatted LU category text to disk
   cat(gridded_CALMET_categories_strings, file = "LU.txt", sep = "\n")
   
 }
