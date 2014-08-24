@@ -191,11 +191,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Write the formatted text to disk
   cat(gridded_heights_UTM_m_row_major_strings, file = "heights.txt", sep = "\n")
   
-  
-  
-  # Get gridded landuse data
-  
-  # Create data frame for LU codes
+  # Create data frame for MODIS IGBP Type 1 codes for land cover
   IGBP_Type_1_class_no <- c(seq(0, 16, 1), 254, 255)
   IGBP_Type_1_class_name <- c("Water", "Evergreen needleleaf forest", "Evergreen broadleaf forest",
                               "Deciduous needleleaf forest", "Deciduous broadleaf forest",
@@ -223,20 +219,26 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   modis_coordinates <- as.data.frame(srtm_latlon_SP@coords)
   colnames(modis_coordinates) <- c("long", "lat")
   
+  # Create vectors of starting and ending dates for the land cover data
   start.date <- rep(2008, nrow(modis_coordinates))
   end.date <- rep(2008, nrow(modis_coordinates))
   
+  # Column-bind the 'start.date' and 'end.date' vectors with the coordinates data frame
   modis_coordinates <- cbind(modis_coordinates, start.date)
   modis_coordinates <- cbind(modis_coordinates, end.date)
   
+  # Get a vector of the available bands for the MODIS MCD12Q1 product
   MCD12Q1_Bands <- GetBands(Product = "MCD12Q1")
   
+  # Acquire subsets of the landcover Type 1 codes from the MODIS MCD12Q1 product 
   MODISSubsets(LoadDat = modis_coordinates, Products = "MCD12Q1",
                Bands = c("Land_Cover_Type_1"),
                Size = c(0,0), TimeSeriesLength = 1)
 
+  # Generate a file list of acquired MODIS data for each set of coordinates
   file_list <- list.files(pattern = ".*_MCD12Q1.asc")
   
+  # Extract the land use code from each acquired data file
   for (i in 1:length(file_list)){
     
     if (i == 1) IGBP_Type_1_class_no <- vector(mode = "numeric", length = 0)
