@@ -31,7 +31,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   require(ggplot2)
   require(stringr)
   require(MODISTools)
-    
+  
   # Where is this point located on the grid?
   # Choices are: 1 (center), 2 (lower left), 3 (lower right), 4 (upper left), 5 (upper right)
   lat_lon_grid_loc <- 1
@@ -259,7 +259,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   MODISSubsets(LoadDat = modis_coordinates, Products = "MCD12Q1",
                Bands = c("Land_Cover_Type_1"),
                Size = c(0,0), TimeSeriesLength = 1)
-
+  
   # Generate a file list of acquired MODIS data for each set of coordinates
   file_list <- list.files(pattern = ".*_MCD12Q1.asc")
   
@@ -333,7 +333,8 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
           axis.title = element_text(size = rel(1.2)),
           legend.title = element_text(size = rel(1.2)))
   
-  
-  
+  # Get data frame containing micrometeorological parameters per land use category
+  # per season
+  mmet_seasons <- calmet_seasonal_micrometeorology()
   
 }
