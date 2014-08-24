@@ -40,8 +40,8 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   cell_resolution_m <- 250
   
   # Round the provided width and the height of the met domain to the resolution of the cell
-  domain_width_m <- round_any(domain_width_m, 250, round)
-  domain_height_m <- round_any(domain_height_m, 250, round)
+  domain_width_m <- round_any(domain_width_m, cell_resolution_m, round)
+  domain_height_m <- round_any(domain_height_m, cell_resolution_m, round)
   
   # Get matrix of longitude and latitude for chosen point
   lat_lon_dec_deg <- cbind(lon_dec_deg, lat_dec_deg)
@@ -61,7 +61,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Project as UTM coordinates from the determined UTM zone, round to nearest 250 m using the
   # 'round_any' function from the 'plyr' package
   UTM_location <- project(lat_lon_dec_deg, proj_string_UTM)
-  UTM_location <- round_any(UTM_location, 250, round)
+  UTM_location <- round_any(UTM_location, cell_resolution_m, round)
   
   # Do these length and width values accomodate an integer number of cells of the specified resolution?
   # These checks will be later part of a function in setting domain width and height
