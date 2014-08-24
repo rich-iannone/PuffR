@@ -209,4 +209,11 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   
   LU_classification <- data.frame(IGBP_Type_1_class_no, IGBP_Type_1_class_name, CALMET_categories,
                                   stringsAsFactors = FALSE)
+  
+  # Create a RasterLayer object with lat/lon coordinates for grid cells
+  srtm_latlon_RL <- raster(bbox_longlat,
+                           nrows = number_cells_across_y,
+                           ncols = number_cells_across_x,
+                           crs = proj_string_longlat)
+  
 }
