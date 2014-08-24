@@ -191,4 +191,22 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Write the formatted text to disk
   cat(gridded_heights_UTM_m_row_major_strings, file = "heights.txt", sep = "\n")
   
+  
+  
+  # Get gridded landuse data
+  
+  # Create data frame for LU codes
+  IGBP_Type_1_class_no <- c(seq(0, 16, 1), 254, 255)
+  IGBP_Type_1_class_name <- c("Water", "Evergreen needleleaf forest", "Evergreen broadleaf forest",
+                              "Deciduous needleleaf forest", "Deciduous broadleaf forest",
+                              "Mixed forest", "Closed shrublands", "Open shrublands",
+                              "Woody savannas", "Savannas", "Grasslands", "Permanent wetlands",
+                              "Croplands", "Urban and built-up", "Cropland/Natural vegetation mosaic",
+                              "Snow and ice", "Barren or sparsely vegetated", "Unclassified",
+                              "Fill value")
+  CALMET_categories <- c(50, 40, 40, 40, 40, 40, 40, 40, 30, 30,
+                         30, 60, 20, 10, 20, 90, 70, NA, NA)
+  
+  LU_classification <- data.frame(IGBP_Type_1_class_no, IGBP_Type_1_class_name, CALMET_categories,
+                                  stringsAsFactors = FALSE)
 }
