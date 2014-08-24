@@ -226,4 +226,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   start.date <- rep(2008, nrow(modis_coordinates))
   end.date <- rep(2008, nrow(modis_coordinates))
   
+  modis_coordinates <- cbind(modis_coordinates, start.date)
+  modis_coordinates <- cbind(modis_coordinates, end.date)
+  
 }
