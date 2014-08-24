@@ -278,4 +278,16 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Create new data frame object 'UTM_gridded_values' that contains gridded heights and
   # LU categories
   UTM_gridded_values <- cbind(srtm_UTM_resampled.df, as.data.frame(CALMET_categories))
+  
+  # Define the colours for each of the CALMET land use categories using a named vector
+  cols <- c("10" = "gold2",
+            "20" = "olivedrab2",
+            "30" = "springgreen",
+            "40" = "forestgreen",
+            "50" = "deepskyblue2",
+            "60" = "orchid",
+            "70" = "lightsalmon",
+            "80" = "moccasin",
+            "90" = "honeydew")
+  
 }
