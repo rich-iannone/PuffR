@@ -250,4 +250,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
     
   }
   
+  # Get the Corresponding CALMET category from the IGBP Type 1 class data
+  CALMET_categories <- join(as.data.frame(IGBP_Type_1_class_no), LU_classification)[,3]
+  
 }
