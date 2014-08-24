@@ -258,4 +258,16 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
                                                     nrow = number_cells_across_y,
                                                     ncol = number_cells_across_x))
   
+  # Generate a vector of comma-delimited strings containing LU categories of every row of cells;
+  # this is for writing to a file and eventual inclusion in the GEO.DAT file
+  for (i in 1:nrow(gridded_CALMET_categories)){
+    
+    if (i == 1) gridded_CALMET_categories_strings <- vector(mode = "character", length = 0)
+    
+    string <- paste(gridded_CALMET_categories[i, ], collapse = " ")
+    
+    gridded_CALMET_categories_strings <- c(gridded_CALMET_categories_strings, string)
+    
+  }
+  
 }
