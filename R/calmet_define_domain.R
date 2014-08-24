@@ -253,4 +253,9 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Get the Corresponding CALMET category from the IGBP Type 1 class data
   CALMET_categories <- join(as.data.frame(IGBP_Type_1_class_no), LU_classification)[,3]
   
+  # Create a data frame for the LU categories, in row-major order
+  gridded_CALMET_categories <- as.data.frame(matrix(CALMET_categories,
+                                                    nrow = number_cells_across_y,
+                                                    ncol = number_cells_across_x))
+  
 }
