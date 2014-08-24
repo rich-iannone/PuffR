@@ -179,6 +179,26 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Replace NA values with 0 values
   gridded_heights_UTM_m_df[is.na(gridded_heights_UTM_m_df)] <- 0
   
+  # Create file header for GEO.DAT file and write to disk
+  geo_dat_h <- vector(mode = "character", length = 9)
+  geo_dat_h[1] <- "GEO.DAT         2.0             Header structure with coordinate parameters"
+  geo_dat_h[2] <- "2"
+  geo_dat_h[3] <- "Produced using PuffR"                               
+  geo_dat_h[4] <- "Project Name - Time Period"                                                    
+  geo_dat_h[5] <- "UTM" 
+  geo_dat_h[6] <- paste("  ", UTM_zone, UTM_hemisphere, sep = '')  
+  geo_dat_h[7] <- "WGS-84  02-21-2003"  
+  geo_dat_h[8] <- paste("     ", number_cells_across_x,
+                        "     ", number_cells_across_y,
+                        "     ", round(left_UTM/1000, digits = 3),
+                        "     ", round(bottom_UTM/1000, digits = 3),
+                        "     ", round(cell_resolution_m/1000, digits = 3),
+                        "     ", round(cell_resolution_m/1000, digits = 3),
+                        sep = '')
+  geo_dat_h[9] <- "KM  M"   
+  
+  
+  
   # Generate a vector of comma-delimited strings containing heights of every row of cells;
   # this is for writing to a file and eventual inclusion in the GEO.DAT file
   for (i in 1:nrow(gridded_heights_UTM_m_df)){
