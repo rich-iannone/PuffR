@@ -63,67 +63,67 @@ calmet_5_wind_field_opts_params(calmet_inp, iwfcod, ifradj, ikine, iobr, islope,
 
 \item{nintr2}{maximum number of stations used in each layer for the interpolation of data to a grid point.}
 
-\item{critfn}{}
+\item{critfn}{the critical Froude number.}
 
-\item{alpha}{}
+\item{alpha}{an empirical factor controlling the influence of kinematic effects.}
 
-\item{fextr2}{}
+\item{fextr2}{multiplicative scaling factors for extrapolation of surface observations to upper layers.}
 
-\item{nbar}{}
+\item{nbar}{number of barriers to interpolation of the wind fields.}
 
-\item{kbar}{}
+\item{kbar}{level up to which barriers apply (must be value in the range of 1 to NZ).}
 
-\item{xbbar}{}
+\item{xbbar}{the x coordinates for the beginning of each barrier.}
 
-\item{ybbar}{}
+\item{ybbar}{the y coordinates for the beginning of each barrier.}
 
-\item{xebar}{}
+\item{xebar}{the x coordinates for the ending of each barrier.}
 
-\item{yebar}{}
+\item{yebar}{the y coordinates for the ending of each barrier.}
 
-\item{idiopt1}{}
+\item{idiopt1}{method for computation of surface temperatures: (0) compute internally from hourly surface observations, (1) read preprocessed values from a data file (DIAG.DAT).}
 
-\item{isurft}{}
+\item{isurft}{surface meteorological station to use for the surface temperature (must be value in the range of 1 to nssta).}
 
-\item{idiopt2}{}
+\item{idiopt2}{method for computation of domain-averaged temperature lapse rate: (0) compute internally from twice-daily upper air observations, (1) read hourly preprocessed values from a data file (DIAG.DAT).}
 
-\item{iupt}{}
+\item{iupt}{upper air station to use for the domain-scale lapse rate (must be a value in the range of 1 to NUSTA).}
 
-\item{zupt}{}
+\item{zupt}{Depth in meters through which the domain-scale lapse rate is computed.}
 
-\item{idiopt3}{}
+\item{idiopt3}{method for computation of domain-averaged wind components: (0) compute internally from twice-daily upper air observations, (1) read hourly preprocessed values a data file (DIAG.DAT).}
 
-\item{iupwnd}{}
+\item{iupwnd}{upper air station to use for the domain-scale winds (must be a value in the range of -1 to NUSTA).}
 
-\item{zupwnd}{}
+\item{zupwnd}{bottom and top of layer through which the domain-scale winds are computed.}
 
-\item{idiopt4}{}
+\item{idiopt4}{selection of observed surface wind components for wind field module: (0) read WS and WD values from a surface data file (SURF.DAT), (1) read hourly preprocessed U and V values from a data file (DIAG.DAT).}
 
-\item{idiopt5}{}
+\item{idiopt5}{selection of observed upper air wind components for wind field module: (0) read WS and WD values from an upper air data file (UP.DAT), (1) read hourly preprocessed U and V values from a data file (DIAG.DAT).}
 
-\item{llbreze}{}
+\item{llbreze}{use lake breeze module?}
 
-\item{nbox}{}
+\item{nbox}{number of lake breeze regions.}
 
-\item{xg1}{}
+\item{xg1}{the x direction grid line 1 defining the region of interest for the lake breeze module.}
 
-\item{xg2}{}
+\item{xg2}{the x direction grid line 2 defining the region of interest for the lake breeze module.}
 
-\item{yg1}{}
+\item{yg1}{the y direction grid line 1 defining the region of interest for the lake breeze module.}
 
-\item{yg2}{}
+\item{yg2}{the y direction grid line 2 defining the region of interest for the lake breeze module.}
 
-\item{xbcst}{}
+\item{xbcst}{the beginning x point (in kilometers) defining the coastline (straight line).}
 
-\item{ybcst}{}
+\item{ybcst}{the beginning y point (in kilometers) defining the coastline (straight line).}
 
-\item{xecst}{}
+\item{xecst}{the ending x point (in kilometers) defining the coastline (straight line).}
 
-\item{yecst}{}
+\item{yecst}{the ending y point (in kilometers) defining the coastline (straight line).}
 
-\item{nlb}{}
+\item{nlb}{the combined number of meteorological and upper air stations in the region.}
 
-\item{metbxid}{}
+\item{metbxid}{station identifiers for the region; include surface stations first, then upper air stations.}
 }
 \description{
 This function validates and writes CALMET parameters for wind field options and parameters to the working CALMET.INP file.
