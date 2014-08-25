@@ -37,61 +37,29 @@ calmet_surface_met <- function(start_year,
   proj_string_longlat <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
   
   # Get extents of UTM grid (left, right, bottom, top) in meters
-  left_UTM <- if(lat_lon_grid_loc == 1) {
-    UTM_location[1,1] - (0.5 * domain_width_m)
-  } else if (lat_lon_grid_loc == 2) {
-    UTM_location[1,1]
-  } else if (lat_lon_grid_loc == 3) {
-    UTM_location[1,1] - domain_width_m
-  } else if (lat_lon_grid_loc == 4) {
-    UTM_location[1,1]
-  } else if (lat_lon_grid_loc == 5) {
-    UTM_location[1,1] - domain_width_m
-  } else {
-    NULL
-  }
+  left_UTM <- get_grid_extents_UTM(side = "left",
+                                   lat_lon_grid_loc = lat_lon_grid_loc,
+                                   UTM_location = UTM_location,
+                                   domain_width_m = domain_width_m,
+                                   domain_height_m = domain_height_m)
   
-  right_UTM <- if(lat_lon_grid_loc == 1) {
-    UTM_location[1,1] + (0.5 * domain_width_m)
-  } else if (lat_lon_grid_loc == 2) {
-    UTM_location[1,1] + domain_width_m
-  } else if (lat_lon_grid_loc == 3) {
-    UTM_location[1,1]
-  } else if (lat_lon_grid_loc == 4) {
-    UTM_location[1,1] + domain_width_m
-  } else if (lat_lon_grid_loc == 5) {
-    UTM_location[1,1]
-  } else {
-    NULL
-  }
+  right_UTM <- get_grid_extents_UTM(side = "right",
+                                    lat_lon_grid_loc = lat_lon_grid_loc,
+                                    UTM_location = UTM_location,
+                                    domain_width_m = domain_width_m,
+                                    domain_height_m = domain_height_m)
   
-  bottom_UTM <- if(lat_lon_grid_loc == 1) {
-    UTM_location[1,2] - (0.5 * domain_height_m)
-  } else if (lat_lon_grid_loc == 2) {
-    UTM_location[1,2]
-  } else if (lat_lon_grid_loc == 3) {
-    UTM_location[1,2]
-  } else if (lat_lon_grid_loc == 4) {
-    UTM_location[1,2] - domain_height_m
-  } else if (lat_lon_grid_loc == 5) {
-    UTM_location[1,2] - domain_height_m
-  } else {
-    NULL
-  }
+  bottom_UTM <- get_grid_extents_UTM(side = "bottom",
+                                     lat_lon_grid_loc = lat_lon_grid_loc,
+                                     UTM_location = UTM_location,
+                                     domain_width_m = domain_width_m,
+                                     domain_height_m = domain_height_m)
   
-  top_UTM <- if(lat_lon_grid_loc == 1) {
-    UTM_location[1,2] + (0.5 * domain_height_m)
-  } else if (lat_lon_grid_loc == 2) {
-    UTM_location[1,2] + domain_height_m
-  } else if (lat_lon_grid_loc == 3) {
-    UTM_location[1,2] + domain_height_m
-  } else if (lat_lon_grid_loc == 4) {
-    UTM_location[1,2]
-  } else if (lat_lon_grid_loc == 5) {
-    UTM_location[1,2]
-  } else {
-    NULL
-  }
+  top_UTM <- get_grid_extents_UTM(side = "top",
+                                  lat_lon_grid_loc = lat_lon_grid_loc,
+                                  UTM_location = UTM_location,
+                                  domain_width_m = domain_width_m,
+                                  domain_height_m = domain_height_m)
   
   # Create a data frame object for UTM values of LL, LR, UL, and UR
   LL_LR_UL_UR_UTM_m_DF <- data.frame("x" = c(left_UTM, right_UTM, left_UTM, right_UTM), 
