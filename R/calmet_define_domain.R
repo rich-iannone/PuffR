@@ -207,8 +207,6 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   
   # Write the heights category subheader and data to disk
   geo_dat_h_heights <- " 1.0000  - TERRAIN heights - HTFAC (Conversion to meters)"
-  cat(geo_dat_h_heights, file = "heights.txt", sep = "\n", append = FALSE)
-  cat(gridded_heights_UTM_m_row_major_strings, file = "heights.txt", sep = "\n", append = TRUE)
   
   # Create data frame for MODIS IGBP Type 1 codes for land cover
   IGBP_Type_1_class_no <- c(seq(0, 16, 1), 254, 255)
