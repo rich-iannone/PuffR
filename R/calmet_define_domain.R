@@ -291,8 +291,6 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   
   # Write the LU category subheader and data to disk
   geo_dat_h_LU <- "0  --- LAND USE CATEGORIES  0 - DEFAULT CATEGORIES  1 - NEW CATEGORIES"
-  cat(geo_dat_h_LU, file = "LU.txt", sep = "\n", append = FALSE)
-  cat(gridded_CALMET_categories_strings, file = "LU.txt", sep = "\n", append = TRUE)
   
   # Create new data frame object 'UTM_gridded_values' that contains gridded heights and
   # LU categories
@@ -328,13 +326,20 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Reclass the 'CALMET_categories' back to the 'numeric' type
   UTM_gridded_values$CALMET_categories <- as.numeric(UTM_gridded_values$CALMET_categories)
   
-  # Get data frame containing micrometeorological parameters per land use category
-  # per season
+  # Get data frame containing micrometeorological parameters by land use category by season
   mmet_seasons <- calmet_seasonal_micrometeorology()
+  
+  # Create vector of short descriptions for each micrometeorological parameter
+  mmet_descriptions <- c("gridded z0 field",
+                         "gridded albedo field",
+                         "gridded Bowen ratio field",
+                         "gridded soil heat flux parameters",
+                         "gridded anthropogenic heat flux field",
+                         "gridded leaf area index field")
   
   # Get the corresponding micrometeorological parameters by gridded CALMET category by season
   mmet_winter <- join(data.frame(CALMET_categories = UTM_gridded_values$CALMET_categories),
-                    subset(mmet_seasons, season == "Winter"))
+                      subset(mmet_seasons, season == "Winter"))
   
   mmet_spring <- join(data.frame(CALMET_categories = UTM_gridded_values$CALMET_categories),
                       subset(mmet_seasons, season == "Spring"))
@@ -343,6 +348,78 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
                       subset(mmet_seasons, season == "Summer"))
   
   mmet_fall <- join(data.frame(CALMET_categories = UTM_gridded_values$CALMET_categories),
-                      subset(mmet_seasons, season == "Fall"))
+                    subset(mmet_seasons, season == "Fall"))
   
+  # Create "winter_geo.txt" file
+  for (i in 2:7){
+    if (i == 2){
+      cat(file = "winter_geo.txt", append = FALSE)
+      cat(geo_dat_h, file = "winter_geo.txt", sep = "\n", append = TRUE)
+      cat(geo_dat_h_LU, file = "winter_geo.txt", sep = "\n", append = TRUE)
+      cat(gridded_CALMET_categories_strings, file = "winter_geo.txt", sep = "\n", append = TRUE)
+      cat(geo_dat_h_heights, file = "winter_geo.txt", sep = "\n", append = TRUE)
+      cat(gridded_heights_UTM_m_row_major_strings, file = "winter_geo.txt", sep = "\n", append = TRUE)
+    }
+    cat(paste(" 2    - ", mmet_descriptions[i - 1], sep = ''),
+        file = "winter_geo.txt", sep = "\n", append = TRUE)
+    cat(vector_values_to_row_major_strings(values_vector = mmet_winter[,i],
+                                           number_cells_across_x = number_cells_across_x,
+                                           number_cells_across_y = number_cells_across_y),
+        file = "winter_geo.txt", sep = "\n", append = TRUE)
+  }
+  
+  # Create "spring_geo.txt" file
+  for (i in 2:7){
+    if (i == 2){
+      cat(file = "spring_geo.txt", append = FALSE)
+      cat(geo_dat_h, file = "spring_geo.txt", sep = "\n", append = TRUE)
+      cat(geo_dat_h_LU, file = "spring_geo.txt", sep = "\n", append = TRUE)
+      cat(gridded_CALMET_categories_strings, file = "spring_geo.txt", sep = "\n", append = TRUE)
+      cat(geo_dat_h_heights, file = "spring_geo.txt", sep = "\n", append = TRUE)
+      cat(gridded_heights_UTM_m_row_major_strings, file = "spring_geo.txt", sep = "\n", append = TRUE)
+    }
+    cat(paste(" 2    - ", mmet_descriptions[i - 1], sep = ''),
+        file = "spring_geo.txt", sep = "\n", append = TRUE)
+    cat(vector_values_to_row_major_strings(values_vector = mmet_spring[,i],
+                                           number_cells_across_x = number_cells_across_x,
+                                           number_cells_across_y = number_cells_across_y),
+        file = "spring_geo.txt", sep = "\n", append = TRUE)
+  }
+  
+  # Create "summer_geo.txt" file
+  for (i in 2:7){
+    if (i == 2){
+      cat(file = "summer_geo.txt", append = FALSE)
+      cat(geo_dat_h, file = "summer_geo.txt", sep = "\n", append = TRUE)
+      cat(geo_dat_h_LU, file = "summer_geo.txt", sep = "\n", append = TRUE)
+      cat(gridded_CALMET_categories_strings, file = "summer_geo.txt", sep = "\n", append = TRUE)
+      cat(geo_dat_h_heights, file = "summer_geo.txt", sep = "\n", append = TRUE)
+      cat(gridded_heights_UTM_m_row_major_strings, file = "summer_geo.txt", sep = "\n", append = TRUE)
+    }
+    cat(paste(" 2    - ", mmet_descriptions[i - 1], sep = ''),
+        file = "summer_geo.txt", sep = "\n", append = TRUE)
+    cat(vector_values_to_row_major_strings(values_vector = mmet_summer[,i],
+                                           number_cells_across_x = number_cells_across_x,
+                                           number_cells_across_y = number_cells_across_y),
+        file = "summer_geo.txt", sep = "\n", append = TRUE)
+  }
+
+  # Create "fall_geo.txt" file
+  for (i in 2:7){
+    if (i == 2){
+      cat(file = "fall_geo.txt", append = FALSE)
+      cat(geo_dat_h, file = "fall_geo.txt", sep = "\n", append = TRUE)
+      cat(geo_dat_h_LU, file = "fall_geo.txt", sep = "\n", append = TRUE)
+      cat(gridded_CALMET_categories_strings, file = "fall_geo.txt", sep = "\n", append = TRUE)
+      cat(geo_dat_h_heights, file = "fall_geo.txt", sep = "\n", append = TRUE)
+      cat(gridded_heights_UTM_m_row_major_strings, file = "fall_geo.txt", sep = "\n", append = TRUE)
+    }
+    cat(paste(" 2    - ", mmet_descriptions[i - 1], sep = ''),
+        file = "fall_geo.txt", sep = "\n", append = TRUE)
+    cat(vector_values_to_row_major_strings(values_vector = mmet_fall[,i],
+                                           number_cells_across_x = number_cells_across_x,
+                                           number_cells_across_y = number_cells_across_y),
+        file = "fall_geo.txt", sep = "\n", append = TRUE)
+  }
+
 }
