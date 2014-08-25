@@ -1,11 +1,11 @@
-#' Define the CALMET domain and generate a GEO.DAT file
-#' @description Define the CALMET domain and determine the best gridded values for land use, terrain heights, and micrometeorological parameters for use in the GEO.DAT CALMET input file.
+#' Define the CALMET domain and generate a geophysical input file
+#' @description Define the CALMET domain and determine the best gridded values for land use, terrain heights, and micrometeorological parameters for creation of a geophysical input file.
 #' @param lat_dec_deg the latitude of the CALMET domain in decimal degrees. The location of this point is defined in the lat_lon_grid_loc argument.
 #' @param lon_dec_deg the longitude of the CALMET domain in decimal degrees. The location of this point is defined in the lat_lon_grid_loc argument.
 #' @param lat_lon_grid_loc the location of the lat/long inputs in relation to the domain. Choices are: 1 (center), 2 (lower left), 3 (lower right), 4 (upper left), 5 (upper right).
 #' @param domain_width_m the desired width of the meteorological domain in meters.
 #' @param domain_height_m the desired height of the meteorological domain in meters.
-#' @export calmet_define_domain
+#' @export calmet_define_geophys
 #' @examples
 #' \dontrun{
 #' # Create a CALMET domain of 100 by 100 km in the Los Angeles area.
@@ -17,11 +17,11 @@
 #'                      domain_height_m = 8000)
 #'}
 
-calmet_define_domain <- function(lat_dec_deg = NULL,
-                                 lon_dec_deg = NULL,
-                                 lat_lon_grid_loc = 1,
-                                 domain_width_m = NULL,
-                                 domain_height_m = NULL){
+calmet_define_geophys <- function(lat_dec_deg = NULL,
+                                  lon_dec_deg = NULL,
+                                  lat_lon_grid_loc = 1,
+                                  domain_width_m = NULL,
+                                  domain_height_m = NULL){
   
   # Add require statements
   require(rgdal)
@@ -196,7 +196,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
                         "     ", round(cell_resolution_m/1000, digits = 3),
                         sep = '')
   geo_dat_h[9] <- "KM  M"   
-    
+  
   # Generate a vector of comma-delimited strings containing heights of every row of cells;
   # this is for writing to a file and eventual inclusion in the GEO.DAT file
   for (i in 1:nrow(gridded_heights_UTM_m_df)){
@@ -395,7 +395,7 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
                                            number_cells_across_y = number_cells_across_y),
         file = "summer_geo.txt", sep = "\n", append = TRUE)
   }
-
+  
   # Create "fall_geo.txt" file
   for (i in 2:7){
     if (i == 2){
@@ -413,5 +413,5 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
                                            number_cells_across_y = number_cells_across_y),
         file = "fall_geo.txt", sep = "\n", append = TRUE)
   }
-
+  
 }
