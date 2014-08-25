@@ -1,5 +1,6 @@
 #' Return a data frame with seasonal micrometeorological parameters for application to gridded land use categories
 #' @description This function produces a data frame containing values for six micrometeorological parameters for eight CALMET land use categories for four seasons.
+#' @export calmet_seasonal_micrometeorology
 
 calmet_seasonal_micrometeorology <- function(){
   
