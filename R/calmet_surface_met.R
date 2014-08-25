@@ -21,7 +21,7 @@ calmet_surface_met <- function(start_year,
                                lon_dec_deg = NULL,
                                lat_lon_grid_loc = 1,
                                domain_width_m = NULL,
-                               domain_height_m = NULL
+                               domain_height_m = NULL,
                                output_file = "surf.dat"){
   
   # Add require statements
