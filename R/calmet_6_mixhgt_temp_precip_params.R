@@ -5,7 +5,42 @@
 #' @export calmet_6_mixhgt_temp_precip_params
 
 calmet_6_mixhgt_temp_precip_params <- function(calmet_inp,
-                                               ){
+                                               constb,
+                                               conste,
+                                               constn,
+                                               constw,
+                                               fcoriol,
+                                               iavezi,
+                                               mnmdav,
+                                               hafang,
+                                               ilevzi,
+                                               imixh,
+                                               threshl,
+                                               threshw,
+                                               itwprog,
+                                               iluoc3d,
+                                               dptmin,
+                                               dzzi,
+                                               zimin,
+                                               zimax,
+                                               ziminw,
+                                               zimaxw,
+                                               icoare,
+                                               dshelf,
+                                               iwarm,
+                                               icool,
+                                               itprog,
+                                               irad,
+                                               tradkm,
+                                               numts,
+                                               iavet,
+                                               tgdefb,
+                                               tgdefa,
+                                               jwat1,
+                                               jwat2,
+                                               nflagp,
+                                               sigmap,
+                                               cutp){
   
   # Generate a vector list of calmet.inp keywords
   keywords <- c("CONSTB", "CONSTE", "CONSTN", "CONSTW", "FCORIOL", "IAVEZI", "MNMDAV",
@@ -25,7 +60,5 @@ calmet_6_mixhgt_temp_precip_params <- function(calmet_inp,
   calmet_inp_working <- replace_in_inp(calmet_inp_working = calmet_inp_working,
                                        keyword = keywords,
                                        replacement = replacements)  
-  
-  
   
 }
