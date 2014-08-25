@@ -26,37 +26,37 @@
 #' @param niter maximum number of iterations in the divergence min. procedure.
 #' @param nsmth number of passes in the smoothing procedure.
 #' @param nintr2 maximum number of stations used in each layer for the interpolation of data to a grid point.
-#' @param critfn 
-#' @param alpha 
-#' @param fextr2 
-#' @param nbar 
-#' @param kbar 
-#' @param xbbar 
-#' @param ybbar 
-#' @param xebar 
-#' @param yebar 
-#' @param idiopt1 
-#' @param isurft 
-#' @param idiopt2 
-#' @param iupt 
-#' @param zupt 
-#' @param idiopt3 
-#' @param iupwnd 
-#' @param zupwnd 
-#' @param idiopt4 
-#' @param idiopt5 
-#' @param llbreze 
-#' @param nbox 
-#' @param xg1 
-#' @param xg2 
-#' @param yg1 
-#' @param yg2 
-#' @param xbcst 
-#' @param ybcst 
-#' @param xecst 
-#' @param yecst 
-#' @param nlb 
-#' @param metbxid 
+#' @param critfn the critical Froude number.
+#' @param alpha an empirical factor controlling the influence of kinematic effects.
+#' @param fextr2 multiplicative scaling factors for extrapolation of surface observations to upper layers.
+#' @param nbar number of barriers to interpolation of the wind fields.
+#' @param kbar level up to which barriers apply (must be value in the range of 1 to NZ).
+#' @param xbbar the x coordinates for the beginning of each barrier.
+#' @param ybbar the y coordinates for the beginning of each barrier.
+#' @param xebar the x coordinates for the ending of each barrier.
+#' @param yebar the y coordinates for the ending of each barrier.
+#' @param idiopt1 method for computation of surface temperatures: (0) compute internally from hourly surface observations, (1) read preprocessed values from a data file (DIAG.DAT).
+#' @param isurft surface meteorological station to use for the surface temperature (must be value in the range of 1 to nssta).
+#' @param idiopt2 method for computation of domain-averaged temperature lapse rate: (0) compute internally from twice-daily upper air observations, (1) read hourly preprocessed values from a data file (DIAG.DAT).
+#' @param iupt upper air station to use for the domain-scale lapse rate (must be a value in the range of 1 to NUSTA).
+#' @param zupt Depth in meters through which the domain-scale lapse rate is computed.
+#' @param idiopt3 method for computation of domain-averaged wind components: (0) compute internally from twice-daily upper air observations, (1) read hourly preprocessed values a data file (DIAG.DAT).
+#' @param iupwnd upper air station to use for the domain-scale winds (must be a value in the range of -1 to NUSTA).
+#' @param zupwnd bottom and top of layer through which the domain-scale winds are computed.
+#' @param idiopt4 selection of observed surface wind components for wind field module: (0) read WS and WD values from a surface data file (SURF.DAT), (1) read hourly preprocessed U and V values from a data file (DIAG.DAT).
+#' @param idiopt5 selection of observed upper air wind components for wind field module: (0) read WS and WD values from an upper air data file (UP.DAT), (1) read hourly preprocessed U and V values from a data file (DIAG.DAT).
+#' @param llbreze use lake breeze module?
+#' @param nbox number of lake breeze regions.
+#' @param xg1 the x direction grid line 1 defining the region of interest for the lake breeze module.
+#' @param xg2 the x direction grid line 2 defining the region of interest for the lake breeze module.
+#' @param yg1 the y direction grid line 1 defining the region of interest for the lake breeze module.
+#' @param yg2 the y direction grid line 2 defining the region of interest for the lake breeze module.
+#' @param xbcst the beginning x point (in kilometers) defining the coastline (straight line).
+#' @param ybcst the beginning y point (in kilometers) defining the coastline (straight line).
+#' @param xecst the ending x point (in kilometers) defining the coastline (straight line).
+#' @param yecst the ending y point (in kilometers) defining the coastline (straight line).
+#' @param nlb the combined number of meteorological and upper air stations in the region.
+#' @param metbxid station identifiers for the region; include surface stations first, then upper air stations.
 #' @export calmet_5_wind_field_opts_params
 
 calmet_5_wind_field_opts_params <- function(calmet_inp,
