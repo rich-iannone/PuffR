@@ -1,3 +1,10 @@
+#' Transform vector values into strings formatted for GEO.DAT files
+#' @description Transform vector values into strings formatted for GEO.DAT files
+#' @param values_vector a numeric vector
+#' @param number_cells_across_x the number of grid cells horizontally across the CALMET domain.
+#' @param number_cells_across_y the number of grid cells vertically across the CALMET domain.
+#' @export vector_values_to_row_major_strings
+
 vector_values_to_row_major_strings <- function(values_vector,
                                                number_cells_across_x,
                                                number_cells_across_y){
