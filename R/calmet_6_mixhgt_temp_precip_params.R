@@ -1,7 +1,42 @@
 #' Set CALMET parameters for mixing height, temperature, and precipitation
 #' @description This function validates and writes CALMET parameters for wind field options and parameters to the working CALMET.INP file.
 #' @param calmet_inp the absolute path and filename for the working CALMET input file.
-#' 
+#' @param constb 
+#' @param conste 
+#' @param constn 
+#' @param constw 
+#' @param fcoriol 
+#' @param iavezi 
+#' @param mnmdav 
+#' @param hafang 
+#' @param ilevzi 
+#' @param imixh 
+#' @param threshl 
+#' @param threshw 
+#' @param itwprog 
+#' @param iluoc3d 
+#' @param dptmin 
+#' @param dzzi 
+#' @param zimin 
+#' @param zimax 
+#' @param ziminw 
+#' @param zimaxw 
+#' @param icoare 
+#' @param dshelf 
+#' @param iwarm 
+#' @param icool 
+#' @param itprog 
+#' @param irad 
+#' @param tradkm 
+#' @param numts 
+#' @param iavet 
+#' @param tgdefb 
+#' @param tgdefa 
+#' @param jwat1 
+#' @param jwat2 
+#' @param nflagp 
+#' @param sigmap 
+#' @param cutp 
 #' @export calmet_6_mixhgt_temp_precip_params
 
 calmet_6_mixhgt_temp_precip_params <- function(calmet_inp,
