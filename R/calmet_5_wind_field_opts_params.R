@@ -1,31 +1,31 @@
 #' Set CALMET parameters for wind field options and other options
 #' @description This function validates and writes CALMET parameters for wind field options and parameters to the working CALMET.INP file.
 #' @param calmet_inp the absolute path and filename for the working CALMET input file.
-#' @param iwfcod 
-#' @param ifradj 
-#' @param ikine 
-#' @param iobr 
-#' @param islope 
-#' @param iextrp 
-#' @param icalm 
-#' @param bias 
-#' @param rmin2 
-#' @param iprog 
-#' @param isteppg 
-#' @param igfmet 
-#' @param lvary 
-#' @param rmax1 
-#' @param rmax2 
-#' @param rmax3 
-#' @param rmin 
-#' @param terrad 
-#' @param r1 
-#' @param r2 
-#' @param rprog 
-#' @param divlim 
-#' @param niter 
-#' @param nsmth 
-#' @param nintr2 
+#' @param iwfcod for model, choose betwen: (0) objective analysis only, or (1) diagnostic wind module.
+#' @param ifradj compute Froude number adjustment effects.
+#' @param ikine compute kinematic effects.
+#' @param iobr use O'Brien procedure for adjustment of the vertical velocity.
+#' @param islope compute slope flow effects.
+#' @param iextrp extrapolate surface wind observations to upper layers.
+#' @param icalm extrapolate surface winds even if calm?
+#' @param bias layer-dependent biases modifying the weights of surface and upper air stations
+#' @param rmin2 minimum distance from nearest upper air station to surface station for which extrapolation of surface winds at surface station will be allowed.
+#' @param iprog use gridded prognostic wind field model output fields as input to the diagnostic wind field model.
+#' @param isteppg timestep in hours of the prognostic model input data.
+#' @param igfmet use coarse CALMET fields as initial guess fields.
+#' @param lvary use varying radius of influence.
+#' @param rmax1 maximum radius of influence over land in the surface layer.
+#' @param rmax2 maximum radius of influence over land aloft.
+#' @param rmax3 maximum radius of influence over water.
+#' @param rmin minimum radius of influence used in the wind field interpolation.
+#' @param terrad radius of influence of terrain features.
+#' @param r1 the relative weighting of the first guess field and observations in the surface layer.
+#' @param r2 the relative weighting of the first guess field and observations in layers aloft.
+#' @param rprog relative weighting parameter of the prognostic wind field data.
+#' @param divlim maximum acceptable divergence in the divergence minimization procedure.
+#' @param niter maximum number of iterations in the divergence min. procedure.
+#' @param nsmth number of passes in the smoothing procedure.
+#' @param nintr2 maximum number of stations used in each layer for the interpolation of data to a grid point.
 #' @param critfn 
 #' @param alpha 
 #' @param fextr2 
