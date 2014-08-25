@@ -257,16 +257,12 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   
   # Extract the land use code from each acquired data file
   for (i in 1:length(file_list)){
-    
     if (i == 1) IGBP_Type_1_class_no <- vector(mode = "numeric", length = 0)
-    
     class_no <- 
       as.numeric(unlist(str_split(readLines(con = file_list[i])[1],
                                   pattern = ","))[length(unlist(str_split(readLines(con = file_list[i])[1],
                                                                           pattern = ",")))])
-    
     IGBP_Type_1_class_no <- c(IGBP_Type_1_class_no, class_no)
-    
   }
   
   # Get the corresponding CALMET category from the IGBP Type 1 class data
@@ -280,13 +276,9 @@ calmet_define_domain <- function(lat_dec_deg = NULL,
   # Generate a vector of comma-delimited strings containing LU categories of every row of cells;
   # this is for writing to a file and eventual inclusion in the GEO.DAT file
   for (i in 1:nrow(gridded_CALMET_categories)){
-    
     if (i == 1) gridded_CALMET_categories_strings <- vector(mode = "character", length = 0)
-    
     string <- paste(gridded_CALMET_categories[i, ], collapse = ", ")
-    
     gridded_CALMET_categories_strings <- c(gridded_CALMET_categories_strings, string)
-    
   }
   
   # Write the LU category subheader and data to disk
