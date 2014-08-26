@@ -81,3 +81,12 @@ calmet_define_geophys(lat_dec_deg = 49.5,
 
 This function currently generates seasonal GEO.DAT files (`winter_geo.txt`, `spring_geo.txt`, `summer_geo.txt`, and `fall_geo.txt`).
 
+The next functions in the works will allow for:
+
+- creation of a surface meteorology input file
+- creation of an upper air input file
+- interactive/non-interactive creation of a CALMET input file
+- creation of receptors
+- creation of emissions sources
+- interactive/non-interactive creation of a CALPUFF input file
+- output/visualization of concentrations at receptors
