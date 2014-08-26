@@ -4,7 +4,8 @@
 \title{Define the CALMET domain and generate a geophysical input file}
 \usage{
 calmet_define_geophys(lat_dec_deg = NULL, lon_dec_deg = NULL,
-  lat_lon_grid_loc = 1, domain_width_m = NULL, domain_height_m = NULL)
+  lat_lon_grid_loc = 1, domain_width_m = NULL, domain_height_m = NULL,
+  download_SRTM = TRUE, SRTM_file_path = NULL)
 }
 \arguments{
 \item{lat_dec_deg}{the latitude of the CALMET domain in decimal degrees. The location of this point is defined in the lat_lon_grid_loc argument.}
@@ -16,6 +17,10 @@ calmet_define_geophys(lat_dec_deg = NULL, lon_dec_deg = NULL,
 \item{domain_width_m}{the desired width of the meteorological domain in meters.}
 
 \item{domain_height_m}{the desired height of the meteorological domain in meters.}
+
+\item{download_SRTM}{a choice of whether to download the SRTM GeoTIFF height data from a server or read the identical files from a local folder.}
+
+\item{SRTM_file_path}{path to a folder containing a collection of SRTM V4 zip archive files.}
 }
 \description{
 Define the CALMET domain and determine the best gridded values for land use, terrain heights, and micrometeorological parameters for creation of a geophysical input file.

@@ -3,7 +3,7 @@
 \alias{download_SRTMV4_GeoTIFF}
 \title{Download an SRTM V4 GeoTIFF file}
 \usage{
-download_SRTMV4_GeoTIFF(lon, lat, download, path)
+download_SRTMV4_GeoTIFF(lon, lat, download = TRUE, SRTM_file_path = NULL)
 }
 \arguments{
 \item{lon}{a longitude supplied as decimal degrees.}
@@ -12,7 +12,7 @@ download_SRTMV4_GeoTIFF(lon, lat, download, path)
 
 \item{download}{a choice of whether to download the file if it already exists in the specified local path.}
 
-\item{path}{a path for which GeoTIFF files may exist locally.}
+\item{SRTM_file_path}{a path for which GeoTIFF files exist locally.}
 }
 \description{
 Download an SRTM V4 GeoTIFF file based on lat/lon coordinates
