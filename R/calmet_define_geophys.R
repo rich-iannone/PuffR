@@ -21,7 +21,9 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
                                   lon_dec_deg = NULL,
                                   lat_lon_grid_loc = 1,
                                   domain_width_m = NULL,
-                                  domain_height_m = NULL){
+                                  domain_height_m = NULL,
+                                  download_SRTM = TRUE,
+                                  SRTM_file_path = NULL){
   
   # Add require statements
   require(rgdal)
