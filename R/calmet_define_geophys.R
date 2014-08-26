@@ -131,9 +131,10 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
   LL_LR_UL_UR_longlat_SP <- spTransform(LL_LR_UL_UR_UTM_m_SP, CRS("+proj=longlat +ellps=GRS80"))
   
   # Obtain DEM data projected as long/lat for the domain as a RasterLayer object
-  srtm <- getData('SRTM',
-                  lon = floor(lon_dec_deg),
-                  lat = floor(lat_dec_deg))
+  srtm <- download_SRTMV4_GeoTIFF(lon = floor(lon_dec_deg),
+                                  lat = floor(lat_dec_deg),
+                                  download = download_SRTM,
+                                  SRTM_file_path = SRTM_file_path)
   
   # Generate Extents object in long/lat projection for cropping
   bbox_longlat <- extent(LL_LR_UL_UR_longlat_SP)
