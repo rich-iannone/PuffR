@@ -173,6 +173,9 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
           axis.title = element_text(size = rel(1.2)),
           legend.title = element_text(size = rel(1.2)))
   
+  # Save as a 300 ppi jpg file
+  ggsave(filename = "terrain.jpg")
+  
   # Extract heights from the resampled DEM in UTM
   gridded_heights_UTM_m_vector <- srtm_UTM_resampled@data@values
   
@@ -319,6 +322,9 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
     theme(axis.text = element_text(size = rel(1.2)),
           axis.title = element_text(size = rel(1.2)),
           legend.title = element_text(size = rel(1.2)))
+  
+  # Save as a 300 ppi jpg file
+  ggsave(filename = "landuse.jpg")
   
   # Reclass the 'CALMET_categories' back to the 'numeric' type
   UTM_gridded_values$CALMET_categories <- as.numeric(as.character(UTM_gridded_values$CALMET_categories))
