@@ -46,6 +46,9 @@ download_SRTMV4_GeoTIFF <- function(lon,
     if (file.exists(zipfilename)){
       unzip(zipfilename, exdir = dirname(zipfilename))
       file.remove(zipfilename)
+      file.remove(gsub(".zip", ".hdr", zipfilename))
+      file.remove(gsub(".zip", ".tfw", zipfilename))
+      file.remove(paste(temp_dir, "/readme.txt", sep = ''))
     }
     
     if (file.exists(tiffilename)){
@@ -68,6 +71,9 @@ download_SRTMV4_GeoTIFF <- function(lon,
     if (file.exists(zipfilename)){
       unzip(zipfilename, exdir = dirname(zipfilename))
       file.remove(zipfilename)
+      file.remove(gsub(".zip", ".hdr", zipfilename))
+      file.remove(gsub(".zip", ".tfw", zipfilename))
+      file.remove(paste(SRTM_file_path, "/readme.txt", sep = ''))
     }
     
     if (file.exists(tiffilename)){
