@@ -248,10 +248,7 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
   # Column-bind the 'start.date' and 'end.date' vectors with the coordinates data frame
   modis_coordinates <- cbind(modis_coordinates, start.date)
   modis_coordinates <- cbind(modis_coordinates, end.date)
-  
-  # Get a vector of the available bands for the MODIS MCD12Q1 product
-  MCD12Q1_Bands <- GetBands(Product = "MCD12Q1")
-  
+    
   # Acquire subsets of the landcover Type 1 codes from the MODIS MCD12Q1 product 
   MODISSubsets(LoadDat = modis_coordinates, Products = "MCD12Q1",
                Bands = c("Land_Cover_Type_1"),
