@@ -51,3 +51,33 @@ install_github('PuffR', 'rich-iannone')
 ```
 
 It's early days so the package will be changing rapidly. I invite you to send me questions and comments about this. If you'd like to contribute, let me know and we can talk collaboration. Yeah, let's work together!
+
+## Package Progress
+
+You can already do one or two useful things with this package. For instance, the geophysical input file for CALMET (GEO.DAT) can be produced.
+
+Let's generate a geophysical input file for a portion of the Vancouver area. This will consist of a grid centered (use `lat_lon_grid_loc = 1` for a center reference) on 49.5ºN and 125.30364ºW (`lat_dec_deg = 49.5` and `lon_dec_deg = -125.30364`). The width (E-W distance) of the grid will be 8000 m, and the height (N-S distance) will be the same (`domain_width_m = 8000` and `domain_height_m = 8000`. We will elect to download SRTM terrain height data from "http://gis-lab.info/data/srtm-tif/" (with `download_SRTM = TRUE`).
+
+```R
+calmet_define_geophys(lat_dec_deg = 49.5,
+                      lon_dec_deg = -125.30364,
+                      lat_lon_grid_loc = 1,
+                      domain_width_m = 8000,
+                      domain_height_m = 8000,
+                      download_SRTM = TRUE)
+```
+
+Alternatively, if you elected to download the whole 11 GB set of SRTM V4 GeoTIFF zip files, you can reference the local folder that contains that archive:
+
+```R
+calmet_define_geophys(lat_dec_deg = 49.5,
+                      lon_dec_deg = -125.30364,
+                      lat_lon_grid_loc = 1,
+                      domain_width_m = 8000,
+                      domain_height_m = 8000,
+                      download_SRTM = FALSE,
+                      SRTM_file_path = "/Volumes/Big HD/SRTM V4 GeoTIFF/")
+```
+
+This function currently generates seasonal GEO.DAT files (`winter_geo.txt`, `spring_geo.txt`, `summer_geo.txt`, and `fall_geo.txt`).
+
