@@ -270,6 +270,9 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
     IGBP_Type_1_class_no <- c(IGBP_Type_1_class_no, class_no)
   }
   
+  # Delete the .asc files from the working folder
+  file.remove(file_list)
+  
   # Get the corresponding CALMET category from the IGBP Type 1 class data
   CALMET_categories <- join(as.data.frame(IGBP_Type_1_class_no), LU_classification)[,3]
   
