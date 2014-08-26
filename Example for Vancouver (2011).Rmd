@@ -1,0 +1,34 @@
+---
+title: "Example for Vancouver (2011)"
+author: "Richard Iannone"
+date: "August 25, 2014"
+output: html_document
+---
+
+This is an example model run for Vancouver. The chosen year will be 2011. Let's begin with a little CALMET.
+
+## Require Statement and Working Directory
+
+Once the PuffR package is installed, make sure to use a require statement whenever you'd like to work with its functions.
+
+```{r}
+require(PuffR)
+```
+
+Now, set a working directory. This is where all of the model inputs and outputs will be located.
+
+```{r}
+setwd("~/Documents/Calpuff")
+```
+
+Let's generate a geophysical input file for CALMET. This will consist of a grid centered on 49.5ºN and 125.30364ºW. The width (E-W distance) of the grid will be 8000 m, and the height (N-S distance) will be the same. We will elect to download SRTM terrain height data from "http://gis-lab.info/data/srtm-tif/".
+```{r}
+calmet_define_geophys(lat_dec_deg = 49.5,
+                      lon_dec_deg = -125.30364,
+                      lat_lon_grid_loc = 1,
+                      domain_width_m = 8000,
+                      domain_height_m = 8000,
+                      download_SRTM = TRUE)
+```
+
+
