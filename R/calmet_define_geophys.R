@@ -5,6 +5,8 @@
 #' @param lat_lon_grid_loc the location of the lat/long inputs in relation to the domain. Choices are: 1 (center), 2 (lower left), 3 (lower right), 4 (upper left), 5 (upper right).
 #' @param domain_width_m the desired width of the meteorological domain in meters.
 #' @param domain_height_m the desired height of the meteorological domain in meters.
+#' @param download_SRTM a choice of whether to download the SRTM GeoTIFF height data from a server or read the identical files from a local folder.
+#' @param SRTM_file_path path to a folder containing a collection of SRTM V4 zip archive files.
 #' @export calmet_define_geophys
 #' @examples
 #' \dontrun{
