@@ -264,7 +264,7 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
   # Column-bind the 'start.date' and 'end.date' vectors with the coordinates data frame
   modis_coordinates <- cbind(modis_coordinates, start.date)
   modis_coordinates <- cbind(modis_coordinates, end.date)
-  
+    
   # Acquire subsets of the landcover Type 1 codes from the MODIS MCD12Q1 product 
   MODISSubsets(LoadDat = modis_coordinates, Products = "MCD12Q1",
                Bands = c("Land_Cover_Type_1"),
@@ -333,13 +333,15 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
             "90" = "honeydew")
   
   # Reclass 'CALMET_categories' as a factor for the purpose of generating a ggplot object
-  CALMET_categories_factor <- as.factor(CALMET_categories)
+  UTM_gridded_values$CALMET_categories <- as.factor(UTM_gridded_values$CALMET_categories)
   
   # Plot the grid of land use categories using ggplot
-  h <- ggplot(aes(x = UTM_gridded_values$x, y = UTM_gridded_values$y,
-                  fill = CALMET_categories_factor)) +
-    geom_tile(aes(fill = CALMET_categories_factor)) +
-    scale_fill_manual(values = cols, breaks = names(cols), name = "Land Use\nCategories") +
+  h <- ggplot(UTM_gridded_values, aes(x = x, y = y,
+                                      fill = as.numeric(CALMET_categories))) +
+    geom_tile() +
+    scale_fill_manual(values = cols,
+                      breaks = c(as.numeric(names(cols)), 100),
+                      name = "Land Use\nCategories") +
     coord_equal() +
     theme_bw(base_size = 12, base_family = "") +
     labs(x = "UTM Easting, m") +
@@ -351,6 +353,10 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
   # Save as land use plot as a pdf file
   ggsave(filename = "landuse.pdf", device = pdf,
          width = 8, height = 8, units = "in")
+  
+  
+  UTM_gridded_values$CALMET_categories <-
+    as.numeric(as.character(UTM_gridded_values$CALMET_categories))
   
   # Get data frame containing micrometeorological parameters by land use category by season
   mmet_seasons <- calmet_seasonal_micrometeorology()
