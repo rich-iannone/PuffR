@@ -64,7 +64,7 @@ download_SRTMV4_GeoTIFF <- function(lon,
     zipfilename <- paste(SRTM_file_path, "/", f, ".zip", sep = "")
     tiffilename <- paste(SRTM_file_path, "/", f, ".tif", sep = "")
     
-    if (!file.exists(zipfilename)){
+    if (!file.exists(zipfilename) & !file.exists(tiffilename)){
       stop("The file doesn't exist.")
     }
     
