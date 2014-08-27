@@ -317,6 +317,10 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
   for (i in 1:nrow(UTM_gridded_values)){
     if (UTM_gridded_values[i,1] == 0.00000) UTM_gridded_values[i,4] <- 50
   }
+  
+  # Replace 'CALMET_categories' vector with revised values
+  CALMET_categories <- UTM_gridded_values$CALMET_categories
+  
   # Define the colours for each of the CALMET land use categories using a named vector
   cols <- c("10" = "gold2",
             "20" = "olivedrab2",
