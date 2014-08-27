@@ -202,9 +202,10 @@ calmet_get_ncdc_station_data <- function(start_year = NULL,
     # Moderate Snow   <=0 deg C     2.5 ≤ R < 7.6   20
     # Heavy Snow      <=0 deg C     R ≤ 7.6         21
     
-    PRECIP.CODE <- with(data, ifelse(PRECIP.RATE > 0 & PRECIP.RATE < 2.5, 1,
-                                     ifelse(PRECIP.RATE >= 2.5 & PRECIP.RATE < 7.6, 2,
-                                            ifelse(PRECIP.RATE >= 7.6, 3, 9999))))
+    PRECIP.CODE <- ifelse(data$PRECIP.RATE > 0 & data$PRECIP.RATE < 2.5, 1,
+                          ifelse(data$PRECIP.RATE >= 2.5 & data$PRECIP.RATE < 7.6, 2,
+                                 ifelse(data$PRECIP.RATE >= 7.6 & data$PRECIP.RATE < 900,
+                                        3, 999)))
     
     PRECIP.CODE <- ifelse(PRECIP.CODE < 25 & data$TEMP < 273.2, PRECIP.CODE + 18, PRECIP.CODE)
     
