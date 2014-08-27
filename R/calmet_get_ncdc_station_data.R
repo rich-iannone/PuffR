@@ -156,6 +156,7 @@ calmet_get_ncdc_station_data <- function(start_year = NULL,
     # precipitation: AA[1-2]
     #
     
+    # Get number of entries that contain precipitation
     number_of_precip_lines <- sum(str_detect(additional.data$string, "AA1"), na.rm = TRUE)
     
     if (number_of_precip_lines > 0) {      
