@@ -345,7 +345,7 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
     coord_equal() +
     theme_bw(base_size = 12, base_family = "") +
     labs(x = paste("UTM (Zone ", UTM_zone, UTM_hemisphere, ") Easting, m", sep = '')) +
-    labs(y = paste("UTM (Zone ", UTM_zone, UTM_hemisphere, ") Northing, m", sep = '') +
+    labs(y = paste("UTM (Zone ", UTM_zone, UTM_hemisphere, ") Northing, m", sep = '')) +
     theme(axis.text = element_text(size = rel(1.2)),
           axis.title = element_text(size = rel(1.2)),
           legend.title = element_text(size = rel(1.2)))
