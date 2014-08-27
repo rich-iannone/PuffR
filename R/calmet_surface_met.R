@@ -122,8 +122,8 @@ calmet_surface_met <- function(start_year,
   # spatial transform
   LL_LR_UL_UR_longlat_SP <- spTransform(LL_LR_UL_UR_UTM_m_SP, CRS("+proj=longlat +ellps=GRS80"))
   
-  # Generate Extents object in long/lat projection
-  bbox_lat_lon <- extent(LL_LR_UL_UR_longlat_SP)  
+  # Generate Extents object in lat/lon projection
+  bbox_lat_lon <- extent(LL_LR_UL_UR_longlat_SP)
   
   # Get all surface met data and write CSV files to the working folder
   calmet_get_ncdc_station_data(start_year = start_year,
