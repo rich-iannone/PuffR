@@ -337,8 +337,8 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
   
   # Plot the grid of land use categories using ggplot
   h <- ggplot(UTM_gridded_values, aes(x = x, y = y,
-                                      fill = CALMET_categories)) +
-    geom_tile(aes(fill = CALMET_categories)) +
+                                      fill = CALMET_categories_factor)) +
+    geom_tile(aes(fill = CALMET_categories_factor)) +
     scale_fill_manual(values = cols, breaks = names(cols), name = "Land Use\nCategories") +
     coord_equal() +
     theme_bw(base_size = 12, base_family = "") +
