@@ -264,7 +264,7 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
   # Column-bind the 'start.date' and 'end.date' vectors with the coordinates data frame
   modis_coordinates <- cbind(modis_coordinates, start.date)
   modis_coordinates <- cbind(modis_coordinates, end.date)
-    
+  
   # Acquire subsets of the landcover Type 1 codes from the MODIS MCD12Q1 product 
   MODISSubsets(LoadDat = modis_coordinates, Products = "MCD12Q1",
                Bands = c("Land_Cover_Type_1"),
@@ -336,8 +336,8 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
   CALMET_categories_factor <- as.factor(CALMET_categories)
   
   # Plot the grid of land use categories using ggplot
-  h <- ggplot(UTM_gridded_values, aes(x = x, y = y,
-                                      fill = CALMET_categories_factor)) +
+  h <- ggplot(aes(x = UTM_gridded_values$x, y = UTM_gridded_values$y,
+                  fill = CALMET_categories_factor)) +
     geom_tile(aes(fill = CALMET_categories_factor)) +
     scale_fill_manual(values = cols, breaks = names(cols), name = "Land Use\nCategories") +
     coord_equal() +
