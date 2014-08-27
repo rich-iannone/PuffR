@@ -353,7 +353,8 @@ calmet_surface_met <- function(start_year,
       file = paste(output_file), sep = "\n", append = TRUE)
   
   # Add line 5 to file header (time zone)
-  cat("UTC-0800",
+  cat(paste("UTC", ifelse(time_offset >=0, "+", "-"),
+            formatC(abs(time_offset), width = 2, flag = "0"), "00", sep = ''),
       file = paste(output_file), sep = "\n", append = TRUE)
   
   # Add line 6 to file header (Beginning and end times for file, number of met stations)
