@@ -137,6 +137,7 @@ calmet_get_ncdc_station_data <- function(start_year = NULL,
     # opaque sky cover: GF1
     #
     
+    # Get number of entries that contain sky cover
     number_of_sky_cover_lines <- sum(str_detect(additional.data$string, "GF1"), na.rm = TRUE)
     percentage_of_sky_cover_lines <- (number_of_sky_cover_lines/length(additional.data$string)) * 100
     
