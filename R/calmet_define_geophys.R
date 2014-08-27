@@ -332,8 +332,8 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
             "80" = "moccasin",
             "90" = "honeydew")
   
-  # Reclass the 'CALMET_categories' for the purpose of generating a ggplot object
-  UTM_gridded_values$CALMET_categories <- as.factor(UTM_gridded_values$CALMET_categories)
+#   # Reclass the 'CALMET_categories' for the purpose of generating a ggplot object
+#   UTM_gridded_values$CALMET_categories <- as.factor(UTM_gridded_values$CALMET_categories)
   
   # Plot the grid of land use categories using ggplot
   h <- ggplot(UTM_gridded_values, aes(x = x, y = y,
@@ -352,8 +352,8 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
   ggsave(filename = "landuse.pdf", device = pdf,
          width = 8, height = 8, units = "in")
   
-  # Reclass the 'CALMET_categories' back to the 'numeric' type
-  UTM_gridded_values$CALMET_categories <- as.numeric(as.character(UTM_gridded_values$CALMET_categories))
+#   # Reclass the 'CALMET_categories' back to the 'numeric' type
+#   UTM_gridded_values$CALMET_categories <- as.numeric(as.character(UTM_gridded_values$CALMET_categories))
   
   # Get data frame containing micrometeorological parameters by land use category by season
   mmet_seasons <- calmet_seasonal_micrometeorology()
