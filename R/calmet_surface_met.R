@@ -179,7 +179,7 @@ calmet_surface_met <- function(start_year,
   time_difference <- difftime(end_time, start_time, units = 'hours')
   total_hours <- time_difference[[1]]
   
-  # Create the hourly time series as a list of POSIXlt time objects
+  # Create the hourly time series as a list of POSIXct time objects
   time_series <- as.list(c(1:total_hours))
   
   for (i in 1:total_hours) {
