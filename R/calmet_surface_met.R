@@ -37,6 +37,9 @@ calmet_surface_met <- function(start_year,
   domain_width_m <- round_any(domain_width_m, cell_resolution_m, round)
   domain_height_m <- round_any(domain_height_m, cell_resolution_m, round)
   
+  # Get matrix of longitude and latitude for chosen point
+  lat_lon_dec_deg <- cbind(lon_dec_deg, lat_dec_deg)
+  
   # Determine the UTM zone
   UTM_zone <- (floor((lon_dec_deg + 180)/6) %% 60) + 1
   
