@@ -367,16 +367,16 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
                          "gridded leaf area index field")
   
   # Get the corresponding micrometeorological parameters by gridded CALMET category by season
-  mmet_winter <- join(data.frame(CALMET_categories = CALMET_categories,
+  mmet_winter <- join(data.frame(CALMET_categories = CALMET_categories),
                       subset(mmet_seasons, season == "Winter"))
   
-  mmet_spring <- join(data.frame(CALMET_categories = CALMET_categories,
+  mmet_spring <- join(data.frame(CALMET_categories = CALMET_categories),
                       subset(mmet_seasons, season == "Spring"))
   
-  mmet_summer <- join(data.frame(CALMET_categories = CALMET_categories,
+  mmet_summer <- join(data.frame(CALMET_categories = CALMET_categories),
                       subset(mmet_seasons, season == "Summer"))
   
-  mmet_fall <- join(data.frame(CALMET_categories = CALMET_categories,
+  mmet_fall <- join(data.frame(CALMET_categories = CALMET_categories),
                     subset(mmet_seasons, season == "Fall"))
   
   # Create "winter_geo.txt" file
