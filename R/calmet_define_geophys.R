@@ -312,6 +312,11 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
   # LU categories
   UTM_gridded_values <- cbind(srtm_UTM_resampled_no_NA.SPDF, as.data.frame(CALMET_categories))
   
+  # Force values in the 'CALMET_categories' column of the 'UTM_gridded_values' data frame to
+  # be 50 (water) if height is 0
+  for (i in 1:nrow(UTM_gridded_values)){
+    if (UTM_gridded_values[i,1] == 0.00000) UTM_gridded_values[i,4] <- 50
+  }
   # Define the colours for each of the CALMET land use categories using a named vector
   cols <- c("10" = "gold2",
             "20" = "olivedrab2",
