@@ -55,6 +55,10 @@ calmet_surface_met <- function(start_year,
                            " +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
                            sep = '')
   
+  # Project as UTM coordinates from the determined UTM zone, round to nearest 250 m using the
+  # 'round_any' function from the 'plyr' package
+  UTM_location <- project(lat_lon_dec_deg, proj_string_UTM)
+  UTM_location <- round_any(UTM_location, cell_resolution_m, round)
   # Get extents of UTM grid (left, right, bottom, top) in meters
   left_UTM <- get_grid_extents_UTM(side = "left",
                                    lat_lon_grid_loc = lat_lon_grid_loc,
