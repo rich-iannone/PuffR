@@ -290,11 +290,8 @@ calmet_surface_met <- function(start_year,
     # Reorder data frame by POSIXct timestamp
     station_data_frames[[i]][[1]] <-
       station_data_frames[[i]][[1]][order(station_data_frames[[i]][[1]]$time_series),]
-    
-    
   }
-  
-  
+
   # Validate the individual CSV files, present a table several pieces of
   # information related to the data availablity and the data quality
   # 1. Elements where data is available
