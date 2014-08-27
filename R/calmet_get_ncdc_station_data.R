@@ -189,6 +189,8 @@ calmet_get_ncdc_station_data <- function(start_year = NULL,
     
     data$RH <- round_any(as.numeric(RH), 0.1, f = round)
     
+    data$RH[is.na(data$RH)] <- 999
+    
     # Calculate the precipitation code
     # 
     # Category        Temperature   Rate (mm/hr)    Code
