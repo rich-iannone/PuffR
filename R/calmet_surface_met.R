@@ -181,21 +181,116 @@ calmet_surface_met <- function(start_year,
   
   # Create the hourly time series as a list of POSIXct time objects
   time_series <- as.list(c(1:total_hours))
-  
   for (i in 1:total_hours) {
-    
     time_series[[i]] <- start_time + (3600 * (i - 1))
-    
   }
   
   # Use CSV_files to extract data from specified stations
   station_data_frames <- as.list(c(1:length(CSV_files)))
   
-  for (i in 1:length(CSV_files)) {
-    
+  for (i in 1:length(CSV_files)){
     station_data_frames[[i]] <- list(read.csv(CSV_files[i], header = TRUE))
+  }
+  
+  # For every station, change UTC times to local times using the specified time offset
+  for (i in 1:length(station_data_frames)){
+   
+    POSIXdatetime <- ISOdatetime(year = station_data_frames[[i]][[1]]$YR,
+                                 month = station_data_frames[[i]][[1]]$M,
+                                 day = station_data_frames[[i]][[1]]$D,
+                                 hour = station_data_frames[[i]][[1]]$HR,
+                                 min = station_data_frames[[i]][[1]]$MIN,
+                                 sec = 0,
+                                 tz = "GMT")
+    
+    # Shift POSIXct timestamps by specified time offset
+    POSIXdatetime <- POSIXdatetime + (time_offset * 3600)
+    
+    # Extract time elements from 'POSIXdatetime' object and replace in df
+    station_data_frames[[i]][[1]]$YR <- year(POSIXdatetime)
+    station_data_frames[[i]][[1]]$M <- month(POSIXdatetime)
+    station_data_frames[[i]][[1]]$D <- day(POSIXdatetime)
+    station_data_frames[[i]][[1]]$HR <- hour(POSIXdatetime)
+    station_data_frames[[i]][[1]]$MIN <- minute(POSIXdatetime)
+    
+    # Trim data frame to only contain target times
+    station_data_frames[[i]][[1]] <- 
+      subset(station_data_frames[[i]][[1]], YR >= start_year & YR <= end_year) # 8741
+    
+    # Obtain new vector of POSIXct timestamps
+    POSIXdatetime <- ISOdatetime(year = station_data_frames[[i]][[1]]$YR,
+                                 month = station_data_frames[[i]][[1]]$M,
+                                 day = station_data_frames[[i]][[1]]$D,
+                                 hour = station_data_frames[[i]][[1]]$HR,
+                                 min = station_data_frames[[i]][[1]]$MIN,
+                                 sec = 0,
+                                 tz = "GMT")
+    
+    # Scan for missing hours by comparing against all available hours in year
+    time_series_vector <- as.POSIXct(unlist(time_series),
+                                     origin = "1970-01-01",
+                                     tz = "GMT")
+    
+    station_data_frames[[i]][[1]]$time_series <- POSIXdatetime
+    
+    missing_times <- time_series_vector[which(!(time_series_vector %in% POSIXdatetime))]
+    
+    length(missing_times) # 19
+    
+    
+    # Create data frame with missing values
+    missing_usafid <- rep(unique(station_data_frames[[i]][[1]][,1]), length(missing_times))
+    missing_wban <- rep(unique(station_data_frames[[i]][[1]][,2]), length(missing_times))
+    missing_yr <- year(missing_times)
+    missing_m <- month(missing_times)
+    missing_d <- day(missing_times)
+    missing_hr <- hour(missing_times)
+    missing_min <- rep(0, length(missing_times))
+    missing_lat <- rep(station_data_frames[[i]][[1]][1,8], length(missing_times))
+    missing_long <- rep(station_data_frames[[i]][[1]][1,9], length(missing_times))
+    missing_elev <- rep(station_data_frames[[i]][[1]][1,10], length(missing_times))
+    missing_wind.dir <- rep(999, length(missing_times))
+    missing_wind.spd <- rep(999.9, length(missing_times))
+    missing_ceil.hgt <- rep(999.9, length(missing_times))
+    missing_temp <- rep(999.9, length(missing_times))
+    missing_dewpoint <- rep(999.9, length(missing_times))
+    missing_atm.pres <- rep(999.9, length(missing_times))
+    missing_precip.rate <- rep(999.9, length(missing_times))
+    missing_precip.rh <- rep(999, length(missing_times))
+    missing_precip.code <- rep(999, length(missing_times))
+    
+    # Create vector of vector objects
+    missing_vectors <- c(missing_usafid, missing_wban, missing_yr, missing_m,
+                         missing_d, missing_hr, missing_min, missing_lat, missing_long,
+                         missing_elev, missing_wind.dir, missing_wind.spd, missing_ceil.hgt,
+                         missing_temp, missing_dewpoint, missing_atm.pres, missing_precip.rate,
+                         missing_precip.rh, missing_precip.code, missing_times)
+    
+    # Create matrix of vector objects
+    missing_df <- as.data.frame(matrix(missing_vectors,
+                                       nrow = length(missing_times),
+                                       ncol = 20),
+                                stringsAsFactors = FALSE)
+    
+    
+    colnames(missing_df) <- colnames(station_data_frames[[i]][[1]])
+    
+    missing_df$time_series <- as.POSIXct(missing_df$time_series,
+                                         origin = "1970-01-01",
+                                         tz = "GMT")
+    
+    #     for (j in 1:ncol(station_data_frames[[i]][[1]])){
+    #       missing_df[,j] <- missing_vectors[j]
+    #     }
+    
+    # Row bind missing data frame with the available data frame
+    station_data_frames[[i]][[1]] <- rbind(station_data_frames[[i]][[1]],
+                                           missing_df)
+    
+    nrow(station_data_frames[[i]][[1]])
     
   }
+  
   
   # Validate the individual CSV files, present a table several pieces of
   # information related to the data availablity and the data quality
