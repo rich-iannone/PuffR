@@ -310,7 +310,7 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
   
   # Create new data frame object 'UTM_gridded_values' that contains gridded heights and
   # LU categories
-  UTM_gridded_values <- cbind(srtm_UTM_resampled.df, as.data.frame(CALMET_categories))
+  UTM_gridded_values <- cbind(srtm_UTM_resampled_no_NA.SPDF, as.data.frame(CALMET_categories))
   
   # Define the colours for each of the CALMET land use categories using a named vector
   cols <- c("10" = "gold2",
