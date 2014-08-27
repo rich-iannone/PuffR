@@ -88,10 +88,8 @@ calmet_get_ncdc_station_data <- function(start_year = NULL,
       system(paste("curl -O ftp://ftp.ncdc.noaa.gov/pub/data/noaa/", y,
                    "/", outputs[s, 1], sep = ""))
       
-      outputs[s, 2] <- ifelse(file.exists(outputs[s, 1]) == "TRUE", 'available', 'missing')
-      
+      outputs[s, 2] <- ifelse(file.exists(outputs[s, 1]) == "TRUE", 'available', 'missing') 
     }
-    
   }
   
   # Generate report of stations and file transfers
@@ -135,7 +133,10 @@ calmet_get_ncdc_station_data <- function(start_year = NULL,
     additional.data <- as.data.frame(scan(files[i], what = 'character', sep = "\n"))
     colnames(additional.data) <- c("string")
     
+    #
     # opaque sky cover: GF1
+    #
+    
     number_of_sky_cover_lines <- sum(str_detect(additional.data$string, "GF1"), na.rm = TRUE)
     percentage_of_sky_cover_lines <- (number_of_sky_cover_lines/length(additional.data$string)) * 100
     
@@ -146,7 +147,10 @@ calmet_get_ncdc_station_data <- function(start_year = NULL,
       GF1_sky_cover_coverage_code <- as.numeric(GF1_sky_cover_coverage_code)  
     }
     
+    #
     # precipitation: AA[1-2]
+    #
+    
     number_of_precip_lines <- sum(str_detect(additional.data$string, "AA1"), na.rm = TRUE)
     
     if (number_of_precip_lines > 0) {      
@@ -213,5 +217,5 @@ calmet_get_ncdc_station_data <- function(start_year = NULL,
   
   # Write the station data to a CSV file
   write.csv(stations, file = "stations.csv", row.names = FALSE)
-    
+  
 }
