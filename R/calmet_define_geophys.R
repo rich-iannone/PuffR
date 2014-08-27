@@ -170,7 +170,7 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
   srtm_UTM_resampled.df <- as.data.frame(srtm_UTM_resampled.SPDF)
   
   # Change the column names to a standard set of labels
-  colnames(srtm_UTM_resampled.df) <- c("x", "y", "z")
+  colnames(srtm_UTM_resampled.df) <- c("z", "x", "y")
   
   # Plot the grid of heights using ggplot
   g <- ggplot(srtm_UTM_resampled.df, aes(x = x, y = y, fill = z)) +
