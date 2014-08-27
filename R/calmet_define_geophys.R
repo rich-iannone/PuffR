@@ -173,8 +173,8 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
   colnames(srtm_UTM_resampled.df) <- c("x", "y", "z")
   
   # Plot the grid of heights using ggplot
-  g <- ggplot(srtm_UTM_resampled.df, aes(x = x, y = y, fill = srtm_UTM_resampled.df[,3])) +
-    geom_tile(aes(fill = srtm_UTM_resampled.df[,3])) +
+  g <- ggplot(srtm_UTM_resampled.df, aes(x = x, y = y, fill = z)) +
+    geom_tile(aes(fill = z)) +
     scale_fill_gradient(low = "green", high = "red",
                         guide = guide_legend(title = "Heights")) +
     coord_equal() +
