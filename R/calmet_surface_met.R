@@ -135,6 +135,38 @@ calmet_surface_met <- function(start_year,
   
   # Get lists of files, grouped by station identifier
   CSV_files_unique_stations <- unique(gsub("([0-9]*-[0-9]*)-[0-9]*.csv", "\\1", CSV_files))
+  
+  # Join years of station data together
+  for (i in 1:length(CSV_files_unique_stations)){
+    CSV_station_years <- list.files(path = ".",
+                                    pattern = paste(CSV_files_unique_stations[i],
+                                                    "-.*.csv", sep = ''))
+    for (j in 1:length(CSV_station_years)){
+      if (j == 1){
+        CSV_all_years_at_station <- read.csv(CSV_station_years[j],
+                                             header = TRUE,
+                                             stringsAsFactors = FALSE)
+      }
+      
+      if (j > 1){
+        
+        CSV_single_year_at_station <- read.csv(CSV_station_years[j],
+                                               header = TRUE,
+                                               stringsAsFactors = FALSE)
+        CSV_all_years_at_station <- rbind(CSV_all_years_at_station,
+                                          CSV_single_year_at_station)
+      }
+      
+      if (j == length(CSV_station_years))
+        
+        write.csv(CSV_all_years_at_station,
+                  file = paste(CSV_files_unique_stations[i], ".csv", sep = ""),
+                  row.names = FALSE)
+      
+    }
+    
+  }
+  
   # Define the start and end times and determine number of hours in each year
   start_time <- ISOdatetime(start_year, 1, 1, hour = 0, min = 0, sec = 0, tz = "GMT")
   end_time <- ISOdatetime(end_year, 12, 31, hour = 24, min = 0, sec = 0, tz = "GMT")
