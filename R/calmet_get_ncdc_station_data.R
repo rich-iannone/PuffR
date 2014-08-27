@@ -159,6 +159,17 @@ calmet_get_ncdc_station_data <- function(start_year = NULL,
     # Get number of entries that contain precipitation
     number_of_precip_lines <- sum(str_detect(additional.data$string, "AA1"), na.rm = TRUE)
     
+    AA1_precip_period_in_hours <- as.character(str_extract_all(additional.data$string, "AA1[0-9][0-9]"))
+    AA1_precip_period_in_hours <- str_replace_all(AA1_precip_period_in_hours,
+                                                  "AA1([0-9][0-9])", "\\1")
+    AA1_precip_period_in_hours <- as.numeric(AA1_precip_period_in_hours)     
+    AA1_precip_depth_in_mm <- as.character(str_extract_all(additional.data$string,
+                                                           "AA1[0-9][0-9][0-9][0-9][0-9][0-9]"))
+    AA1_precip_depth_in_mm <- str_replace_all(AA1_precip_depth_in_mm,
+                                              "AA1[0-9][0-9]([0-9][0-9][0-9][0-9])", "\\1")
+    AA1_precip_depth_in_mm <- as.numeric(AA1_precip_depth_in_mm)/10
+    AA1_precip_rate_in_mm_per_hour <- AA1_precip_depth_in_mm / AA1_precip_period_in_hours
+    
     
     # Remove the string portion of the 'additional data' data frame
     additional.data$string <- NULL
