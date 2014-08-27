@@ -287,7 +287,10 @@ calmet_surface_met <- function(start_year,
     station_data_frames[[i]][[1]] <- rbind(station_data_frames[[i]][[1]],
                                            missing_df)
     
-    nrow(station_data_frames[[i]][[1]])
+    # Reorder data frame by POSIXct timestamp
+    station_data_frames[[i]][[1]] <-
+      station_data_frames[[i]][[1]][order(station_data_frames[[i]][[1]]$time_series),]
+    
     
   }
   
