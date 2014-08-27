@@ -163,6 +163,9 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
   # Substitute NA values with 0 values in RasterLayer copy
   srtm_UTM_resampled_no_NA@data@values[is.na(srtm_UTM_resampled_no_NA@data@values)] <- 0
   
+  # Create a SpatialPixelsDataFrame from the resampled data with no NA values in the data/values slot
+  srtm_UTM_resampled_no_NA.SPDF <- as(srtm_UTM_resampled_no_NA, "SpatialPixelsDataFrame")
+  
   # Create a data frame for plotting in ggplot
   srtm_UTM_resampled.df <- as.data.frame(srtm_UTM_resampled.SPDF)
   
