@@ -65,6 +65,17 @@ calmet_surface_met <- function(start_year,
   is_number_cells_across_x_an_int <- ifelse(domain_width_m %% cell_resolution_m != 0, FALSE, TRUE)
   is_number_cells_across_y_an_int <- ifelse(domain_height_m %% cell_resolution_m != 0, FALSE, TRUE)
   
+  # Get the number of cells in the x direction
+  number_cells_across_x <- ifelse(is_number_cells_across_x_an_int == TRUE,
+                                  domain_width_m/cell_resolution_m, NULL)
+  
+  # Get the number of cells in the y direction
+  number_cells_across_y <- ifelse(is_number_cells_across_y_an_int == TRUE,
+                                  domain_height_m/cell_resolution_m, NULL)
+  
+  # Get the total number of cells
+  total_cells <- number_cells_across_x * number_cells_across_y
+  
   # Get extents of UTM grid (left, right, bottom, top) in meters
   left_UTM <- get_grid_extents_UTM(side = "left",
                                    lat_lon_grid_loc = lat_lon_grid_loc,
