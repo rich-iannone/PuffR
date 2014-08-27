@@ -147,24 +147,18 @@ calmet_surface_met <- function(start_year,
                                              header = TRUE,
                                              stringsAsFactors = FALSE)
       }
-      
       if (j > 1){
-        
         CSV_single_year_at_station <- read.csv(CSV_station_years[j],
                                                header = TRUE,
                                                stringsAsFactors = FALSE)
         CSV_all_years_at_station <- rbind(CSV_all_years_at_station,
                                           CSV_single_year_at_station)
       }
-      
       if (j == length(CSV_station_years))
-        
         write.csv(CSV_all_years_at_station,
                   file = paste(CSV_files_unique_stations[i], ".csv", sep = ""),
                   row.names = FALSE)
-      
     }
-    
   }
   
   # Clean up folder
