@@ -27,6 +27,8 @@ calmet_surface_met <- function(start_year,
   
   # Add require statements
   require(lubridate)
+  require(plyr)
+  require(raster)
   
   # Define the cell resolution (square cells) as 250 m
   cell_resolution_m <- 250
