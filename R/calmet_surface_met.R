@@ -43,6 +43,9 @@ calmet_surface_met <- function(start_year,
   # Determine the UTM zone
   UTM_zone <- (floor((lon_dec_deg + 180)/6) %% 60) + 1
   
+  # Determine whether domain is in Northern Hemisphere or Southern Hemisphere
+  UTM_hemisphere <- ifelse(lat_dec_deg >= 0, "N", "S")
+  
   # Define a PROJ.4 projection string for a lat/lon projection
   proj_string_longlat <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
   
