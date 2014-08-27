@@ -134,8 +134,6 @@ calmet_get_ncdc_station_data <- function(start_year = NULL,
     # Additional data is of variable length and may not exist in every line of every file
     additional.data <- as.data.frame(scan(files[i], what = 'character', sep = "\n"))
     colnames(additional.data) <- c("string")
-    number_of_add_lines <- sum(str_detect(additional.data$string, "ADD"), na.rm = TRUE)
-    percentage_of_add_lines <- (number_of_add_lines/length(additional.data$string)) * 100
     
     # opaque sky cover: GF1
     number_of_sky_cover_lines <- sum(str_detect(additional.data$string, "GF1"), na.rm = TRUE)
@@ -150,7 +148,6 @@ calmet_get_ncdc_station_data <- function(start_year = NULL,
     
     # precipitation: AA[1-2]
     number_of_precip_lines <- sum(str_detect(additional.data$string, "AA1"), na.rm = TRUE)
-    percentage_of_precip_lines <- (number_of_precip_lines/length(additional.data$string)) * 100
     
     if (number_of_precip_lines > 0) {      
       AA1_precip_period_in_hours <- as.character(str_extract_all(additional.data$string, "AA1[0-9][0-9]"))
