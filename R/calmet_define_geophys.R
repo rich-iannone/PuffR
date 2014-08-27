@@ -179,8 +179,8 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
                         guide = guide_legend(title = "Heights")) +
     coord_equal() +
     theme_bw(base_size = 12, base_family = "") +
-    labs(x = "UTM Easting, m") +
-    labs(y = "UTM Northing, m") +
+    labs(x = paste("UTM (Zone ", UTM_zone, UTM_hemisphere, ") Easting, km", sep = '')) +
+    labs(y = paste("UTM (Zone ", UTM_zone, UTM_hemisphere, ") Northing, km", sep = '')) +
     theme(axis.text = element_text(size = rel(1.2)),
           axis.title = element_text(size = rel(1.2)),
           legend.title = element_text(size = rel(1.2)))
