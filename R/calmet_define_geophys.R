@@ -333,11 +333,11 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
             "90" = "honeydew")
   
   # Reclass 'CALMET_categories' as a factor for the purpose of generating a ggplot object
-  UTM_gridded_values$CALMET_categories <- as.factor(UTM_gridded_values$CALMET_categories)
+#   UTM_gridded_values$CALMET_categories <- as.factor(UTM_gridded_values$CALMET_categories)
   
   # Plot the grid of land use categories using ggplot
   h <- ggplot(UTM_gridded_values, aes(x = x, y = y,
-                                      fill = as.numeric(CALMET_categories))) +
+                                      fill = CALMET_categories)) +
     geom_tile() +
 #     scale_fill_manual(values = cols,
 #                       breaks = c(as.numeric(names(cols)), 100),
