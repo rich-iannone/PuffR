@@ -342,7 +342,7 @@ calmet_surface_met <- function(start_year,
       file = paste(output_file), sep = "\n", append = TRUE)
   
   # Add line 3 to file header (single comment line)
-  cat("Produced using R",
+  cat("Produced using PuffR",
       file = paste(output_file), sep = "\n", append = TRUE)
   
   # Add line 4 to file header (map projection [NONE])
