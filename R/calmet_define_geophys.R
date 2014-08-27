@@ -160,6 +160,9 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
   # Create a copy of the RasterLayer object for subsituting NA values with 0
   srtm_UTM_resampled_no_NA <- srtm_UTM_resampled
   
+  # Substitute NA values with 0 values in RasterLayer copy
+  srtm_UTM_resampled_no_NA@data@values[is.na(srtm_UTM_resampled_no_NA@data@values)] <- 0
+  
   # Create a data frame for plotting in ggplot
   srtm_UTM_resampled.df <- as.data.frame(srtm_UTM_resampled.SPDF)
   
