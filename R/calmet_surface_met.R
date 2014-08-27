@@ -33,6 +33,10 @@ calmet_surface_met <- function(start_year,
   # Define the cell resolution (square cells) as 250 m
   cell_resolution_m <- 250
   
+  # Round the provided width and the height of the met domain to the resolution of the cell
+  domain_width_m <- round_any(domain_width_m, cell_resolution_m, round)
+  domain_height_m <- round_any(domain_height_m, cell_resolution_m, round)
+  
   # Determine the UTM zone
   UTM_zone <- (floor((lon_dec_deg + 180)/6) %% 60) + 1
   
