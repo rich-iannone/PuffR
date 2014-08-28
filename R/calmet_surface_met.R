@@ -126,9 +126,13 @@ calmet_surface_met <- function(start_year,
   bbox_lat_lon <- extent(LL_LR_UL_UR_longlat_SP)
   
   # Get all surface met data and write CSV files to the working folder
-  calmet_get_ncdc_station_data(start_year = start_year,
-                               end_year = end_year,
-                               bbox_lat_lon = bbox_lat_lon)
+  stations <- calmet_get_ncdc_station_data(start_year = start_year,
+                                           end_year = end_year,
+                                           bbox_lat_lon = bbox_lat_lon)
+  
+  if (is.logical(stations) & stations == FALSE){
+    stop("There are no stations in the selected domain")
+  }
   
   # Generate a file list for the newly-generated CSV files
   CSV_files <- list.files(path = ".", pattern = "[0-9]*-[0-9]*-[0-9]*.csv")
