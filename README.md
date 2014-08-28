@@ -34,7 +34,9 @@ Dispersion modelling can be a complex process and, as with all models, the resul
 |--------------|-------------|----------|
 | Surface station meteorology | 1-hourly global dataset for global met stations | National Climatic Data Center (NCDC) |
 | Upper air data | global datasets spanning decades | RAOBS global archive of radiosonde/rawinsonde upper air data |
-| Surface elevation | global SRTM V4 GeoTIFF archive | U.S. Geological Survey (USGS) |
+| Surface elevation | U.S. NED GeoTIFF | U.S. Geological Survey (USGS) |
+|  | Canadian Digital Elevation Data (CDED) | GeoBase.ca |
+|  | global SRTM V4 GeoTIFF archive | U.S. Geological Survey (USGS) |
 | Global landuse and land cover | global, gridded land cover | MODIS data | 
 | Industrial emissions sources | a database of point and area emissions sources | US EPA National Emissions Inventory | 
 | Marine emissions sources | AIS ship positions + ship master data | various freely available sources |
