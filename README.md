@@ -81,9 +81,24 @@ calmet_define_geophys(lat_dec_deg = 49.250117,
 
 This function currently generates seasonal GEO.DAT files (`winter_geo.txt`, `spring_geo.txt`, `summer_geo.txt`, and `fall_geo.txt`).
 
+How about surface meteorology? We can produce a SURF.DAT file using the `calmet_surface_met` function. In the following example, we can obtain a SURF.DAT file from the same domain, specifying the beginning and ending years:
+
+```R
+calmet_surface_met(start_year = 2011,
+                   end_year = 2011,
+                   lat_dec_deg = 49.250117,
+                   lon_dec_deg = -123.076122,
+                   lat_lon_grid_loc = 1,
+                   domain_width_m = 8000,
+                   domain_height_m = 8000,
+                   time_offset = -8,
+                   output_file = "surf.dat")
+```
+
+This function currently requires that you supply a `time_offset` value, which is the time difference from UTC+0000. The output file can be named by supplying a filename for the `output_file' argument.
+
 The next functions in the works will allow for:
 
-- creation of a surface meteorology input file
 - creation of an upper air input file
 - interactive/non-interactive creation of a CALMET input file
 - creation of receptors
