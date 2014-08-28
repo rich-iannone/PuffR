@@ -193,7 +193,7 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
   gridded_heights_UTM_m_vector <- srtm_UTM_resampled@data@values
   
   # Create a data frame for the extracted heights in UTM, in row-major order
-  gridded_heights_UTM_m_df <- as.data.frame(t(matrix(values_vector,
+  gridded_heights_UTM_m_df <- as.data.frame(t(matrix(gridded_heights_UTM_m_vector,
                                                      ncol = number_cells_across_y)))
   
   # Replace NA values with 0 values
