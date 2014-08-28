@@ -395,7 +395,6 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
     cat(paste(" 2    - ", mmet_descriptions[i - 1], sep = ''),
         file = "winter_geo.txt", sep = "\n", append = TRUE)
     cat(vector_values_to_row_major_strings(values_vector = mmet_winter[,i],
-                                           number_cells_across_x = number_cells_across_x,
                                            number_cells_across_y = number_cells_across_y),
         file = "winter_geo.txt", sep = "\n", append = TRUE)
   }
@@ -413,7 +412,6 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
     cat(paste(" 2    - ", mmet_descriptions[i - 1], sep = ''),
         file = "spring_geo.txt", sep = "\n", append = TRUE)
     cat(vector_values_to_row_major_strings(values_vector = mmet_spring[,i],
-                                           number_cells_across_x = number_cells_across_x,
                                            number_cells_across_y = number_cells_across_y),
         file = "spring_geo.txt", sep = "\n", append = TRUE)
   }
@@ -431,7 +429,6 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
     cat(paste(" 2    - ", mmet_descriptions[i - 1], sep = ''),
         file = "summer_geo.txt", sep = "\n", append = TRUE)
     cat(vector_values_to_row_major_strings(values_vector = mmet_summer[,i],
-                                           number_cells_across_x = number_cells_across_x,
                                            number_cells_across_y = number_cells_across_y),
         file = "summer_geo.txt", sep = "\n", append = TRUE)
   }
@@ -449,7 +446,6 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
     cat(paste(" 2    - ", mmet_descriptions[i - 1], sep = ''),
         file = "fall_geo.txt", sep = "\n", append = TRUE)
     cat(vector_values_to_row_major_strings(values_vector = mmet_fall[,i],
-                                           number_cells_across_x = number_cells_across_x,
                                            number_cells_across_y = number_cells_across_y),
         file = "fall_geo.txt", sep = "\n", append = TRUE)
   }
