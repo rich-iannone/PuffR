@@ -250,7 +250,8 @@ calmet_surface_met <- function(start_year,
     missing_temp <- rep(999.9, length(missing_times))
     missing_dewpoint <- rep(999.9, length(missing_times))
     missing_atm.pres <- rep(999.9, length(missing_times))
-    missing_precip.rate <- rep(999.9, length(missing_times))
+    missing_sky.cover <- rep(999, length(missing_times))
+    missing_precip.rate <- rep(999, length(missing_times))
     missing_precip.rh <- rep(999, length(missing_times))
     missing_precip.code <- rep(999, length(missing_times))
     
