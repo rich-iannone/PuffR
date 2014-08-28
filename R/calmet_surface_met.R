@@ -232,10 +232,7 @@ calmet_surface_met <- function(start_year,
     station_data_frames[[i]][[1]]$time_series <- POSIXdatetime
     
     missing_times <- time_series_vector[which(!(time_series_vector %in% POSIXdatetime))]
-    
-    length(missing_times) # 19
-    
-    
+        
     # Create data frame with missing values
     missing_usafid <- rep(unique(station_data_frames[[i]][[1]][,1]), length(missing_times))
     missing_wban <- rep(unique(station_data_frames[[i]][[1]][,2]), length(missing_times))
