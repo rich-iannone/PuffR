@@ -6,13 +6,11 @@
 #' @export vector_values_to_row_major_strings
 
 vector_values_to_row_major_strings <- function(values_vector,
-                                               number_cells_across_x,
                                                number_cells_across_y){
   
   # Create formatted GEO.DAT fields
-  values_df <- as.data.frame(matrix(values_vector,
-                                    nrow = number_cells_across_y,
-                                    ncol = number_cells_across_x))
+  values_df <- as.data.frame(t(matrix(values_vector,
+                                      ncol = number_cells_across_y)))
   
   # Generate a vector of comma-delimited strings containing LU categories of every row of cells;
   # this is for writing to a file and eventual inclusion in the GEO.DAT file
