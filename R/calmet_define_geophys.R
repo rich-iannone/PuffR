@@ -224,7 +224,7 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
     string <- paste(round(gridded_heights_UTM_m_df[i, ], digits = 2), collapse = ", ")
     gridded_heights_UTM_m_row_major_strings <- c(gridded_heights_UTM_m_row_major_strings, string)
   }
-  
+    
   # Write the heights category subheader and data to disk
   geo_dat_h_heights <- " 1.0000  - TERRAIN heights - HTFAC (Conversion to meters)"
   
@@ -263,7 +263,7 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
   # Column-bind the 'start.date' and 'end.date' vectors with the coordinates data frame
   modis_coordinates <- cbind(modis_coordinates, start.date)
   modis_coordinates <- cbind(modis_coordinates, end.date)
-    
+  
   # Acquire subsets of the landcover Type 1 codes from the MODIS MCD12Q1 product 
   MODISSubsets(LoadDat = modis_coordinates, Products = "MCD12Q1",
                Bands = c("Land_Cover_Type_1"),
@@ -283,10 +283,10 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
   }
   
   # Delete the .asc files from the working folder
-#   file.remove(file_list)
+  #   file.remove(file_list)
   
   # Delete the summary CSV file from the working folder
-#   file.remove(list.files(pattern = "Subset Download.*.csv"))
+  #   file.remove(list.files(pattern = "Subset Download.*.csv"))
   
   # Get the corresponding CALMET category from the IGBP Type 1 class data
   CALMET_categories <- join(as.data.frame(IGBP_Type_1_class_no), LU_classification)[,3]
