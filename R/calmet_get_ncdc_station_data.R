@@ -69,6 +69,11 @@ calmet_get_ncdc_station_data <- function(start_year = NULL,
                           BEGIN <= start_year - 1 &
                           END >= end_year + 1)
   
+  if (nrow(domain.list) == 0){  
+    stations <- FALSE
+    return(stations)
+  }
+  
   # Initialize data frame for file status reporting
   outputs <- as.data.frame(matrix(NA, dim(domain.list)[1], 2))
   names(outputs) <- c("FILE", "STATUS")
