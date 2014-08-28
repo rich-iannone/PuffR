@@ -259,8 +259,8 @@ calmet_surface_met <- function(start_year,
     missing_vectors <- c(missing_usafid, missing_wban, missing_yr, missing_m,
                          missing_d, missing_hr, missing_min, missing_lat, missing_long,
                          missing_elev, missing_wind.dir, missing_wind.spd, missing_ceil.hgt,
-                         missing_temp, missing_dewpoint, missing_atm.pres, missing_precip.rate,
-                         missing_precip.rh, missing_precip.code, missing_times)
+                         missing_temp, missing_dewpoint, missing_atm.pres, missing_sky.cover,
+                         missing_precip.rate, missing_precip.rh, missing_precip.code, missing_times)
     
     # Create matrix of vector objects
     missing_df <- as.data.frame(matrix(missing_vectors,
