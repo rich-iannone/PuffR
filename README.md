@@ -89,8 +89,8 @@ calmet_surface_met(start_year = 2011,
                    lat_dec_deg = 49.250117,
                    lon_dec_deg = -123.076122,
                    lat_lon_grid_loc = 1,
-                   domain_width_m = 8000,
-                   domain_height_m = 8000,
+                   domain_width_m = 30000,
+                   domain_height_m = 30000,
                    time_offset = -8,
                    output_file = "surf.dat")
 ```
