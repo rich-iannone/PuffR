@@ -3,8 +3,7 @@
 \alias{vector_values_to_row_major_strings}
 \title{Transform vector values into strings formatted for GEO.DAT files}
 \usage{
-vector_values_to_row_major_strings(values_vector, number_cells_across_x,
-  number_cells_across_y)
+vector_values_to_row_major_strings(values_vector, number_cells_across_y)
 }
 \arguments{
 \item{values_vector}{a numeric vector}
