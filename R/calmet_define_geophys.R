@@ -16,7 +16,8 @@
 #'                       lon_dec_deg = -118.253959,
 #'                       lat_lon_grid_loc = 1,
 #'                       domain_width_m = 8000,
-#'                       domain_height_m = 8000)
+#'                       domain_height_m = 8000,
+#'                       download_SRTM = TRUE)
 #'}
 
 calmet_define_geophys <- function(lat_dec_deg = NULL,
