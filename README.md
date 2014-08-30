@@ -38,7 +38,8 @@ Dispersion modelling can be a complex process and, as with all models, the resul
 |  | Canadian Digital Elevation Data (CDED) | GeoBase.ca |
 |  | global SRTM V4 GeoTIFF archive | U.S. Geological Survey (USGS) |
 | Global landuse and land cover | global, gridded land cover | MODIS data | 
-| Industrial emissions sources | a database of point and area emissions sources | US EPA National Emissions Inventory | 
+| Industrial emissions sources | a database of point and area emissions sources | US EPA National Emissions Inventory |
+|  |  | Canadian NPRI Emissions Database | 
 | Marine emissions sources | AIS ship positions + ship master data | various freely available sources |
 
 Aside from the aforementioned data, there are also additional datasets available on a regional basis that may prove valuable in many instances (e.g., regionally-managed met stations, road activity data, etc.). For this reason, you can bring your own datasets (BYOD) and add those to the model inputs.
