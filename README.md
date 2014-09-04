@@ -2,13 +2,13 @@
 
 PuffR is all about helping you conduct dispersion modelling using the [CALPUFF modelling system](http://www.epa.gov/scram001/dispersion_prefrec.htm).
 
-## Air Quality Modelling and CALPUFF
+### Air Quality Modelling and CALPUFF
 
 Air quality modelling is a great tool for describing the causal relationship between emissions, meteorology, atmospheric concentrations, deposition, and other factors. Air pollution measurements give useful quantitative information about ambient concentrations and deposition, however, such measurements can only describe air quality at specific locations and times. Moreover, monitoring usually doesn't provide very good information concerning the causes of the air quality problem. AQ modelling can instead provide a more complete deterministic description of the air quality problem, including an analysis of factors and causes (e.g., emission sources, meteorological processes, physical changes, and chemistry). Thus air quality models play an important role in science, because of their capability to assess the relative importance of the relevant processes. Air quality modelling is also an important tool for developing and evaluating air quality policy. Model outputs provide a wide assessment of the state of air quality across a given jurisdiction both in terms of airborne concentrations and potential human exposure and the deposition of acidifying and eutrophying pollutants. 
 
 The CALPUFF integrated modelling system consists of three main components and a set of preprocessing and postprocessing programs. The main components of the modelling system are CALMET (a diagnostic 3-dimensional meteorological model), CALPUFF (an air quality dispersion model), and CALPOST (a postprocessing package). It's a great system.
  
-## The Goals of the PuffR R Package Project
+### The Goals of the PuffR R Package Project
 
 While CALPUFF is indeed great, the workflow for atmospheric dispersion modelling with CALPUFF needs to be reconsidered, both in the interest of saving time and also for ensuring that the quality of inputs is higher. Here are some ways that the PuffR package might provide some value:
 
@@ -24,7 +24,7 @@ While CALPUFF is indeed great, the workflow for atmospheric dispersion modelling
 
 — allow visualizations and data to be easily shared on the web, and, be exported in a wide range of useful formats
 
-## How to go about this
+### How to go about this
 
 The project is starting small. Hell, it's got to start somewhere. But we've got a great foundation! First off, we are using R. It's got everything we need to gather and organize datasets, do spatial/temporal tasks, produce beautiful visualizations, and publish on the web. Secondly, we have the CALPUFF code base to perform the numerical modelling. Nothing really has to be rewritten there, there just needs to be an interface. Perhaps some compiling from source will be done but *that's it*.
 
@@ -44,7 +44,7 @@ Dispersion modelling can be a complex process and, as with all models, the resul
 
 Aside from the aforementioned data, there are also additional datasets available on a regional basis that may prove valuable in many instances (e.g., regionally-managed met stations, road activity data, etc.). For this reason, you can bring your own datasets (BYOD) and add those to the model inputs.
 
-## Installation
+### Installation
 
 Install PuffR from GitHub using the `devtools` package:
 
@@ -55,7 +55,7 @@ install_github('PuffR', 'rich-iannone')
 
 It's early days so the package will be changing rapidly. I invite you to send me questions and comments about this. If you'd like to contribute, let me know and we can talk collaboration. Yeah, let's work together!
 
-## Package Progress
+### Package Progress
 
 You can already do one or two useful things with this package. For instance, the geophysical input file for CALMET (GEO.DAT) can be produced.
 
