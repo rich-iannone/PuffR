@@ -36,11 +36,7 @@ calmet_define_geophys <- function(lat_dec_deg = NULL,
   require(ggplot2)
   require(stringr)
   require(MODISTools)
-  
-  # Where is this point located on the grid?
-  # Choices are: 1 (center), 2 (lower left), 3 (lower right), 4 (upper left), 5 (upper right)
-  lat_lon_grid_loc <- 1
-  
+    
   # Define the cell resolution (square cells) as 250 m
   cell_resolution_m <- 250
   
