@@ -40,13 +40,13 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
   colnames(grid_info) <- c("nx", "ny", "xorigkm", "yorigkm", "dgridkm")
   
   # Get extents of UTM grid (left, right, bottom, top) in meters
-  left_UTM <- grid_info[1, 3] * 1000
+  left_UTM <- grid_info$xorigkm * 1000
   
-  bottom_UTM <- grid_info[1, 4] * 1000
+  bottom_UTM <- grid_info$yorigkm * 1000
     
-  right_UTM <- left_UTM + (grid_info[1, 1] * (grid_info[1, 5] * 1000))
+  right_UTM <- left_UTM + (grid_info$nx * grid_info$dgridkm * 1000)
   
-  top_UTM <- bottom_UTM + (grid_info[1, 2] * (grid_info[1, 5] * 1000))
+  top_UTM <- bottom_UTM + (grid_info$ny * grid_info$dgridkm * 1000)
   
   # Create a data frame object for UTM values of LL, LR, UL, and UR
   LL_LR_UL_UR_UTM_m_DF <- data.frame("x" = c(left_UTM, right_UTM, left_UTM, right_UTM), 
