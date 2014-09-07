@@ -18,10 +18,7 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
   require(raster)
   require(ggplot2)
   require(stringr)
-  
-  # Read in geophysical input file
-  geophys_file <- "/Users/riannone/Documents/Research\ Work/CALPUFF\ modelling/vancouver/geo--vancouver-56x25x250--fall.txt"
-  
+   
   # From file contents, read in the grid information into a data frame
   grid_info <- as.data.frame(t(matrix(as.numeric(unlist(str_split(readLines(geophys_file)[
     (as.numeric(readLines(geophys_file)[2]) + 6)], " ")))[
