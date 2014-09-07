@@ -25,6 +25,8 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
       which(!is.na(as.numeric(unlist(str_split(readLines(geophys_file)[
         (as.numeric(readLines(geophys_file)[2]) + 6)], " ")))))][1:5])))
   
+  # Provide column names for the 'grid_info' data frame
+  colnames(grid_info) <- c("nx", "ny", "xorigkm", "yorigkm", "dgridkm")
   
   # Get the UTM zone from the geophysical data file
   UTM_zone <- str_trim(readLines(geophys_file)[as.numeric(readLines(geophys_file)[2]) + 4])
