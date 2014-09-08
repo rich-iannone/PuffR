@@ -39,5 +39,12 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
                                       "pollutant_id")
     }
     
+    # Extract a string from the 'time_series_output' object, representing data for an hour
+    time_series_row <-
+      as.vector(as.numeric(unlist(
+        str_split_fixed(time_series_output[i],
+                        pattern = "[ ]+",
+                        n = length(time_series_receptor_numbers) + 4))))
+    
   
 }
