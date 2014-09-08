@@ -103,5 +103,8 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
   # Create a SpatialPixelsDataFrame from the resampled data with no NA values in the data/values slot
   srtm_UTM_resampled_no_NA.SPDF <- as(srtm_UTM_resampled_no_NA, "SpatialPixelsDataFrame")
   
+  # Create a data frame for plotting in ggplot
+  srtm_UTM_resampled.df <- as.data.frame(srtm_UTM_resampled.SPDF)
+  
 }
 
