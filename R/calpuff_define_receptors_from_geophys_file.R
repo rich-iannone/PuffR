@@ -88,5 +88,8 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
                                         " +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
                                         sep = ''))
   
+  # Crop DEM data again using 'bbox' Extent object in UTM projection
+  srtm_UTM_resampled <- resample(srtm_UTM, LL_LR_UL_UR_UTM_m_RL)
+  
 }
 
