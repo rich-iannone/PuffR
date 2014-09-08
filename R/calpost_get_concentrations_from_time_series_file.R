@@ -26,5 +26,8 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
   # Get numeric vector of all y coordinate values (UTM) in units of km
   time_series_y_km <- as.numeric(unlist(str_split(gsub("^.*y......", "", time_series_output[11]), "  ")))
   
+  # Generate a long data frame containing concentration data for each cell at every timestep
+  for (i in 15:length(time_series_output)){
+    
   
 }
