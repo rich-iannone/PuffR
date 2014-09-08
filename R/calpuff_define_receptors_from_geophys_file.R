@@ -136,5 +136,9 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
   # Replace NA values with 0 values
   gridded_heights_UTM_m_mat[is.na(gridded_heights_UTM_m_mat)] <- 0
   
+  # Obtain data frame of UTM coordinates and heights for entire set of receptors
+  srtm_UTM_resampled_no_NA.df <- as.data.frame(srtm_UTM_resampled_no_NA.SPDF)
+  colnames(srtm_UTM_resampled_no_NA.df) <- c("x", "y", "z")
+  
 }
 
