@@ -94,5 +94,8 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
   # Create a SpatialPixelsDataFrame from the resampled data
   srtm_UTM_resampled.SPDF <- as(srtm_UTM_resampled, "SpatialPixelsDataFrame")
   
+  # Create a copy of the RasterLayer object for subsituting NA values with 0
+  srtm_UTM_resampled_no_NA <- srtm_UTM_resampled
+  
 }
 
