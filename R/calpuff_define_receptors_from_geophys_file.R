@@ -160,5 +160,7 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
     
   }
   
+  # Write the strings to file 'receptors.txt' in working folder
+  cat(receptor_strings, file = "receptors.txt", sep = "\n", append = FALSE)
+  
 }
-
