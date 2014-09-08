@@ -15,6 +15,10 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
   # Read in all lines from the CALPOST time series output file
   time_series_output <- readLines(time_series_file)
   
+  # Get numeric vector of all receptor numbers
+  time_series_receptor_numbers <-
+    as.numeric(unlist(str_split(gsub("      ix:", "", time_series_output[8]), "          ")))[
+      !is.na(as.numeric(unlist(str_split(gsub("      ix:", "", time_series_output[8]), "          "))))]
   
   
 }
