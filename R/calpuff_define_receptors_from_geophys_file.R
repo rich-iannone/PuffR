@@ -32,6 +32,7 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
   # Get the UTM zone from the geophysical data file
   UTM_zone <- str_trim(readLines(geophys_file)[as.numeric(readLines(geophys_file)[2]) + 4])
   
+  # Create a PROJ.4 string for the UTM zone
   proj_string_UTM <- paste("+proj=utm +zone=",
                            UTM_zone,
                            " +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
