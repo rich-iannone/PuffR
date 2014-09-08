@@ -5,6 +5,10 @@
 
 calpost_get_concentrations_from_time_series_file <- function(time_series_file = NULL){
   
+  # Add require statements
+  require(stringr)
+  require(lubridate)
+  
   
   
 }
