@@ -129,5 +129,9 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
   # Extract heights from the resampled DEM in UTM
   gridded_heights_UTM_m_vector <- srtm_UTM_resampled@data@values
   
+  # Create a matrix of the extracted heights in UTM, in row-major order
+  gridded_heights_UTM_m_mat <- t(matrix(gridded_heights_UTM_m_vector,
+                                        ncol = grid_info$ny * (1/resolution_scale_factor)))
+  
 }
 
