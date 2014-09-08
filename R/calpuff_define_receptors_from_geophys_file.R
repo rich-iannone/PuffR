@@ -109,5 +109,18 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
   # Change the column names to a standard set of labels
   colnames(srtm_UTM_resampled.df) <- c("x", "y", "z")
   
+  # Plot the grid of heights using ggplot
+  g <- ggplot(srtm_UTM_resampled.df, aes(x = x/1000, y = y/1000, fill = z)) +
+    geom_tile(aes(fill = z)) +
+    scale_fill_gradient(low = "green", high = "red",
+                        guide = guide_legend(title = "Heights")) +
+    coord_equal() +
+    theme_bw(base_size = 12, base_family = "") +
+    labs(x = paste("UTM (Zone ", UTM_zone, ") Easting, km", sep = '')) +
+    labs(y = paste("UTM (Zone ", UTM_zone, ") Northing, km", sep = '')) +
+    theme(axis.text = element_text(size = rel(1.2)),
+          axis.title = element_text(size = rel(1.2)),
+          legend.title = element_text(size = rel(1.2)))
+  
 }
 
