@@ -140,5 +140,25 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
   srtm_UTM_resampled_no_NA.df <- as.data.frame(srtm_UTM_resampled_no_NA.SPDF)
   colnames(srtm_UTM_resampled_no_NA.df) <- c("x", "y", "z")
   
+  # Create a vector of strings for insertion into CALPUFF input file
+  for (i in 1:nrow(srtm_UTM_resampled_no_NA.df)){
+    if (i == 1) receptor_strings <- vector(mode = "character", length = 0)
+    
+    receptor_string <- paste(formatC(i, width = -6),
+                             "! X = ",
+                             srtm_UTM_resampled_no_NA.df[i, 1] / 1000,
+                             ", ",
+                             srtm_UTM_resampled_no_NA.df[i, 2] / 1000,
+                             ", ",
+                             round(srtm_UTM_resampled_no_NA.df[i, 3], 3),
+                             ", ",
+                             height_above_ground,
+                             " !  ! END !",
+                             sep = '')
+    
+    receptor_strings <- c(receptor_strings, receptor_string)
+    
+  }
+  
 }
 
