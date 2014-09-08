@@ -39,11 +39,11 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
   }
   
   # Generate a long data frame containing concentration data for each cell at every timestep
-  for (i in 15:length(time_series_output)){
+  for (i in begin:length(time_series_output)){
     
     # Initialize a data frame object for containing concentration, date, location, source,
     # pollutant information
-    if (i == 15){
+    if (i == begin){
       concentration_df <- as.data.frame(mat.or.vec(nr = 0, nc = 12))
       colnames(concentration_df) <- c("posix_date", "year", "month", "day", "hour",
                                       "recep_number", "recep_x_km", "recep_y_km",
