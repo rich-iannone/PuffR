@@ -102,7 +102,7 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
                                formatC(month(POSIXdate), width = 2, flag = "0"), "-",
                                formatC(day(POSIXdate), width = 2, flag = "0"), "-",
                                formatC(hour(POSIXdate), width = 2, flag = "0"), "-",
-                               formatC(i, width = 4, flag = "0"), ".csv",
+                               formatC((i-14), width = 4, flag = "0"), ".csv",
                                sep = ''),
                   sep = ",",
                   row.names = FALSE)
@@ -118,7 +118,7 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
                         formatC(month(POSIXdate), width = 2, flag = "0"), "-",
                         formatC(day(POSIXdate), width = 2, flag = "0"), "-",
                         formatC(hour(POSIXdate), width = 2, flag = "0"), "-",
-                        formatC(i, width = 4, flag = "0"), ".csv",
+                        formatC((i-14), width = 4, flag = "0"), ".csv",
                         sep = ''))
     }
     
