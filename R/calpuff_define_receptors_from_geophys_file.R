@@ -126,5 +126,8 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
   ggsave(filename = "receptors.pdf",
          width = 8, height = 8, units = "in")
   
+  # Extract heights from the resampled DEM in UTM
+  gridded_heights_UTM_m_vector <- srtm_UTM_resampled@data@values
+  
 }
 
