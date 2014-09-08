@@ -55,5 +55,8 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
     # Get vector object containing concentrations at each receptor for the hour
     time_series_conc <- time_series_row[5:length(time_series_row)]
     
+    # Create a for structure an inner loop
+    for (j in 1:length(time_series_conc)){
+      
   
 }
