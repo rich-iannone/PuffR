@@ -58,5 +58,15 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
     # Create a for structure an inner loop
     for (j in 1:length(time_series_conc)){
       
+      # Initialize a smaller data frame containing data for all information found in the
+      # larger data frame, but for a single hour
+      if (j == 1){
+        concentration_small_df <- as.data.frame(mat.or.vec(nr = length(time_series_conc), nc = 12))
+        colnames(concentration_small_df) <- c("posix_date", "year", "month", "day", "hour",
+                                              "recep_number", "recep_x_km", "recep_y_km",
+                                              "concentration", "location_name", "source_id",
+                                              "pollutant_id")
+      }
+      
   
 }
