@@ -23,5 +23,8 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
   # Get numeric vector of all x coordinate values (UTM) in units of km
   time_series_x_km <- as.numeric(unlist(str_split(gsub("^.*x......", "", time_series_output[10]), "  ")))
   
+  # Get numeric vector of all y coordinate values (UTM) in units of km
+  time_series_y_km <- as.numeric(unlist(str_split(gsub("^.*y......", "", time_series_output[11]), "  ")))
+  
   
 }
