@@ -9,7 +9,8 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
                                                              pollutant_id,
                                                              create_hourly_CSV = TRUE,
                                                              create_hourly_rda = TRUE,
-                                                             return_large_df = FALSE){
+                                                             return_large_df = FALSE,
+                                                             resume_from_hour = NULL){
   
   # Add require statements
   require(stringr)
