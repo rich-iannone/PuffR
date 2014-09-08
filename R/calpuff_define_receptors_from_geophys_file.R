@@ -106,5 +106,8 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
   # Create a data frame for plotting in ggplot
   srtm_UTM_resampled.df <- as.data.frame(srtm_UTM_resampled.SPDF)
   
+  # Change the column names to a standard set of labels
+  colnames(srtm_UTM_resampled.df) <- c("x", "y", "z")
+  
 }
 
