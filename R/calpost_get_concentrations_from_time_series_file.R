@@ -46,5 +46,11 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
                         pattern = "[ ]+",
                         n = length(time_series_receptor_numbers) + 4))))
     
+    # Get the POSIXct date from the string
+    POSIXdate <- ISOdatetime(year = time_series_row[2],
+                             month = 1, day = 1,
+                             hour = time_series_row[4] / 100,
+                             min = 0, sec = 0, tz = "GMT") + ((time_series_row[3] - 1) * 24 * 3600)
+    
   
 }
