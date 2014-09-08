@@ -55,6 +55,11 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
   # Generate Extent object in UTM
   bbox_UTM <- extent(LL_LR_UL_UR_UTM_m_SP)
   
+  # Create a RasterLayer object for UTM values
+  LL_LR_UL_UR_UTM_m_RL <- raster(nrows = (1 / resolution_scale_factor) * grid_info$ny,
+                                 ncols = (1 / resolution_scale_factor) * grid_info$nx,
+                                 ext = bbox_UTM,
+                                 crs = proj_string_UTM)
   
 }
 
