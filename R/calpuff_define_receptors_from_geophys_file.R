@@ -19,7 +19,7 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
   require(raster)
   require(ggplot2)
   require(stringr)
-   
+  
   # From file contents, read in the grid information into a data frame
   grid_info <- as.data.frame(t(matrix(as.numeric(unlist(str_split(readLines(geophys_file)[
     (as.numeric(readLines(geophys_file)[2]) + 6)], " ")))[
@@ -43,11 +43,8 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
   
   # Get extents of UTM grid (left, right, bottom, top) in meters
   left_UTM <- grid_info$xorigkm * 1000
-  
   bottom_UTM <- grid_info$yorigkm * 1000
-    
   right_UTM <- left_UTM + (grid_info$nx * grid_info$dgridkm * 1000)
-  
   top_UTM <- bottom_UTM + (grid_info$ny * grid_info$dgridkm * 1000)
   
   # Create a data frame object for UTM values of LL, LR, UL, and UR
