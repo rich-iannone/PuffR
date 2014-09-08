@@ -133,5 +133,8 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
   gridded_heights_UTM_m_mat <- t(matrix(gridded_heights_UTM_m_vector,
                                         ncol = grid_info$ny * (1/resolution_scale_factor)))
   
+  # Replace NA values with 0 values
+  gridded_heights_UTM_m_mat[is.na(gridded_heights_UTM_m_mat)] <- 0
+  
 }
 
