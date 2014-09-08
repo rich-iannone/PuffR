@@ -9,6 +9,9 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
   require(stringr)
   require(lubridate)
   
+  # Read in all lines from the CALPOST time series output file
+  time_series_output <- readLines(time_series_file)
+  
   
   
 }
