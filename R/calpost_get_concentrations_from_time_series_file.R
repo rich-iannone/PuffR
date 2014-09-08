@@ -33,6 +33,11 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
   # Set a beginning index for the i value of the outer loop data frame
   begin <- 15
   
+  # Set a resume hour if the argument 'resume_from_hour' is not NULL
+  if (!is.null(resume_from_hour)){
+    begin <- resume_from_hour + 14
+  }
+  
   # Generate a long data frame containing concentration data for each cell at every timestep
   for (i in 15:length(time_series_output)){
     
