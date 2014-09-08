@@ -84,5 +84,10 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
       
     }
     
+    # Successively bind the smaller data frame to the larger data frame
+    concentration_df <- rbind(concentration_df, concentration_small_df)
+    
+  }
+  
   
 }
