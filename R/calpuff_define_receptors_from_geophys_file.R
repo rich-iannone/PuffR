@@ -91,5 +91,8 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
   # Crop DEM data again using 'bbox' Extent object in UTM projection
   srtm_UTM_resampled <- resample(srtm_UTM, LL_LR_UL_UR_UTM_m_RL)
   
+  # Create a SpatialPixelsDataFrame from the resampled data
+  srtm_UTM_resampled.SPDF <- as(srtm_UTM_resampled, "SpatialPixelsDataFrame")
+  
 }
 
