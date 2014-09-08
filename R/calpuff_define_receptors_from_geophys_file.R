@@ -122,5 +122,9 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
           axis.title = element_text(size = rel(1.2)),
           legend.title = element_text(size = rel(1.2)))
   
+  # Save terrain plot as a pdf file
+  ggsave(filename = "receptors.pdf",
+         width = 8, height = 8, units = "in")
+  
 }
 
