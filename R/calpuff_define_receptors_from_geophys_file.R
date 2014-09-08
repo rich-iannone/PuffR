@@ -8,6 +8,7 @@
 
 calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
                                                        resolution_scale_factor = 0.5,
+                                                       height_above_ground = 2.5,
                                                        download_SRTM = TRUE,
                                                        SRTM_file_path = NULL){
   
