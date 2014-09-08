@@ -97,5 +97,8 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
   # Create a copy of the RasterLayer object for subsituting NA values with 0
   srtm_UTM_resampled_no_NA <- srtm_UTM_resampled
   
+  # Substitute NA values with 0 values in RasterLayer copy
+  srtm_UTM_resampled_no_NA@data@values[is.na(srtm_UTM_resampled_no_NA@data@values)] <- 0
+  
 }
 
