@@ -65,5 +65,8 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
   # spatial transform
   LL_LR_UL_UR_longlat_SP <- spTransform(LL_LR_UL_UR_UTM_m_SP, CRS("+proj=longlat +ellps=GRS80"))
   
+  # Determine the latitude and logitude of the LL of grid
+  lon_dec_deg <- LL_LR_UL_UR_longlat_SP@coords[[1,1]]  
+  lat_dec_deg <- LL_LR_UL_UR_longlat_SP@coords[[1,2]]
 }
 
