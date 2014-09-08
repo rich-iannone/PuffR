@@ -68,5 +68,21 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
                                               "pollutant_id")
       }
       
+      # Populate the rows of the smaller data frame (data for a single hour)
+      concentration_small_df[j,1] <- POSIXdate
+      concentration_small_df[j,2] <- year(POSIXdate)
+      concentration_small_df[j,3] <- month(POSIXdate)
+      concentration_small_df[j,4] <- day(POSIXdate)
+      concentration_small_df[j,5] <- hour(POSIXdate)
+      concentration_small_df[j,6] <- j
+      concentration_small_df[j,7] <- time_series_x_km[j]
+      concentration_small_df[j,8] <- time_series_y_km[j]
+      concentration_small_df[j,9] <- time_series_conc[j]
+      concentration_small_df[j,10] <- location_name
+      concentration_small_df[j,11] <- source_id
+      concentration_small_df[j,12] <- pollutant_id
+      
+    }
+    
   
 }
