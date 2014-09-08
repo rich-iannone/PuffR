@@ -38,9 +38,6 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
                            " +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
                            sep = '')
   
-  # Provide column names for the 'grid_info' data frame
-  colnames(grid_info) <- c("nx", "ny", "xorigkm", "yorigkm", "dgridkm")
-  
   # Get extents of UTM grid (left, right, bottom, top) in meters
   left_UTM <- grid_info$xorigkm * 1000
   bottom_UTM <- grid_info$yorigkm * 1000
