@@ -92,6 +92,22 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
       concentration_df <- rbind(concentration_df, concentration_small_df)
     }
     
+    # Create a CSV file for the hour if it is requested
+    if (create_hourly_CSV == TRUE){
+      write.table(concentration_small_df,
+                  file = paste(location_name, "--",
+                               source_id, "--",
+                               pollutant_id, "--",
+                               year(POSIXdate), "-",
+                               formatC(month(POSIXdate), width = 2, flag = "0"), "-",
+                               formatC(day(POSIXdate), width = 2, flag = "0"), "-",
+                               formatC(hour(POSIXdate), width = 2, flag = "0"), "-",
+                               formatC(j, width = 4, flag = "0"), ".csv",
+                               sep = ''),
+                  sep = ",",
+                  row.names = FALSE)
+    }
+    
 
   }
   
