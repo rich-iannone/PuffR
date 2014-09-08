@@ -6,7 +6,8 @@
 calpost_get_concentrations_from_time_series_file <- function(time_series_file = NULL,
                                                              location_name,
                                                              source_id,
-                                                             pollutant_id){
+                                                             pollutant_id,
+                                                             return_large_df = FALSE){
   
   # Add require statements
   require(stringr)
