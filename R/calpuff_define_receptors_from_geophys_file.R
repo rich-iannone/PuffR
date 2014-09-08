@@ -81,5 +81,12 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
   # Crop DEM data using 'bbox' Extent object in lat/lon projection
   srtm_cropped <- crop(srtm, bbox_longlat)
   
+  # Reproject cropped RasterLayer object from lat/lon to UTM
+  srtm_UTM <- projectRaster(srtm_cropped,
+                            crs = paste("+proj=utm +zone=",
+                                        UTM_zone,
+                                        " +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
+                                        sep = ''))
+  
 }
 
