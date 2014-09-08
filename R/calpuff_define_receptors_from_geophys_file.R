@@ -75,5 +75,8 @@ calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
                                   download = download_SRTM,
                                   SRTM_file_path = SRTM_file_path)
   
+  # Generate Extents object in long/lat projection for cropping
+  bbox_longlat <- extent(LL_LR_UL_UR_longlat_SP)
+  
 }
 
