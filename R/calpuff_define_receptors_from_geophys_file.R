@@ -2,6 +2,7 @@
 #' @description Generate a grid of receptors from a pre-existing CALMET geophysical input file.
 #' @param geophys_file a path to a geophysical data file generated using the 'calmet_define_geophys" function.
 #' @param resolution_scale_factor a factor by which the resolution of the receptors relates to the resolution of the CALMET domain.
+#' @param height_above_ground the chosen height above ground for all the discrete receptors.
 #' @param download_SRTM a choice of whether to download the SRTM GeoTIFF height data from a server or read the identical files from a local folder.
 #' @param SRTM_file_path path to a folder containing a collection of SRTM V4 zip archive files.
 #' @export calpuff_define_receptors_from_geophys_file
