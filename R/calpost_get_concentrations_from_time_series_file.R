@@ -91,6 +91,8 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
   }
   
   # Return the 'concentration_df' object invisibly
-  invisible(concentration_df)
+  if (return_large_df == TRUE){
+    invisible(concentration_df)
+  }
   
 }
