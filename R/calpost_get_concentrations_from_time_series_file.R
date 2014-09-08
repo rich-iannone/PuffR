@@ -35,7 +35,7 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
   
   # Set a resume hour if the argument 'resume_from_hour' is not NULL
   if (!is.null(resume_from_hour)){
-    begin <- resume_from_hour + 14
+    begin <- resume_from_hour + 15
   }
   
   # Generate a long data frame containing concentration data for each cell at every timestep
