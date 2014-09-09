@@ -119,4 +119,8 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
       # Obtain a file name for each PDF that was to be generated
       a_PDF <- paste(gsub(".csv", "", file_list[i]), ".pdf", sep = '')
       
+      # Generate a string vector of PDF file names
+      PDF_list <- c(PDF_list, a_PDF)
+    }
+    
 }
