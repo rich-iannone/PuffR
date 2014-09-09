@@ -33,6 +33,12 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
     # Bind the x and y extents into a matrix
     xxyy <- cbind(xx,yy)
     
+    # Create a PROJ.4 string for the UTM zone
+    proj_string_UTM <- paste("+proj=utm +zone=",
+                             UTM_zone,
+                             " +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
+                             sep = '')  
+    
   
 }
 
