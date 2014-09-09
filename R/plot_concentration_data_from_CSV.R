@@ -17,6 +17,9 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
   # Open loop to process 'file_list' CSV files
   for (i in 1:length(file_list)){
     
+    # Read in a CSV file from the 'file_list' vector object
+    concentration_data <- read.csv(file_list[i], header = TRUE, stringsAsFactors = FALSE)
+    
   
 }
 
