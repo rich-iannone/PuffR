@@ -71,9 +71,11 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
                                      include.lowest = TRUE)
     
     # Get map tile from Stamen Maps
-    map <- get_map(location = bbox_UTM,
-                   maptype = "toner",
-                   source = "stamen")
+    if (!exists("map")){
+      map <- get_map(location = bbox_UTM,
+                     maptype = "toner",
+                     source = "stamen")
+    }
     
     # Create a named vector with levels and colour values
     cols <- c("[0,1e-05]" = "#5E4FA2",
