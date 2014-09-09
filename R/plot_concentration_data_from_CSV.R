@@ -4,7 +4,11 @@
 #' @export plot_concentration_data_from_CSV
 
 plot_concentration_data_from_CSV <- function(CSV_file_pattern,
-                                             UTM_zone){
+                                             UTM_zone,
+                                             create_movie = FALSE,
+                                             frame_rate = 6,
+                                             IM_path,
+                                             ffmpeg_path){
   
   # Add require statements
   require(ggplot2)
