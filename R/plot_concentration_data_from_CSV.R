@@ -20,6 +20,10 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
     # Read in a CSV file from the 'file_list' vector object
     concentration_data <- read.csv(file_list[i], header = TRUE, stringsAsFactors = FALSE)
     
+    # Determine the number of receptors in the x and y directions
+    nx <- length(unique(concentration_data$recep_x_km))
+    ny <- length(unique(concentration_data$recep_y_km))
+    
   
 }
 
