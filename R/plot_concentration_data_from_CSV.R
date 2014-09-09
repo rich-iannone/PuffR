@@ -111,4 +111,9 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
   
   # If requested, create a movie from file list
   if (create_movie == TRUE){
+    
+    # Generate a list of PDF files that were created
+    for (i in 1:length(file_list)){
+      if (i == 1) PDF_list <- vector(mode = "character", length = 0)
+      
 }
