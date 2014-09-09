@@ -56,6 +56,9 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
     # Apply spatial transform to reproject UTM x and y values into lat/lon coordinates
     xxyy_SP_lat_lon <- spTransform(xxyy_SP_UTM, CRS("+proj=longlat +ellps=GRS80"))
     
+    # Extract a data frame from the SpatialPixels lat/lon coordinates object
+    xxyy_DF_lat_lon <- as.data.frame(xxyy_SP_lat_lon@coords)
+    
   
 }
 
