@@ -125,4 +125,7 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
     
     # Determine which of the PDF files in 'PDF_list' that reside in the working folder
     
+    # Begin loop for processing PDF files in the 'PDF_list' object
+    for (i in 1:length(PDF_list)){
+    
 }
