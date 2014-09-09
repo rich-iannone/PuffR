@@ -97,6 +97,10 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
             axis.text.x = element_blank(), axis.text.y = element_blank(), axis.text.y = element_blank()) +
       guides(alpha = FALSE)
     
+    # Save plot as a pdf file
+    ggsave(filename = paste(gsub(".csv", "", file_list[i]), ".pdf", sep = ''),
+           width = 8, height = 8, units = "in")
+    
+  } 
   
 }
-
