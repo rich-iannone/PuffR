@@ -61,8 +61,9 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
   }
   
   
-  # Set a resume hour if the argument 'resume_from_hour' is not NULL
-  if (!is.null(resume_from_set_hour)){
+  # Set a resume hour if the argument 'resume_from_hour' is not NULL and
+  # 'autoresume_processing is FALSE
+  if (!is.null(resume_from_set_hour) & autoresume_processing == FALSE){
     begin <- resume_from_set_hour + 14
   }
   
