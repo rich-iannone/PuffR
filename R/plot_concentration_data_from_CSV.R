@@ -14,6 +14,9 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
   # Obtain a file list from the supplied pattern
   file_list <- list.files(pattern = CSV_file_pattern)
   
+  # Open loop to process 'file_list' CSV files
+  for (i in 1:length(file_list)){
+    
   
 }
 
