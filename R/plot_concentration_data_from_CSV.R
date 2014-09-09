@@ -52,6 +52,11 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
   
   colnames(xxyy_DF_lat_lon_conc) <- c("x", "y", "conc")
   
+  # For purpose of plotting, cut 'conc' column into factor levels
+  xxyy_DF_lat_lon_conc$conc <- cut(xxyy_DF_lat_lon_conc$conc,
+                                   c(1E-5, 1E-4, 1E-3, 1E-2, 1E-1, 1E-0, 1E1, 1E2, 1E3, 1E4),
+                                   include.lowest = TRUE)
+  
   # Get map tile
   map <- get_map(location = bbox_UTM,
                  maptype = "toner",
