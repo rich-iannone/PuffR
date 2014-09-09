@@ -128,4 +128,15 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
     # Begin loop for processing PDF files in the 'PDF_list' object
     for (i in 1:length(PDF_list)){
     
+      # Convert PDF files to JPEG files using ImageMagick, cropping whitespace
+      system(paste("cd ", getwd(), " ; ",
+                   IM_path, "/convert",
+                   " -verbose -density 150 -trim ",
+                   PDF_list[i],
+                   " -quality 100 -sharpen 0x1.0 ",
+                   formatC(i, width = 4, flag = "0"),
+                   ".jpg",
+                   sep = ''))
+    }
+    
 }
