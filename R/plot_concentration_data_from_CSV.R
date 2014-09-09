@@ -39,6 +39,9 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
                              " +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
                              sep = '')  
     
+    # Create a SpatialPoints object for the bounding box that is projected as UTM coordinates
+    SP_UTM <- SpatialPoints(xxyy, proj4string = CRS(proj_string_UTM))
+    
   
 }
 
