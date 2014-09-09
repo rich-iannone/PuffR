@@ -45,6 +45,9 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
     # Apply spatial transform to reproject the four UTM coordinates into lat/lon
     SP_lat_lon <- spTransform(SP_UTM, CRS("+proj=longlat +ellps=GRS80"))
     
+    # Create a matrix object that is a bounding box in lat/lon coordinates
+    bbox_lat_lon <- bbox(SP_lat_lon)
+    
   
 }
 
