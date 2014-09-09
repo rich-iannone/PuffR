@@ -48,6 +48,11 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
     # Create a matrix object that is a bounding box in lat/lon coordinates
     bbox_lat_lon <- bbox(SP_lat_lon)
     
+    # Create a SpatialPoints object in UTM projection for all x and y values
+    xxyy_SP_UTM <- SpatialPoints(cbind(concentration_data$recep_x_km * 1000,
+                                       concentration_data$recep_y_km * 1000),
+                                 proj4string = CRS(proj_string_UTM))
+    
   
 }
 
