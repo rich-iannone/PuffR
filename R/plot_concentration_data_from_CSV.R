@@ -62,7 +62,7 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
     geom_point(data = xxyy_DF_lat_lon_conc, aes(x = x, y = y, colour = conc, alpha = conc)) +
     scale_colour_gradientn(colours = concentration_colours,
                            values = c(1E-6, 1E-4, 1E-3, 1E-2, 1E-1, 1E-0, 1E1, 1E2, 1E3, 1E4)) +
-    theme(legend.position = "right",
+    theme(legend.position = "none",
           axis.line = element_blank(), axis.ticks = element_blank(), 
           axis.title.x = element_blank(), axis.title.y = element_blank(), axis.text.y = element_blank(), 
           axis.text.x = element_blank(), axis.text.y = element_blank(), axis.text.y = element_blank()) +
