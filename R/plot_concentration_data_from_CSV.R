@@ -87,6 +87,16 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
               "(100,1e+03]" = "#D53E4F",
               "(1e+03,1e+04]" = "#9E0142")
     
+    # Prepare a ggplot graphic
+    gg <- ggmap(ggmap = map) +
+      geom_point(data = xxyy_DF_lat_lon_conc, aes(x = x, y = y, colour = conc, alpha = conc)) +
+      scale_fill_manual(values = cols) +
+      theme(legend.position = "none",
+            axis.line = element_blank(), axis.ticks = element_blank(), 
+            axis.title.x = element_blank(), axis.title.y = element_blank(), axis.text.y = element_blank(), 
+            axis.text.x = element_blank(), axis.text.y = element_blank(), axis.text.y = element_blank()) +
+      guides(alpha = FALSE)
+    
   
 }
 
