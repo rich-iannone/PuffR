@@ -18,7 +18,8 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
                                                              create_hourly_rda = TRUE,
                                                              return_large_df = FALSE,
                                                              resume_from_set_hour = NULL,
-                                                             autoresume_processing = TRUE){
+                                                             autoresume_processing = TRUE,
+                                                             autoresume_year = NULL){
   
   # Add require statements
   require(stringr)
