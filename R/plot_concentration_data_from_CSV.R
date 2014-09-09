@@ -70,6 +70,11 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
                                      c(1E-5, 1E-4, 1E-3, 1E-2, 1E-1, 0, 1E0, 1E1, 1E2, 1E3, 1E4),
                                      include.lowest = TRUE)
     
+    # Get map tile from Stamen Maps
+    map <- get_map(location = bbox_UTM,
+                   maptype = "toner",
+                   source = "stamen")
+    
   
 }
 
