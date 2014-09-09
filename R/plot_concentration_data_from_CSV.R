@@ -30,6 +30,9 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
     yy <- c(min(concentration_data$recep_y_km * 1000), max(concentration_data$recep_y_km * 1000),
             max(concentration_data$recep_y_km * 1000), min(concentration_data$recep_y_km * 1000))
     
+    # Bind the x and y extents into a matrix
+    xxyy <- cbind(xx,yy)
+    
   
 }
 
