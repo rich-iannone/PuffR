@@ -139,4 +139,9 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
                    sep = ''))
     }
     
+    # Construct the movie output name
+    movie_output_name <- paste("movie__",
+                               format(Sys.time(), "%Y-%m-%d--%H-%M-%S"),
+                               sep = "")
+    
 }
