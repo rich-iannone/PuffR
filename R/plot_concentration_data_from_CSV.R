@@ -53,6 +53,9 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
                                        concentration_data$recep_y_km * 1000),
                                  proj4string = CRS(proj_string_UTM))
     
+    # Apply spatial transform to reproject UTM x and y values into lat/lon coordinates
+    xxyy_SP_lat_lon <- spTransform(xxyy_SP_UTM, CRS("+proj=longlat +ellps=GRS80"))
+    
   
 }
 
