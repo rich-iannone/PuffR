@@ -62,6 +62,9 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
     # Bind concentration values to the data frame containing lat/lon coordinates for all receptors
     xxyy_DF_lat_lon_conc <- cbind(xxyy_DF_lat_lon, concentration_data$concentration)
     
+    # Create a simplified set of column names
+    colnames(xxyy_DF_lat_lon_conc) <- c("x", "y", "conc")
+    
   
 }
 
