@@ -24,6 +24,12 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
     nx <- length(unique(concentration_data$recep_x_km))
     ny <- length(unique(concentration_data$recep_y_km))
     
+    # Get the UTM coordinate extents for both x and y
+    xx <- c(min(concentration_data$recep_x_km * 1000), min(concentration_data$recep_x_km* 1000),
+            max(concentration_data$recep_x_km * 1000), max(concentration_data$recep_x_km * 1000))
+    yy <- c(min(concentration_data$recep_y_km * 1000), max(concentration_data$recep_y_km * 1000),
+            max(concentration_data$recep_y_km * 1000), min(concentration_data$recep_y_km * 1000))
+    
   
 }
 
