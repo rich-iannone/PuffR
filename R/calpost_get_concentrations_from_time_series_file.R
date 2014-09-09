@@ -42,6 +42,25 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
   # Set a beginning index for the i value of the outer loop data frame
   begin <- 15
   
+  # Set an index for autoresuming processing if 'resume_from_hour' is NULL and
+  # 'autoresume_processing' is TRUE
+  if (is.null(resume_from_set_hour) & autoresume_processing == TRUE &
+        !is.null(autoresume_year)){
+    pattern <- paste(location_name, "--",
+                     source_id, "--",
+                     pollutant_id, "--",
+                     autoresume_year,
+                     "-[0-9][0-9]-[0-9][0-9]-[0-9][0-9]-[0-9][0-9][0-9][0-9].csv", sep = '')
+    
+    file_list <- list.files(path = ".",
+                            pattern = pattern)
+    
+    # Get the highest index number from matched files
+    highest_index <- max(as.numeric(gsub(".*([0-9][0-9][0-9][0-9]).csv", "\\1", file_list)))
+    begin <- highest_index + 14
+  }
+  
+  
   # Set a resume hour if the argument 'resume_from_hour' is not NULL
   if (!is.null(resume_from_set_hour)){
     begin <- resume_from_set_hour + 14
