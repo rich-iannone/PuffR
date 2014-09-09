@@ -62,6 +62,18 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
                  maptype = "toner",
                  source = "stamen")
   
+  # Create a named vector with levels and colour values
+  cols <- c("[0,1e-05]" = "#5E4FA2",
+            "(1e-05,0.0001]" = "#3288BD",
+            "(0.0001,0.001]" = "#66C2A5",
+            "(0.001,0.01]" = "#ABDDA4",
+            "(0.01,0.1]" = "#E6F598",
+            "(0.1,1]" = "#FEE08B", 
+            "(1,10]" = "#FDAE61",
+            "(10,100]" = "#F46D43",
+            "(100,1e+03]" = "#D53E4F",
+            "(1e+03,1e+04]" = "#9E0142")
+      
   # Prepare a ggplot graphic
   gg <- ggmap(ggmap = map) +
     geom_point(data = xxyy_DF_lat_lon_conc, aes(x = x, y = y, colour = conc, alpha = conc)) +
