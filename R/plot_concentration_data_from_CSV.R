@@ -77,8 +77,8 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
                                      include.lowest = TRUE)
     
     # Get map tile from Stamen Maps
-    if (!exists("map")){
-      map <- get_map(location = bbox_lat_lon,
+    if (!exists("stamen_map")){
+      stamen_map <- get_map(location = bbox_lat_lon,
                      maptype = "toner",
                      source = "stamen")
     }
@@ -96,7 +96,7 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
               "(1e+03,1e+04]" = "#9E0142")
     
     # Prepare a ggplot graphic
-    gg <- ggmap(ggmap = map) +
+    gg <- ggmap(ggmap = stamen_map) +
       geom_point(data = xxyy_DF_lat_lon_conc, aes(x = x, y = y, colour = conc, alpha = conc)) +
       scale_fill_manual(values = cols) +
       theme(legend.position = "none",
