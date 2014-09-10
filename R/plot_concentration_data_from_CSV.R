@@ -13,8 +13,10 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
   # Add require statements
   require(ggplot2)
   require(ggmap)
+  require(raster)
+  require(rgdal)
   require(sp)
-    
+  
   # Obtain a file list from the supplied pattern
   file_list <- list.files(pattern = CSV_file_pattern)
   
