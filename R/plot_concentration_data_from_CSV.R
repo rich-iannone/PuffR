@@ -103,6 +103,11 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
             axis.line = element_blank(), axis.ticks = element_blank(), 
             axis.title.x = element_blank(), axis.title.y = element_blank(), axis.text.y = element_blank(), 
             axis.text.x = element_blank(), axis.text.y = element_blank(), axis.text.y = element_blank()) +
+      ggtitle(paste(concentration_data$year[1], " / ",
+                    formatC(concentration_data$month[1], width = 2, flag = 0), " / ",
+                    formatC(concentration_data$day[1], width = 2, flag = 0), " - ",
+                    formatC(concentration_data$hour[1], width = 2, flag = 0), ":00",
+                    sep = '')) +
       guides(alpha = FALSE)
     
     # Save plot as a pdf file
