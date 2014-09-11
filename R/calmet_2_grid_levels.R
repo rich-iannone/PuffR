@@ -41,71 +41,49 @@ calmet_2_grid_levels <- function(calmet_inp,
   
   # Stop function of pmap not part of 'possible_projections' set
   if (!(pmap %in% possible_projections)){
-    
     stop("The chosen projection is not valid.")
-  
   }
   
   
   # Validate use of UTM zone
-  if (pmap == "UTM"){
-    
+  if (pmap == "UTM"){    
     if (!(iutmzn %in% seq(1, 60, 1))){
-      
       stop("The UTM zone must be an integer from 1 to 60")
-      
     }
-    
   }
   
   # Validate use of hemisphere for UTM zone
   if (pmap == "UTM"){
-    
     if (!(utmhem %in% c("N", "S"))){
-      
       stop("The UTM zone must either be in the northern (N) or southern (S) hemisphere.")
-      
     }
-    
   }
   
   # Verify that 'nx' and 'ny' are non-zero, positive, integer values
   if (nx == 0 | nx == 0){
-  
     stop("nx or ny cannot be equal to 0.")
-  
   }
 
   if (nx < 0 | ny < 0){
-  
     stop("nx or ny cannot be negative numbers.")
-  
   }
   
   if (nx %% 1 != 0 | ny %% 1 != 0){
-    
     stop("nx or ny must be integer values.")
-  
   }
   
   # Verify that 'nz' has a starting '0' level and that there are 'nz + 1'
   # total levels with no duplication in levels
   if (!(0 %in% zface)){
-    
     stop("A '0' level must be included in the 'zface' parameter list")
-  
   }
   
   if (length(zface) != (nz + 1)){
-    
     stop("The total number of levels specified must be of length 'nz' + 1")
-    
   }
   
   if (any(duplicated(zface))){
-    
     stop("The levels specified must all be unique")
-    
   }
   
   # Generate a formatted character string for 'zface'
