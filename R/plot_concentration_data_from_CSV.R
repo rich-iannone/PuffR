@@ -1,6 +1,11 @@
 #' Plot concentration data from one or more CSV files
 #' @description Plot concentration data from one or more CSV files.
-#' @param CSV_file_pattern a regex pattern for matching one or more files
+#' @param CSV_file_pattern a regex pattern for matching one or more files.
+#' @param UTM_zone the UTM zone in which the receptor grid is located.
+#' @param create_movie an option to create a movie of the concentration receptor grid using ImageMagick and ffmpeg.
+#' @param frame_rate the desired frame rate for the movie.
+#' @param IM_path the path for the ImageMagick 'convert' utility. Only necessary if 'create_movie' set to TRUE.
+#' @param ffmpeg_path the path for the 'ffmpeg' executable file. Only necessary if 'create_movie' set to TRUE.
 #' @export plot_concentration_data_from_CSV
 
 plot_concentration_data_from_CSV <- function(CSV_file_pattern,
