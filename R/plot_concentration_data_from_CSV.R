@@ -6,7 +6,7 @@
 plot_concentration_data_from_CSV <- function(CSV_file_pattern,
                                              UTM_zone,
                                              create_movie = FALSE,
-                                             frame_rate = 6,
+                                             frame_rate = 25,
                                              IM_path,
                                              ffmpeg_path){
   
