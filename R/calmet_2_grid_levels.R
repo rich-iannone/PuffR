@@ -46,11 +46,6 @@ calmet_2_grid_levels <- function(calmet_inp,
   
   }
   
-  # If pmap either of TTM, LCC, or LAZA, a false easting and false northing
-  # are required
-  if (pmap %in% c("TTM", 'LCC', "LAZA")){
-    
-  }
   
   # Validate use of UTM zone
   if (pmap == "UTM"){
