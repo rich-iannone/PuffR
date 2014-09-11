@@ -3,10 +3,21 @@
 \alias{plot_concentration_data_from_CSV}
 \title{Plot concentration data from one or more CSV files}
 \usage{
-plot_concentration_data_from_CSV(CSV_file_pattern, UTM_zone)
+plot_concentration_data_from_CSV(CSV_file_pattern, UTM_zone,
+  create_movie = FALSE, frame_rate = 25, IM_path, ffmpeg_path)
 }
 \arguments{
-\item{CSV_file_pattern}{a regex pattern for matching one or more files}
+\item{CSV_file_pattern}{a regex pattern for matching one or more files.}
+
+\item{UTM_zone}{the UTM zone in which the receptor grid is located.}
+
+\item{create_movie}{an option to create a movie of the concentration receptor grid using ImageMagick and ffmpeg.}
+
+\item{frame_rate}{the desired frame rate for the movie.}
+
+\item{IM_path}{the path for the ImageMagick 'convert' utility. Only necessary if 'create_movie' set to TRUE.}
+
+\item{ffmpeg_path}{the path for the 'ffmpeg' executable file. Only necessary if 'create_movie' set to TRUE.}
 }
 \description{
 Plot concentration data from one or more CSV files.
