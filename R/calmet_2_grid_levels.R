@@ -22,12 +22,17 @@
 
 calmet_2_grid_levels <- function(calmet_inp,
                                  pmap = "UTM",
-                                 feast = 0.0, fnorth = 0.0,
+                                 feast = 0.0,
+                                 fnorth = 0.0,
                                  iutmzn, utmhem = "N",
                                  rlat0 = "40N", rlon0 = "90W",
                                  xlat1 = "30N", xlat2 = "60N",
-                                 datum = "WGS-84", nx, ny,
-                                 dgridkm, xorigkm, yorigkm,
+                                 datum = "WGS-84",
+                                 nx = NULL,
+                                 ny = NULL,
+                                 dgridkm = NULL,
+                                 xorigkm = NULL,
+                                 yorigkm = NULL,
                                  nz = 12,
                                  zface = c(0,20,40,80,100,150,200,300,400,800,1400,2000,3000)){
   
