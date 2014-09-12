@@ -6,21 +6,21 @@
 #' @export replace_in_inp
 
 # Create function to replace parameter in input file
-replace_in_inp <- function(calmet_inp_working,
+replace_in_inp <- function(inp_file_working,
                            keyword,
                            replacement){
   
   for (i in 1:length(keyword)){
     
-    calmet_inp_working[grep(keyword[i], calmet_inp_working)] <-
+    inp_file_working[grep(keyword[i], inp_file_working)] <-
       gsub("=.*!", paste("= ", replacement[i], " !", sep = ''),
-           calmet_inp_working[grep(keyword[i], calmet_inp_working)])
+           inp_file_working[grep(keyword[i], inp_file_working)])
     
   }
   
   # Remove space characters in lines with no text characters
-  calmet_inp_working <- gsub("^[ ]*$", "", calmet_inp_working)
+  inp_file_working <- gsub("^[ ]*$", "", inp_file_working)
   
-  return(calmet_inp_working)
+  return(inp_file_working)
   
 }
