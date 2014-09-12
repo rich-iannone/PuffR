@@ -135,8 +135,9 @@ calmet_5_wind_field_opts_params <- function(calmet_inp,
                     xbcst, ybcst, xecst, yecst, nlb, metbxid)
   
   # Modify all parameters in working calmet.inp vector
-  calmet_inp_working <- replace_in_inp(calmet_inp_working = calmet_inp_working,
+  calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
                                        keyword = keywords,
-                                       replacement = replacements)
+                                       replacement = replacements)    
+  
   
 }
