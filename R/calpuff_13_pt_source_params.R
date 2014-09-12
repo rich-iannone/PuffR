@@ -5,6 +5,11 @@
 #' @param iptu 
 #' @param nspt1
 #' @param npt2
+#' @param ptsource_name 
+#' @param ptsource_params 
+#' @param ptsource_zpltfm 
+#' @param ptsource_fmfac 
+#' @param downwash_output 
 #' @export calpuff_13_pt_source_params
 
 calpuff_13_pt_source_params <- function(calpuff_inp,
