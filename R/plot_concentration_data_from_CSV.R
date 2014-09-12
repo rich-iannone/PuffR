@@ -84,8 +84,8 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
     # Get map tile from Stamen Maps
     if (!exists("stamen_map")){
       stamen_map <- get_map(location = bbox_lat_lon,
-                     maptype = "toner",
-                     source = "stamen")
+                            maptype = "toner",
+                            source = "stamen")
     }
     
     # Create a named vector with levels and colour values
@@ -119,7 +119,7 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
     # Save plot as a pdf file
     ggsave(filename = paste(gsub(".csv", "", file_list[i]), ".pdf", sep = ''),
            width = 8, height = 8, units = "in")
-        
+    
   } 
   
   # If requested, create a movie from file list
@@ -140,7 +140,7 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
     
     # Begin loop for processing PDF files in the 'PDF_list' object
     for (i in 1:length(PDF_list)){
-    
+      
       # Convert PDF files to JPEG files using ImageMagick, cropping whitespace
       system(paste("cd ", getwd(), " ; ",
                    IM_path, "/convert",
