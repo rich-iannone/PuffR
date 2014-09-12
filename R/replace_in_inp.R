@@ -1,6 +1,6 @@
 #' Replace keyword values in CALPUFF system input files
 #' @description This function allows for the replacement of values in a CALPUFF system input file.
-#' @param calmet_inp_working the string vector that represents the working CALMET input file.
+#' @param inp_file_working the string vector that represents the working input file.
 #' @param keyword a string vector of input file keywords for the appropriate section.
 #' @param replacement a vector of objects that represent formatted strings (for placement in the input file).
 #' @export replace_in_inp
