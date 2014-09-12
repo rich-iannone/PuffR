@@ -3,10 +3,10 @@
 \alias{replace_in_inp}
 \title{Replace keyword values in CALPUFF system input files}
 \usage{
-replace_in_inp(calmet_inp_working, keyword, replacement)
+replace_in_inp(inp_file_working, keyword, replacement)
 }
 \arguments{
-\item{calmet_inp_working}{the string vector that represents the working CALMET input file.}
+\item{inp_file_working}{the string vector that represents the working input file.}
 
 \item{keyword}{a string vector of input file keywords for the appropriate section.}
 
