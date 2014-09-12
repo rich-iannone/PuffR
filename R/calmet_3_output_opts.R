@@ -77,5 +77,10 @@ calmet_3_output_opts <- function(calmet_inp,
                     ldb, nn1, nn2, ldbcst, ioutd, nzprnz,
                     ipr0, ipr1, ipr2, ipr3, ipr4, ipr5, ipr6, ipr7, ipr8)
   
+  # Modify all parameters in working calmet.inp vector
+  calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
+                                       keyword = keywords,
+                                       replacement = replacements)    
+  
   
 }
