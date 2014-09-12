@@ -92,8 +92,9 @@ calmet_6_mixhgt_temp_precip_params <- function(calmet_inp,
                     sigmap, cutp)
   
   # Modify all parameters in working calmet.inp vector
-  calmet_inp_working <- replace_in_inp(calmet_inp_working = calmet_inp_working,
+  calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
                                        keyword = keywords,
-                                       replacement = replacements)  
+                                       replacement = replacements)    
+  
   
 }
