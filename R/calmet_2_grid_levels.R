@@ -107,7 +107,7 @@ calmet_2_grid_levels <- function(calmet_inp,
                     nz, zface)
   
   # Modify all parameters in working calmet.inp vector
-  calmet_inp_working <- replace_in_inp(calmet_inp_working = calmet_inp_working,
+  calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
                                        keyword = keywords,
                                        replacement = replacements)    
   
