@@ -383,7 +383,7 @@ calpuff_0_generate_input_file <- function(){
       "",
       "Monthly ozone concentrations in ppb (BCKO3)",
       "! BCKO3 = !",
-      "    ",
+      "",
       "Ammonia data option",
       "! MNH3 = !",
       "",
