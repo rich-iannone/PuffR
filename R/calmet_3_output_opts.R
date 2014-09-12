@@ -82,5 +82,8 @@ calmet_3_output_opts <- function(calmet_inp,
                                        keyword = keywords,
                                        replacement = replacements)    
   
+  # Write the output to the same working calmet.inp file
+  writeLines(calmet_inp_working, con = calmet_inp)
+  
   
 }
