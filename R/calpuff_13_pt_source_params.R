@@ -24,10 +24,10 @@ calpuff_13_pt_source_params <- function(calpuff_inp,
                                         downwash_output = NULL){
 
   # Generate a vector list of calmet.inp keywords
-  keywords <- c("NPT1", "RGR", "REACTR", "NINT", "IVEG")
+  keywords <- c("NPT1", "IPTU", "NSPT1", "NPT2")
   
   # Generate a vector list of the formatted replacements
-  replacements <- c(rcutr, rgr, reactr, nint, iveg)
+  replacements <- c(npt1, iptu, nspt1, npt2)
   
   # Modify all parameters in working calmet.inp vector
   calpuff_inp_working <- replace_in_inp(inp_file_working = calpuff_inp_working,
