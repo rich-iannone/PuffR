@@ -20,21 +20,21 @@
 #' @param zface a vector containing cell face heights in meters.
 #' @export calmet_2_grid_levels
 
-calmet_2_grid_levels <- function(calmet_inp,
-                                 pmap = "UTM",
-                                 feast = 0.0,
-                                 fnorth = 0.0,
-                                 iutmzn, utmhem = "N",
-                                 rlat0 = "40N", rlon0 = "90W",
-                                 xlat1 = "30N", xlat2 = "60N",
-                                 datum = "WGS-84",
-                                 nx = NULL,
-                                 ny = NULL,
-                                 dgridkm = NULL,
-                                 xorigkm = NULL,
-                                 yorigkm = NULL,
-                                 nz = 12,
-                                 zface = c(0,20,40,80,100,150,200,300,400,800,1400,2000,3000)){
+calmet_02_grid_levels <- function(calmet_inp,
+                                  pmap = "UTM",
+                                  feast = 0.0,
+                                  fnorth = 0.0,
+                                  iutmzn, utmhem = "N",
+                                  rlat0 = "40N", rlon0 = "90W",
+                                  xlat1 = "30N", xlat2 = "60N",
+                                  datum = "WGS-84",
+                                  nx = NULL,
+                                  ny = NULL,
+                                  dgridkm = NULL,
+                                  xorigkm = NULL,
+                                  yorigkm = NULL,
+                                  nz = 12,
+                                  zface = c(0,20,40,80,100,150,200,300,400,800,1400,2000,3000)){
   
   # Define the valid grid projections
   possible_projections <- c("UTM", "TTM", "LCC", "PS", "EM", "LAZA")
@@ -63,7 +63,7 @@ calmet_2_grid_levels <- function(calmet_inp,
   if (nx == 0 | nx == 0){
     stop("nx or ny cannot be equal to 0.")
   }
-
+  
   if (nx < 0 | ny < 0){
     stop("nx or ny cannot be negative numbers.")
   }
@@ -113,5 +113,5 @@ calmet_2_grid_levels <- function(calmet_inp,
   
   # Write the output to the same working calmet.inp file
   writeLines(calmet_inp_working, con = calmet_inp)
-
+  
 }
