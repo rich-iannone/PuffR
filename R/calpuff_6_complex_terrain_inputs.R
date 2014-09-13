@@ -10,14 +10,14 @@
 #' @param yctdmkm 
 #' @export calpuff_6_complex_terrain_inputs
 
-calpuff_6_complex_terrain_inputs <- function(calpuff_inp,
-                                             nhill,
-                                             nctrec,
-                                             mhill,
-                                             xhill2m,
-                                             zhill2m,
-                                             xctdmkm,
-                                             yctdmkm){
+calpuff_06_complex_terrain_inputs <- function(calpuff_inp,
+                                              nhill,
+                                              nctrec,
+                                              mhill,
+                                              xhill2m,
+                                              zhill2m,
+                                              xctdmkm,
+                                              yctdmkm){
   
   # Generate a vector list of calmet.inp keywords
   keywords <- c("NHILL", "NCTREC", "MHILL",
