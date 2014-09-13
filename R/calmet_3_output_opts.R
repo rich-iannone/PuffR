@@ -31,7 +31,7 @@
 #' @param ipr6 print the winds after the Froude number adjustment is made?
 #' @param ipr7 print the winds after slope flows are added?
 #' @param ipr8 print the final wind field components?
-#' @export calmet_3_output_opts
+#' @export calmet_03_output_opts
 
 calmet_03_output_opts <- function(calmet_inp,
                                   lsave = TRUE,
