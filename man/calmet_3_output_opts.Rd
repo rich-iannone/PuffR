@@ -5,10 +5,10 @@
 \usage{
 calmet_3_output_opts(calmet_inp, lsave = TRUE, iformo = 0, lprint = FALSE,
   iprinf = 1, iuvout = c(1, rep(0, (nz - 1))), iwout = c(1, rep(0, (nz -
-  1))), itout = c(1, rep(0, (nz - 1))), stability = FALSE, ustar = FALSE,
-  monin = FALSE, mixht = FALSE, wstar = FALSE, precip = FALSE,
-  sensheat = FALSE, convzi = FALSE, ldb = FALSE, nn1 = 1, nn2 = 1,
-  ldbcst = FALSE, ioutd = FALSE, nzprn2 = TRUE, ipr0 = FALSE,
+  1))), itout = c(1, rep(0, (nz - 1))), stability = TRUE, ustar = TRUE,
+  monin = TRUE, mixht = TRUE, wstar = TRUE, precip = TRUE,
+  sensheat = TRUE, convzi = TRUE, ldb = TRUE, nn1 = 1, nn2 = 24,
+  ldbcst = FALSE, ioutd = FALSE, nzprn2 = FALSE, ipr0 = FALSE,
   ipr1 = FALSE, ipr2 = FALSE, ipr3 = FALSE, ipr4 = FALSE,
   ipr5 = FALSE, ipr6 = FALSE, ipr7 = FALSE, ipr8 = FALSE)
 }

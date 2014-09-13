@@ -3,11 +3,15 @@
 \alias{calmet_6_mixhgt_temp_precip_params}
 \title{Set CALMET parameters for mixing height, temperature, and precipitation}
 \usage{
-calmet_6_mixhgt_temp_precip_params(calmet_inp, constb, conste, constn, constw,
-  fcoriol, iavezi, mnmdav, hafang, ilevzi, imixh, threshl, threshw, itwprog,
-  iluoc3d, dptmin, dzzi, zimin, zimax, ziminw, zimaxw, icoare, dshelf, iwarm,
-  icool, itprog, irad, tradkm, numts, iavet, tgdefb, tgdefa, jwat1, jwat2,
-  nflagp, sigmap, cutp)
+calmet_6_mixhgt_temp_precip_params(calmet_inp, constb = 1.41, conste = 0.15,
+  constn = 2400, constw = 0.16, fcoriol = 1e-04, iavezi = 1,
+  mnmdav = 10, hafang = 30, ilevzi = 1, imixh = 1, threshl = 0.05,
+  threshw = 0.05, itwprog = 0, iluoc3d = 16, dptmin = 0.001,
+  dzzi = 200, zimin = 50, zimax = 3000, ziminw = 50, zimaxw = 3000,
+  icoare = 10, dshelf = 0, iwarm = 0, icool = 0, itprog = 0,
+  irad = 1, tradkm = 500, numts = 5, iavet = 1, tgdefb = -0.0098,
+  tgdefa = -0.0045, jwat1 = 55, jwat2 = 55, nflagp = 2, sigmap = 100,
+  cutp = 0.01)
 }
 \arguments{
 \item{calmet_inp}{the absolute path and filename for the working CALMET input file.}
