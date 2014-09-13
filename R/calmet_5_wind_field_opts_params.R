@@ -57,7 +57,7 @@
 #' @param yecst the ending y point (in kilometers) defining the coastline (straight line).
 #' @param nlb the combined number of meteorological and upper air stations in the region.
 #' @param metbxid station identifiers for the region; include surface stations first, then upper air stations.
-#' @export calmet_5_wind_field_opts_params
+#' @export calmet_05_wind_field_opts_params
 
 calmet_05_wind_field_opts_params <- function(calmet_inp,
                                              iwfcod = 1,
