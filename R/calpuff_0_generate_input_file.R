@@ -2,7 +2,7 @@
 #' @description Generate a template for a CALPUFF input file.
 #' @export calpuff_0_generate_input_file
 
-calpuff_0_generate_input_file <- function(){
+calpuff_inp_generate_template <- function(){
   
   writeLines(
     c("CALPUFF.INP     2.0             File version record",
