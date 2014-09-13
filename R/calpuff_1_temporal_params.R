@@ -19,7 +19,7 @@
 #' @param mreg 
 #' @export calpuff_1_temporal_params
 
-calpuff_1_temporal_params <- function(calpuff_inp,
+calpuff_01_temporal_params <- function(calpuff_inp,
                                       ibyr,
                                       ibmo,
                                       ibdy,
