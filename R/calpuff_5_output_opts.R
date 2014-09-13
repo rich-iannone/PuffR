@@ -26,7 +26,7 @@
 #' @param npfdeb 
 #' @param nn1 
 #' @param nn2 
-#' @export calpuff_5_output_opts
+#' @export calpuff_05_output_opts
 
 calpuff_05_output_opts <- function(calpuff_inp,
                                    icon,

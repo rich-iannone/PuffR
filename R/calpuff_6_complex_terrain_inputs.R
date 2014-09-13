@@ -8,7 +8,7 @@
 #' @param zhill2m 
 #' @param xctdmkm 
 #' @param yctdmkm 
-#' @export calpuff_6_complex_terrain_inputs
+#' @export calpuff_06_complex_terrain_inputs
 
 calpuff_06_complex_terrain_inputs <- function(calpuff_inp,
                                               nhill,

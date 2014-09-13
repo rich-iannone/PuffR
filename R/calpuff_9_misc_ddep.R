@@ -6,7 +6,7 @@
 #' @param reactr 
 #' @param nint 
 #' @param iveg 
-#' @export calpuff_9_misc_ddep
+#' @export calpuff_09_misc_ddep
 
 calpuff_09_misc_ddep <- function(calpuff_inp,
                                  rcutr,

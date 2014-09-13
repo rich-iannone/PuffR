@@ -3,7 +3,7 @@
 #' @param calpuff_inp 
 #' @param species_geom_mass_mean_diam 
 #' @param species_geom_SD 
-#' @export calpuff_8_size_ddep_particles
+#' @export calpuff_08_size_ddep_particles
 
 calpuff_08_size_ddep_particles <- function(calpuff_inp,
                                            species_geom_mass_mean_diam = NULL,

@@ -6,9 +6,9 @@
 #' @param species_emitted 
 #' @param species_ddep 
 #' @param species_group_number 
-#' @export calpuff_3_species_list
+#' @export calpuff_03_species_list
 
-calpuff_3_species_list <- function(calpuff_inp,
+calpuff_03_species_list <- function(calpuff_inp,
                                    species_names_cspec = NULL,
                                    species_modelled = NULL,
                                    species_emitted = NULL,

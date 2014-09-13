@@ -6,7 +6,7 @@
 #' @param species_reactivity 
 #' @param species_mesophyll_resistance 
 #' @param species_HL_coefficient 
-#' @export calpuff_7_chem_ddep_gases
+#' @export calpuff_07_chem_ddep_gases
 
 calpuff_07_chem_ddep_gases <- function(calpuff_inp,
                                        species_diffusivity = NULL,

@@ -28,7 +28,7 @@
 #' @param iesamp 
 #' @param jesamp 
 #' @param meshdn 
-#' @export calpuff_4_grid_levels
+#' @export calpuff_04_grid_levels
 
 calpuff_04_grid_levels <- function(calpuff_inp,
                                   pmap = "UTM",

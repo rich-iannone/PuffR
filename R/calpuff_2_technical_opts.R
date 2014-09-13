@@ -33,7 +33,7 @@
 #' @param msource 
 #' @param mfog 
 #' @param mreg 
-#' @export calpuff_2_technical_opts
+#' @export calpuff_02_technical_opts
 
 calpuff_02_technical_opts <- function(calpuff_inp,
                                      mgauss,
