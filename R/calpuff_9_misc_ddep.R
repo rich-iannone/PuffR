@@ -8,13 +8,13 @@
 #' @param iveg 
 #' @export calpuff_9_misc_ddep
 
-calpuff_9_misc_ddep <- function(calpuff_inp,
-                                rcutr,
-                                rgr,
-                                reactr,
-                                nint,
-                                iveg){
-    
+calpuff_09_misc_ddep <- function(calpuff_inp,
+                                 rcutr,
+                                 rgr,
+                                 reactr,
+                                 nint,
+                                 iveg){
+  
   # Generate a vector list of calmet.inp keywords
   keywords <- c("RCUTR", "RGR", "REACTR", "NINT", "IVEG")
   
