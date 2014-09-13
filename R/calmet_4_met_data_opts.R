@@ -8,7 +8,7 @@
 #' @param iforms represents two possible options for the surface meteorological data file format: 1 - unformatted (e.g., SMERGE output); 2 - formatted (as free-formatted user input).
 #' @param iformp represents two possible options for the precipitation data file format: 1 - unformatted (e.g., PMERGE output); 2 - formatted (free-formatted user input).
 #' @param iformc represents two possible options for the cloud data file format: 1 - unformatted as CALMET unformatted output; 2 - formatted (free-formatted CALMET output or user input).
-#' @export calmet_4_met_data_opts
+#' @export calmet_04_met_data_opts
 
 calmet_04_met_data_opts <- function(calmet_inp,
                                     noobs = 0,
