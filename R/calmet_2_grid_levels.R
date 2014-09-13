@@ -18,7 +18,7 @@
 #' @param yorigkm the reference grid y coordinate (in km) of the southwest corner of grid cell (1, 1).
 #' @param nz the number of vertical levels.
 #' @param zface a vector containing cell face heights in meters.
-#' @export calmet_2_grid_levels
+#' @export calmet_02_grid_levels
 
 calmet_02_grid_levels <- function(calmet_inp,
                                   pmap = "UTM",
