@@ -1,6 +1,6 @@
 #' Generate a template for a CALMET input file
 #' @description Generate a template for a CALMET input file.
-#' @export calmet_0_generate_input_file
+#' @export calmet_inp_generate_template
 
 calmet_inp_generate_template <- function(){
   
