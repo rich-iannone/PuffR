@@ -17,7 +17,7 @@
 #' @param lcalgrd 
 #' @param itest 
 #' @param mreg 
-#' @export calpuff_1_temporal_params
+#' @export calpuff_01_temporal_params
 
 calpuff_01_temporal_params <- function(calpuff_inp,
                                       ibyr,
