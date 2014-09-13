@@ -8,11 +8,11 @@
 #' @param species_HL_coefficient 
 #' @export calpuff_7_chem_ddep_gases
 
-calpuff_7_chem_ddep_gases <- function(calpuff_inp,
-                                 species_diffusivity = NULL,
-                                 species_alpha_star = NULL,
-                                 species_reactivity = NULL,
-                                 species_mesophyll_resistance = NULL,
-                                 species_HL_coefficient = NULL){
+calpuff_07_chem_ddep_gases <- function(calpuff_inp,
+                                       species_diffusivity = NULL,
+                                       species_alpha_star = NULL,
+                                       species_reactivity = NULL,
+                                       species_mesophyll_resistance = NULL,
+                                       species_HL_coefficient = NULL){
   
 }
