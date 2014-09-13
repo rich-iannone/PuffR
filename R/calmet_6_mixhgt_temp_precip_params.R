@@ -37,7 +37,7 @@
 #' @param nflagp method of interpolation for precipitation: (1) 1/R, (2) 1/R^2, (3) exp/R^2.
 #' @param sigmap radius of influence (in kilometers) for interpolation of precipitation.
 #' @param cutp minimum precipitation rate cutoff (in units of mm/h).
-#' @export calmet_6_mixhgt_temp_precip_params
+#' @export calmet_06_mixhgt_temp_precip_params
 
 calmet_06_mixhgt_temp_precip_params <- function(calmet_inp,
                                                 constb = 1.41,
