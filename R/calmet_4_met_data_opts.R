@@ -10,14 +10,14 @@
 #' @param iformc represents two possible options for the cloud data file format: 1 - unformatted as CALMET unformatted output; 2 - formatted (free-formatted CALMET output or user input).
 #' @export calmet_4_met_data_opts
 
-calmet_4_met_data_opts <- function(calmet_inp,
-                                   noobs = 0,
-                                   nssta,
-                                   npsta,
-                                   icloud = 0,
-                                   iforms = 2,
-                                   iformp = 2,
-                                   iformc = 2){
+calmet_04_met_data_opts <- function(calmet_inp,
+                                    noobs = 0,
+                                    nssta,
+                                    npsta,
+                                    icloud = 0,
+                                    iforms = 2,
+                                    iformp = 2,
+                                    iformc = 2){
   
   # Generate a vector list of calmet.inp keywords
   keywords <- c("NOOBS", "NSSTA", "NPSTA", "ICLOUD", "IFORMS", "IFORMP", "IFORMC")  
