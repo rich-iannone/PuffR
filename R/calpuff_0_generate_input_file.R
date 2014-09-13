@@ -1,6 +1,6 @@
 #' Generate a template for a CALPUFF input file
 #' @description Generate a template for a CALPUFF input file.
-#' @export calpuff_0_generate_input_file
+#' @export calpuff_inp_generate_template
 
 calpuff_inp_generate_template <- function(){
   
