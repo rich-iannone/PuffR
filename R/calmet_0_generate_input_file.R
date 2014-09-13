@@ -2,7 +2,7 @@
 #' @description Generate a template for a CALMET input file.
 #' @export calmet_0_generate_input_file
 
-calmet_0_generate_input_file <- function(){
+calmet_inp_generate_template <- function(){
   
   writeLines(
     c("CALMET.INP      2.1             Hour Start and End Times with Seconds",
