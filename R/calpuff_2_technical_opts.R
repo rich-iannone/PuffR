@@ -35,7 +35,7 @@
 #' @param mreg 
 #' @export calpuff_2_technical_opts
 
-calpuff_2_technical_opts <- function(calpuff_inp,
+calpuff_02_technical_opts <- function(calpuff_inp,
                                      mgauss,
                                      mctadj,
                                      mctsg,
