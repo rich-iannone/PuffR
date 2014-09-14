@@ -68,13 +68,13 @@ calmet_03_output_opts <- function(calmet_inp,
   # Generate a vector list of calmet.inp keywords
   keywords <- c("LSAVE", "IFORMO", "LPRINT", "IPRINF", "IUVOUT", "IWOUT", "ITOUT", "STABILITY",
                 "USTAR", "MONIN", "MIXHT", "WSTAR", "PRECIP", "SENSHEAT", "CONVZI",
-                "LDB", "NN1", "NN2", "LDBCST", "IOUTD", "NZPRNZ",
+                "LDB", "NN1", "NN2", "LDBCST", "IOUTD", "NZPRN2",
                 "IPR0", "IPR1", "IPR2", "IPR3", "IPR4", "IPR5", "IPR6", "IPR7", "IPR8")
   
   # Generate a vector list of the formatted replacements
   replacements <- c(lsave, iformo, lprint, iprinf, iuvout, iwout, itout,
                     stability, ustar, monin, mixht, wstar, precip, sensheat, convzi,
-                    ldb, nn1, nn2, ldbcst, ioutd, nzprnz,
+                    ldb, nn1, nn2, ldbcst, ioutd, nzprn2,
                     ipr0, ipr1, ipr2, ipr3, ipr4, ipr5, ipr6, ipr7, ipr8)
   
   # Modify all parameters in working calmet.inp vector
