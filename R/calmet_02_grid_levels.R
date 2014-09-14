@@ -24,7 +24,8 @@ calmet_02_grid_levels <- function(calmet_inp,
                                   pmap = "UTM",
                                   feast = 0.0,
                                   fnorth = 0.0,
-                                  iutmzn, utmhem = "N",
+                                  iutmzn = 10,
+                                  utmhem = "N",
                                   rlat0 = "40N", rlon0 = "90W",
                                   xlat1 = "30N", xlat2 = "60N",
                                   datum = "WGS-84",
@@ -43,7 +44,6 @@ calmet_02_grid_levels <- function(calmet_inp,
   if (!(pmap %in% possible_projections)){
     stop("The chosen projection is not valid.")
   }
-  
   
   # Validate use of UTM zone
   if (pmap == "UTM"){    
