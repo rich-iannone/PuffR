@@ -65,6 +65,9 @@ calmet_03_output_opts <- function(calmet_inp,
                                   ipr7 = FALSE,
                                   ipr8 = FALSE){
   
+  # Read in the working calmet.inp file as a character vector
+  calmet_inp_working <- readLines(calmet_inp)
+  
   # Generate a vector list of calmet.inp keywords
   keywords <- c("LSAVE", "IFORMO", "LPRINT", "IPRINF", "IUVOUT", "IWOUT", "ITOUT", "STABILITY",
                 "USTAR", "MONIN", "MIXHT", "WSTAR", "PRECIP", "SENSHEAT", "CONVZI",
