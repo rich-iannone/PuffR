@@ -77,6 +77,9 @@ calmet_06_mixhgt_temp_precip_params <- function(calmet_inp,
                                                 sigmap = 100,
                                                 cutp = 0.01){
   
+  # Read in the working calmet.inp file as a character vector
+  calmet_inp_working <- readLines(calmet_inp)
+  
   # Generate a vector list of calmet.inp keywords
   keywords <- c("CONSTB", "CONSTE", "CONSTN", "CONSTW", "FCORIOL", "IAVEZI", "MNMDAV",
                 "HAFANG", "ILEVZI", "IMIXH", "THRESHL", "THRESHW", "ITWPROG", "ILUOC3D",
