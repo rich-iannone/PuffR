@@ -117,6 +117,9 @@ calmet_05_wind_field_opts_params <- function(calmet_inp,
                                              nlb = 0,
                                              metbxid = 0){
   
+  # Read in the working calmet.inp file as a character vector
+  calmet_inp_working <- readLines(calmet_inp)
+  
   # Generate a vector list of calmet.inp keywords
   keywords <- c("IWFCOD", "IFRADJ", "IKINE", "IOBR", "ISLOPE", "IEXTRP", "ICALM",
                 "BIAS", "RMIN2", "IPROG", "ISTEPPG", "IGFMET", "LVARY", "RMAX1", "RMAX2", "RMAX3",
