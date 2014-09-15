@@ -38,6 +38,9 @@ calmet_01_temporal_params <- function(calmet_inp = "calmet_template.txt",
                                       itest = 2,
                                       mreg = 0){
   
+  # Add require statement
+  require(lubridate)
+  
   # Change NULL values for certain arguments to NA values
   if (is.null(ibyr)) ibyr <- NA
   if (is.null(ibmo)) ibmo <- NA
