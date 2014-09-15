@@ -21,6 +21,7 @@
 #' @export calmet_02_grid_levels
 
 calmet_02_grid_levels <- function(calmet_inp,
+                                  read_xy_from_geo_dat = TRUE,
                                   pmap = "UTM",
                                   feast = 0.0,
                                   fnorth = 0.0,
