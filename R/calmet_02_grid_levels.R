@@ -42,6 +42,15 @@ calmet_02_grid_levels <- function(calmet_inp,
   # Define the valid grid projections
   possible_projections <- c("UTM", "TTM", "LCC", "PS", "EM", "LAZA")
   
+  # Change NULL values for certain arguments to NA values
+  if (is.null(iutmzn)) iutmzn <- NA
+  if (is.null(utmhem)) utmhem <- NA
+  if (is.null(nx)) nx <- NA
+  if (is.null(ny)) ny <- NA
+  if (is.null(dgridkm)) dgridkm <- NA
+  if (is.null(xorigkm)) xorigkm <- NA
+  if (is.null(yorigkm)) yorigkm <- NA
+  
   # Stop function of pmap not part of 'possible_projections' set
   if (!(pmap %in% possible_projections)){
     stop("The chosen projection is not valid.")
