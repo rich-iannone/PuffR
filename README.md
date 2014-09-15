@@ -103,11 +103,35 @@ calmet_surface_met(start_year = 2011,
 
 This function currently requires that you supply a `time_offset` value, which is the time difference from UTC+0000. The output file can be named by supplying a filename for the `output_file' argument.
 
-The next functions in the works will allow for:
+Creating functional CALMET and CALPUFF input files occur through a stepwise process. After creating the basic CALMET input data files (e.g., GEO.DAT, SURF.DAT, etc.), the next logical step forward is to initialize a template of the CALMET.INP file using the `calmet_inp_generate_template` function.
 
-- creation of an upper air input file
-- interactive/non-interactive creation of a CALMET input file
-- creation of receptors
-- creation of emissions sources
-- interactive/non-interactive creation of a CALPUFF input file
+```R
+calmet_inp_generate_template()
+```
+
+This creates an effectively empty CALMET input file in the working directory (called 'calmet_template.txt`). While this file is readable plaintext, it really shouldn't be modified by hand. Rather, a group of functions will serve to programmatically populate that input file with parameter values. In this way, validation of inputs can be performed at every step.
+
+The CALMET input file can be built up using a series of functions that address each of the input file's main sections:
+
+```R
+calmet_01_temporal_params()
+
+calmet_02_grid_levels()
+
+calmet_03_output_opts()
+
+calmet_04_met_data_opts()
+
+calmet_05_wind_field_opts_params()
+
+calmet_06_mixhgt_temp_precip_params()
+
+```
+
+### In the Works
+
+- greater selection of data sources for generating geophysical input files
+- simple functions for producing an upper air input file
+- method for specifying emissions sources and creating time-and-space-varying emissions for point, line, area, and volume sources
+- method for computing building downwash for point sources near large structures
 - output/visualization of concentrations at receptors
