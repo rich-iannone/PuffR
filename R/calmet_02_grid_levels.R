@@ -84,6 +84,9 @@ calmet_02_grid_levels <- function(calmet_inp,
     stop("The levels specified must all be unique")
   }
   
+  # If option set to read x,y data from GEO.DAT file, get the relevant values
+  if (read_xy_from_geo_dat == TRUE){
+    
   # Generate a formatted character string for 'zface'
   zface <- paste(zface, collapse = ", ")
   
