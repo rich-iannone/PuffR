@@ -69,6 +69,9 @@ calmet_01_temporal_params <- function(calmet_inp = "calmet_template.txt",
       (as.numeric(readLines(surf_dat_file)[2]) + 4):
         (as.numeric(readLines(surf_dat_file)[2]) + 5)]
     
+    # Get the UTC time zone
+    abtz <- surf_dat_header[1]
+    
   # Read in the working calmet.inp file as a character vector
   calmet_inp_working <- readLines(calmet_inp)
   
