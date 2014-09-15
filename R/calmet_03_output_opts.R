@@ -33,7 +33,7 @@
 #' @param ipr8 print the final wind field components?
 #' @export calmet_03_output_opts
 
-calmet_03_output_opts <- function(calmet_inp,
+calmet_03_output_opts <- function(calmet_inp = "calmet_template.txt",
                                   lsave = TRUE,
                                   iformo = 0,
                                   lprint = FALSE,
