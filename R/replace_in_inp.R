@@ -11,12 +11,11 @@ replace_in_inp <- function(inp_file_working,
                            replacement){
   
   for (i in 1:length(keyword)){
-    
-    inp_file_working[grep(keyword[i], inp_file_working)] <-
+    inp_file_working[grep(paste(keyword[i], "(?![[:alpha:]])", sep = ''),
+                          inp_file_working, perl = TRUE)] <-
     gsub("=.*!", paste("= ", replacement[i], " !", sep = ''),
          inp_file_working[grep(paste(keyword[i], "(?![[:alpha:]])", sep = ''),
                                inp_file_working, perl = TRUE)])
-  
   }
   
   
