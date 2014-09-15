@@ -20,7 +20,7 @@
 #' @param zface a vector containing cell face heights in meters.
 #' @export calmet_02_grid_levels
 
-calmet_02_grid_levels <- function(calmet_inp,
+calmet_02_grid_levels <- function(calmet_inp = "calmet_template.txt",
                                   read_xy_from_geo_dat = TRUE,
                                   pmap = "UTM",
                                   feast = 0.0,
