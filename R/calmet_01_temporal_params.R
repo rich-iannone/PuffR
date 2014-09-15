@@ -19,24 +19,24 @@
 #' @param mreg 
 #' @export calmet_01_temporal_params
 
-calmet_01_temporal_params <- function(calmet_inp,
+calmet_01_temporal_params <- function(calmet_inp = "calmet_template.txt",
                                       read_data_from_surf_dat = TRUE,
-                                      ibyr,
-                                      ibmo,
-                                      ibdy,
-                                      ibhr,
-                                      ibsec,
-                                      ieyr,
-                                      iemo,
-                                      iedy,
-                                      iehr,
-                                      iesec,
-                                      abtz,
-                                      nsecdt,
-                                      irtype,
-                                      lcalgrd,
-                                      itest,
-                                      mreg){
+                                      ibyr = NULL,
+                                      ibmo = NULL,
+                                      ibdy = NULL,
+                                      ibhr = NULL,
+                                      ibsec = NULL,
+                                      ieyr = NULL,
+                                      iemo = NULL,
+                                      iedy = NULL,
+                                      iehr = NULL,
+                                      iesec = NULL,
+                                      abtz = NULL,
+                                      nsecdt = 3600,
+                                      irtype = 1,
+                                      lcalgrd = TRUE,
+                                      itest = 2,
+                                      mreg = 0){
   
   # Read in the working calmet.inp file as a character vector
   calmet_inp_working <- readLines(calmet_inp)
