@@ -58,8 +58,10 @@ calmet_02_grid_levels <- function(calmet_inp,
   
   # Validate use of UTM zone
   if (pmap == "UTM"){    
-    if (!(iutmzn %in% seq(1, 60, 1))){
-      stop("The UTM zone must be an integer from 1 to 60")
+    if (!is.null(iutmzn)){
+      if (!(iutmzn %in% seq(1, 60, 1))){
+        stop("The UTM zone must be an integer from 1 to 60")
+      }
     }
   }
   
