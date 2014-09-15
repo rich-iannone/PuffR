@@ -122,6 +122,12 @@ calmet_02_grid_levels <- function(calmet_inp,
                                        keyword = keywords,
                                        replacement = replacements)    
   
+  # Add formatted 'zface' character string to the working calmet.inp vector
+  calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
+                                       keyword = "ZFACE",
+                                       replacement = zface) 
+  
+  
   # Write the output to the same working calmet.inp file
   writeLines(calmet_inp_working, con = calmet_inp)
   
