@@ -115,7 +115,7 @@ calmet_02_grid_levels <- function(calmet_inp,
   # Generate a vector list of the formatted replacements
   replacements <- c(pmap, feast, fnorth, iutmzn, utmhem, rlat0, rlon0, 
                     xlat1, xlat2, datum, nx, ny, dgridkm, xorigkm, yorigkm, 
-                    nz, zface)
+                    nz)
   
   # Modify all parameters in working calmet.inp vector
   calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
