@@ -37,7 +37,8 @@ calmet_01_temporal_params <- function(calmet_inp,
                                       itest,
                                       mreg){
   
-  
+  # Read in the working calmet.inp file as a character vector
+  calmet_inp_working <- readLines(calmet_inp)
   
   # Generate a vector list of calmet.inp keywords
   keywords <- c("IBYR", "IBMO", "IBDY", "IBHR", "IBSEC",
