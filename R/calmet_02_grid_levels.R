@@ -99,6 +99,10 @@ calmet_02_grid_levels <- function(calmet_inp,
       (as.numeric(readLines(geo_dat_file)[2]) + 4):
         (as.numeric(readLines(geo_dat_file)[2]) + 6)]
     
+    # Get the UTM zone and hemisphere
+    iutmzn <- as.numeric(gsub("[ ]*([0-9]*).*", "\\1", geo_dat_header[1]))
+    utmhem <- gsub("[ ]*[0-9]*([A-Z]*)[ ]*", "\\1", geo_dat_header[1])
+    
   # Generate a formatted character string for 'zface'
   zface <- paste(zface, collapse = ", ")
   
