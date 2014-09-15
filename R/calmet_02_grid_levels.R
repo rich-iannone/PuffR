@@ -90,6 +90,10 @@ calmet_02_grid_levels <- function(calmet_inp,
     # Generate vector list of all GEO.DAT files in the working folder
     geo_dat_file <- list.files(pattern = "geo--.*")
     
+    # If there are multiple GEO.DAT files in the working folder, choose only
+    # the first of the set
+    if (length(geo_dat_file > 1)) geo_dat_file <- geo_dat_file[1]
+    
   # Generate a formatted character string for 'zface'
   zface <- paste(zface, collapse = ", ")
   
