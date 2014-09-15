@@ -10,10 +10,10 @@
 #' @param iformc represents two possible options for the cloud data file format: 1 - unformatted as CALMET unformatted output; 2 - formatted (free-formatted CALMET output or user input).
 #' @export calmet_04_met_data_opts
 
-calmet_04_met_data_opts <- function(calmet_inp,
+calmet_04_met_data_opts <- function(calmet_inp = "calmet_template.txt",
                                     noobs = 0,
-                                    nssta,
-                                    npsta,
+                                    nssta = NULL,
+                                    npsta = NULL,
                                     icloud = 0,
                                     iforms = 2,
                                     iformp = 2,
