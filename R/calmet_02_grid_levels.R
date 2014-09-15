@@ -105,24 +105,7 @@ calmet_02_grid_levels <- function(calmet_inp = "calmet_template.txt",
     yorigkm <- gsub("[ ]*[0-9]*[ ]*[0-9]*[ ]*[\\.0-9]*[ ]*[\\.0-9]*[ ]*([\\.0-9]*).*", "\\1",
                     geo_dat_header[3])
   }
-  
-  # Validate 'nx' and 'ny' values only if they are not NULL
-  if (!is.null(nx) & !is.null(ny)){
     
-    # Verify that 'nx' and 'ny' are non-zero, positive, integer values
-    if (nx == 0 | nx == 0){
-      stop("nx or ny cannot be equal to 0.")
-    }
-    
-    if (nx < 0 | ny < 0){
-      stop("nx or ny cannot be negative numbers.")
-    }
-    
-    if (nx %% 1 != 0 | ny %% 1 != 0){
-      stop("nx or ny must be integer values.")
-    }
-  }
-  
   # Generate a formatted character string for 'zface'
   zface <- paste(zface, collapse = ", ")
   
