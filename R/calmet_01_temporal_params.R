@@ -38,6 +38,19 @@ calmet_01_temporal_params <- function(calmet_inp = "calmet_template.txt",
                                       itest = 2,
                                       mreg = 0){
   
+  # Change NULL values for certain arguments to NA values
+  if (is.null(ibyr)) ibyr <- NA
+  if (is.null(ibmo)) ibmo <- NA
+  if (is.null(ibdy)) ibdy <- NA
+  if (is.null(ibhr)) ibhr <- NA
+  if (is.null(ibsec)) ibsec <- NA
+  if (is.null(ieyr)) ieyr <- NA
+  if (is.null(iemo)) iemo <- NA
+  if (is.null(iedy)) iedy <- NA
+  if (is.null(iehr)) iehr <- NA
+  if (is.null(iesec)) iesec <- NA
+  if (is.null(abtz)) abtz <- NA
+  
   # Read in the working calmet.inp file as a character vector
   calmet_inp_working <- readLines(calmet_inp)
   
