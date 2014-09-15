@@ -13,8 +13,8 @@ replace_in_inp <- function(inp_file_working,
   for (i in 1:length(keyword)){
     
     inp_file_working[grep(keyword[i], inp_file_working)] <-
-      gsub("=.*!", paste("= ", replacement[i], " !", sep = ''),
-           inp_file_working[grep(keyword[i], inp_file_working)])
+    gsub("=.*!", paste("= ", replacement[i], " !", sep = ''),
+         inp_file_working[grep(paste(keyword[i], "[ ]*=", sep = ''), inp_file_working)])
     
   }
   
