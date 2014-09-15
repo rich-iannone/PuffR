@@ -19,6 +19,10 @@ calmet_04_met_data_opts <- function(calmet_inp,
                                     iformp = 2,
                                     iformc = 2){
   
+  # Change NULL values for certain arguments to NA values
+  if (is.null(nssta)) nssta <- NA
+  if (is.null(npsta)) npsta <- NA
+  
   # Read in the working calmet.inp file as a character vector
   calmet_inp_working <- readLines(calmet_inp)
   
