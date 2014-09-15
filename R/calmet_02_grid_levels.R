@@ -94,6 +94,11 @@ calmet_02_grid_levels <- function(calmet_inp,
     # the first of the set
     if (length(geo_dat_file > 1)) geo_dat_file <- geo_dat_file[1]
     
+    # Obtain several lines from the header portion of the GEO.DAT file
+    geo_dat_header <- readLines(geo_dat_file)[
+      (as.numeric(readLines(geo_dat_file)[2]) + 4):
+        (as.numeric(readLines(geo_dat_file)[2]) + 6)]
+    
   # Generate a formatted character string for 'zface'
   zface <- paste(zface, collapse = ", ")
   
