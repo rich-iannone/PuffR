@@ -60,6 +60,10 @@ calmet_01_temporal_params <- function(calmet_inp = "calmet_template.txt",
     # Generate vector list of all SURF.DAT files in the working folder
     surf_dat_file <- list.files(pattern = "surf--.*")
     
+    # If there are multiple SURF.DAT files in the working folder, choose only
+    # the first of the set
+    if (length(surf_dat_file > 1)) surf_dat_file <- surf_dat_file[1]
+    
   # Read in the working calmet.inp file as a character vector
   calmet_inp_working <- readLines(calmet_inp)
   
