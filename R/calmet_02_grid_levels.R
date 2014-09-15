@@ -103,6 +103,9 @@ calmet_02_grid_levels <- function(calmet_inp,
     iutmzn <- as.numeric(gsub("[ ]*([0-9]*).*", "\\1", geo_dat_header[1]))
     utmhem <- gsub("[ ]*[0-9]*([A-Z]*)[ ]*", "\\1", geo_dat_header[1])
     
+    # Get the datum information
+    datum <- gsub("([-A-Z0-9]*)[ ]*.*", "\\1", geo_dat_header[2])
+    
   # Generate a formatted character string for 'zface'
   zface <- paste(zface, collapse = ", ")
   
