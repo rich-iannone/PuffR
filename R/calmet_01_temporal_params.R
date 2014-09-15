@@ -64,6 +64,11 @@ calmet_01_temporal_params <- function(calmet_inp = "calmet_template.txt",
     # the first of the set
     if (length(surf_dat_file > 1)) surf_dat_file <- surf_dat_file[1]
     
+    # Obtain several lines from the header portion of the SURF.DAT file
+    surf_dat_header <- readLines(surf_dat_file)[
+      (as.numeric(readLines(surf_dat_file)[2]) + 4):
+        (as.numeric(readLines(surf_dat_file)[2]) + 5)]
+    
   # Read in the working calmet.inp file as a character vector
   calmet_inp_working <- readLines(calmet_inp)
   
