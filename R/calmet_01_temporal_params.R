@@ -20,6 +20,7 @@
 #' @export calmet_01_temporal_params
 
 calmet_01_temporal_params <- function(calmet_inp,
+                                      read_data_from_surf_dat = TRUE,
                                       ibyr,
                                       ibmo,
                                       ibdy,
