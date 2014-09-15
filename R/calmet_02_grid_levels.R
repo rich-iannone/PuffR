@@ -55,25 +55,7 @@ calmet_02_grid_levels <- function(calmet_inp,
   if (!(pmap %in% possible_projections)){
     stop("The chosen projection is not valid.")
   }
-  
-  # Validate use of UTM zone
-  if (pmap == "UTM"){    
-    if (!is.null(iutmzn)){
-      if (!(iutmzn %in% seq(1, 60, 1))){
-        stop("The UTM zone must be an integer from 1 to 60")
-      }
-    }
-  }
-  
-  # Validate use of hemisphere for UTM zone
-  if (pmap == "UTM"){
-    if (!is.null(utmhem)){
-      if (!(utmhem %in% c("N", "S"))){
-        stop("The UTM zone must either be in the northern (N) or southern (S) hemisphere.")
-      }
-    }
-  }
-  
+    
   # Verify that 'nx' and 'ny' are non-zero, positive, integer values
   if (nx == 0 | nx == 0){
     stop("nx or ny cannot be equal to 0.")
