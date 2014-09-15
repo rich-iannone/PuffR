@@ -68,19 +68,19 @@ calmet_03_output_opts <- function(calmet_inp,
   # Read in the working calmet.inp file as a character vector
   calmet_inp_working <- readLines(calmet_inp)
   
-  # Generate a vector list of calmet.inp keywords
-  keywords <- c("LSAVE", "IFORMO", "LPRINT", "IPRINF", "IUVOUT", "IWOUT", "ITOUT", "STABILITY",
+  # Generate a vector list of calmet.inp keywords that require single values
+  keywords <- c("LSAVE", "IFORMO", "LPRINT", "IPRINF", "STABILITY",
                 "USTAR", "MONIN", "MIXHT", "WSTAR", "PRECIP", "SENSHEAT", "CONVZI",
                 "LDB", "NN1", "NN2", "LDBCST", "IOUTD", "NZPRN2",
                 "IPR0", "IPR1", "IPR2", "IPR3", "IPR4", "IPR5", "IPR6", "IPR7", "IPR8")
   
-  # Generate a vector list of the formatted replacements
-  replacements <- c(lsave, iformo, lprint, iprinf, iuvout, iwout, itout,
+  # Generate a vector list of the formatted single-value replacements
+  replacements <- c(lsave, iformo, lprint, iprinf,
                     stability, ustar, monin, mixht, wstar, precip, sensheat, convzi,
                     ldb, nn1, nn2, ldbcst, ioutd, nzprn2,
                     ipr0, ipr1, ipr2, ipr3, ipr4, ipr5, ipr6, ipr7, ipr8)
   
-  # Modify all parameters in working calmet.inp vector
+  # Modify all parameters that require single values in working calmet.inp vector
   calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
                                        keyword = keywords,
                                        replacement = replacements)    
