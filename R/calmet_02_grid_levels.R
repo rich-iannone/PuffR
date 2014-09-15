@@ -87,6 +87,9 @@ calmet_02_grid_levels <- function(calmet_inp,
   # If option set to read x,y data from GEO.DAT file, get the relevant values
   if (read_xy_from_geo_dat == TRUE){
     
+    # Generate vector list of all GEO.DAT files in the working folder
+    geo_dat_file <- list.files(pattern = "geo--.*")
+    
   # Generate a formatted character string for 'zface'
   zface <- paste(zface, collapse = ", ")
   
