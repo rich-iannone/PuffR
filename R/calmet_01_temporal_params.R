@@ -54,6 +54,9 @@ calmet_01_temporal_params <- function(calmet_inp = "calmet_template.txt",
   if (is.null(iesec)) iesec <- NA
   if (is.null(abtz)) abtz <- NA
   
+  # If option set to read data from SURF.DAT file, get the relevant values
+  if (read_data_from_surf_dat == TRUE){
+    
   # Read in the working calmet.inp file as a character vector
   calmet_inp_working <- readLines(calmet_inp)
   
