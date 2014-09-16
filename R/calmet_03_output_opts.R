@@ -117,16 +117,26 @@ calmet_03_output_opts <- function(calmet_inp = "calmet_template.txt",
     if (is.null(itout)) itout <- NA
   }
   
-  # Generate a vector list of calmet.inp keywords that require boolean values
-  keywords <- c("LSAVE", "LPRINT", "LDB", "LDBCST")
-  
-  # Generate a vector list of the formatted boolean value replacements
-  replacements <- c(lsave, lprint, ldb, ldbcst)
-  
-  # Modify all parameters that require boolean values in working calmet.inp vector
+  # Add formatted 'iuvout' character string to the working calmet.inp vector
   calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
-                                       keyword = keywords,
-                                       replacement = replacements)    
+                                       keyword = "IUVOUT",
+                                       replacement = iuvout)
+  
+  # Add formatted 'iwout' character string to the working calmet.inp vector
+  calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
+                                       keyword = "IWOUT",
+                                       replacement = iwout)
+  
+  # Add formatted 'itout' character string to the working calmet.inp vector
+  calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
+                                       keyword = "ITOUT",
+                                       replacement = itout)
+  
+  # Write the output to the same working calmet.inp file
+  writeLines(calmet_inp_working, con = calmet_inp)
+  
+  # Read in the working calmet.inp file as a character vector
+  calmet_inp_working <- readLines(calmet_inp)
   
   # Generate a vector list of calmet.inp keywords that require numeric values
   keywords <- c("IFORMO", "IPRINF", "STABILITY", "USTAR", "MONIN", "MIXHT",
@@ -142,21 +152,6 @@ calmet_03_output_opts <- function(calmet_inp = "calmet_template.txt",
   calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
                                        keyword = keywords,
                                        replacement = replacements) 
-  
-  # Add formatted 'iuvout' character string to the working calmet.inp vector
-  calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
-                                       keyword = "IUVOUT",
-                                       replacement = iuvout)
-  
-  # Add formatted 'iwout' character string to the working calmet.inp vector
-  calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
-                                       keyword = "IWOUT",
-                                       replacement = iwout)
-  
-  # Add formatted 'itout' character string to the working calmet.inp vector
-  calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
-                                       keyword = "ITOUT",
-                                       replacement = itout)
   
   # Write the output to the same working calmet.inp file
   writeLines(calmet_inp_working, con = calmet_inp)
