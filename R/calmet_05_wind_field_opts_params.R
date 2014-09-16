@@ -153,7 +153,27 @@ calmet_05_wind_field_opts_params <- function(calmet_inp = "calmet_template.txt",
   # Modify all parameters that require single values in working calmet.inp vector
   calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
                                        keyword = keywords,
-                                       replacement = replacements)    
+                                       replacement = replacements)
+  
+  # Add formatted 'bias' character string to the working calmet.inp vector
+  calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
+                                       keyword = "BIAS",
+                                       replacement = bias)
+  
+  # Add formatted 'nsmth' character string to the working calmet.inp vector
+  calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
+                                       keyword = "NSMTH",
+                                       replacement = nsmth)
+  
+  # Add formatted 'fextr2' character string to the working calmet.inp vector
+  calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
+                                       keyword = "FEXTR2",
+                                       replacement = fextr2)
+  
+  # Add formatted 'zupwnd' character string to the working calmet.inp vector
+  calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
+                                       keyword = "ZUPWND",
+                                       replacement = zupwnd)
   
   # Write the output to the same working calmet.inp file
   writeLines(calmet_inp_working, con = calmet_inp)
