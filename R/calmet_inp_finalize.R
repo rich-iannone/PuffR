@@ -169,6 +169,16 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     
     # Determine number of SEA.DAT files available in folder
     number_seadat_files <- length(seadat_files)
+        
+    # Set the number of overweater stations if one or several SEA.DAT files exist
+    if (number_seadat_files > 0){
+      nowsta <- number_seadat_files
+      seadat <- TRUE
+    }
+    if (number_seadat_files == 0){
+      nowsta <- 0
+      seadat <- FALSE
+    }
     
     
     # Write the output to the same working calmet.inp file
