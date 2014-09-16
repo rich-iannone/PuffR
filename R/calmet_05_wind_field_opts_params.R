@@ -123,6 +123,9 @@ calmet_05_wind_field_opts_params <- function(calmet_inp = "calmet_template.txt",
   # Generate a formatted character string for 'bias'
   bias <- paste(bias, collapse = ", ")
   
+  # Generate a formatted character string for 'nsmth'
+  nsmth <- paste(nsmth, collapse = ", ")
+  
   keywords <- c("IWFCOD", "IFRADJ", "IKINE", "IOBR", "ISLOPE", "IEXTRP", "ICALM",
                 "BIAS", "RMIN2", "IPROG", "ISTEPPG", "IGFMET", "LVARY", "RMAX1", "RMAX2", "RMAX3",
                 "RMIN", "TERRAD", "R1", "R2", "RPROG", "DIVLIM", "NITER", "NSMTH", "NINTR2", "CRITFN",
