@@ -30,6 +30,7 @@
 #' @export calmet_00_filenames
 
 calmet_00_filenames <- function(calmet_inp = "calmet_template.txt",
+                                get_filenames_from_wd = TRUE,
                                 geodat = NULL,
                                 srfdat = NULL,
                                 clddat = NULL,
