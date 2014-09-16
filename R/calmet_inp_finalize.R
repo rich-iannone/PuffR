@@ -139,6 +139,8 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     # Generate a list of IGF-CALMET.DAT files that are available in folder
     igf_calmet_files <- list.files(pattern = "igf-calmet--.*")
     
+    # Get number of IGF-CALMET.DAT files available in folder
+    nigf <- length(igf_calmet_files)
     
   }
   
