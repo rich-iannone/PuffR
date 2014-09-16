@@ -73,6 +73,14 @@ calmet_03_output_opts <- function(calmet_inp = "calmet_template.txt",
                         grep(paste("NZ(?![[:alpha:]])", sep = ''),
                              calmet_inp_working, perl = TRUE, value = TRUE)))
   
+  # If 'nz' value can be determined (and 'iuvout', 'iwout' and 'itout' arguments are
+  # NULL), then generate default vectors of 'nz' length and transform to strings
+  if(!is.na(nz)){
+    if (is.null(iuvout)) iuvout <- paste(c(1, rep(0, (nz - 1))), collapse = ", ")
+    if (is.null(iwout)) iwout <- paste(c(1, rep(0, (nz - 1))), collapse = ", ")
+    if (is.null(itout)) itout <- paste(c(1, rep(0, (nz - 1))), collapse = ", ")
+  }
+  
   # Generate a vector list of calmet.inp keywords that require single values
   keywords <- c("LSAVE", "IFORMO", "LPRINT", "IPRINF", "STABILITY",
                 "USTAR", "MONIN", "MIXHT", "WSTAR", "PRECIP", "SENSHEAT", "CONVZI",
