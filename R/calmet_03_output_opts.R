@@ -68,6 +68,9 @@ calmet_03_output_opts <- function(calmet_inp = "calmet_template.txt",
   # Read in the working calmet.inp file as a character vector
   calmet_inp_working <- readLines(calmet_inp)
   
+  # Transform TRUE or FALSE value for 'lsave' to string
+  lsave <- ifelse(lsave == TRUE, "T", "F")
+
   # Get number of layers
   nz <- as.numeric(gsub(".*=(.*)!", "\\1",
                         grep(paste("NZ(?![[:alpha:]])", sep = ''),
