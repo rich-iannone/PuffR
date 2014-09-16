@@ -218,6 +218,12 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
                       seadat, m3ddat, igfdat, diadat, prgdat, tstprt, tstout,
                       tstkin, tstfrd, tstslp, dcstgd)
     
+    # Modify all parameters in working calmet.inp vector
+    calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
+                                         keyword = keywords,
+                                         replacement = replacements)
+    
+    
     # Write the output to the same working calmet.inp file
     writeLines(calmet_inp_working, con = calmet_inp)
     
