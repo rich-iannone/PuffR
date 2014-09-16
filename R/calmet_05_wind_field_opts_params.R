@@ -120,7 +120,9 @@ calmet_05_wind_field_opts_params <- function(calmet_inp = "calmet_template.txt",
   # Read in the working calmet.inp file as a character vector
   calmet_inp_working <- readLines(calmet_inp)
   
-  # Generate a vector list of calmet.inp keywords
+  # Generate a formatted character string for 'bias'
+  bias <- paste(bias, collapse = ", ")
+  
   keywords <- c("IWFCOD", "IFRADJ", "IKINE", "IOBR", "ISLOPE", "IEXTRP", "ICALM",
                 "BIAS", "RMIN2", "IPROG", "ISTEPPG", "IGFMET", "LVARY", "RMAX1", "RMAX2", "RMAX3",
                 "RMIN", "TERRAD", "R1", "R2", "RPROG", "DIVLIM", "NITER", "NSMTH", "NINTR2", "CRITFN",
