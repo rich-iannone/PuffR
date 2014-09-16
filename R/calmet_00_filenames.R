@@ -57,6 +57,12 @@ calmet_00_filenames <- function(calmet_inp = "calmet_template.txt",
                                 tstslp = NULL,
                                 dcstgd = NULL){
     
+  # Get file information from working folder if the option is taken
+  if (get_filenames_from_wd == TRUE){
+    
+    
+  }
+  
   
   # Read in the working calmet.inp file as a character vector
   calmet_inp_working <- readLines(calmet_inp)
