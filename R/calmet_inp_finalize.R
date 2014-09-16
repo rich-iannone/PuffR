@@ -232,6 +232,9 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     # Read in the working calmet.inp file as a character vector
     calmet_inp_working <- readLines(calmet_inp)
 
+    # Determine which keywords contain the 'FALSE' indicator and prepare
+    # those lines for writing with asterisks
+    asterisk_lines <- grep("FALSE", calmet_inp_working)
     
     
   }
