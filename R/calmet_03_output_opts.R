@@ -116,10 +116,9 @@ calmet_03_output_opts <- function(calmet_inp = "calmet_template.txt",
                 "WSTAR", "PRECIP", "SENSHEAT", "CONVZI", "NN1", "NN2", "IOUTD", "NZPRN2",
                 "IPR0", "IPR1", "IPR2", "IPR3", "IPR4", "IPR5", "IPR6", "IPR7", "IPR8")
   
-  # Generate a vector list of the formatted single-value replacements
-  replacements <- c(lsave, iformo, lprint, iprinf,
-                    stability, ustar, monin, mixht, wstar, precip, sensheat, convzi,
-                    ldb, nn1, nn2, ldbcst, ioutd, nzprn2,
+  # Generate a vector list of the formatted single numeric value replacements
+  replacements <- c(iformo, iprinf, stability, ustar, monin, mixht,
+                    wstar, precip, sensheat, convzi, nn1, nn2, ioutd, nzprn2,
                     ipr0, ipr1, ipr2, ipr3, ipr4, ipr5, ipr6, ipr7, ipr8)
   
   # Modify all parameters that require single values in working calmet.inp vector
