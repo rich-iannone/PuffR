@@ -212,6 +212,12 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
                   "SEADAT", "M3DDAT", "IGFDAT", "DIADAT", "PRGDAT", "TSTPRT", "TSTOUT",
                   "TSTKIN", "TSTFRD", "TSTSLP", "DCSTGD")
     
+    # Generate a vector list of the formatted replacements
+    replacements <- c(geodat, srfdat, clddat, prcdat, wtdat, metlst, metdat,
+                      pacdat, lcfiles, nusta, nowsta, nm3d, nigf, updat,
+                      seadat, m3ddat, igfdat, diadat, prgdat, tstprt, tstout,
+                      tstkin, tstfrd, tstslp, dcstgd)
+    
     # Write the output to the same working calmet.inp file
     writeLines(calmet_inp_working, con = calmet_inp)
     
