@@ -84,6 +84,10 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     # of data
     number_srfdat_years <- length(srtdat_files)
     
+    # If there is at least one SURF.DAT file, provide a TRUE value for the srfdat object
+    if (number_srfdat_years > 0) srfdat <- TRUE
+    if (number_srfdat_years == 0) srfdat <- FALSE
+    
     # Determine the total number of CALMET.INP files that need to be made
     number_calmet_input_files_to_make <- number_srfdat_per_year * number_srfdat_years
     
