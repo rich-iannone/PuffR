@@ -41,6 +41,9 @@ calmet_01_temporal_params <- function(calmet_inp = "calmet_template.txt",
   # Add require statement
   require(lubridate)
   
+  # Transform TRUE or FALSE value for 'lcalgrd' to string
+  lcalgrd <- ifelse(lcalgrd == TRUE, "T", "F")
+  
   # Change NULL values for certain arguments to NA values
   if (is.null(ibyr)) ibyr <- NA
   if (is.null(ibmo)) ibmo <- NA
