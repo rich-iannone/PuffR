@@ -59,7 +59,7 @@
 #' @param metbxid station identifiers for the region; include surface stations first, then upper air stations.
 #' @export calmet_05_wind_field_opts_params
 
-calmet_05_wind_field_opts_params <- function(calmet_inp,
+calmet_05_wind_field_opts_params <- function(calmet_inp = "calmet_template.txt",
                                              iwfcod = 1,
                                              ifradj = 1,
                                              ikine = 0,
