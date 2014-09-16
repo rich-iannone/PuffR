@@ -164,7 +164,9 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     # Get number of IGF-CALMET.DAT files available in folder
     nigf <- length(igf_calmet_files)
     
-  
+    # Generate a list of SEA.DAT files that are available in folder
+    seadat_files <- list.files(pattern = "sea--.*")
+    
     # Write the output to the same working calmet.inp file
     writeLines(calmet_inp_working, con = calmet_inp)
     
