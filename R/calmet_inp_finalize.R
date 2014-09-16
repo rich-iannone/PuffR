@@ -107,6 +107,10 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     # Determine number of PRECIP.DAT files available in folder
     number_prcdat_files <- length(prcdat_files)
     
+    # If there is at least one PRECIP.DAT file, provide a TRUE value for the prcdat object
+    if (number_prcdat_files > 0) prcdat <- TRUE
+    if (number_prcdat_files == 0) prcdat <- FALSE
+    
     # Generate a list of WT.DAT files that are available in folder
     wtdat_files <- list.files(pattern = "wt--.*")
     
