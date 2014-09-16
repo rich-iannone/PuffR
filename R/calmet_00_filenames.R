@@ -1,6 +1,32 @@
 #' Set input and output filenames for CALMET model run
 #' @description This function sets the input and output filenames for CALMET model runs in the working CALMET.INP file.
 #' @param calmet_inp the absolute path and filename for the working CALMET input file.
+#' @param get_filenames_from_wd 
+#' @param geodat  
+#' @param srfdat  
+#' @param clddat  
+#' @param prcdat  
+#' @param wtdat  
+#' @param metlst  
+#' @param metdat  
+#' @param pacdat  
+#' @param lcfiles 
+#' @param nusta  
+#' @param nowsta  
+#' @param nm3d  
+#' @param nigf  
+#' @param updat  
+#' @param seadat  
+#' @param m3ddat  
+#' @param igfdat  
+#' @param diadat  
+#' @param prgdat  
+#' @param tstprt  
+#' @param tstout  
+#' @param tstkin  
+#' @param tstfrd  
+#' @param tstslp  
+#' @param dcstgd 
 #' @export calmet_00_filenames
 
 calmet_00_filenames <- function(calmet_inp = "calmet_template.txt",
