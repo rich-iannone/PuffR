@@ -127,6 +127,8 @@ calmet_05_wind_field_opts_params()
 calmet_06_mixhgt_temp_precip_params()
 
 calmet_07_station_params()
+
+calmet_inp_finalize()
 ```
 
 While each of the above functions has a long list of arguments, sensible defaults for each parameter value are included. Furthermore, some functions will take data from input files (e.g., GEO.DAT, SURF.DAT, etc.) residing in the working folder. This strategy avoids possible errors from attempting to supply the same basic information multiple times. Of course, you will want to (and often need to) use specific options within each of the CALMET input section and that's entirely possible. For instance, the following function call will provide beginning and ending dates/times that do not run for the full course of what is supplied in the SURF.DAT input file:
