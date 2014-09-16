@@ -121,6 +121,10 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     if (number_wtdat_files > 0) wtdat <- TRUE
     if (number_wtdat_files == 0) wtdat <- FALSE
     
+    # Set the number of upper air stations to 1 if an UP.DAT file exists
+    if (number_geodat_year > 0) nusta <- 1
+    if (number_geodat_year == 0) nusta <- 0
+    
     
   }
   
