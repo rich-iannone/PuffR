@@ -65,6 +65,9 @@ calmet_07_station_params <- function(calmet_inp = "calmet_template.txt",
     # the first of the set
     if (length(precip_dat_file > 1)) precip_dat_file <- precip_dat_file[1]
     
+    # Obtain the number of precipitation stations
+    npsta <- length(precip_dat_file)
+    
     # Obtain key lines from the header portion of the SURF.DAT file
     surf_dat_station_info <-
       readLines(surf_dat_file)[5:(as.numeric(readLines(surf_dat_file)[2]) + 2)]
