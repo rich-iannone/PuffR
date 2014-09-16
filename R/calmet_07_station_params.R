@@ -92,6 +92,11 @@ calmet_07_station_params <- function(calmet_inp = "calmet_template.txt",
     # Obtain the number of surface met stations
     nssta <- length(surf_dat_station_strings)
     
+    # Insert number of surface met stations for keyword 'NSSTA' in Section 4
+    calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
+                                         keyword = "NSSTA",
+                                         replacement = nssta)
+    
     # Obtain key lines from the header portion of the UP.DAT file
     up_dat_station_info <-
       readLines(up_dat_file)[5:(as.numeric(readLines(up_dat_file)[2]) + 2)]
