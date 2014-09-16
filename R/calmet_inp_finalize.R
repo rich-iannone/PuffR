@@ -117,6 +117,9 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     # Determine number of WT.DAT files available in folder
     number_wtdat_files <- length(wtdat_files)
     
+    # If there is at least one WT.DAT file, provide a TRUE value for the wtdat object
+    if (number_wtdat_files > 0) wtdat <- TRUE
+    if (number_wtdat_files == 0) wtdat <- FALSE
     
     
   }
