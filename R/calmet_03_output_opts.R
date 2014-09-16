@@ -68,6 +68,11 @@ calmet_03_output_opts <- function(calmet_inp = "calmet_template.txt",
   # Read in the working calmet.inp file as a character vector
   calmet_inp_working <- readLines(calmet_inp)
   
+  # Get number of layers
+  nz <- as.numeric(gsub(".*=(.*)!", "\\1",
+                        grep(paste("NZ(?![[:alpha:]])", sep = ''),
+                             calmet_inp_working, perl = TRUE, value = TRUE)))
+  
   # Generate a vector list of calmet.inp keywords that require single values
   keywords <- c("LSAVE", "IFORMO", "LPRINT", "IPRINF", "STABILITY",
                 "USTAR", "MONIN", "MIXHT", "WSTAR", "PRECIP", "SENSHEAT", "CONVZI",
