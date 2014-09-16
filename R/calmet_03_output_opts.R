@@ -73,7 +73,7 @@ calmet_03_output_opts <- function(calmet_inp = "calmet_template.txt",
                         grep(paste("NZ(?![[:alpha:]])", sep = ''),
                              calmet_inp_working, perl = TRUE, value = TRUE)))
   
-  # If 'nz' value can be determined (and 'iuvout', 'iwout' and 'itout' arguments are
+  # If 'nz' value can be determined (and 'iuvout', 'iwout', and 'itout' arguments are
   # NULL), then generate default vectors of 'nz' length and transform to strings
   if(!is.na(nz)){
     if (is.null(iuvout)) iuvout <- paste(c(1, rep(0, (nz - 1))), collapse = ", ")
