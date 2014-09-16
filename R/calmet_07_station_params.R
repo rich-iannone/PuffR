@@ -68,6 +68,11 @@ calmet_07_station_params <- function(calmet_inp = "calmet_template.txt",
     # Obtain the number of precipitation stations
     npsta <- length(precip_dat_file)
     
+    # Insert number of precipitation stations for keyword 'NPSTA' in Section 4
+    calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
+                                         keyword = "NPSTA",
+                                         replacement = npsta)
+    
     # Obtain key lines from the header portion of the SURF.DAT file
     surf_dat_station_info <-
       readLines(surf_dat_file)[5:(as.numeric(readLines(surf_dat_file)[2]) + 2)]
