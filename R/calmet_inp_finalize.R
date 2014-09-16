@@ -229,8 +229,6 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     # Write the output to the same working calmet.inp file
     writeLines(calmet_inp_working, con = calmet_inp)
     
-    # Take all FALSE values written to working calmet.inp and disable
-    # with asterisks
     
     
   }
