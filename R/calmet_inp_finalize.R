@@ -206,6 +206,12 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     tstslp <- FALSE
     dcstgd <- FALSE
     
+    # Generate a vector list of calmet.inp keywords
+    keywords <- c("GEODAT", "SRFDAT", "CLDDAT", "PRCDAT", "WTDAT", "METLST", "METDAT",
+                  "PACDAT", "LCFILES", "NUSTA", "NOWSTA", "NM3D", "NIGF", "UPDAT",
+                  "SEADAT", "M3DDAT", "IGFDAT", "DIADAT", "PRGDAT", "TSTPRT", "TSTOUT",
+                  "TSTKIN", "TSTFRD", "TSTSLP", "DCSTGD")
+    
     # Write the output to the same working calmet.inp file
     writeLines(calmet_inp_working, con = calmet_inp)
     
