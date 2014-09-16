@@ -91,6 +91,12 @@ calmet_03_output_opts <- function(calmet_inp = "calmet_template.txt",
                                        keyword = keywords,
                                        replacement = replacements)    
   
+  # Write the output to the same working calmet.inp file
+  writeLines(calmet_inp_working, con = calmet_inp)
+  
+  # Read in the working calmet.inp file as a character vector
+  calmet_inp_working <- readLines(calmet_inp)
+  
   # Get number of layers
   nz <- as.numeric(gsub(".*=(.*)!", "\\1",
                         grep(paste("NZ(?![[:alpha:]])", sep = ''),
