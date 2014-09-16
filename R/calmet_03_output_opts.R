@@ -103,6 +103,9 @@ calmet_03_output_opts <- function(calmet_inp = "calmet_template.txt",
   # Generate a vector list of calmet.inp keywords that require boolean values
   keywords <- c("LSAVE", "LPRINT", "LDB", "LDBCST")
   
+  # Generate a vector list of the formatted boolean value replacements
+  replacements <- c(lsave, lprint, ldb, ldbcst)
+  
                 "IPR0", "IPR1", "IPR2", "IPR3", "IPR4", "IPR5", "IPR6", "IPR7", "IPR8")
   
   # Generate a vector list of the formatted single-value replacements
