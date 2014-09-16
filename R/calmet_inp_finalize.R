@@ -180,6 +180,14 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
       seadat <- FALSE
     }
     
+    # Determine whether one or several MM4, MM5, or 3D.DAT files exist
+    if (nm3d > 0){
+      m3ddat <- TRUE
+    }
+    if (nm3d == 0){
+      m3ddat <- FALSE
+    }
+    
     
     # Write the output to the same working calmet.inp file
     writeLines(calmet_inp_working, con = calmet_inp)
