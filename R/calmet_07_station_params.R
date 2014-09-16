@@ -73,6 +73,12 @@ calmet_07_station_params <- function(calmet_inp = "calmet_template.txt",
                                          keyword = "NPSTA",
                                          replacement = npsta)
     
+    # Write the output to the same working calmet.inp file
+    writeLines(calmet_inp_working, con = calmet_inp)
+    
+    # Read in the working calmet.inp file as a character vector
+    calmet_inp_working <- readLines(calmet_inp)
+    
     # Obtain key lines from the header portion of the SURF.DAT file
     surf_dat_station_info <-
       readLines(surf_dat_file)[5:(as.numeric(readLines(surf_dat_file)[2]) + 2)]
@@ -104,6 +110,12 @@ calmet_07_station_params <- function(calmet_inp = "calmet_template.txt",
     calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
                                          keyword = "NSSTA",
                                          replacement = nssta)
+    
+    # Write the output to the same working calmet.inp file
+    writeLines(calmet_inp_working, con = calmet_inp)
+    
+    # Read in the working calmet.inp file as a character vector
+    calmet_inp_working <- readLines(calmet_inp)
     
     # Obtain key lines from the header portion of the UP.DAT file
     up_dat_station_info <-
