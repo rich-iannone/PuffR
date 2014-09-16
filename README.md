@@ -125,6 +125,8 @@ calmet_04_met_data_opts()
 calmet_05_wind_field_opts_params()
 
 calmet_06_mixhgt_temp_precip_params()
+
+calmet_07_station_params()
 ```
 
 While each of the above functions has a long list of arguments, sensible defaults for each parameter value are included. Furthermore, some functions will take data from input files (e.g., GEO.DAT, SURF.DAT, etc.) residing in the working folder. This strategy avoids possible errors from attempting to supply the same basic information twice.
