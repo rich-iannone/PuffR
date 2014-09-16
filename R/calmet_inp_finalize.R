@@ -188,6 +188,13 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
       m3ddat <- FALSE
     }
     
+    # Determine whether one or several IGF-CALMET.DAT files exist
+    if (nigf > 0){
+      igfdat <- TRUE
+    }
+    if (nigf == 0){
+      igfdat <- FALSE
+    }
     
     # Write the output to the same working calmet.inp file
     writeLines(calmet_inp_working, con = calmet_inp)
