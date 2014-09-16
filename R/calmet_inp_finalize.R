@@ -229,6 +229,9 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     # Write the output to the same working calmet.inp file
     writeLines(calmet_inp_working, con = calmet_inp)
     
+    # Read in the working calmet.inp file as a character vector
+    calmet_inp_working <- readLines(calmet_inp)
+
     
     
   }
