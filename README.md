@@ -129,7 +129,22 @@ calmet_06_mixhgt_temp_precip_params()
 calmet_07_station_params()
 ```
 
-While each of the above functions has a long list of arguments, sensible defaults for each parameter value are included. Furthermore, some functions will take data from input files (e.g., GEO.DAT, SURF.DAT, etc.) residing in the working folder. This strategy avoids possible errors from attempting to supply the same basic information twice.
+While each of the above functions has a long list of arguments, sensible defaults for each parameter value are included. Furthermore, some functions will take data from input files (e.g., GEO.DAT, SURF.DAT, etc.) residing in the working folder. This strategy avoids possible errors from attempting to supply the same basic information multiple times. Of course, you will want to (and often need to) use specific options within each of the CALMET input section and that's entirely possible. For instance, the following function call will provide beginning and ending dates/times that do not run for the full course of what is supplied in the SURF.DAT input file:
+
+```R
+calmet_01_temporal_params(read_data_from_surf_dat = FALSE,
+                          ibyr = 2005,
+                          ibmo = 1,
+                          ibdy = 1,
+                          ibhr = 0,
+                          ibsec = 0,
+                          ieyr = 2005,
+                          iemo = 3,
+                          iedy = 15,
+                          iehr = 0,
+                          iesec = 0,
+                          abtz = "UTC-0800")
+```
 
 ### In the Works
 
