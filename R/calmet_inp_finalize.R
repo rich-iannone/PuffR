@@ -125,6 +125,11 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     if (number_geodat_year > 0) nusta <- 1
     if (number_geodat_year == 0) nusta <- 0
     
+    # Generate a list of MM4, MM5, and 3D.DAT files that are available in folder
+    mm4_files <- list.files(pattern = "mm4--.*")
+    mm5_files <- list.files(pattern = "mm5--.*")
+    threeddat_files <- list.files(pattern = "3ddat--.*")
+    
     
   }
   
