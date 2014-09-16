@@ -97,6 +97,10 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     # Determine number of CLOUD.DAT files available in folder
     number_clddat_files <- length(clddat_files)
     
+    # If there is at least one CLOUD.DAT file, provide a TRUE value for the clddat object
+    if (number_clddat_files > 0) clddat <- TRUE
+    if (number_clddat_files == 0) clddat <- FALSE
+    
     # Generate a list of PRECIP.DAT files that are available in folder
     prcdat_files <- list.files(pattern = "precip--.*")
     
