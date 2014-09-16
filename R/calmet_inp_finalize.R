@@ -121,6 +121,22 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     if (number_wtdat_files > 0) wtdat <- TRUE
     if (number_wtdat_files == 0) wtdat <- FALSE
     
+    # Determine whether a CALMET/CALGRID-type output file (CALMET.DAT) is desired or if
+    # a MESOPUFF-II-type output file (PACOUT.DAT) is desired
+    if (as.numeric(gsub(".*([0-9])..", "\\1",
+                        calmet_inp_working[grep("IFORMO",
+                                                calmet_inp_working)])) == 0){
+      metdat <- TRUE
+      metlst <- TRUE
+      pacdat <- FALSE
+    } else if (as.numeric(gsub(".*([0-9])..", "\\1",
+                               calmet_inp_working[grep("IFORMO",
+                                                       calmet_inp_working)])) == 1){
+      metdat <- FALSE
+      metlst <- FALSE
+      pacdat <- TRUE
+    }
+    
     # Set the number of upper air stations to 1 if an UP.DAT file exists
     if (number_geodat_year > 0) nusta <- 1
     if (number_geodat_year == 0) nusta <- 0
