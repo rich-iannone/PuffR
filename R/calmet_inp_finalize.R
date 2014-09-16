@@ -130,6 +130,12 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     mm5_files <- list.files(pattern = "mm5--.*")
     threeddat_files <- list.files(pattern = "3ddat--.*")
     
+    # Get combined number of MM4, MM5, and 3D.DAT files available in folder
+    nm3d <-
+      length(mm4_files) +
+      length(mm5_files) +
+      length(threeddat_files)
+    
     
   }
   
