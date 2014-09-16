@@ -69,6 +69,10 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     # Determine number of GEO.DAT files available in folder
     number_geodat_year <- length(geodat_files)
     
+    # If there is at least one GEO.DAT file, provide a TRUE value for the geodat object
+    if (number_geodat_year > 0) geodat <- TRUE
+    if (number_geodat_year == 0) geodat <- FALSE
+    
     # The number of GEO.DAT files will dictate the number of CALMET input files
     # that need to be generated per year
     number_srfdat_per_year <- number_geodat_year
