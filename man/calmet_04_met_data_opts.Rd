@@ -3,8 +3,9 @@
 \alias{calmet_04_met_data_opts}
 \title{Set CALMET parameters for the meteorological data options}
 \usage{
-calmet_04_met_data_opts(calmet_inp, noobs = 0, nssta, npsta, icloud = 0,
-  iforms = 2, iformp = 2, iformc = 2)
+calmet_04_met_data_opts(calmet_inp = "calmet_template.txt", noobs = 0,
+  nssta = NULL, npsta = NULL, icloud = 0, iforms = 2, iformp = 2,
+  iformc = 2)
 }
 \arguments{
 \item{calmet_inp}{the absolute path and filename for the working CALMET input file.}
