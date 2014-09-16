@@ -81,6 +81,13 @@ calmet_03_output_opts <- function(calmet_inp = "calmet_template.txt",
     if (is.null(itout)) itout <- paste(c(1, rep(0, (nz - 1))), collapse = ", ")
   }
   
+  # Generate NA values for 'iuvout', 'iwout', and 'itout' if 'nz' is NA
+  if(is.na(nz)){
+    if (is.null(iuvout)) iuvout <- NA
+    if (is.null(iwout)) iwout <- NA
+    if (is.null(itout)) itout <- NA
+  }
+  
   # Generate a vector list of calmet.inp keywords that require single values
   keywords <- c("LSAVE", "IFORMO", "LPRINT", "IPRINF", "STABILITY",
                 "USTAR", "MONIN", "MIXHT", "WSTAR", "PRECIP", "SENSHEAT", "CONVZI",
