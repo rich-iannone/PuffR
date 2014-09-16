@@ -1,6 +1,7 @@
 #' Set CALMET parameters for the map projection, datum, and grid definitions
 #' @description This function validates and writes CALMET parameters for the map projection, datum, and grid definitions to the working CALMET.INP file.
 #' @param calmet_inp the absolute path and filename for the working CALMET input file.
+#' @param read_xy_from_geo_dat 
 #' @param pmap the projection of the CALMET domain.
 #' @param feast the false easting at the projection origin for TTM, LCC, or LAZA projection types.
 #' @param fnorth the false northing at the projection origin for TTM, LCC, or LAZA projection types.
