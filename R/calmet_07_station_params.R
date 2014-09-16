@@ -73,6 +73,10 @@ calmet_07_station_params <- function(calmet_inp = "calmet_template.txt",
                                          keyword = "NPSTA",
                                          replacement = npsta)
     
+    # If there are no precipitation stations, surround 'PS1' keyword with asterisks
+    calmet_inp_working[grep("PS1", calmet_inp_working)] <-
+      gsub("!", "\\*", calmet_inp_working[grep("PS1", calmet_inp_working)])
+    
     # Write the output to the same working calmet.inp file
     writeLines(calmet_inp_working, con = calmet_inp)
     
