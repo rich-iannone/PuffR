@@ -170,9 +170,6 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     # Determine number of SEA.DAT files available in folder
     number_seadat_files <- length(seadat_files)
     
-    # If there is at least one SEA.DAT file, provide a TRUE value for the clddat object
-    if (number_seadat_files > 0) seadat <- TRUE
-    if (number_seadat_files == 0) seadat <- FALSE
     
     # Write the output to the same working calmet.inp file
     writeLines(calmet_inp_working, con = calmet_inp)
