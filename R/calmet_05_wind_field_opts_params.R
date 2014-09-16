@@ -141,13 +141,14 @@ calmet_05_wind_field_opts_params <- function(calmet_inp = "calmet_template.txt",
                 "LLBREZE", "NBOX", "XG1", "XG2", "YG1", "YG2", "XBCST", "YBCST", "XECST", "YECST",
                 "NLB", "METBXID")
   
-  # Generate a vector list of the formatted replacements
-  replacements <- c(iwfcod, ifradj, ikine, iobr, islope, iextrp, icalm, bias, rmin2, iprog,
-                    isteppg, igfmet, lvary, rmax1, rmax2, rmax3, rmin, terrad, r1, r2, rprog,
-                    divlim, niter, nsmth, nintr2, critfn, alpha, fextr2, nbar, kbar, xbbar,
-                    ybbar, xebar, yebar, idiopt1, isurft, idiopt2, iupt, zupt, idiopt3,
-                    iupwnd, zupwnd, idiopt4, idiopt5, llbreze, nbox, xg1, xg2, yg1, yg2,
-                    xbcst, ybcst, xecst, yecst, nlb, metbxid)
+  # Generate a vector list of the formatted single-value replacements
+  replacements <- c(iwfcod, ifradj, ikine, iobr, islope, iextrp, icalm,
+                    rmin2, iprog, isteppg, igfmet, lvary, rmax1, rmax2, rmax3,
+                    rmin, terrad, r1, r2, rprog, divlim, niter, nintr2, critfn,
+                    alpha, nbar, kbar, xbbar, ybbar, xebar, yebar, idiopt1,
+                    isurft, idiopt2, iupt, zupt, idiopt3, iupwnd, idiopt4, idiopt5,
+                    llbreze, nbox, xg1, xg2, yg1, yg2, xbcst, ybcst, xecst, yecst,
+                    nlb, metbxid)
   
   # Modify all parameters in working calmet.inp vector
   calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
