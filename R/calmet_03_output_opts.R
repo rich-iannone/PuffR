@@ -111,6 +111,9 @@ calmet_03_output_opts <- function(calmet_inp = "calmet_template.txt",
                                        keyword = keywords,
                                        replacement = replacements)    
   
+  # Generate a vector list of calmet.inp keywords that require numeric values
+  keywords <- c("IFORMO", "IPRINF", "STABILITY", "USTAR", "MONIN", "MIXHT",
+                "WSTAR", "PRECIP", "SENSHEAT", "CONVZI", "NN1", "NN2", "IOUTD", "NZPRN2",
                 "IPR0", "IPR1", "IPR2", "IPR3", "IPR4", "IPR5", "IPR6", "IPR7", "IPR8")
   
   # Generate a vector list of the formatted single-value replacements
