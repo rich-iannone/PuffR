@@ -39,7 +39,7 @@
 #' @param cutp minimum precipitation rate cutoff (in units of mm/h).
 #' @export calmet_06_mixhgt_temp_precip_params
 
-calmet_06_mixhgt_temp_precip_params <- function(calmet_inp,
+calmet_06_mixhgt_temp_precip_params <- function(calmet_inp = "calmet_template.txt",
                                                 constb = 1.41,
                                                 conste = 0.15,
                                                 constn = 2400,
