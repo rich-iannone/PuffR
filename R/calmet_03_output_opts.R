@@ -80,6 +80,9 @@ calmet_03_output_opts <- function(calmet_inp = "calmet_template.txt",
   # Transform TRUE or FALSE value for 'ldbcst' to string
   ldbcst <- ifelse(ldbcst == TRUE, "T", "F")
     
+  # Generate a vector list of calmet.inp keywords that require boolean values
+  keywords <- c("LSAVE", "LPRINT", "LDB", "LDBCST")
+  
   # Get number of layers
   nz <- as.numeric(gsub(".*=(.*)!", "\\1",
                         grep(paste("NZ(?![[:alpha:]])", sep = ''),
