@@ -167,6 +167,9 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     # Generate a list of SEA.DAT files that are available in folder
     seadat_files <- list.files(pattern = "sea--.*")
     
+    # Determine number of SEA.DAT files available in folder
+    number_seadat_files <- length(seadat_files)
+    
     # Write the output to the same working calmet.inp file
     writeLines(calmet_inp_working, con = calmet_inp)
     
