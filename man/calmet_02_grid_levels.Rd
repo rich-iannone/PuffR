@@ -13,6 +13,8 @@ calmet_02_grid_levels(calmet_inp = "calmet_template.txt",
 \arguments{
 \item{calmet_inp}{the absolute path and filename for the working CALMET input file.}
 
+\item{read_xy_from_geo_dat}{}
+
 \item{pmap}{the projection of the CALMET domain.}
 
 \item{feast}{the false easting at the projection origin for TTM, LCC, or LAZA projection types.}
