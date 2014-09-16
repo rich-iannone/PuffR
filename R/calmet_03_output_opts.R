@@ -105,8 +105,22 @@ calmet_03_output_opts <- function(calmet_inp = "calmet_template.txt",
                                        keyword = keywords,
                                        replacement = replacements)    
   
+  # Add formatted 'iuvout' character string to the working calmet.inp vector
+  calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
+                                       keyword = "IUVOUT",
+                                       replacement = iuvout)
+  
+  # Add formatted 'iwout' character string to the working calmet.inp vector
+  calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
+                                       keyword = "IWOUT",
+                                       replacement = iwout)
+  
+  # Add formatted 'itout' character string to the working calmet.inp vector
+  calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
+                                       keyword = "ITOUT",
+                                       replacement = itout)
+  
   # Write the output to the same working calmet.inp file
   writeLines(calmet_inp_working, con = calmet_inp)
-  
   
 }
