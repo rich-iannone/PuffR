@@ -236,6 +236,10 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     # those lines for writing with asterisks
     asterisk_lines <- grep("FALSE", calmet_inp_working)
     
+    # Take those FALSE value lines and disable them using asterisks
+    calmet_inp_working[asterisk_lines] <-
+      gsub("!", "\\*", gsub("FALSE", "", calmet_inp_working[asterisk_lines]))
+    
     
   }
   
