@@ -138,8 +138,14 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     }
     
     # Set the number of upper air stations to 1 if an UP.DAT file exists
-    if (number_geodat_year > 0) nusta <- 1
-    if (number_geodat_year == 0) nusta <- 0
+    if (number_geodat_year > 0){
+      nusta <- 1
+      updat <- TRUE
+    }
+    if (number_geodat_year == 0){
+      nusta <- 0
+      updat <- FALSE
+    }
     
     # Generate a list of MM4, MM5, and 3D.DAT files that are available in folder
     mm4_files <- list.files(pattern = "mm4--.*")
