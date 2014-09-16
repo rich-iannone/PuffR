@@ -10,7 +10,7 @@ calmet_01_temporal_params(calmet_inp = "calmet_template.txt",
   lcalgrd = TRUE, itest = 2, mreg = 0)
 }
 \arguments{
-\item{calmet_inp}{}
+\item{calmet_inp}{the absolute path and filename for the working CALMET input file.}
 
 \item{ibyr}{}
 
