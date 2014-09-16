@@ -86,6 +86,11 @@ calmet_03_output_opts <- function(calmet_inp = "calmet_template.txt",
   # Generate a vector list of the formatted boolean value replacements
   replacements <- c(lsave, lprint, ldb, ldbcst)
   
+  # Modify all parameters that require boolean values in working calmet.inp vector
+  calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
+                                       keyword = keywords,
+                                       replacement = replacements)    
+  
   # Get number of layers
   nz <- as.numeric(gsub(".*=(.*)!", "\\1",
                         grep(paste("NZ(?![[:alpha:]])", sep = ''),
