@@ -124,7 +124,7 @@ calmet_03_output_opts <- function(calmet_inp = "calmet_template.txt",
   # Modify all parameters that require single numeric values in working calmet.inp vector
   calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
                                        keyword = keywords,
-                                       replacement = replacements)    
+                                       replacement = replacements) 
   
   # Add formatted 'iuvout' character string to the working calmet.inp vector
   calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
