@@ -240,6 +240,8 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     calmet_inp_working[asterisk_lines] <-
       gsub("!", "\\*", gsub("FALSE", "", calmet_inp_working[asterisk_lines]))
     
+    # Write the output to the same working calmet.inp file
+    writeLines(calmet_inp_working, con = calmet_inp)
     
   }
   
