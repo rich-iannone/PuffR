@@ -196,6 +196,16 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
       igfdat <- FALSE
     }
     
+    # Set other CALMET modelling files to missing
+    diadat <- FALSE
+    prgdat <- FALSE
+    tstprt <- FALSE
+    tstout <- FALSE
+    tstkin <- FALSE
+    tstfrd <- FALSE
+    tstslp <- FALSE
+    dcstgd <- FALSE
+    
     # Write the output to the same working calmet.inp file
     writeLines(calmet_inp_working, con = calmet_inp)
     
