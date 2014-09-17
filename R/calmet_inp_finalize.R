@@ -58,7 +58,7 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
                                 dcstgd = NULL){
   
   # Read in the working calmet.inp file as a character vector
-  calmet_inp_working <- readLines(calmet_inp)
+  calmet_inp_working <- readLines(calmet_inp, warn = FALSE)
   
   # Transform TRUE or FALSE value for lcfiles to string
   lcfiles <- ifelse(lcfiles == TRUE, "T", "F")
@@ -239,7 +239,7 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     writeLines(calmet_inp_working, con = calmet_inp)
     
     # Read in the working calmet.inp file as a character vector
-    calmet_inp_working <- readLines(calmet_inp)
+    calmet_inp_working <- readLines(calmet_inp, warn = FALSE)
 
     # Determine which keywords contain the 'FALSE' indicator and prepare
     # those lines for writing with asterisks
@@ -253,7 +253,7 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     writeLines(calmet_inp_working, con = calmet_inp)
     
     # Read in the working calmet.inp file as a character vector
-    calmet_inp_working <- readLines(calmet_inp)
+    calmet_inp_working <- readLines(calmet_inp, warn = FALSE)
     
     # Determine the filenames for all required CALMET input files
     for (i in 1:number_calmet_input_files_to_make){
@@ -273,7 +273,7 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     for (i in 1:length(calmet_inp_filenames)){
       
       # Read in the working calmet.inp file as a character vector
-      calmet_inp_working <- readLines(calmet_inp)
+      calmet_inp_working <- readLines(calmet_inp, warn = FALSE)
       
       # Obtain a filename stub that all subsequent filenames will use
       file_stub <- gsub("calmet_in", "",
