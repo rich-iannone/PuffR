@@ -285,6 +285,39 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
       true_fields_indices <- grep("TRUE", calmet_inp_working)
       true_fields_values <- grep("TRUE", calmet_inp_working, value = TRUE)
       
+      for (j in 1:length(true_fields)){
+        
+        if (length(grep("GEODAT", true_fields_values[j])) == 1){
+          calmet_inp_working[true_fields[j]] <- 
+            paste("! GEODAT = geo", file_stub, " !", sep = '')
+        }
+        
+        if (length(grep("SRFDAT", true_fields_values[j])) == 1){
+          calmet_inp_working[true_fields[j]] <- 
+            paste("! SRFDAT = surf", gsub("(.*)--([0-9][0-9][0-9][0-9]).*.txt",
+                               "\\1--\\2.txt", file_stub), " !", sep = '')
+        }
+        
+        if (length(grep("UPDAT", true_fields_values[j])) == 1){
+          calmet_inp_working[true_fields[j]] <- 
+            paste("! UPDAT = up", gsub("(.*)--([0-9][0-9][0-9][0-9]).*.txt",
+                             "\\1--\\2.txt", file_stub), " !", sep = '')
+        }
+        
+        if (length(grep("METDAT", true_fields_values[j])) == 1){
+          calmet_inp_working[true_fields[j]] <- 
+            paste("! METDAT = calmet_out",
+                  gsub("txt$", "dat", file_stub), " !", sep = '')
+        }
+        
+        if (length(grep("METLST", true_fields_values[j])) == 1){
+          calmet_inp_working[true_fields[j]] <- 
+            paste("! METLST = calmet_out",
+                  gsub("txt$", "lst", file_stub), " !", sep = '')
+        }
+        
+      }
+      
     
   }
   
