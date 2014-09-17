@@ -415,69 +415,125 @@ calmet_define_geophys <- function(location_name,
     # Create Winter GEO.DAT files
     for (i in 2:7){
       if (i == 2){
-        cat(file = "winter_geo.txt", append = FALSE)
-        cat(geo_dat_h, file = "winter_geo.txt", sep = "\n", append = TRUE)
-        cat(geo_dat_h_LU, file = "winter_geo.txt", sep = "\n", append = TRUE)
-        cat(gridded_CALMET_categories_strings, file = "winter_geo.txt", sep = "\n", append = TRUE)
-        cat(geo_dat_h_heights, file = "winter_geo.txt", sep = "\n", append = TRUE)
-        cat(gridded_heights_UTM_m_row_major_strings, file = "winter_geo.txt", sep = "\n", append = TRUE)
+        cat(file = geo_dat_filenames[1],
+            append = FALSE)
+        cat(geo_dat_h, file = geo_dat_filenames[1],
+            sep = "\n", append = TRUE)
+        cat(geo_dat_h_LU, file = geo_dat_filenames[1],
+            sep = "\n", append = TRUE)
+        cat(gridded_CALMET_categories_strings, file = geo_dat_filenames[1],
+            sep = "\n", append = TRUE)
+        cat(geo_dat_h_heights, file = geo_dat_filenames[1],
+            sep = "\n", append = TRUE)
+        cat(gridded_heights_UTM_m_row_major_strings, file = geo_dat_filenames[1],
+            sep = "\n", append = TRUE)
       }
       cat(paste(" 2    - ", mmet_descriptions[i - 1], sep = ''),
-          file = "winter_geo.txt", sep = "\n", append = TRUE)
+          file = geo_dat_filenames[1],
+          sep = "\n", append = TRUE)
       cat(vector_values_to_row_major_strings(values_vector = mmet_winter[,i],
                                              number_cells_across_y = number_cells_across_y),
-          file = "winter_geo.txt", sep = "\n", append = TRUE)
+          file = geo_dat_filenames[1],
+          sep = "\n", append = TRUE)
     }
+    
+    for (i in 2:7){
+      if (i == 2){
+        cat(file = geo_dat_filenames[5],
+            append = FALSE)
+        cat(geo_dat_h, file = geo_dat_filenames[5],
+            sep = "\n", append = TRUE)
+        cat(geo_dat_h_LU, file = geo_dat_filenames[5],
+            sep = "\n", append = TRUE)
+        cat(gridded_CALMET_categories_strings, file = geo_dat_filenames[5],
+            sep = "\n", append = TRUE)
+        cat(geo_dat_h_heights, file = geo_dat_filenames[5],
+            sep = "\n", append = TRUE)
+        cat(gridded_heights_UTM_m_row_major_strings, file = geo_dat_filenames[5],
+            sep = "\n", append = TRUE)
+      }
+      cat(paste(" 2    - ", mmet_descriptions[i - 1], sep = ''),
+          file = geo_dat_filenames[5],
+          sep = "\n", append = TRUE)
+      cat(vector_values_to_row_major_strings(values_vector = mmet_winter[,i],
+                                             number_cells_across_y = number_cells_across_y),
+          file = geo_dat_filenames[5],
+          sep = "\n", append = TRUE)
+    }
+    
     
     # Create Spring GEO.DAT file
     for (i in 2:7){
       if (i == 2){
-        cat(file = "spring_geo.txt", append = FALSE)
-        cat(geo_dat_h, file = "spring_geo.txt", sep = "\n", append = TRUE)
-        cat(geo_dat_h_LU, file = "spring_geo.txt", sep = "\n", append = TRUE)
-        cat(gridded_CALMET_categories_strings, file = "spring_geo.txt", sep = "\n", append = TRUE)
-        cat(geo_dat_h_heights, file = "spring_geo.txt", sep = "\n", append = TRUE)
-        cat(gridded_heights_UTM_m_row_major_strings, file = "spring_geo.txt", sep = "\n", append = TRUE)
+        cat(file = geo_dat_filenames[2],
+            append = FALSE)
+        cat(geo_dat_h, file = geo_dat_filenames[2],
+            sep = "\n", append = TRUE)
+        cat(geo_dat_h_LU, file = geo_dat_filenames[2],
+            sep = "\n", append = TRUE)
+        cat(gridded_CALMET_categories_strings, file = geo_dat_filenames[2],
+            sep = "\n", append = TRUE)
+        cat(geo_dat_h_heights, file = geo_dat_filenames[2],
+            sep = "\n", append = TRUE)
+        cat(gridded_heights_UTM_m_row_major_strings, file = geo_dat_filenames[2],
+            sep = "\n", append = TRUE)
       }
       cat(paste(" 2    - ", mmet_descriptions[i - 1], sep = ''),
-          file = "spring_geo.txt", sep = "\n", append = TRUE)
+          file = geo_dat_filenames[2],
+          sep = "\n", append = TRUE)
       cat(vector_values_to_row_major_strings(values_vector = mmet_spring[,i],
                                              number_cells_across_y = number_cells_across_y),
-          file = "spring_geo.txt", sep = "\n", append = TRUE)
+          file = geo_dat_filenames[2],
+          sep = "\n", append = TRUE)
     }
     
     # Create Summer GEO.DAT file
     for (i in 2:7){
       if (i == 2){
-        cat(file = "summer_geo.txt", append = FALSE)
-        cat(geo_dat_h, file = "summer_geo.txt", sep = "\n", append = TRUE)
-        cat(geo_dat_h_LU, file = "summer_geo.txt", sep = "\n", append = TRUE)
-        cat(gridded_CALMET_categories_strings, file = "summer_geo.txt", sep = "\n", append = TRUE)
-        cat(geo_dat_h_heights, file = "summer_geo.txt", sep = "\n", append = TRUE)
-        cat(gridded_heights_UTM_m_row_major_strings, file = "summer_geo.txt", sep = "\n", append = TRUE)
+        cat(file = geo_dat_filenames[3],
+            append = FALSE)
+        cat(geo_dat_h, file = geo_dat_filenames[3],
+            sep = "\n", append = TRUE)
+        cat(geo_dat_h_LU, file = geo_dat_filenames[3],
+            sep = "\n", append = TRUE)
+        cat(gridded_CALMET_categories_strings, file = geo_dat_filenames[3],
+            sep = "\n", append = TRUE)
+        cat(geo_dat_h_heights, file = geo_dat_filenames[3],
+            sep = "\n", append = TRUE)
+        cat(gridded_heights_UTM_m_row_major_strings, file = geo_dat_filenames[3],
+            sep = "\n", append = TRUE)
       }
       cat(paste(" 2    - ", mmet_descriptions[i - 1], sep = ''),
-          file = "summer_geo.txt", sep = "\n", append = TRUE)
+          file = geo_dat_filenames[3],
+          sep = "\n", append = TRUE)
       cat(vector_values_to_row_major_strings(values_vector = mmet_summer[,i],
                                              number_cells_across_y = number_cells_across_y),
-          file = "summer_geo.txt", sep = "\n", append = TRUE)
+          file = geo_dat_filenames[3],
+          sep = "\n", append = TRUE)
     }
     
     # Create Fall GEO.DAT file
     for (i in 2:7){
       if (i == 2){
-        cat(file = "fall_geo.txt", append = FALSE)
-        cat(geo_dat_h, file = "fall_geo.txt", sep = "\n", append = TRUE)
-        cat(geo_dat_h_LU, file = "fall_geo.txt", sep = "\n", append = TRUE)
-        cat(gridded_CALMET_categories_strings, file = "fall_geo.txt", sep = "\n", append = TRUE)
-        cat(geo_dat_h_heights, file = "fall_geo.txt", sep = "\n", append = TRUE)
-        cat(gridded_heights_UTM_m_row_major_strings, file = "fall_geo.txt", sep = "\n", append = TRUE)
+        cat(file = geo_dat_filenames[4], append = FALSE)
+        cat(geo_dat_h, file = geo_dat_filenames[4],
+            sep = "\n", append = TRUE)
+        cat(geo_dat_h_LU, file = geo_dat_filenames[4],
+            sep = "\n", append = TRUE)
+        cat(gridded_CALMET_categories_strings, file = geo_dat_filenames[4],
+            sep = "\n", append = TRUE)
+        cat(geo_dat_h_heights, file = geo_dat_filenames[4],
+            sep = "\n", append = TRUE)
+        cat(gridded_heights_UTM_m_row_major_strings, file = geo_dat_filenames[4],
+            sep = "\n", append = TRUE)
       }
       cat(paste(" 2    - ", mmet_descriptions[i - 1], sep = ''),
-          file = "fall_geo.txt", sep = "\n", append = TRUE)
+          file = geo_dat_filenames[4],
+          sep = "\n", append = TRUE)
       cat(vector_values_to_row_major_strings(values_vector = mmet_fall[,i],
                                              number_cells_across_y = number_cells_across_y),
-          file = "fall_geo.txt", sep = "\n", append = TRUE)
+          file = geo_dat_filenames[4],
+          sep = "\n", append = TRUE)
     }
     
   }
