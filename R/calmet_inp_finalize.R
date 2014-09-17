@@ -318,6 +318,14 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
         
       }
       
+      # Write the modified 'calmet_inp_working' vector object as
+      # a CALMET input file
+      writeLines(calmet_inp_working,
+                 con = paste("calmet_in",
+                             gsub(".txt$", ".inp", file_stub), sep = ''))
+      
+    }
+    
     
   }
   
