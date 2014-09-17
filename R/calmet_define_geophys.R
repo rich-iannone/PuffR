@@ -352,9 +352,6 @@ calmet_define_geophys <- function(location_name,
   # Get "CALMET_categories" as a numeric object
   UTM_gridded_values$CALMET_categories <-
     as.numeric(as.character(UTM_gridded_values$CALMET_categories))
-  
-  # Get data frame containing micrometeorological parameters by land use category by season
-  mmet_seasons <- calmet_seasonal_micrometeorology()
     
   # Write the LU category subheader and data to disk
   geo_dat_h_LU <- "0  --- LAND USE CATEGORIES  0 - DEFAULT CATEGORIES  1 - NEW CATEGORIES"
@@ -389,6 +386,9 @@ calmet_define_geophys <- function(location_name,
       cat(gridded_CALMET_categories_strings, file = "winter_geo.txt", sep = "\n", append = TRUE)
       cat(geo_dat_h_heights, file = "winter_geo.txt", sep = "\n", append = TRUE)
       cat(gridded_heights_UTM_m_row_major_strings, file = "winter_geo.txt", sep = "\n", append = TRUE)
+    # Get data frame containing micrometeorological parameters by land use category by season
+    mmet_seasons <- calmet_seasonal_micrometeorology()
+    
     }
     cat(paste(" 2    - ", mmet_descriptions[i - 1], sep = ''),
         file = "winter_geo.txt", sep = "\n", append = TRUE)
