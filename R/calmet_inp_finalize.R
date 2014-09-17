@@ -375,6 +375,11 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
                                            keyword = "IEYR",
                                            replacement = begin_end_year)
       
+      # Make replacement to ending month
+      calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
+                                           keyword = "IEMO",
+                                           replacement = end_month) 
+      
       
       # Write the modified 'calmet_inp_working' vector object as
       # a CALMET input file
