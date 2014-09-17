@@ -20,7 +20,8 @@
 #'                       download_SRTM = TRUE)
 #'}
 
-calmet_define_geophys <- function(lat_dec_deg = NULL,
+calmet_define_geophys <- function(location_name,
+                                  lat_dec_deg = NULL,
                                   lon_dec_deg = NULL,
                                   lat_lon_grid_loc = 1,
                                   domain_width_m = NULL,
