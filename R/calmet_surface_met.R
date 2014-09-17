@@ -23,8 +23,7 @@ calmet_surface_met <- function(location_name,
                                lat_lon_grid_loc = 1,
                                domain_width_m = NULL,
                                domain_height_m = NULL,
-                               time_offset,
-                               output_file = "surf.dat"){
+                               time_offset){
   
   # Add require statements
   require(lubridate)
