@@ -400,4 +400,7 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     
   }
   
+  # Remove the "calmet_template.txt" file from the working folder
+  file.remove("calmet_template.txt")
+  
 }
