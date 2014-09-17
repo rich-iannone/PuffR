@@ -280,6 +280,11 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
                         gsub("(calmet_in--.*)", "\\1",
                              calmet_inp_filenames[i]))
       
+      # Determine which of the lines in 'calmet_inp_working' contain
+      # 'TRUE' strings (used as a marker for replacement with a filename)
+      true_fields_indices <- grep("TRUE", calmet_inp_working)
+      true_fields_values <- grep("TRUE", calmet_inp_working, value = TRUE)
+      
     
   }
   
