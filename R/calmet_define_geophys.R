@@ -201,7 +201,7 @@ calmet_define_geophys <- function(location_name,
   geo_dat_h <- vector(mode = "character", length = 9)
   geo_dat_h[1] <- "GEO.DAT         2.0             Header structure with coordinate parameters"
   geo_dat_h[2] <- "2"
-  geo_dat_h[3] <- "Produced using PuffR"                               
+  geo_dat_h[3] <- "Produced by PuffR !Do not edit by hand!"                               
   geo_dat_h[4] <- "Project Name - Time Period"                                                    
   geo_dat_h[5] <- "UTM" 
   geo_dat_h[6] <- paste("  ", UTM_zone, UTM_hemisphere, sep = '')  
