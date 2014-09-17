@@ -382,7 +382,7 @@ calmet_define_geophys <- function(location_name,
     mmet_fall <- join(data.frame(CALMET_categories = CALMET_categories),
                       subset(mmet_seasons, season == "Fall"))
     
-    # Create "winter_geo.txt" file
+    # Create Winter GEO.DAT files
     for (i in 2:7){
       if (i == 2){
         cat(file = "winter_geo.txt", append = FALSE)
@@ -399,7 +399,7 @@ calmet_define_geophys <- function(location_name,
           file = "winter_geo.txt", sep = "\n", append = TRUE)
     }
     
-    # Create "spring_geo.txt" file
+    # Create Spring GEO.DAT file
     for (i in 2:7){
       if (i == 2){
         cat(file = "spring_geo.txt", append = FALSE)
@@ -416,7 +416,7 @@ calmet_define_geophys <- function(location_name,
           file = "spring_geo.txt", sep = "\n", append = TRUE)
     }
     
-    # Create "summer_geo.txt" file
+    # Create Summer GEO.DAT file
     for (i in 2:7){
       if (i == 2){
         cat(file = "summer_geo.txt", append = FALSE)
@@ -433,7 +433,7 @@ calmet_define_geophys <- function(location_name,
           file = "summer_geo.txt", sep = "\n", append = TRUE)
     }
     
-    # Create "fall_geo.txt" file
+    # Create Fall GEO.DAT file
     for (i in 2:7){
       if (i == 2){
         cat(file = "fall_geo.txt", append = FALSE)
