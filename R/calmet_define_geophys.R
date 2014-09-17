@@ -39,7 +39,7 @@ calmet_define_geophys <- function(location_name,
   require(ggplot2)
   require(stringr)
   require(MODISTools)
-    
+  
   # Define the cell resolution (square cells) as 250 m
   cell_resolution_m <- 250
   
