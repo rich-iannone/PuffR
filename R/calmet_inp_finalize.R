@@ -350,6 +350,10 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
                                  "\\1",
                                  geo_header_dates))
       
+      # Make replacement to beginning year
+      calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
+                                           keyword = "IBYR",
+                                           replacement = begin_end_year)
       
       
       # Write the modified 'calmet_inp_working' vector object as
