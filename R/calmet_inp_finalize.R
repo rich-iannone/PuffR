@@ -254,6 +254,8 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     
     # Read in the working calmet.inp file as a character vector
     calmet_inp_working <- readLines(calmet_inp)
+    
+    # Determine the filenames for all required CALMET input files
     for (i in 1:number_calmet_input_files_to_make){
       if (i == 1) calmet_inp_filenames <- vector(mode = "character", length = 0)
       for (j in 1:length(srfdat_years)){
