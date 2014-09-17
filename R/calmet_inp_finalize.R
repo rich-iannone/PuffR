@@ -360,6 +360,11 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
                                            keyword = "IBMO",
                                            replacement = begin_month) 
       
+      # Make replacement to beginning day
+      calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
+                                           keyword = "IBDY",
+                                           replacement = begin_day)
+      
       
       # Write the modified 'calmet_inp_working' vector object as
       # a CALMET input file
