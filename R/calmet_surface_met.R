@@ -15,7 +15,8 @@
 #' calmet_surface_met()
 #'}
 
-calmet_surface_met <- function(start_year,
+calmet_surface_met <- function(location_name,
+                               start_year,
                                end_year,
                                lat_dec_deg = NULL,
                                lon_dec_deg = NULL,
