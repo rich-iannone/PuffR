@@ -336,7 +336,8 @@ calmet_surface_met <- function(location_name,
   # Initialize file for writing
   cat("", file = paste(output_file))
   
-  # Add line 1 to file header (dataset name [SURF.DAT], dataset version [2.1], dataset message field)
+  # Add line 1 to file header (dataset name [SURF.DAT], dataset version [2.1],
+  # dataset message field)
   cat("SURF.DAT        2.1             Hour Start and End Times with Seconds",
       file = paste(output_file), sep = "\n", append = TRUE)
   
