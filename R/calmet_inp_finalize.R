@@ -385,6 +385,10 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
                                            keyword = "IEDY",
                                            replacement = end_day)
       
+      # Make replacement to ending hour
+      calmet_inp_working <- replace_in_inp(inp_file_working = calmet_inp_working,
+                                           keyword = "IEHR",
+                                           replacement = 24)
       
       # Write the modified 'calmet_inp_working' vector object as
       # a CALMET input file
@@ -393,7 +397,6 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
                              gsub(".txt$", ".inp", file_stub), sep = ''))
       
     }
-    
     
   }
   
