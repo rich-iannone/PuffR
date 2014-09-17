@@ -76,7 +76,8 @@ calmet_define_geophys(lat_dec_deg = 49.250117,
 Alternatively, if you elected to download the whole 11 GB set of SRTM V4 GeoTIFF zip files, you can reference the local folder that contains that archive:
 
 ```R
-calmet_define_geophys(lat_dec_deg = 49.250117,
+calmet_define_geophys(location_name = "the_city"
+                      lat_dec_deg = 49.250117,
                       lon_dec_deg = -123.076122,
                       lat_lon_grid_loc = 1,
                       domain_width_m = 8000,
