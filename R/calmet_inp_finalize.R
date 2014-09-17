@@ -326,6 +326,11 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
                              file_stub),
                         sep = ''), warn = FALSE)[4]
       
+      # Determine beginning month for input file
+      begin_month <- as.numeric(gsub(".*\\(([0-9][0-9]).*",
+                                     "\\1",
+                                     geo_header_dates))
+      
       # Write the modified 'calmet_inp_working' vector object as
       # a CALMET input file
       writeLines(calmet_inp_working,
