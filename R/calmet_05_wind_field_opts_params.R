@@ -118,7 +118,7 @@ calmet_05_wind_field_opts_params <- function(calmet_inp = "calmet_template.txt",
                                              metbxid = 0){
   
   # Read in the working calmet.inp file as a character vector
-  calmet_inp_working <- readLines(calmet_inp)
+  calmet_inp_working <- readLines(calmet_inp, warn = FALSE)
   
   # Generate a formatted character string for 'bias'
   bias <- paste(bias, collapse = ", ")
