@@ -68,9 +68,9 @@ calmet_01_temporal_params <- function(calmet_inp = "calmet_template.txt",
     if (length(surf_dat_file > 1)) surf_dat_file <- surf_dat_file[1]
     
     # Obtain several lines from the header portion of the SURF.DAT file
-    surf_dat_header <- readLines(surf_dat_file)[
-      (as.numeric(readLines(surf_dat_file)[2]) + 4):
-        (as.numeric(readLines(surf_dat_file)[2]) + 5)]
+    surf_dat_header <- readLines(surf_dat_file, warn = FALSE)[
+      (as.numeric(readLines(surf_dat_file, warn = FALSE)[2]) + 4):
+        (as.numeric(readLines(surf_dat_file, warn = FALSE)[2]) + 5)]
     
     # Get the UTC time zone
     abtz <- surf_dat_header[1]
@@ -121,7 +121,7 @@ calmet_01_temporal_params <- function(calmet_inp = "calmet_template.txt",
   }
   
   # Read in the working calmet.inp file as a character vector
-  calmet_inp_working <- readLines(calmet_inp)
+  calmet_inp_working <- readLines(calmet_inp, warn = FALSE)
   
   # Generate a vector list of calmet.inp keywords
   keywords <- c("IBYR", "IBMO", "IBDY", "IBHR", "IBSEC",
