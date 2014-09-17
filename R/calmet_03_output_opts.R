@@ -66,7 +66,7 @@ calmet_03_output_opts <- function(calmet_inp = "calmet_template.txt",
                                   ipr8 = FALSE){
   
   # Read in the working calmet.inp file as a character vector
-  calmet_inp_working <- readLines(calmet_inp)
+  calmet_inp_working <- readLines(calmet_inp, warn = FALSE)
   
   # Transform TRUE or FALSE value for 'lsave' to string
   lsave <- ifelse(lsave == TRUE, "T", "F")
@@ -95,7 +95,7 @@ calmet_03_output_opts <- function(calmet_inp = "calmet_template.txt",
   writeLines(calmet_inp_working, con = calmet_inp)
   
   # Read in the working calmet.inp file as a character vector
-  calmet_inp_working <- readLines(calmet_inp)
+  calmet_inp_working <- readLines(calmet_inp, warn = FALSE)
   
   # Get number of layers
   nz <- as.numeric(gsub(".*=(.*)!", "\\1",
@@ -136,7 +136,7 @@ calmet_03_output_opts <- function(calmet_inp = "calmet_template.txt",
   writeLines(calmet_inp_working, con = calmet_inp)
   
   # Read in the working calmet.inp file as a character vector
-  calmet_inp_working <- readLines(calmet_inp)
+  calmet_inp_working <- readLines(calmet_inp, warn = FALSE)
   
   # Generate a vector list of calmet.inp keywords that require numeric values
   keywords <- c("IFORMO", "IPRINF", "STABILITY", "USTAR", "MONIN", "MIXHT",
