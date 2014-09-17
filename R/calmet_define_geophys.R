@@ -26,6 +26,7 @@ calmet_define_geophys <- function(location_name,
                                   lat_lon_grid_loc = 1,
                                   domain_width_m = NULL,
                                   domain_height_m = NULL,
+                                  four_seasons = TRUE,
                                   download_SRTM = TRUE,
                                   SRTM_file_path = NULL){
   
