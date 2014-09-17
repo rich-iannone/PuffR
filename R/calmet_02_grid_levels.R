@@ -83,9 +83,9 @@ calmet_02_grid_levels <- function(calmet_inp = "calmet_template.txt",
     if (length(geo_dat_file > 1)) geo_dat_file <- geo_dat_file[1]
     
     # Obtain several lines from the header portion of the GEO.DAT file
-    geo_dat_header <- readLines(geo_dat_file)[
-      (as.numeric(readLines(geo_dat_file)[2]) + 4):
-        (as.numeric(readLines(geo_dat_file)[2]) + 6)]
+    geo_dat_header <- readLines(geo_dat_file, warn = FALSE)[
+      (as.numeric(readLines(geo_dat_file, warn = FALSE)[2]) + 4):
+        (as.numeric(readLines(geo_dat_file, warn = FALSE)[2]) + 6)]
     
     # Get the UTM zone and hemisphere
     iutmzn <- as.numeric(gsub("[ ]*([0-9]*).*", "\\1", geo_dat_header[1]))
@@ -115,7 +115,7 @@ calmet_02_grid_levels <- function(calmet_inp = "calmet_template.txt",
   ####
   
   # Read in the working calmet.inp file as a character vector
-  calmet_inp_working <- readLines(calmet_inp)
+  calmet_inp_working <- readLines(calmet_inp, warn = FALSE)
   
   # Generate a vector list of calmet.inp keywords
   keywords <- c("PMAP", "FEAST", "FNORTH", "IUTMZN", "UTMHEM", "RLAT0", "RLON0", 
