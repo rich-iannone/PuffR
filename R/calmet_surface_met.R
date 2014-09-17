@@ -281,11 +281,7 @@ calmet_surface_met <- function(location_name,
     missing_df$time_series <- as.POSIXct(missing_df$time_series,
                                          origin = "1970-01-01",
                                          tz = "GMT")
-    
-    #     for (j in 1:ncol(station_data_frames[[i]][[1]])){
-    #       missing_df[,j] <- missing_vectors[j]
-    #     }
-    
+        
     # Row bind missing data frame with the available data frame
     station_data_frames[[i]][[1]] <- rbind(station_data_frames[[i]][[1]],
                                            missing_df)
