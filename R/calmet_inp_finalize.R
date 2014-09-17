@@ -87,6 +87,15 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     # of data
     number_srfdat_years <- length(srfdat_files)
     
+    # Create a vector object of the SURF.DAT years
+    for (i in 1:length(srfdat_files)){
+      if (i == 1) srfdat_years <- vector(mode = "numeric", length = 0)
+      
+      srfdat_yr <- as.numeric(gsub(".*-[0-9]*x[0-9]*x[0-9]*--([0-9][0-9][0-9][0-9]).txt",
+                                   "\\1", srfdat_files[i]))
+      srfdat_years <- c(srfdat_years, srfdat_yr)
+    }
+    
     # If there is at least one SURF.DAT file, provide a TRUE value for the srfdat object
     if (number_srfdat_years > 0) srfdat <- TRUE
     if (number_srfdat_years == 0) srfdat <- FALSE
