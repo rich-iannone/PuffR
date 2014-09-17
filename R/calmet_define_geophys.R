@@ -350,7 +350,7 @@ calmet_define_geophys <- function(location_name,
   ggsave(filename = "landuse.pdf", device = pdf,
          width = 8, height = 8, units = "in")
   
-  
+  # Get "CALMET_categories" as a numeric object
   UTM_gridded_values$CALMET_categories <-
     as.numeric(as.character(UTM_gridded_values$CALMET_categories))
   
