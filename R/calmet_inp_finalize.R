@@ -318,6 +318,14 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
         
       }
       
+      # Read in line 4 of relevant GEO.DAT file
+      geo_header_dates <- 
+        readLines(paste("geo--",
+                        gsub("^--(.*)--[0-9][0-9][0-9][0-9](.*).txt",
+                             paste("\\1-", "\\2.txt", sep = ''),
+                             file_stub),
+                        sep = ''), warn = FALSE)[4]
+      
       # Write the modified 'calmet_inp_working' vector object as
       # a CALMET input file
       writeLines(calmet_inp_working,
