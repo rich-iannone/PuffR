@@ -27,6 +27,7 @@ calmet_define_geophys <- function(location_name,
                                   domain_width_m = NULL,
                                   domain_height_m = NULL,
                                   four_seasons = TRUE,
+                                  four_season_breaks = c("03-15", "05-31", "08-31", "11-15"),
                                   download_SRTM = TRUE,
                                   SRTM_file_path = NULL){
   
