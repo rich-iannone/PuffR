@@ -86,7 +86,15 @@ calmet_define_geophys(location_name = "the_city"
                       SRTM_file_path = "/Volumes/Big HD/SRTM V4 GeoTIFF/")
 ```
 
-This function currently generates seasonal GEO.DAT files (`winter_geo.txt`, `spring_geo.txt`, `summer_geo.txt`, and `fall_geo.txt`).
+This function currently defaults to generating seasonal GEO.DAT files:
+
+- `geo--the_city-32x32x250--1-winter.txt`
+- `geo--the_city-32x32x250--2-spring.txt`
+- `geo--the_city-32x32x250--3-summer.txt`
+- `geo--the_city-32x32x250--4-fall.txt`
+- `geo--the_city-32x32x250--5-winter.txt`
+
+The naming of these files is handled by PuffR. Functions for setting up the CALMET input file will rely on consistent naming of the files for file handling and for parsing the metadata that is stored within. This scheme allows for data persistence and minimal repetition of basic parameters.
 
 How about surface meteorology? We can produce a SURF.DAT file using the `calmet_surface_met` function. In the following example, we can obtain a SURF.DAT file from the same domain, specifying the beginning and ending years:
 
