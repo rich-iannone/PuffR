@@ -303,9 +303,6 @@ calmet_define_geophys <- function(location_name,
     gridded_CALMET_categories_strings <- c(gridded_CALMET_categories_strings, string)
   }
   
-  # Write the LU category subheader and data to disk
-  geo_dat_h_LU <- "0  --- LAND USE CATEGORIES  0 - DEFAULT CATEGORIES  1 - NEW CATEGORIES"
-  
   # Create new data frame object 'UTM_gridded_values' that contains gridded heights and
   # LU categories
   UTM_gridded_values <- cbind(srtm_UTM_resampled_no_NA.SPDF, as.data.frame(CALMET_categories))
@@ -358,6 +355,9 @@ calmet_define_geophys <- function(location_name,
   
   # Get data frame containing micrometeorological parameters by land use category by season
   mmet_seasons <- calmet_seasonal_micrometeorology()
+    
+  # Write the LU category subheader and data to disk
+  geo_dat_h_LU <- "0  --- LAND USE CATEGORIES  0 - DEFAULT CATEGORIES  1 - NEW CATEGORIES"
   
   # Create vector of short descriptions for each micrometeorological parameter
   mmet_descriptions <- c("gridded z0 field",
