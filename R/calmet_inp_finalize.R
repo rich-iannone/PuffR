@@ -275,6 +275,11 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
       # Read in the working calmet.inp file as a character vector
       calmet_inp_working <- readLines(calmet_inp)
       
+      # Obtain a filename stub that all subsequent filenames will use
+      file_stub <- gsub("calmet_in", "",
+                        gsub("(calmet_in--.*)", "\\1",
+                             calmet_inp_filenames[i]))
+      
     
   }
   
