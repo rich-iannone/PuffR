@@ -38,7 +38,7 @@ calmet_07_station_params <- function(calmet_inp = "calmet_template.txt",
                                      precip_station_params_y_coord = NULL){
   
   # Read in the working calmet.inp file as a character vector
-  calmet_inp_working <- readLines(calmet_inp)
+  calmet_inp_working <- readLines(calmet_inp, warn = FALSE)
   
   # If option set to read data from files, determine which files are available
   # in the working folder and process that data
@@ -81,11 +81,13 @@ calmet_07_station_params <- function(calmet_inp = "calmet_template.txt",
     writeLines(calmet_inp_working, con = calmet_inp)
     
     # Read in the working calmet.inp file as a character vector
-    calmet_inp_working <- readLines(calmet_inp)
+    calmet_inp_working <- readLines(calmet_inp, warn = FALSE)
     
     # Obtain key lines from the header portion of the SURF.DAT file
     surf_dat_station_info <-
-      readLines(surf_dat_file)[5:(as.numeric(readLines(surf_dat_file)[2]) + 2)]
+      readLines(surf_dat_file,
+                warn = FALSE)[5:(as.numeric(readLines(surf_dat_file,
+                                                      warn = FALSE)[2]) + 2)]
     
     for (i in 1:length(surf_dat_station_info)){
       if (i == 1) surf_dat_station_strings <- vector(mode = "character", length = 0)
@@ -119,11 +121,11 @@ calmet_07_station_params <- function(calmet_inp = "calmet_template.txt",
     writeLines(calmet_inp_working, con = calmet_inp)
     
     # Read in the working calmet.inp file as a character vector
-    calmet_inp_working <- readLines(calmet_inp)
+    calmet_inp_working <- readLines(calmet_inp, warn = FALSE)
     
     # Obtain key lines from the header portion of the UP.DAT file
     up_dat_station_info <-
-      readLines(up_dat_file)[5:(as.numeric(readLines(up_dat_file)[2]) + 2)]
+      readLines(up_dat_file)[5:(as.numeric(readLines(up_dat_file, warn = FALSE)[2]) + 2)]
     
     up_dat_station_string <-
       paste("! US1  = ",
