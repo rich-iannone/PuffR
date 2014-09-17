@@ -394,7 +394,7 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
       # a CALMET input file
       writeLines(calmet_inp_working,
                  con = paste("calmet_in",
-                             gsub(".txt$", ".inp", file_stub), sep = ''))
+                             gsub(".txt$", ".txt", file_stub), sep = ''))
       
     }
     
