@@ -40,6 +40,9 @@ calmet_define_geophys <- function(location_name,
   require(stringr)
   require(MODISTools)
   
+  # Convert the 'location_name' string to lowercase
+  location_name <- tolower(location_name)
+  
   # Define the cell resolution (square cells) as 250 m
   cell_resolution_m <- 250
   
