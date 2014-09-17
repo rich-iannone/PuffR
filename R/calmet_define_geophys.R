@@ -204,8 +204,8 @@ calmet_define_geophys <- function(location_name,
   geo_dat_h[3] <- "Produced by PuffR !Do not edit by hand!"
   geo_dat_h[4] <- "Time Information"
   geo_dat_h[5] <- "UTM"
-  geo_dat_h[6] <- paste("  ", UTM_zone, UTM_hemisphere, sep = '')  
-  geo_dat_h[7] <- "WGS-84  02-21-2003"  
+  geo_dat_h[6] <- paste("  ", UTM_zone, UTM_hemisphere, sep = '')
+  geo_dat_h[7] <- "WGS-84  02-21-2003"
   geo_dat_h[8] <- paste("     ", number_cells_across_x,
                         "     ", number_cells_across_y,
                         "     ", round(left_UTM/1000, digits = 3),
