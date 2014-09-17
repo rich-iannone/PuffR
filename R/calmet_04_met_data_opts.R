@@ -24,7 +24,7 @@ calmet_04_met_data_opts <- function(calmet_inp = "calmet_template.txt",
   if (is.null(npsta)) npsta <- NA
   
   # Read in the working calmet.inp file as a character vector
-  calmet_inp_working <- readLines(calmet_inp)
+  calmet_inp_working <- readLines(calmet_inp, warn = FALSE)
   
   # Generate a vector list of calmet.inp keywords
   keywords <- c("NOOBS", "NSSTA", "NPSTA", "ICLOUD", "IFORMS", "IFORMP", "IFORMC")  
