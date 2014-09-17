@@ -262,7 +262,7 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
         # Generate filename 
         filename <- gsub("geo", "calmet_in", geodat_files[i])
         filename <- gsub("(.*)--(.*).txt",
-                         paste("\\1-", srfdat_years[j], "-\\2.txt", sep = ''),
+                         paste("\\1--", srfdat_years[j], "-\\2.txt", sep = ''),
                          filename)
         calmet_inp_filenames <- c(calmet_inp_filenames, filename)
       }
