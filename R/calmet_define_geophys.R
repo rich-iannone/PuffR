@@ -385,6 +385,33 @@ calmet_define_geophys <- function(location_name,
     mmet_fall <- join(data.frame(CALMET_categories = CALMET_categories),
                       subset(mmet_seasons, season == "Fall"))
     
+    # Generate the 5 GEO.DAT filenames
+    geo_dat_filenames <- c(paste("geo--", location_name, "-",
+                                 number_cells_across_x, "x",
+                                 number_cells_across_y, "x",
+                                 cell_resolution_m, "--1-winter.txt",
+                                 sep = ''),
+                           paste("geo--", location_name, "-",
+                                 number_cells_across_x, "x",
+                                 number_cells_across_y, "x",
+                                 cell_resolution_m, "--2-spring.txt",
+                                 sep = ''),
+                           paste("geo--", location_name, "-",
+                                 number_cells_across_x, "x",
+                                 number_cells_across_y, "x",
+                                 cell_resolution_m, "--3-summer.txt",
+                                 sep = ''),
+                           paste("geo--", location_name, "-",
+                                 number_cells_across_x, "x",
+                                 number_cells_across_y, "x",
+                                 cell_resolution_m, "--4-fall.txt",
+                                 sep = ''),
+                           paste("geo--", location_name, "-",
+                                 number_cells_across_x, "x",
+                                 number_cells_across_y, "x",
+                                 cell_resolution_m, "--5-winter.txt",
+                                 sep = ''))
+    
     # Create Winter GEO.DAT files
     for (i in 2:7){
       if (i == 2){
