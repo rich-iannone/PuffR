@@ -268,6 +268,10 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
       }
     }
     
+    # Generate separate CALMET input files for different seasons across
+    # different years
+    for (i in 1:length(calmet_inp_filenames)){
+      
     
   }
   
