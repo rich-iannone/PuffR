@@ -272,6 +272,9 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     # different years
     for (i in 1:length(calmet_inp_filenames)){
       
+      # Read in the working calmet.inp file as a character vector
+      calmet_inp_working <- readLines(calmet_inp)
+      
     
   }
   
