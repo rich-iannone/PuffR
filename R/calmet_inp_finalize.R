@@ -252,7 +252,7 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     # Write the output to the same working calmet.inp file
     writeLines(calmet_inp_working, con = calmet_inp)
     
-    # Write several CALMET input files based on the number of GEO.DAT files
+    # Read in the working calmet.inp file as a character vector
     for (i in 1:number_calmet_input_files_to_make){
       if (i == 1) calmet_inp_filenames <- vector(mode = "character", length = 0)
       for (j in 1:length(srfdat_years)){
