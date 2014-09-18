@@ -3,11 +3,14 @@
 \alias{calmet_define_geophys}
 \title{Define the CALMET domain and generate a geophysical input file}
 \usage{
-calmet_define_geophys(lat_dec_deg = NULL, lon_dec_deg = NULL,
+calmet_define_geophys(location_name, lat_dec_deg = NULL, lon_dec_deg = NULL,
   lat_lon_grid_loc = 1, domain_width_m = NULL, domain_height_m = NULL,
-  download_SRTM = TRUE, SRTM_file_path = NULL)
+  four_seasons = TRUE, four_season_breaks = c("03-15", "05-31", "08-31",
+  "11-15"), download_SRTM = TRUE, SRTM_file_path = NULL)
 }
 \arguments{
+\item{location_name}{an assigned name for the CALMET domain.}
+
 \item{lat_dec_deg}{the latitude of the CALMET domain in decimal degrees. The location of this point is defined in the lat_lon_grid_loc argument.}
 
 \item{lon_dec_deg}{the longitude of the CALMET domain in decimal degrees. The location of this point is defined in the lat_lon_grid_loc argument.}
@@ -29,7 +32,8 @@ Define the CALMET domain and determine the best gridded values for land use, ter
 \dontrun{
 # Create a CALMET domain of 100 by 100 km in the Los Angeles area.
 # Chosen lat/lon coordinates are for the center of the domain.
-calmet_define_geophys(lat_dec_deg = 34.050184,
+calmet_define_geophys(location_name = "the_city",
+                      lat_dec_deg = 34.050184,
                       lon_dec_deg = -118.253959,
                       lat_lon_grid_loc = 1,
                       domain_width_m = 8000,
