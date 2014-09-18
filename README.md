@@ -112,7 +112,11 @@ calmet_surface_met(start_year = 2011,
 
 This function currently requires that you supply a `time_offset` value, which is the time difference from UTC+0000. The output file can be named by supplying a filename for the `output_file' argument.
 
-Creating functional CALMET and CALPUFF input files occur through a stepwise process. After creating the basic CALMET input data files (e.g., GEO.DAT, SURF.DAT, etc.), the next logical step forward is to initialize a template of the CALMET.INP file using the `calmet_inp_generate_template` function.
+Creating functional CALMET and CALPUFF input files occur through a stepwise process. Here is the basic workflow.
+
+<img src="inst/PuffR_CALMET_Functions.png" width="100%">
+
+After creating the basic CALMET input data files (e.g., GEO.DAT, SURF.DAT, etc.), the next logical step forward is to initialize a template of the CALMET.INP file using the `calmet_inp_generate_template` function.
 
 ```R
 calmet_inp_generate_template()
@@ -120,7 +124,7 @@ calmet_inp_generate_template()
 
 This creates an effectively empty CALMET input file in the working directory (called 'calmet_template.txt`). While this file is readable plaintext, it really shouldn't be modified by hand. Rather, a group of functions will serve to programmatically populate that input file with parameter values. In this way, validation of inputs can be performed at every step.
 
-The CALMET input file can be built up using a series of functions that address each of the input file's main sections:
+The CALMET input file can be built up using a series of functions that address each of the input file's main sections.
 
 ```R
 calmet_01_temporal_params()
