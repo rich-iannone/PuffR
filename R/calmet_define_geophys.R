@@ -417,6 +417,9 @@ calmet_define_geophys <- function(location_name,
       if (i == 2){
         cat(file = geo_dat_filenames[1],
             append = FALSE)
+        geo_dat_h[4] <- paste("1 Winter (01 01 - ",
+                              gsub("-", " ", four_season_breaks[1]),
+                              ")", sep = '')
         cat(geo_dat_h, file = geo_dat_filenames[1],
             sep = "\n", append = TRUE)
         cat(geo_dat_h_LU, file = geo_dat_filenames[1],
@@ -441,6 +444,9 @@ calmet_define_geophys <- function(location_name,
       if (i == 2){
         cat(file = geo_dat_filenames[5],
             append = FALSE)
+        geo_dat_h[4] <- paste("5 Winter (",
+                              format((as.Date(four_season_breaks[4], "%m-%d") + 1), "%m %d"),
+                              " - 12 31)", sep = '')
         cat(geo_dat_h, file = geo_dat_filenames[5],
             sep = "\n", append = TRUE)
         cat(geo_dat_h_LU, file = geo_dat_filenames[5],
@@ -467,6 +473,10 @@ calmet_define_geophys <- function(location_name,
       if (i == 2){
         cat(file = geo_dat_filenames[2],
             append = FALSE)
+        geo_dat_h[4] <- paste("2 Spring (",
+                              format((as.Date(four_season_breaks[1], "%m-%d") + 1), "%m %d"),
+                              " - ",
+                              gsub("-", " ", four_season_breaks[2]), ")", sep = '')
         cat(geo_dat_h, file = geo_dat_filenames[2],
             sep = "\n", append = TRUE)
         cat(geo_dat_h_LU, file = geo_dat_filenames[2],
@@ -492,6 +502,10 @@ calmet_define_geophys <- function(location_name,
       if (i == 2){
         cat(file = geo_dat_filenames[3],
             append = FALSE)
+        geo_dat_h[4] <- paste("3 Summer (",
+                              format((as.Date(four_season_breaks[2], "%m-%d") + 1), "%m %d"),
+                              " - ",
+                              gsub("-", " ", four_season_breaks[3]), ")", sep = '')
         cat(geo_dat_h, file = geo_dat_filenames[3],
             sep = "\n", append = TRUE)
         cat(geo_dat_h_LU, file = geo_dat_filenames[3],
@@ -516,6 +530,10 @@ calmet_define_geophys <- function(location_name,
     for (i in 2:7){
       if (i == 2){
         cat(file = geo_dat_filenames[4], append = FALSE)
+        geo_dat_h[4] <- paste("4 Fall (",
+                              format((as.Date(four_season_breaks[3], "%m-%d") + 1), "%m %d"),
+                              " - ",
+                              gsub("-", " ", four_season_breaks[4]), ")", sep = '')
         cat(geo_dat_h, file = geo_dat_filenames[4],
             sep = "\n", append = TRUE)
         cat(geo_dat_h_LU, file = geo_dat_filenames[4],
