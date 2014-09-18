@@ -1,5 +1,6 @@
 #' Define the CALMET domain and generate a geophysical input file
 #' @description Define the CALMET domain and determine the best gridded values for land use, terrain heights, and micrometeorological parameters for creation of a geophysical input file.
+#' @param location_name an assigned name for the CALMET domain.
 #' @param lat_dec_deg the latitude of the CALMET domain in decimal degrees. The location of this point is defined in the lat_lon_grid_loc argument.
 #' @param lon_dec_deg the longitude of the CALMET domain in decimal degrees. The location of this point is defined in the lat_lon_grid_loc argument.
 #' @param lat_lon_grid_loc the location of the lat/long inputs in relation to the domain. Choices are: 1 (center), 2 (lower left), 3 (lower right), 4 (upper left), 5 (upper right).
