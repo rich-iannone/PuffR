@@ -13,7 +13,8 @@
 #' \dontrun{
 #' # Create a CALMET domain of 100 by 100 km in the Los Angeles area.
 #' # Chosen lat/lon coordinates are for the center of the domain. 
-#' calmet_define_geophys(lat_dec_deg = 34.050184,
+#' calmet_define_geophys(location_name = "the_city",
+#'                       lat_dec_deg = 34.050184,
 #'                       lon_dec_deg = -118.253959,
 #'                       lat_lon_grid_loc = 1,
 #'                       domain_width_m = 8000,
