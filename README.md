@@ -112,7 +112,7 @@ calmet_surface_met(start_year = 2011,
 
 This function currently requires that you supply a `time_offset` value, which is the time difference from UTC+0000. The output file can be named by supplying a filename for the `output_file' argument.
 
-Creating functional CALMET and CALPUFF input files occur through a stepwise process. Here is the basic workflow.
+Creating functional CALMET and CALPUFF input files occur through a stepwise process. Here is the basic CALMET workflow.
 
 <img src="inst/PuffR_CALMET.png" width="100%">
 
