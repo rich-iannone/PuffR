@@ -114,7 +114,7 @@ This function currently requires that you supply a `time_offset` value, which is
 
 Creating functional CALMET and CALPUFF input files occur through a stepwise process. Here is the basic workflow.
 
-<img src="inst/PuffR_CALMET.png" width="75%">
+<img src="inst/PuffR_CALMET.png" width="100%">
 
 After creating the basic CALMET input data files (e.g., GEO.DAT, SURF.DAT, etc.), the next logical step forward is to initialize a template of the CALMET.INP file using the `calmet_inp_generate_template` function.
 
