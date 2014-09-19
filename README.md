@@ -1,4 +1,4 @@
-<img src="inst/PuffR.png" width="75%">
+<img src="inst/PuffR.png" width="100%">
 
 PuffR is all about helping you conduct dispersion modelling using the [CALPUFF modelling system](http://www.epa.gov/scram001/dispersion_prefrec.htm).
 
