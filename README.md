@@ -12,17 +12,17 @@ The CALPUFF integrated modelling system consists of three main components and a 
 
 While CALPUFF is indeed great, the workflow for atmospheric dispersion modelling with CALPUFF needs to be reconsidered, both in the interest of saving time and also for ensuring that the quality of inputs is higher. Here are some ways that the PuffR package might provide some value:
 
-— allow the user to provide a minimal selection of parameters (relying on a very sensible selection of defaults); the PuffR package will then collect, analyze, and prepare model inputs with the best publicly available data
+— allow the user to provide a minimal set of parameters--we can then rely on a very sensible selection of defaults for PuffR to go to town by: (1) collecting the best publicly available data, (2) processing the collected data into valid CAL* input files, (3) running the models by the most efficient means possible, and (4) providing informative model output results and data visualizations
 
 — include the ability to store presets (e.g., for model domains, receptors, emissions sources, etc.) that can be shared across projects
 
 — have a useful help system and documentation library (with copious examples) available to aid in the understanding of every option/switch/setting in CALMET/CALPUFF/CALSUM/CALPOST
 
-— include functions for a wide range of statistical analyses will for both the input and the output data
+— include functions for a wide range of statistical analyses for both the input and the output data
 
-— put an emphasis on data visualization and data exploration; this will allow for greater understanding for both experts and laypersons
+— put a strong emphasis on data visualization and data exploration; this will allow for greater understanding for both experts and laypersons
 
-— allow visualizations and data to be easily shared on the web, and, be exported in a wide range of useful formats
+— allow visualizations and data to be easily shared on the web, and, be made available in a wide range of useful formats
 
 ### How to go about this
 
