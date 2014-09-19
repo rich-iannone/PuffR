@@ -288,7 +288,7 @@ calmet_define_geophys <- function(location_name,
   }
   
   # Delete the .asc files from the working folder
-  #   file.remove(file_list)
+    file.remove(file_list)
   
   # Delete the summary CSV file from the working folder
   #   file.remove(list.files(pattern = "Subset Download.*.csv"))
