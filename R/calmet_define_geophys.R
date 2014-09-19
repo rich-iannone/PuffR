@@ -355,7 +355,11 @@ calmet_define_geophys <- function(location_name,
           legend.title = element_text(size = rel(1.2)))
   
   # Save as land use plot as a pdf file
-  ggsave(filename = "landuse.pdf", device = pdf,
+  ggsave(filename = paste("landuse--", location_name, "-",
+                          number_cells_across_x, "x",
+                          number_cells_across_y, "x",
+                          cell_resolution_m, ".pdf",
+                          sep = ''), device = pdf,
          width = 8, height = 8, units = "in")
   
   # Get "CALMET_categories" as a numeric object
