@@ -291,7 +291,7 @@ calmet_define_geophys <- function(location_name,
     file.remove(file_list)
   
   # Delete the summary CSV file from the working folder
-  #   file.remove(list.files(pattern = "Subset Download.*.csv"))
+    file.remove(list.files(pattern = "Subset Download.*.csv"))
   
   # Get the corresponding CALMET category from the IGBP Type 1 class data
   CALMET_categories <- join(as.data.frame(IGBP_Type_1_class_no), LU_classification)[,3]
