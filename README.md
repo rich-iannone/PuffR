@@ -65,7 +65,8 @@ You can already do one or two useful things with this package. For instance, the
 Let's generate a geophysical input file for a portion of the Vancouver area. This will consist of a grid centered (use `lat_lon_grid_loc = 1` for a center reference) on 49.250117ºN and 123.076122ºW (`lat_dec_deg = 49.5` and `lon_dec_deg = -125.30364`). The width (E-W distance) of the grid will be 8000 m, and the height (N-S distance) will be the same (`domain_width_m = 8000` and `domain_height_m = 8000`. We will elect to download SRTM terrain height data from "http://gis-lab.info/data/srtm-tif/" (with `download_SRTM = TRUE`).
 
 ```R
-calmet_define_geophys(lat_dec_deg = 49.250117,
+calmet_define_geophys(location_name = "the_city"
+                      lat_dec_deg = 49.250117,
                       lon_dec_deg = -123.076122,
                       lat_lon_grid_loc = 1,
                       domain_width_m = 8000,
