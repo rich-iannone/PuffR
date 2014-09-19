@@ -195,7 +195,7 @@ calmet_define_geophys <- function(location_name,
                           number_cells_across_x, "x",
                           number_cells_across_y, "x",
                           cell_resolution_m, ".pdf",
-                          sep = ''),
+                          sep = ''), device = pdf,
          width = 8, height = 8, units = "in")
   
   # Extract heights from the resampled DEM in UTM
