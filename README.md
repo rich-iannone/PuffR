@@ -165,6 +165,7 @@ calmet_01_temporal_params(read_data_from_surf_dat = FALSE,
 ### In the Works
 
 - greater selection of data sources for generating geophysical input files
+- data imputation methods for surface meteorology and upper air soundings
 - simple functions for producing an upper air input file
 - method for specifying emissions sources and creating time-and-space-varying emissions for point, line, area, and volume sources
 - method for computing building downwash for point sources near large structures
