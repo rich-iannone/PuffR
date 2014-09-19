@@ -191,7 +191,11 @@ calmet_define_geophys <- function(location_name,
           legend.title = element_text(size = rel(1.2)))
   
   # Save terrain plot as a pdf file
-  ggsave(filename = "terrain.pdf",
+  ggsave(filename = paste("terrain--", location_name, "-",
+                          number_cells_across_x, "x",
+                          number_cells_across_y, "x",
+                          cell_resolution_m, ".pdf",
+                          sep = ''),
          width = 8, height = 8, units = "in")
   
   # Extract heights from the resampled DEM in UTM
@@ -288,10 +292,10 @@ calmet_define_geophys <- function(location_name,
   }
   
   # Delete the .asc files from the working folder
-    file.remove(file_list)
+  file.remove(file_list)
   
   # Delete the summary CSV file from the working folder
-    file.remove(list.files(pattern = "Subset Download.*.csv"))
+  file.remove(list.files(pattern = "Subset Download.*.csv"))
   
   # Get the corresponding CALMET category from the IGBP Type 1 class data
   CALMET_categories <- join(as.data.frame(IGBP_Type_1_class_no), LU_classification)[,3]
