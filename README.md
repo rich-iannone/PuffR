@@ -111,13 +111,13 @@ calmet_surface_met(location_name = "the_city",
                    time_offset = -8)
 ```
 
-This function currently requires that you supply a `time_offset` value, which is the time difference from UTC+0000. The output file can be named by supplying a filename for the `output_file' argument.
+This function currently requires that you supply a `time_offset` value, which is the time difference from UTC+0000. The arguments `location_name`, `lat_dec_deg`, `lon_dec_deg`, `lat_lon_grid_loc`, `domain_width_m`, and `domain_height_m` are common to this function and to the `calmet_define_geophys` function.
 
-Creating functional CALMET and CALPUFF input files occur through a stepwise process. Here is the basic CALMET workflow.
+Creating working CALMET and CALPUFF input files occurs through a stepwise process. Below is the basic CALMET workflow.
 
 <img src="inst/PuffR_CALMET.png" width="100%">
 
-After creating the basic CALMET input data files (e.g., GEO.DAT, SURF.DAT, etc.), the next logical step forward is to initialize a template of the CALMET.INP file using the `calmet_inp_generate_template` function.
+After creating the CALMET input data files (e.g., GEO.DAT, SURF.DAT, etc.), the next logical step forward is to initialize a template of the CALMET control file (CALMET.INP) using the `calmet_inp_generate_template` function.
 
 ```R
 calmet_inp_generate_template()
