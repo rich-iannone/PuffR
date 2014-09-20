@@ -53,7 +53,7 @@ calmet_get_ncdc_station_data <- function(year = NULL,
                           BEGIN <= year - 1 &
                           END >= year + 1)
   
-  if (nrow(domain.list) == 0){  
+  if (nrow(domain_list) == 0){  
     stations <- FALSE
     return(stations)
   }
