@@ -63,22 +63,17 @@ calmet_get_ncdc_station_data <- function(year = NULL,
   names(outputs) <- c("FILE", "STATUS")
   
   # Download the gzip-compressed data files for the years specified
-  # Provide information on the number of records in data file retrieved 
-  for (y in (start_year - 1):(end_year + 1)){
+  # Provide information on the number of records in data file retrieved       
+  for (s in 1:dim(domain_list)[1]) {
     
-    y.domain.list <- domain.list[domain.list$BEGIN <= y & domain.list$END >= y, ]
+    outputs[s, 1] <- paste(sprintf("%06d", domain_list[s,1]),
+                           "-", sprintf("%05d", domain_list[s,2]),
+                           "-", year, ".gz", sep = "")
     
-    for (s in 1:dim(y.domain.list)[1]) {
-      
-      outputs[s, 1] <- paste(sprintf("%06d", y.domain.list[s,1]),
-                             "-", sprintf("%05d", y.domain.list[s,2]),
-                             "-", y, ".gz", sep = "")
-      
-      system(paste("curl -O ftp://ftp.ncdc.noaa.gov/pub/data/noaa/", y,
-                   "/", outputs[s, 1], sep = ""))
-      
-      outputs[s, 2] <- ifelse(file.exists(outputs[s, 1]) == "TRUE", 'available', 'missing') 
-    }
+    system(paste("curl -O ftp://ftp.ncdc.noaa.gov/pub/data/noaa/", year,
+                 "/", outputs[s, 1], sep = ""))
+    
+    outputs[s, 2] <- ifelse(file.exists(outputs[s, 1]) == "TRUE", 'available', 'missing') 
   }
   
   # Generate report of stations and file transfers
