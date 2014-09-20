@@ -96,7 +96,7 @@ calmet_get_ncdc_station_data <- function(year = NULL,
   for (i in 1:length(files)){
     
     # Read data from mandatory data section of each file, which is a fixed-width string
-    data <- read.fwf(files[i], column.widths)
+    data <- read.fwf(files[i], column_widths)
     data <- data[, c(2:8, 10:11, 13, 16, 19, 21, 29, 31, 33)]
     names(data) <- c("USAFID", "WBAN", "YR", "M", "D", "HR", "MIN", "LAT", "LONG",
                      "ELEV", "WIND.DIR", "WIND.SPD", "CEIL.HGT", "TEMP", "DEW.POINT",
