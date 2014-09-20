@@ -46,12 +46,12 @@ calmet_get_ncdc_station_data <- function(year = NULL,
   
   # Generate a list based on the domain location, also ignoring stations
   # without beginning years reported
-  domain.list <- subset(st, st$LON >= bbox_lat_lon@xmin & 
+  domain_list <- subset(st, st$LON >= bbox_lat_lon@xmin & 
                           st$LON <= bbox_lat_lon@xmax &
                           st$LAT >= bbox_lat_lon@ymin &
                           st$LAT <= bbox_lat_lon@ymax &
-                          BEGIN <= start_year - 1 &
-                          END >= end_year + 1)
+                          BEGIN <= year - 1 &
+                          END >= year + 1)
   
   if (nrow(domain.list) == 0){  
     stations <- FALSE
