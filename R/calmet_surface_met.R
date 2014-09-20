@@ -213,7 +213,7 @@ calmet_surface_met <- function(location_name,
   
   # For every station, change UTC times to local times using the specified time offset
   for (i in 1:length(station_data_frames)){
-   
+    
     POSIXdatetime <- ISOdatetime(year = station_data_frames[[i]][[1]]$YR,
                                  month = station_data_frames[[i]][[1]]$M,
                                  day = station_data_frames[[i]][[1]]$D,
@@ -253,7 +253,7 @@ calmet_surface_met <- function(location_name,
     station_data_frames[[i]][[1]]$time_series <- POSIXdatetime
     
     missing_times <- time_series_vector[which(!(time_series_vector %in% POSIXdatetime))]
-        
+    
     # Create data frame with missing values
     missing_usafid <- rep(unique(station_data_frames[[i]][[1]][,1]), length(missing_times))
     missing_wban <- rep(unique(station_data_frames[[i]][[1]][,2]), length(missing_times))
@@ -295,7 +295,7 @@ calmet_surface_met <- function(location_name,
     missing_df$time_series <- as.POSIXct(missing_df$time_series,
                                          origin = "1970-01-01",
                                          tz = "GMT")
-        
+    
     # Row bind missing data frame with the available data frame
     station_data_frames[[i]][[1]] <- rbind(station_data_frames[[i]][[1]],
                                            missing_df)
@@ -304,7 +304,7 @@ calmet_surface_met <- function(location_name,
     station_data_frames[[i]][[1]] <-
       station_data_frames[[i]][[1]][order(station_data_frames[[i]][[1]]$time_series),]
   }
-
+  
   # Validate the individual CSV files, present a table several pieces of
   # information related to the data availablity and the data quality
   # 1. Elements where data is available
