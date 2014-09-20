@@ -93,7 +93,7 @@ calmet_get_ncdc_station_data <- function(year = NULL,
   stations <- as.data.frame(matrix(NA, length(files), 6))
   names(stations) <- c("USAFID", "WBAN", "YR", "LAT", "LONG", "ELEV")
   
-  for (i in 1:length(files)) {
+  for (i in 1:length(files)){
     
     # Read data from mandatory data section of each file, which is a fixed-width string
     data <- read.fwf(files[i], column.widths)
