@@ -19,25 +19,6 @@ calmet_get_ncdc_station_data <- function(year = NULL,
   require(lubridate)
   require(plyr)
   require(stringr)
-  
-  # Check whether 'start_year' and 'end_year' are both provided
-  if (is.null(start_year) | is.null(end_year)) {
-    stop("Please enter starting and ending years for surface station data")
-  } else { }
-  
-  # Check whether 'start_year' and 'end_year' are both numeric
-  if (!is.numeric(start_year) | !is.numeric(end_year)) {
-    stop("Please enter numeric values for the starting and ending years")
-  } else { }
-  
-  # Check whether 'start_year' and 'end_year' are in the correct order
-  if (start_year > end_year) {
-    stop("Please enter the starting and ending years in the correct order")
-  } else { }
-  
-  # Check whether 'staryear' and 'end_year' are within set bounds (1950 to current year)
-  if (start_year < 1892 | end_year < 1892 | start_year > year(Sys.Date()) | end_year > year(Sys.Date())) {
-    stop("Please enter the starting and ending years in the correct order")
   } else { }
   
   # Get hourly surface data history CSV from NOAA/NCDC FTP
