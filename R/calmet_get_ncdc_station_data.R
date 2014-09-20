@@ -12,8 +12,7 @@
 #'                              bbox_lat_lon = bbox)
 #'}
 
-calmet_get_ncdc_station_data <- function(start_year = NULL,
-                                         end_year = NULL,
+calmet_get_ncdc_station_data <- function(year = NULL,
                                          bbox_lat_lon = NULL){
   
   # Add require statements
