@@ -85,8 +85,8 @@ calmet_get_ncdc_station_data <- function(year = NULL,
   
   # Read data from files
   # Specific focus here is on the fixed width portions ('Mandatory Data Section') of each file
-  files <- list.files(pattern = "^[0-9]*-[0-9]*-[0-9]*$")
-  column.widths <- c(4, 6, 5, 4, 2, 2, 2, 2, 1, 6,
+  files <- list.files(pattern = paste("^[0-9]*-[0-9]*-", year, sep = ''))
+  column_widths <- c(4, 6, 5, 4, 2, 2, 2, 2, 1, 6,
                      7, 5, 5, 5, 4, 3, 1, 1, 4, 1,
                      5, 1, 1, 1, 6, 1, 1, 1, 5, 1,
                      5, 1, 5, 1)
