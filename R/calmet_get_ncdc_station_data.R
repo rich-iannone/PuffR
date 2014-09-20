@@ -77,7 +77,7 @@ calmet_get_ncdc_station_data <- function(year = NULL,
   }
   
   # Generate report of stations and file transfers
-  file_report <- cbind(y.domain.list, outputs)
+  file_report <- cbind(domain_list, outputs)
   row.names(file_report) <- 1:nrow(file_report)
   
   # Extract all downloaded data files
