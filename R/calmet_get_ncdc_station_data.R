@@ -59,7 +59,7 @@ calmet_get_ncdc_station_data <- function(year = NULL,
   }
   
   # Initialize data frame for file status reporting
-  outputs <- as.data.frame(matrix(NA, dim(domain.list)[1], 2))
+  outputs <- as.data.frame(matrix(NA, dim(domain_list)[1], 2))
   names(outputs) <- c("FILE", "STATUS")
   
   # Download the gzip-compressed data files for the years specified
