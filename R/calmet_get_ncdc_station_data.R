@@ -19,6 +19,10 @@ calmet_get_ncdc_station_data <- function(year = NULL,
   require(lubridate)
   require(plyr)
   require(stringr)
+    
+  # Check whether 'year' are within set bounds (1950 to current year)
+  if (year < 1892 | year > year(Sys.Date())) {
+    stop("Year is not volid.")
   } else { }
   
   # Get hourly surface data history CSV from NOAA/NCDC FTP
