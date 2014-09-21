@@ -28,7 +28,7 @@ calmet_landuse_BTM_BC <- function(location_name,
     
   # Load in shapefile
   layers <- ogrListLayers(shapefile_dir)
-  shapefile <- readOGR(dsn = dsn, layer = layers[1])
+  shapefile <- readOGR(dsn = layers, layer = layers[1])
   
   # Reproject the shapefile  
   new_shape <- spTransform(shapefile,
