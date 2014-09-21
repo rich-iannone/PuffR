@@ -6,6 +6,7 @@
 #' @param lat_lon_grid_loc the location of the lat/long inputs in relation to the domain. Choices are: 1 (center), 2 (lower left), 3 (lower right), 4 (upper left), 5 (upper right).
 #' @param domain_width_m the desired width of the meteorological domain in meters.
 #' @param domain_height_m the desired height of the meteorological domain in meters.
+#' @param cell_resolution_m the desired cell resolution in meters.
 #' @param download_SRTM a choice of whether to download the SRTM GeoTIFF height data from a server or read the identical files from a local folder.
 #' @param SRTM_file_path path to a folder containing a collection of SRTM V4 zip archive files.
 #' @param LU_method the method for obtaining CALMET land use codes for the selected domain; current options are (1) "MODIS_Global" and (2) "BTM_BC" (a method specific to the province of British Columbia in Canada, and, requires a local copy of the BC BTM V1 shapefile).
