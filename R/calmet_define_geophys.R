@@ -291,14 +291,72 @@ calmet_define_geophys <- function(location_name,
     IGBP_Type_1_class_no <- c(IGBP_Type_1_class_no, class_no)
   }
   
-  # Delete the .asc files from the working folder
-  file.remove(file_list)
-  
-  # Delete the summary CSV file from the working folder
-  file.remove(list.files(pattern = "Subset Download.*.csv"))
-  
-  # Get the corresponding CALMET category from the IGBP Type 1 class data
-  CALMET_categories <- join(as.data.frame(IGBP_Type_1_class_no), LU_classification)[,3]
+  if (LU_method == "MODIS_Global"){
+    
+    # Create data frame for MODIS IGBP Type 1 codes for land cover
+    IGBP_Type_1_class_no <- c(seq(0, 16, 1), 254, 255)
+    IGBP_Type_1_class_name <- c("Water", "Evergreen needleleaf forest", "Evergreen broadleaf forest",
+                                "Deciduous needleleaf forest", "Deciduous broadleaf forest",
+                                "Mixed forest", "Closed shrublands", "Open shrublands",
+                                "Woody savannas", "Savannas", "Grasslands", "Permanent wetlands",
+                                "Croplands", "Urban and built-up", "Cropland/Natural vegetation mosaic",
+                                "Snow and ice", "Barren or sparsely vegetated", "Unclassified",
+                                "Fill value")
+    CALMET_categories <- c(50, 40, 40, 40, 40, 40, 40, 40, 30, 30,
+                           30, 60, 20, 10, 20, 90, 70, NA, NA)
+    
+    LU_classification <- data.frame(IGBP_Type_1_class_no, IGBP_Type_1_class_name, CALMET_categories,
+                                    stringsAsFactors = FALSE)
+    
+    # Create a RasterLayer object with lat/lon coordinates for grid cells
+    srtm_latlon_RL <- raster(bbox_longlat,
+                             nrows = number_cells_across_y,
+                             ncols = number_cells_across_x,
+                             crs = proj_string_longlat)
+    
+    # Create a SpatialPixels object from the generated RasterLayer object
+    srtm_latlon_SP <- as(srtm_latlon_RL, "SpatialPixels")
+    
+    # Extract lat/lon coordinates from 'srtm_latlon_SP'
+    modis_coordinates <- as.data.frame(srtm_latlon_SP@coords)
+    colnames(modis_coordinates) <- c("long", "lat")
+    
+    # Create vectors of starting and ending dates for the land cover data
+    start.date <- rep(2008, nrow(modis_coordinates))
+    end.date <- rep(2008, nrow(modis_coordinates))
+    
+    # Column-bind the 'start.date' and 'end.date' vectors with the coordinates data frame
+    modis_coordinates <- cbind(modis_coordinates, start.date)
+    modis_coordinates <- cbind(modis_coordinates, end.date)
+    
+    # Acquire subsets of the landcover Type 1 codes from the MODIS MCD12Q1 product 
+    MODISSubsets(LoadDat = modis_coordinates, Products = "MCD12Q1",
+                 Bands = c("Land_Cover_Type_1"),
+                 Size = c(0,0), TimeSeriesLength = 1)
+    
+    # Generate a file list of acquired MODIS data for each set of coordinates
+    file_list <- list.files(pattern = ".*_MCD12Q1.asc")
+    
+    # Extract the land use code from each acquired data file
+    for (i in 1:length(file_list)){
+      if (i == 1) IGBP_Type_1_class_no <- vector(mode = "numeric", length = 0)
+      class_no <- 
+        as.numeric(unlist(str_split(readLines(con = file_list[i])[1],
+                                    pattern = ","))[length(unlist(str_split(readLines(con = file_list[i])[1],
+                                                                            pattern = ",")))])
+      IGBP_Type_1_class_no <- c(IGBP_Type_1_class_no, class_no)
+    }
+    
+    # Delete the .asc files from the working folder
+    file.remove(file_list)
+    
+    # Delete the summary CSV file from the working folder
+    file.remove(list.files(pattern = "Subset Download.*.csv"))
+    
+    # Get the corresponding CALMET category from the IGBP Type 1 class data
+    CALMET_categories <- join(as.data.frame(IGBP_Type_1_class_no), LU_classification)[,3]
+    
+  }
   
   # Create a data frame for the LU categories, in row-major order
   gridded_CALMET_categories <- as.data.frame(t(matrix(CALMET_categories,
@@ -365,7 +423,7 @@ calmet_define_geophys <- function(location_name,
   # Get "CALMET_categories" as a numeric object
   UTM_gridded_values$CALMET_categories <-
     as.numeric(as.character(UTM_gridded_values$CALMET_categories))
-    
+  
   # Write the LU category subheader and data to disk
   geo_dat_h_LU <- "0  --- LAND USE CATEGORIES  0 - DEFAULT CATEGORIES  1 - NEW CATEGORIES"
   
