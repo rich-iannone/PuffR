@@ -243,17 +243,17 @@ calmet_define_geophys <- function(location_name,
   
   if (LU_method == "BTM_BC"){
     
-    calmet_landuse_BTM_BC <- function(location_name = location_name,
-                                      bbox_longlat = bbox_longlat,
-                                      bbox_UTM = bbox_UTM,
-                                      UTM_zone = UTM_zone,
-                                      UTM_hemisphere = UTM_hemisphere,
-                                      proj_string_longlat = proj_string_longlat,
-                                      proj_string_UTM = proj_string_UTM,
-                                      shapefile_dir = shapefile_dir)
-
+    CALMET_categories <- calmet_landuse_BTM_BC(location_name = location_name,
+                                               bbox_longlat = bbox_longlat,
+                                               bbox_UTM = bbox_UTM,
+                                               UTM_zone = UTM_zone,
+                                               UTM_hemisphere = UTM_hemisphere,
+                                               proj_string_longlat = proj_string_longlat,
+                                               proj_string_UTM = proj_string_UTM,
+                                               shapefile_dir = shapefile_dir)
+    
   }
-
+  
   if (LU_method == "MODIS_Global"){
     
     # Create data frame for MODIS IGBP Type 1 codes for land cover
