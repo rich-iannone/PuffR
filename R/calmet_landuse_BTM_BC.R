@@ -1,13 +1,13 @@
 #' Generate a vector of CALMET landuse categories from BC shapefile data
 #' @description Generate a vector of CALMET landuse categories from BC shapefile data.
 #' @param location_name an assigned name for the CALMET domain.
-#' @param bbox_longlat 
-#' @param bbox_UTM 
-#' @param UTM_zone 
-#' @param UTM_hemisphere 
-#' @param proj_string_longlat 
-#' @param proj_string_UTM 
-#' @param shapefile_dir 
+#' @param bbox_longlat a bounding box with latitude and longitude coordinates.
+#' @param bbox_UTM a bounding box with UTM coordinates.
+#' @param UTM_zone the UTM zone in which the domain resides.
+#' @param UTM_hemisphere the hemisphere, either north ("N") or south ("S") in which the domain resides. 
+#' @param proj_string_longlat the chosen PROJ.4 string for the lat/lon coordinate system.
+#' @param proj_string_UTM the chosen PROJ.4 string for the UTM coordinate system.
+#' @param shapefile_dir the directory in which the BC BTM V1 landuse shapefile is stored.
 #' @export calmet_landuse_BTM_BC
 
 calmet_landuse_BTM_BC <- function(location_name,
