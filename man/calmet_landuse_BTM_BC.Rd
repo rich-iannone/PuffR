@@ -4,18 +4,24 @@
 \title{Generate a vector of CALMET landuse categories from BC shapefile data}
 \usage{
 calmet_landuse_BTM_BC(location_name, bbox_longlat, bbox_UTM, UTM_zone,
-  UTM_hemisphere)
+  UTM_hemisphere, proj_string_longlat, proj_string_UTM, shapefile_dir)
 }
 \arguments{
 \item{location_name}{an assigned name for the CALMET domain.}
 
-\item{bbox_longlat}{}
+\item{bbox_longlat}{a bounding box with latitude and longitude coordinates.}
 
-\item{bbox_UTM}{}
+\item{bbox_UTM}{a bounding box with UTM coordinates.}
 
-\item{UTM_zone}{}
+\item{UTM_zone}{the UTM zone in which the domain resides.}
 
-\item{UTM_hemisphere}{}
+\item{UTM_hemisphere}{the hemisphere, either north ("N") or south ("S") in which the domain resides.}
+
+\item{proj_string_longlat}{the chosen PROJ.4 string for the lat/lon coordinate system.}
+
+\item{proj_string_UTM}{the chosen PROJ.4 string for the UTM coordinate system.}
+
+\item{shapefile_dir}{the directory in which the BC BTM V1 landuse shapefile is stored.}
 }
 \description{
 Generate a vector of CALMET landuse categories from BC shapefile data.

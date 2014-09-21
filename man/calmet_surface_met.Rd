@@ -3,7 +3,7 @@
 \alias{calmet_surface_met}
 \title{Obtain surface meteorology and generate input files}
 \usage{
-calmet_surface_met(location_name, start_year, end_year, lat_dec_deg = NULL,
+calmet_surface_met(location_name, year, lat_dec_deg = NULL,
   lon_dec_deg = NULL, lat_lon_grid_loc = 1, domain_width_m = NULL,
   domain_height_m = NULL, time_offset)
 }

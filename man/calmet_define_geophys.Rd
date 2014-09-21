@@ -6,7 +6,8 @@
 calmet_define_geophys(location_name, lat_dec_deg = NULL, lon_dec_deg = NULL,
   lat_lon_grid_loc = 1, domain_width_m = NULL, domain_height_m = NULL,
   four_seasons = TRUE, four_season_breaks = c("03-15", "05-31", "08-31",
-  "11-15"), download_SRTM = TRUE, SRTM_file_path = NULL)
+  "11-15"), download_SRTM = TRUE, SRTM_file_path = NULL,
+  LU_method = "MODIS_Global", shapefile_dir = NULL)
 }
 \arguments{
 \item{location_name}{an assigned name for the CALMET domain.}
@@ -24,6 +25,10 @@ calmet_define_geophys(location_name, lat_dec_deg = NULL, lon_dec_deg = NULL,
 \item{download_SRTM}{a choice of whether to download the SRTM GeoTIFF height data from a server or read the identical files from a local folder.}
 
 \item{SRTM_file_path}{path to a folder containing a collection of SRTM V4 zip archive files.}
+
+\item{LU_method}{the method for obtaining CALMET land use codes for the selected domain; current options are (1) "MODIS_Global" and (2) "BTM_BC" (a method specific to the province of British Columbia in Canada, and, requires a local copy of the BC BTM V1 shapefile).}
+
+\item{shapefile_dir}{if the chosen 'LU_method' requires the use of a local shapefile, supply the relative or absolute path to the shapefile here.}
 }
 \description{
 Define the CALMET domain and determine the best gridded values for land use, terrain heights, and micrometeorological parameters for creation of a geophysical input file.

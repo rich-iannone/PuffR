@@ -3,8 +3,7 @@
 \alias{calmet_get_ncdc_station_data}
 \title{Obtain NCDC station data}
 \usage{
-calmet_get_ncdc_station_data(start_year = NULL, end_year = NULL,
-  bbox_lat_lon = NULL)
+calmet_get_ncdc_station_data(year = NULL, bbox_lat_lon = NULL)
 }
 \arguments{
 \item{start_year}{the year for the start of data retrieval.}
