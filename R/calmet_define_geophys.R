@@ -132,7 +132,7 @@ calmet_define_geophys <- function(location_name,
   
   # Create a RasterLayer object for UTM values
   LL_LR_UL_UR_UTM_m_RL <- raster(nrows = number_cells_across_x,
-                                 ncols = number_cells_across_x,
+                                 ncols = number_cells_across_y,
                                  ext = bbox_UTM,
                                  crs = proj_string_UTM)
   
