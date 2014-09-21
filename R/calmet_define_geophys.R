@@ -206,7 +206,8 @@ calmet_define_geophys <- function(location_name,
   
   # Create a data frame for the extracted heights in UTM, in row-major order
   gridded_heights_UTM_m_df <- as.data.frame(t(matrix(gridded_heights_UTM_m_vector,
-                                                     ncol = number_cells_across_y)))
+                                                     nrow = number_cells_across_y,
+                                                     ncol = number_cells_across_x)))
   
   # Replace NA values with 0 values
   gridded_heights_UTM_m_df[is.na(gridded_heights_UTM_m_df)] <- 0
