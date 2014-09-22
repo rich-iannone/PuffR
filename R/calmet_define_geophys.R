@@ -252,6 +252,86 @@ calmet_define_geophys <- function(location_name,
                                                proj_string_UTM = proj_string_UTM,
                                                shapefile_dir = shapefile_dir)
     
+    # Define the colours for each of the CALMET land use categories using a named vector
+    cols <- c("10" = "gold2",
+              "20" = "olivedrab2",
+              "30" = "springgreen",
+              "40" = "forestgreen",
+              "50" = "deepskyblue2",
+              "60" = "orchid",
+              "70" = "lightsalmon",
+              "80" = "moccasin",
+              "90" = "honeydew")
+    
+    # Create ggplot object for the gridded landuse categories
+    graphics.off()
+    
+    g <- ggplot(raster_LU_df, aes(x = x/1000, y = y/1000, fill = as.character(layer))) +
+      geom_tile() + 
+      scale_fill_manual(values = cols,breaks = c(as.numeric(names(cols)), 100),
+                        name = "Land Use\nCategories") + 
+      coord_equal() +
+      theme_bw(base_size = 12, base_family = "") +
+      labs(x = paste("UTM (Zone ", UTM_zone, UTM_hemisphere, ") Easting, km", sep = '')) +
+      labs(y = paste("UTM (Zone ", UTM_zone, UTM_hemisphere, ") Northing, km", sep = '')) +
+      theme(axis.text = element_text(size = rel(1.2)),
+            axis.title = element_text(size = rel(1.2)),
+            legend.title = element_text(size = rel(1.2)))
+    
+    # Save as land use plot as a pdf file
+    ggsave(filename = paste("landuse--", location_name, "-",
+                            number_cells_across_x, "x",
+                            number_cells_across_y, "x",
+                            cell_resolution_m, ".pdf",
+                            sep = ''),
+           plot = g, device = pdf, width = 8, height = 8, units = "in")
+    
+    # Add ID field to prepare data within polygon for ggplot use
+    cropped_UTM@data$id <- rownames(cropped_UTM@data)
+    
+    # Fortify the 'cropped_UTM' object
+    cropped_UTM_points <- fortify(cropped_UTM, region = "id")
+    
+    # Perform a join of 'cropped_UTM_points' and 'cropped_UTM@data' by 'id'
+    cropped_UTM_df <- join(cropped_UTM_points, cropped_UTM@data, by = "id")
+    
+    # Create ggplot object for the landuse shapefile
+    h <- ggplot(cropped_UTM_df, aes(x = long/1000, y = lat/1000,
+                                    group = group, fill = as.character(CALMET_categories))) +
+      geom_polygon() +
+      scale_fill_manual(values = cols, breaks = c(as.numeric(names(cols)), 100),
+                        name = "Land Use\nCategories") +
+      coord_equal() +
+      theme_bw(base_size = 12, base_family = "") +
+      labs(x = paste("UTM (Zone ", UTM_zone, UTM_hemisphere, ") Easting, km", sep = '')) +
+      labs(y = paste("UTM (Zone ", UTM_zone, UTM_hemisphere, ") Northing, km", sep = '')) +
+      theme(axis.text = element_text(size = rel(1.2)),
+            axis.title = element_text(size = rel(1.2)),
+            legend.title = element_text(size = rel(1.2)))
+    
+    # Save landuse plot as a PDF file
+    ggsave(filename = paste("landuse-shapefile--", location_name, "-",
+                            number_cells_across_x, "x",
+                            number_cells_across_y, "x",
+                            cell_resolution_m, ".pdf",
+                            sep = ''),
+           plot = h, device = pdf, width = 8, height = 8, units = "in")
+    
+    # Extract the 'layer' column from 'raster_LU_df' and create a vector object
+    CALMET_categories <- raster_LU_df$layer
+    
+    # Create a data frame for the LU categories, in row-major order
+    gridded_CALMET_categories <- as.data.frame(t(matrix(CALMET_categories,
+                                                        ncol = number_cells_across_x)))
+    
+    # Generate a vector of comma-delimited strings containing LU categories of every row of cells;
+    # this is for writing to a file and eventual inclusion in the GEO.DAT file
+    for (i in 1:nrow(gridded_CALMET_categories)){
+      if (i == 1) gridded_CALMET_categories_strings <- vector(mode = "character", length = 0)
+      string <- paste(gridded_CALMET_categories[i, ], collapse = ", ")
+      gridded_CALMET_categories_strings <- c(gridded_CALMET_categories_strings, string)
+    }
+    
   }
   
   if (LU_method == "MODIS_Global"){
