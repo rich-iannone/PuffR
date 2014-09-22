@@ -22,8 +22,6 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
   require(lubridate)
   require(plyr)
   require(stringr)
-  # Get hourly surface data history CSV from NOAA/NCDC FTP
-  calmet_get_ncdc_history()
   
   }
   
