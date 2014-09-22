@@ -258,6 +258,7 @@ calmet_define_geophys <- function(location_name,
     
     # Create data frame for MODIS IGBP Type 1 codes for land cover
     IGBP_Type_1_class_no <- c(seq(0, 16, 1), 254, 255)
+    
     IGBP_Type_1_class_name <- c("Water", "Evergreen needleleaf forest", "Evergreen broadleaf forest",
                                 "Deciduous needleleaf forest", "Deciduous broadleaf forest",
                                 "Mixed forest", "Closed shrublands", "Open shrublands",
@@ -265,6 +266,7 @@ calmet_define_geophys <- function(location_name,
                                 "Croplands", "Urban and built-up", "Cropland/Natural vegetation mosaic",
                                 "Snow and ice", "Barren or sparsely vegetated", "Unclassified",
                                 "Fill value")
+    
     CALMET_categories <- c(50, 40, 40, 40, 40, 40, 40, 40, 30, 30,
                            30, 60, 20, 10, 20, 90, 70, NA, NA)
     
