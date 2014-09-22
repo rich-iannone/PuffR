@@ -22,7 +22,9 @@ calmet_surface_met <- function(location_name,
                                lat_lon_grid_loc = 1,
                                domain_width_m = NULL,
                                domain_height_m = NULL,
-                               time_offset){
+                               cell_resolution_m = 250,
+                               time_offset,
+                               use_CSV_files = NULL){
   
   # Add require statements
   require(lubridate)
