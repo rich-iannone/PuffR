@@ -1,7 +1,5 @@
 #' Obtain NCDC station data
 #' @description Obtain NCDC station data for all stations residing in the CALMET domain during a specied time period.
-#' @param start_year the year for the start of data retrieval.
-#' @param end_year the year for the end of data retrieval.
 #' @param bbox_lat_lon a spatial bounding box in projected in lat/lon coordinates
 #' @export calmet_get_ncdc_station_data
 #' @examples
