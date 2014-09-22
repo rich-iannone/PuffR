@@ -397,7 +397,7 @@ calmet_surface_met <- function(location_name,
   cat("", file = paste(output_file), sep = "\n", append = TRUE)
   
   # Add line 7- to file (5-digit identifiers for met stations used in file)
-  for (i in 1:length(station_data_frames)) {
+  for (i in 1:length(station_data_frames)){
     
     cat(paste(formatC(i, digits = 5, flag = "0")),
         file = output_file, sep = "\n", append = TRUE)
