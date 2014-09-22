@@ -8,8 +8,7 @@
 #' @examples
 #' \dontrun{
 #' # Get 2010 station data for a previously defined domain
-#' calmet_get_ncdc_station_data(start_year = 2010,
-#'                              end_year = 2010,
+#' calmet_get_ncdc_station_data(year = 2010,
 #'                              bbox_lat_lon = bbox)
 #'}
 
