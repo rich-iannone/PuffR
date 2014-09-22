@@ -83,5 +83,6 @@ calmet_landuse_BTM_BC <- function(location_name,
   # Create a data frame for the LU categories, in row-major order
   raster_LU_df <- as.data.frame(rasterToPoints(raster_LU))
   
+  return(raster_LU_df)
   
 }
