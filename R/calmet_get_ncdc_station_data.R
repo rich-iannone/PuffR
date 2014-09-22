@@ -18,6 +18,7 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
                                          bbox_lat_lon = NULL){
   
   # Add require statements
+  require(mi)
   require(lubridate)
   require(plyr)
   require(stringr)
