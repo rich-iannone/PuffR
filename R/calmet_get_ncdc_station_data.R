@@ -24,6 +24,46 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
   require(stringr)
   require(RCurl)
   
+  # When downloading a single file
+  if (!is.null(filename)){
+    
+    year <- gsub("[0-9]*-[0-9]*-([0-9]*).gz", "\\1", filename)
+    
+    if (!is.null(local_archive_dir)){
+      
+      local_file_exists <- file.exists(paste(local_archive_dir, "/", filename, sep = ""))
+      
+      if (local_file_exists == TRUE){
+        
+        files <- paste(local_archive_dir, "/", filename, sep = "")
+        
+      }
+    }
+    
+    if (is.null(local_archive_dir)){
+      
+      remote_file_exists <- url.exists(paste("ftp://ftp.ncdc.noaa.gov/pub/data/noaa/", year,
+                                             "/", filename, sep = ""))
+      
+      if (remote_file_exists == TRUE){
+        system(paste("curl -O ftp://ftp.ncdc.noaa.gov/pub/data/noaa/", year,
+                     "/", filename, sep = ""))
+        
+        # Extract the downloaded data file
+        system("gunzip *.gz", intern = FALSE, ignore.stderr = TRUE)
+        
+        # Remove the .gz file from the working folder
+        file.remove(filename)
+      }
+      
+      if (remote_file_exists == FALSE){
+        return(NA)
+      }
+      
+    }
+    
+    files <- list.files(pattern = paste(gsub(".gz", "", filename), "$", sep = ''))
+    
   }
   
   # Download the gzip-compressed data files for the years specified
