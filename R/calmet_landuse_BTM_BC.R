@@ -77,6 +77,9 @@ calmet_landuse_BTM_BC <- function(location_name,
   # Get the landuse characteristics
   raster_LU <- rasterize(cropped_UTM, raster_obj, field = "CALMET_categories")
   
+  # Convert any NA values to CALMET code 50
+  raster_LU@data@values[is.na(raster_LU@data@values)] <- 50
+  
   # Create a data frame for the LU categories, in row-major order
   raster_LU_df <- as.data.frame(rasterToPoints(raster_LU))
   
