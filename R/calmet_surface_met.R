@@ -74,6 +74,13 @@ calmet_surface_met <- function(location_name,
   # Get the total number of cells
   total_cells <- number_cells_across_x * number_cells_across_y
   
+  # Generate an output file name for the SURF.DAT file
+  output_file <- paste("surf--", location_name, "-",
+                       number_cells_across_x, "x",
+                       number_cells_across_y, "x",
+                       cell_resolution_m, "--",
+                       year, ".txt", sep = '')
+  
   # Get extents of UTM grid (left, right, bottom, top) in meters
   left_UTM <- get_grid_extents_UTM(side = "left",
                                    lat_lon_grid_loc = lat_lon_grid_loc,
@@ -130,13 +137,6 @@ calmet_surface_met <- function(location_name,
   if (is.logical(stations) & stations == FALSE){
     stop("There are no stations in the selected domain")
   }
-  
-  # Generate an output file name for the SURF.DAT file
-  output_file <- paste("surf--", location_name, "-",
-                       number_cells_across_x, "x",
-                       number_cells_across_y, "x",
-                       cell_resolution_m, "--",
-                       year, ".txt", sep = '')
   
   # Generate a file list for the newly-generated CSV files
   CSV_files <- list.files(path = ".", pattern = "[0-9]*-[0-9]*-[0-9]*.csv")
