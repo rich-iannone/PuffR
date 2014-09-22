@@ -12,7 +12,9 @@
 #'                              bbox_lat_lon = bbox)
 #'}
 
-calmet_get_ncdc_station_data <- function(year = NULL,
+calmet_get_ncdc_station_data <- function(filename = NULL,
+                                         local_archive_dir = NULL,
+                                         year = NULL,
                                          bbox_lat_lon = NULL){
   
   # Add require statements
