@@ -22,43 +22,9 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
   require(lubridate)
   require(plyr)
   require(stringr)
-    
-  # Check whether 'year' are within set bounds (1950 to current year)
-  if (year < 1892 | year > year(Sys.Date())) {
-    stop("Year is not volid.")
-  } else { }
-  
   # Get hourly surface data history CSV from NOAA/NCDC FTP
   calmet_get_ncdc_history()
   
-  # Read in the 'ish-history.csv' file
-  st <- read.csv("ish-history.csv")
-  
-  # Get formatted list of station names and elevations
-  names(st)[c(3, 10)] <- c("NAME", "ELEV")
-  st <- st[, -5]
-  
-  # Reintroduce the decimals in the latitude, longitude, and elevation
-  st$LAT <- st$LAT/1000
-  st$LON <- st$LON/1000
-  st$ELEV <- st$ELEV/10
-  
-  # Recompose the years from the data file
-  st$BEGIN <- as.numeric(substr(st$BEGIN, 1, 4))
-  st$END <- as.numeric(substr(st$END, 1, 4))
-  
-  # Generate a list based on the domain location, also ignoring stations
-  # without beginning years reported
-  domain_list <- subset(st, st$LON >= bbox_lat_lon@xmin & 
-                          st$LON <= bbox_lat_lon@xmax &
-                          st$LAT >= bbox_lat_lon@ymin &
-                          st$LAT <= bbox_lat_lon@ymax &
-                          BEGIN <= year - 1 &
-                          END >= year + 1)
-  
-  if (nrow(domain_list) == 0){  
-    stations <- FALSE
-    return(stations)
   }
   
   # Initialize data frame for file status reporting
@@ -68,10 +34,47 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
   # Download the gzip-compressed data files for the years specified
   # Provide information on the number of records in data file retrieved       
   for (i in 1:dim(domain_list)[1]) {
+    # Check whether 'year' are within set bounds (1950 to current year)
+    if (year < 1892 | year > year(Sys.Date())) {
+      stop("Year is not volid.")
+    } else { }
+    
+    # Get hourly surface data history CSV from NOAA/NCDC FTP
+    calmet_get_ncdc_history()
+    
+    # Read in the 'ish-history.csv' file
+    st <- read.csv("ish-history.csv")
     
     outputs[i, 1] <- paste(sprintf("%06d", domain_list[i,1]),
                            "-", sprintf("%05d", domain_list[i,2]),
                            "-", year, ".gz", sep = "")
+    # Get formatted list of station names and elevations
+    names(st)[c(3, 10)] <- c("NAME", "ELEV")
+    st <- st[, -5]
+    
+    # Reintroduce the decimals in the latitude, longitude, and elevation
+    st$LAT <- st$LAT/1000
+    st$LON <- st$LON/1000
+    st$ELEV <- st$ELEV/10
+    
+    # Recompose the years from the data file
+    st$BEGIN <- as.numeric(substr(st$BEGIN, 1, 4))
+    st$END <- as.numeric(substr(st$END, 1, 4))
+    
+    # Generate a list based on the domain location, also ignoring stations
+    # without beginning years reported
+    domain_list <- subset(st, st$LON >= bbox_lat_lon@xmin & 
+                            st$LON <= bbox_lat_lon@xmax &
+                            st$LAT >= bbox_lat_lon@ymin &
+                            st$LAT <= bbox_lat_lon@ymax &
+                            BEGIN <= year - 1 &
+                            END >= year + 1)
+    
+    if (nrow(domain_list) == 0){  
+      stations <- FALSE
+      return(stations)
+    }
+    
     
     system(paste("curl -O ftp://ftp.ncdc.noaa.gov/pub/data/noaa/", year,
                  "/", outputs[i, 1], sep = ""))
