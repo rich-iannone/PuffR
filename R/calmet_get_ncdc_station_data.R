@@ -1,6 +1,9 @@
 #' Obtain NCDC station data
 #' @description Obtain NCDC station data for all stations residing in the CALMET domain during a specied time period.
-#' @param bbox_lat_lon a spatial bounding box in projected in lat/lon coordinates
+#' @param filename a string representing the exact filename for the archive to be retrieved.
+#' @param local_archive_dir a local path containing an archive of gzipped NCDC station data files.
+#' @param year the year of the data archive.
+#' @param bbox_lat_lon a spatial bounding box in projected in lat/lon coordinates.
 #' @export calmet_get_ncdc_station_data
 #' @examples
 #' \dontrun{
