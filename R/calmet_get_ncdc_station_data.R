@@ -22,6 +22,7 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
   require(lubridate)
   require(plyr)
   require(stringr)
+  require(RCurl)
   
   }
   
