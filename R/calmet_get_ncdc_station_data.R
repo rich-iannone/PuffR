@@ -279,9 +279,6 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
     
   }
   
-  # Write the station data to a CSV file
-  write.csv(stations, file = "stations.csv", row.names = FALSE)
-  
   return(stations)
   
 }
