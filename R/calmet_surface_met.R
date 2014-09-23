@@ -13,8 +13,16 @@
 #' @export calmet_surface_met
 #' @examples
 #' \dontrun{
-#' # Generate "surf.dat" from previously defined period
-#' calmet_surface_met()
+#' # Generate a surface station file
+#' calmet_surface_met(location_name = 'test',
+#'                    year = 2005,
+#'                    lat_dec_deg = 49.196116,
+#'                    lon_dec_deg = -122.505866,
+#'                    lat_lon_grid_loc = 1,
+#'                    domain_width_m = 117000,
+#'                    domain_height_m = 43250,
+#'                    cell_resolution_m = 500,
+#'                    time_offset = -8)
 #'}
 
 calmet_surface_met <- function(location_name,
