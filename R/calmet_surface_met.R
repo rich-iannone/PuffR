@@ -151,6 +151,16 @@ calmet_surface_met <- function(location_name,
     # Generate a file list for the newly-generated CSV files
     CSV_files <- list.files(path = ".", pattern = "[0-9]*-[0-9]*-[0-9]*.csv")
     
+    # Get additional files to compensate for missing data at either the beginning or end of
+    # the year (since datasets are standardized to UTC-00:00)
+    if (time_offset < 0 & year < as.numeric(format(Sys.time(), "%Y"))){
+      
+      for (i in 1:length(CSV_files)){
+        calmet_get_ncdc_station_data(filename = gsub("([0-9]*-[0-9]*-)[0-9]*.csv",
+                                                     paste("\\1", year + 1, ".gz", sep = ''),
+                                                     CSV_files[i]),
+                                     local_archive_dir = local_archive_dir)
+        
       }
     }
     
