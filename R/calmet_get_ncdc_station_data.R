@@ -106,23 +106,37 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
       return(stations)
     }
     
+    # Initialize data frame for file status reporting
+    outputs <- as.data.frame(matrix(NA, dim(domain_list)[1], 2))
+    names(outputs) <- c("FILE", "STATUS")
     
-    system(paste("curl -O ftp://ftp.ncdc.noaa.gov/pub/data/noaa/", year,
-                 "/", outputs[i, 1], sep = ""))
+    # Download the gzip-compressed data files for the years specified
+    # Provide information on the number of records in data file retrieved       
+    for (i in 1:dim(domain_list)[1]) {
+      
+      outputs[i, 1] <- paste(sprintf("%06d", domain_list[i,1]),
+                             "-", sprintf("%05d", domain_list[i,2]),
+                             "-", year, ".gz", sep = "")
+      
+      system(paste("curl -O ftp://ftp.ncdc.noaa.gov/pub/data/noaa/", year,
+                   "/", outputs[i, 1], sep = ""))
+      
+      outputs[i, 2] <- ifelse(file.exists(outputs[i, 1]) == "TRUE", 'available', 'missing') 
+    }
     
-    outputs[i, 2] <- ifelse(file.exists(outputs[i, 1]) == "TRUE", 'available', 'missing') 
+    # Generate report of stations and file transfers
+    file_report <- cbind(domain_list, outputs)
+    row.names(file_report) <- 1:nrow(file_report)
+    
+    # Extract all downloaded data files
+    system("gunzip *.gz", intern = FALSE, ignore.stderr = TRUE)
+    
+    # Read data from files
+    # Specific focus here is on the fixed width portions ('Mandatory Data Section') of each file
+    files <- list.files(pattern = paste("^[0-9]*-[0-9]*-", year, sep = ''))
+    
   }
   
-  # Generate report of stations and file transfers
-  file_report <- cbind(domain_list, outputs)
-  row.names(file_report) <- 1:nrow(file_report)
-  
-  # Extract all downloaded data files
-  system("gunzip *.gz", intern = FALSE, ignore.stderr = TRUE)
-  
-  # Read data from files
-  # Specific focus here is on the fixed width portions ('Mandatory Data Section') of each file
-  files <- list.files(pattern = paste("^[0-9]*-[0-9]*-", year, sep = ''))
   column_widths <- c(4, 6, 5, 4, 2, 2, 2, 2, 1, 6,
                      7, 5, 5, 5, 4, 3, 1, 1, 4, 1,
                      5, 1, 1, 1, 6, 1, 1, 1, 5, 1,
