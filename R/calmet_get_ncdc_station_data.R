@@ -182,6 +182,9 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
                                                      "GF1([0-9][0-9])", "\\1")
       GF1_sky_cover_coverage_code <- as.numeric(GF1_sky_cover_coverage_code)
       
+      # Replace any '99' values with NA values
+      GF1_sky_cover_coverage_code[(GF1_sky_cover_coverage_code) == 99] <- NA
+      
       
     }
     
