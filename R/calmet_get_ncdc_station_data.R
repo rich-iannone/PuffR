@@ -191,6 +191,9 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
       # Create a vector of timestamps using the 'ISOdatetime' function
       timestamps <- ISOdatetime(data$YR, data$M, data$D, data$HR, data$MIN, sec = 0, tz = "GMT")
       
+      # Create a data frame with a timestamp column and a sky cover code column
+      GF1_sky_cover_coverage_code_df <- data.frame(timestamps, GF1_sky_cover_coverage_code)
+      
       
     }
     
