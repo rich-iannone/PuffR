@@ -117,6 +117,19 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
                              "-", sprintf("%05d", domain_list[i,2]),
                              "-", year, ".gz", sep = "")
     
+      if (!is.null(local_archive_dir)){
+        
+        local_file_exists <- file.exists(paste(local_archive_dir, "/", outputs[i, 1], sep = ""))
+        
+        if (local_file_exists == TRUE){
+          
+          file_copied <- file.copy(paste(local_archive_dir, "/", outputs[i, 1] , sep = ""),
+                             paste(getwd(), "/", outputs[i, 1] , sep = ""), overwrite = TRUE)
+          
+          outputs[i, 2] <- ifelse(file_copied == "TRUE", 'available', 'missing') 
+          
+        }
+      }
       
       
       system(paste("curl -O ftp://ftp.ncdc.noaa.gov/pub/data/noaa/", year,
