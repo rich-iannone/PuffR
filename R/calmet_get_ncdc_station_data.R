@@ -276,9 +276,6 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
     # section and the additional data section
     write.csv(data, file = paste(files[i], ".csv", sep = ""), row.names = FALSE)
     
-    # Create a data frame with summary data for each station
-    stations[i, 1:3] <- data[1, 1:3]
-    stations[i, 4:6] <- data[1, 8:10]
     
   }
   
