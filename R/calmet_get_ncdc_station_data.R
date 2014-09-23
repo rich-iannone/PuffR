@@ -139,6 +139,15 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
         }
       }
       
+      if (is.null(local_archive_dir) | file_copied == FALSE){
+        
+        remote_file_exists <- url.exists(paste("ftp://ftp.ncdc.noaa.gov/pub/data/noaa/", year,
+                                               "/", outputs[i, 1], sep = ""))
+        
+        if (remote_file_exists == TRUE){
+          system(paste("curl -O ftp://ftp.ncdc.noaa.gov/pub/data/noaa/", year,
+                       "/", outputs[i, 1], sep = ""))
+          
           # Determine if file is available locally
           outputs[i, 2] <- ifelse(file.exists(outputs[i, 1]) == "TRUE", 'available', 'missing')
           
