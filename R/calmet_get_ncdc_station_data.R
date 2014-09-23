@@ -130,7 +130,8 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
           outputs[i, 2] <- ifelse(file_copied == "TRUE", 'available', 'missing')
           
           # Extract the downloaded data file
-          system("gunzip *.gz", intern = FALSE, ignore.stderr = TRUE)
+          system(paste("gunzip ", outputs[i, 1], sep = ""),
+                 intern = FALSE, ignore.stderr = TRUE)
           
           # Remove the .gz file from the working folder
           file.remove(outputs[i, 1])
