@@ -274,8 +274,8 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
     
     # Write CSV file for each station, combining data elements from the mandatory data
     # section and the additional data section
-    write.csv(data, file = paste(files[i], ".csv", sep = ""), row.names = FALSE)
-    
+    write.csv(data, file = paste(gsub(".*/(.*)", "\\1", gsub(".gz$", "", files[i])), ".csv", sep = ""),
+              row.names = FALSE)
     
   }
   
