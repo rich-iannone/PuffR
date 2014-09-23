@@ -34,6 +34,7 @@ calmet_surface_met <- function(location_name,
                                domain_height_m = NULL,
                                cell_resolution_m = 250,
                                time_offset,
+                               local_archive_dir = NULL,
                                use_CSV_files = NULL){
   
   # Add require statements
