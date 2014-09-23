@@ -129,6 +129,9 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
           # Determine if file is available locally
           outputs[i, 2] <- ifelse(file_copied == "TRUE", 'available', 'missing')
           
+          # Extract the downloaded data file
+          system("gunzip *.gz", intern = FALSE, ignore.stderr = TRUE)
+          
         }
       }
       
