@@ -145,29 +145,10 @@ calmet_surface_met <- function(location_name,
   if (is.null(use_CSV_files)){
     
     # Get all surface met data and write CSV files to the working folder
-    stations <- calmet_get_ncdc_station_data(year = year,
-                                             bbox_lat_lon = bbox_lat_lon)
-    
-    if (is.logical(stations) & stations == FALSE){
-      stop("There are no stations in the selected domain")
-    }
-    
-    # Generate an output file name for the SURF.DAT file
-    output_file <- paste("surf--", location_name, "-",
-                         number_cells_across_x, "x",
-                         number_cells_across_y, "x",
-                         cell_resolution_m, "--",
-                         year, ".txt", sep = '')
     
     # Generate a file list for the newly-generated CSV files
     CSV_files <- list.files(path = ".", pattern = "[0-9]*-[0-9]*-[0-9]*.csv")
     
-    # Get lists of files that have the necessary years, grouped by station identifier
-    if (time_offset < 0){
-      for (i in seq(start_year, (end_year + 1), 1)){
-        if (i == start_year) CSV_files <- vector(mode = "character", length = 0)
-        CSV_files_year <- list.files(path = ".", pattern = paste("[0-9]*-[0-9]*-", i, ".csv", sep = ''))
-        CSV_files <- c(CSV_files, CSV_files_year)
       }
     }
     
