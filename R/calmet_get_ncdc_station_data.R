@@ -152,19 +152,12 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
         
       }
       
-      system(paste("curl -O ftp://ftp.ncdc.noaa.gov/pub/data/noaa/", year,
-                   "/", outputs[i, 1], sep = ""))
-      
-      #       outputs[i, 2] <- ifelse(file.exists(outputs[i, 1]) == "TRUE", 'available', 'missing') 
     }
     
     # Generate report of stations and file transfers
     file_report <- cbind(domain_list, outputs)
     row.names(file_report) <- 1:nrow(file_report)
-    
-    # Extract all downloaded data files
-    system("gunzip *.gz", intern = FALSE, ignore.stderr = TRUE)
-    
+        
     # Read data from files
     # Specific focus here is on the fixed width portions ('Mandatory Data Section') of each file
     files <- list.files(pattern = paste("^[0-9]*-[0-9]*-", year, sep = ''))
