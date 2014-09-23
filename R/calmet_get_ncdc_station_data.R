@@ -106,26 +106,28 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
     }
     
     # Initialize data frame for file status reporting
-    outputs <- as.data.frame(matrix(NA, dim(domain_list)[1], 2))
-    names(outputs) <- c("FILE", "STATUS")
+    #     outputs <- as.data.frame(matrix(NA, dim(domain_list)[1], 2))
+    #     names(outputs) <- c("FILE", "STATUS")
     
     # Download the gzip-compressed data files for the years specified
     # Provide information on the number of records in data file retrieved       
     for (i in 1:dim(domain_list)[1]) {
       
-      outputs[i, 1] <- paste(sprintf("%06d", domain_list[i,1]),
-                             "-", sprintf("%05d", domain_list[i,2]),
-                             "-", year, ".gz", sep = "")
+      #       outputs[i, 1] <- paste(sprintf("%06d", domain_list[i,1]),
+      #                              "-", sprintf("%05d", domain_list[i,2]),
+      #                              "-", year, ".gz", sep = "")
+      
+      
       
       system(paste("curl -O ftp://ftp.ncdc.noaa.gov/pub/data/noaa/", year,
                    "/", outputs[i, 1], sep = ""))
       
-      outputs[i, 2] <- ifelse(file.exists(outputs[i, 1]) == "TRUE", 'available', 'missing') 
+      #       outputs[i, 2] <- ifelse(file.exists(outputs[i, 1]) == "TRUE", 'available', 'missing') 
     }
     
     # Generate report of stations and file transfers
-    file_report <- cbind(domain_list, outputs)
-    row.names(file_report) <- 1:nrow(file_report)
+#     file_report <- cbind(domain_list, outputs)
+#     row.names(file_report) <- 1:nrow(file_report)
     
     # Extract all downloaded data files
     system("gunzip *.gz", intern = FALSE, ignore.stderr = TRUE)
