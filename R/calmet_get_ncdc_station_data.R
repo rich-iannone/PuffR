@@ -126,7 +126,8 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
           file_copied <- file.copy(paste(local_archive_dir, "/", outputs[i, 1] , sep = ""),
                              paste(getwd(), "/", outputs[i, 1] , sep = ""), overwrite = TRUE)
           
-          outputs[i, 2] <- ifelse(file_copied == "TRUE", 'available', 'missing') 
+          # Determine if file is available locally
+          outputs[i, 2] <- ifelse(file_copied == "TRUE", 'available', 'missing')
           
         }
       }
