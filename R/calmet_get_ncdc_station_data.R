@@ -174,17 +174,6 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
     # Get number of entries in the dataset that contain sky cover codes
     number_of_sky_cover_lines <- sum(str_detect(additional.data$string, "GF1"), na.rm = TRUE)
     
-    # Get the sky coverage code values
-    GF1_sky_cover_coverage_code <- as.character(str_extract_all(additional.data$string, "GF1[0-9][0-9]"))
-    GF1_sky_cover_coverage_code <- str_replace_all(GF1_sky_cover_coverage_code,
-                                                   "GF1([0-9][0-9])", "\\1")
-    GF1_sky_cover_coverage_code <- as.numeric(GF1_sky_cover_coverage_code)
-    
-    # Replace any NA values with the '999' missing indicator
-    GF1_sky_cover_coverage_code[is.na(GF1_sky_cover_coverage_code)] <- 999
-    
-    # Place the sky coverage vector into the 'additional.data' data frame
-    additional.data$SKY.COVER <- GF1_sky_cover_coverage_code
     
     #
     # precipitation: AA[1-2]
