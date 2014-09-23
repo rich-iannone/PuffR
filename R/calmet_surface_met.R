@@ -164,13 +164,13 @@ calmet_surface_met <- function(location_name,
       }
     }
     
-    if (time_offset > 0){
-      for (i in seq((start_year - 1), end_year, 1)){
-        if (i == start_year) CSV_files <- vector(mode = "character", length = 0)
-        CSV_files_year <- list.files(path = ".", pattern = paste("[0-9]*-[0-9]*-", i, ".csv", sep = ''))
-        CSV_files <- c(CSV_files, CSV_files_year)
-      }
-    }
+    #     if (time_offset > 0){
+    #       for (i in seq((start_year - 1), end_year, 1)){
+    #         if (i == start_year) CSV_files <- vector(mode = "character", length = 0)
+    #         CSV_files_year <- list.files(path = ".", pattern = paste("[0-9]*-[0-9]*-", i, ".csv", sep = ''))
+    #         CSV_files <- c(CSV_files, CSV_files_year)
+    #       }
+    #     }
     
     CSV_files_unique_stations <- unique(gsub("([0-9]*-[0-9]*)-[0-9]*.csv", "\\1", CSV_files))
     
