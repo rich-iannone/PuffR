@@ -194,6 +194,10 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
       # Create a data frame with a timestamp column and a sky cover code column
       GF1_sky_cover_coverage_code_df <- data.frame(timestamps, GF1_sky_cover_coverage_code)
       
+      # Generate a vector of imputations for each missing value using the 'mi' package
+      imputed_values <- round(unname(mi.count(GF1_sky_cover_coverage_code~timestamps,
+                                              data = GF1_sky_cover_coverage_code_df)@random), 0)
+      
       
     }
     
