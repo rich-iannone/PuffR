@@ -188,6 +188,9 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
       # Generate a vector of indices where the sky coverage code is missing
       missing_sky_cover_indices <- which(is.na(GF1_sky_cover_coverage_code))
       
+      # Create a vector of timestamps using the 'ISOdatetime' function
+      timestamps <- ISOdatetime(data$YR, data$M, data$D, data$HR, data$MIN, sec = 0, tz = "GMT")
+      
       
     }
     
