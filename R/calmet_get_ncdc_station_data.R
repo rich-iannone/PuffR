@@ -66,6 +66,8 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
     
   }
   
+  if (is.null(filename) & !is.null(year) & !is.null(bbox_lat_lon)){
+    
     # Check whether 'year' are within set bounds (1950 to current year)
     if (year < 1892 | year > year(Sys.Date())) {
       stop("Year is not volid.")
