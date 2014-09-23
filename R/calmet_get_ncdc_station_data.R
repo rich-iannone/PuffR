@@ -279,6 +279,4 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
     
   }
   
-  return(stations)
-  
 }
