@@ -185,6 +185,9 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
       # Replace any '99' values with NA values
       GF1_sky_cover_coverage_code[(GF1_sky_cover_coverage_code) == 99] <- NA
       
+      # Generate a vector of indices where the sky coverage code is missing
+      missing_sky_cover_indices <- which(is.na(GF1_sky_cover_coverage_code))
+      
       
     }
     
