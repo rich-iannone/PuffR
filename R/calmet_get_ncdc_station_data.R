@@ -174,6 +174,10 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
     # Get number of entries in the dataset that contain sky cover codes
     number_of_sky_cover_lines <- sum(str_detect(additional.data$string, "GF1"), na.rm = TRUE)
     
+    if (number_of_sky_cover_lines > 1000){
+      
+      
+    }
     
     #
     # precipitation: AA[1-2]
