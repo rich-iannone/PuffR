@@ -1,13 +1,15 @@
 #' Obtain surface meteorology and generate input files
 #' @description Obtain surface meteorology and generate input files
-#' @param start_year the starting year for the SURF.DAT file.
-#' @param end_year the ending year for the SURF.DAT file.
+#' @param year the year for the SURF.DAT file.
 #' @param lat_dec_deg the latitude of the CALMET domain in decimal degrees. The location of this point is defined in the lat_long_grid_loc argument.
 #' @param lon_dec_deg the longitude of the CALMET domain in decimal degrees. The location of this point is defined in the lat_long_grid_loc argument.
 #' @param lat_lon_grid_loc the location of the lat/long inputs in relation to the domain. Choices are: 1 (center), 2 (lower left), 3 (lower right), 4 (upper left), 5 (upper right).
 #' @param domain_width_m the width of the meteorological domain in meters.
 #' @param domain_height_m the height of the meteorological domain in meters.
-#' @param output_file the specified filename for the SURF.DAT file. Defaults to "surf.dat".
+#' @param cell_resolution_m the grid cell resolution in meters.
+#' @param time_offset the offset from UTC-00:00 in hours.
+#' @param local_archive_dir a local path containing an archive of gzipped NCDC station data files.
+#' @param use_CSV_files option to use local, pre-processed CSV files.
 #' @export calmet_surface_met
 #' @examples
 #' \dontrun{
