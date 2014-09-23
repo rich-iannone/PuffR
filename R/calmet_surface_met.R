@@ -320,6 +320,10 @@ calmet_surface_met <- function(location_name,
     
   }
   
+  if (!is.null(use_CSV_files)){
+    print("Not NULL.")
+  }
+  
   # Validate the individual CSV files, present a table several pieces of
   # information related to the data availablity and the data quality
   # 1. Elements where data is available
