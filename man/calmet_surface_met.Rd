@@ -5,12 +5,11 @@
 \usage{
 calmet_surface_met(location_name, year, lat_dec_deg = NULL,
   lon_dec_deg = NULL, lat_lon_grid_loc = 1, domain_width_m = NULL,
-  domain_height_m = NULL, time_offset)
+  domain_height_m = NULL, cell_resolution_m = 250, time_offset,
+  local_archive_dir = NULL, use_CSV_files = NULL)
 }
 \arguments{
-\item{start_year}{the starting year for the SURF.DAT file.}
-
-\item{end_year}{the ending year for the SURF.DAT file.}
+\item{year}{the year for the SURF.DAT file.}
 
 \item{lat_dec_deg}{the latitude of the CALMET domain in decimal degrees. The location of this point is defined in the lat_long_grid_loc argument.}
 
@@ -22,15 +21,29 @@ calmet_surface_met(location_name, year, lat_dec_deg = NULL,
 
 \item{domain_height_m}{the height of the meteorological domain in meters.}
 
-\item{output_file}{the specified filename for the SURF.DAT file. Defaults to "surf.dat".}
+\item{cell_resolution_m}{the grid cell resolution in meters.}
+
+\item{time_offset}{the offset from UTC-00:00 in hours.}
+
+\item{local_archive_dir}{a local path containing an archive of gzipped NCDC station data files.}
+
+\item{use_CSV_files}{option to use local, pre-processed CSV files.}
 }
 \description{
 Obtain surface meteorology and generate input files
 }
 \examples{
 \dontrun{
-# Generate "surf.dat" from previously defined period
-calmet_surface_met()
+# Generate a surface station file
+calmet_surface_met(location_name = 'test',
+                   year = 2005,
+                   lat_dec_deg = 49.196116,
+                   lon_dec_deg = -122.505866,
+                   lat_lon_grid_loc = 1,
+                   domain_width_m = 117000,
+                   domain_height_m = 43250,
+                   cell_resolution_m = 500,
+                   time_offset = -8)
 }
 }
 

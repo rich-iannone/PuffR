@@ -3,14 +3,17 @@
 \alias{calmet_get_ncdc_station_data}
 \title{Obtain NCDC station data}
 \usage{
-calmet_get_ncdc_station_data(year = NULL, bbox_lat_lon = NULL)
+calmet_get_ncdc_station_data(filename = NULL, local_archive_dir = NULL,
+  year = NULL, bbox_lat_lon = NULL)
 }
 \arguments{
-\item{start_year}{the year for the start of data retrieval.}
+\item{filename}{a string representing the exact filename for the archive to be retrieved.}
 
-\item{end_year}{the year for the end of data retrieval.}
+\item{local_archive_dir}{a local path containing an archive of gzipped NCDC station data files.}
 
-\item{bbox_lat_lon}{a spatial bounding box in projected in lat/lon coordinates}
+\item{year}{the year of the data archive.}
+
+\item{bbox_lat_lon}{a spatial bounding box in projected in lat/lon coordinates.}
 }
 \description{
 Obtain NCDC station data for all stations residing in the CALMET domain during a specied time period.
@@ -18,8 +21,7 @@ Obtain NCDC station data for all stations residing in the CALMET domain during a
 \examples{
 \dontrun{
 # Get 2010 station data for a previously defined domain
-calmet_get_ncdc_station_data(start_year = 2010,
-                             end_year = 2010,
+calmet_get_ncdc_station_data(year = 2010,
                              bbox_lat_lon = bbox)
 }
 }
