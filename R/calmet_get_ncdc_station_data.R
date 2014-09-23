@@ -79,9 +79,6 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
     # Read in the 'ish-history.csv' file
     st <- read.csv("ish-history.csv")
     
-    outputs[i, 1] <- paste(sprintf("%06d", domain_list[i,1]),
-                           "-", sprintf("%05d", domain_list[i,2]),
-                           "-", year, ".gz", sep = "")
     # Get formatted list of station names and elevations
     names(st)[c(3, 10)] <- c("NAME", "ELEV")
     st <- st[, -5]
