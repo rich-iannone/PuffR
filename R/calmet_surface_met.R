@@ -455,6 +455,7 @@ calmet_surface_met <- function(location_name,
           # Station pressure, mb (PRES)
           station_data_frames[[j]][[1]]$ATM.PRES[i],
           "  ",
+          
           # Precipitation code (IPCODE) 
           #   0 = no precipitation
           #   1-18 = liquid precipitation
