@@ -102,8 +102,7 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
                             END >= year + 1)
     
     if (nrow(domain_list) == 0){  
-      stations <- FALSE
-      return(stations)
+      stop("There are no stations.")
     }
     
     # Initialize data frame for file status reporting
