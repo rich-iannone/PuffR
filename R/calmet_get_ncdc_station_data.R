@@ -142,8 +142,6 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
                      7, 5, 5, 5, 4, 3, 1, 1, 4, 1,
                      5, 1, 1, 1, 6, 1, 1, 1, 5, 1,
                      5, 1, 5, 1)
-  stations <- as.data.frame(matrix(NA, length(files), 6))
-  names(stations) <- c("USAFID", "WBAN", "YR", "LAT", "LONG", "ELEV")
   
   for (i in 1:length(files)){
     
