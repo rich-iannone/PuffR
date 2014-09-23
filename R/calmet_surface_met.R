@@ -146,7 +146,8 @@ calmet_surface_met <- function(location_name,
     
     # Get all surface met data and write CSV files to the working folder
     calmet_get_ncdc_station_data(year = year,
-                                 bbox_lat_lon = bbox_lat_lon)
+                                 bbox_lat_lon = bbox_lat_lon,
+                                 local_archive_dir = local_archive_dir)
     
     # Generate a file list for the newly-generated CSV files
     CSV_files <- list.files(path = ".", pattern = "[0-9]*-[0-9]*-[0-9]*.csv")
