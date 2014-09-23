@@ -198,6 +198,10 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
       imputed_values <- round(unname(mi.count(GF1_sky_cover_coverage_code~timestamps,
                                               data = GF1_sky_cover_coverage_code_df)@random), 0)
       
+      # Imputed values less than 0 or greater than 9 are bounding by 0 and 9 values 
+      imputed_values[imputed_values > 9] <- 9
+      imputed_values[imputed_values < 0] <- 0
+      
       
     }
     
