@@ -207,6 +207,8 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
         GF1_sky_cover_coverage_code[missing_sky_cover_indices[i]] <- imputed_values[i]
       }
       
+      # Place the sky coverage vector into the 'additional.data' data frame
+      additional.data$SKY.COVER <- GF1_sky_cover_coverage_code
       
     }
     
