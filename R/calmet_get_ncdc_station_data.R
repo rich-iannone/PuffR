@@ -111,6 +111,7 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
     
     # Download the gzip-compressed data files for the years specified
     # Provide information on the number of records in data file retrieved       
+    for (i in 1:nrow(domain_list)){
       
       outputs[i, 1] <- paste(sprintf("%06d", domain_list[i,1]),
                              "-", sprintf("%05d", domain_list[i,2]),
