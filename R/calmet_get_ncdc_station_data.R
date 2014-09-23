@@ -163,8 +163,8 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
     data$CEIL.HGT <- ifelse(data$CEIL.HGT == 99999, 999.9, round(data$CEIL.HGT*3.28084/100, 0))
     
     # Read data from additional data section of each file
-    # Additional data is of variable length and may not exist in every line of every file
-    additional.data <- as.data.frame(scan(files[i], what = 'character', sep = "\n"))
+    # Additional data is of variable length
+    additional.data <- as.data.frame(scan(files[i], what = 'character', sep = "\n", quiet = TRUE))
     colnames(additional.data) <- c("string")
     
     #
