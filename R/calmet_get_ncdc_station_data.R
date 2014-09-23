@@ -132,6 +132,9 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
           # Extract the downloaded data file
           system("gunzip *.gz", intern = FALSE, ignore.stderr = TRUE)
           
+          # Remove the .gz file from the working folder
+          file.remove(outputs[i, 1])
+          
         }
       }
       
