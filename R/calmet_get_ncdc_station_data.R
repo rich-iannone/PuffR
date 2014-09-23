@@ -167,9 +167,8 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
     file_report <- cbind(domain_list, outputs)
     row.names(file_report) <- 1:nrow(file_report)
         
-    # Read data from files
-    # Specific focus here is on the fixed width portions ('Mandatory Data Section') of each file
-    files <- list.files(pattern = paste("^[0-9]*-[0-9]*-", year, sep = ''))
+    # Get list of data files
+    files <- gsub(".gz", "", subset(file_report, STATUS == "available")[,12])
     
   }
   
