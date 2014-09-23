@@ -1,6 +1,6 @@
 #' Obtain NCDC station data
 #' @description Obtain NCDC station data for all stations residing in the CALMET domain during a specied time period.
-#' @param filename a string representing the exact filename for the archive to be retrieved.
+#' @param data_filename a string representing the exact filename for the archive to be retrieved.
 #' @param local_archive_dir a local path containing an archive of gzipped NCDC station data files.
 #' @param year the year of the data archive.
 #' @param bbox_lat_lon a spatial bounding box in projected in lat/lon coordinates.
@@ -12,7 +12,7 @@
 #'                              bbox_lat_lon = bbox)
 #'}
 
-calmet_get_ncdc_station_data <- function(filename = NULL,
+calmet_get_ncdc_station_data <- function(data_filename = NULL,
                                          local_archive_dir = NULL,
                                          year = NULL,
                                          bbox_lat_lon = NULL){
@@ -25,17 +25,17 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
   require(RCurl)
   
   # When downloading a single file
-  if (!is.null(filename)){
+  if (!is.null(data_filename)){
     
-    year <- gsub("[0-9]*-[0-9]*-([0-9]*).gz", "\\1", filename)
+    year <- gsub("[0-9]*-[0-9]*-([0-9]*).gz", "\\1", data_filename)
     
     if (!is.null(local_archive_dir)){
       
-      local_file_exists <- file.exists(paste(local_archive_dir, "/", filename, sep = ""))
+      local_file_exists <- file.exists(paste(local_archive_dir, "/", data_filename, sep = ""))
       
       if (local_file_exists == TRUE){
         
-        files <- paste(local_archive_dir, "/", filename, sep = "")
+        files <- paste(local_archive_dir, "/", data_filename, sep = "")
         
       }
     }
@@ -43,17 +43,17 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
     if (is.null(local_archive_dir)){
       
       remote_file_exists <- url.exists(paste("ftp://ftp.ncdc.noaa.gov/pub/data/noaa/", year,
-                                             "/", filename, sep = ""))
+                                             "/", data_filename, sep = ""))
       
       if (remote_file_exists == TRUE){
         system(paste("curl -O ftp://ftp.ncdc.noaa.gov/pub/data/noaa/", year,
-                     "/", filename, sep = ""))
+                     "/", data_filename, sep = ""))
         
         # Extract the downloaded data file
         system("gunzip *.gz", intern = FALSE, ignore.stderr = TRUE)
         
         # Remove the .gz file from the working folder
-        file.remove(filename)
+        file.remove(data_filename)
       }
       
       if (remote_file_exists == FALSE){
@@ -62,11 +62,11 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
       
     }
     
-    files <- list.files(pattern = paste(gsub(".gz", "", filename), "$", sep = ''))
+    files <- list.files(pattern = paste(gsub(".gz", "", data_filename), "$", sep = ''))
     
   }
   
-  if (is.null(filename) & !is.null(year) & !is.null(bbox_lat_lon)){
+  if (is.null(data_filename) & !is.null(year) & !is.null(bbox_lat_lon)){
     
     # Check whether 'year' are within set bounds (1950 to current year)
     if (year < 1892 | year > year(Sys.Date())) {
