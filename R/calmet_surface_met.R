@@ -65,7 +65,7 @@ calmet_surface_met <- function(location_name,
                            " +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
                            sep = '')
   
-  # Project as UTM coordinates from the determined UTM zone, round to nearest 250 m using the
+  # Project as UTM coordinates from the determined UTM zone, round to cell resolution using the
   # 'round_any' function from the 'plyr' package
   UTM_location <- project(lat_lon_dec_deg, proj_string_UTM)
   UTM_location <- round_any(UTM_location, cell_resolution_m, round)
