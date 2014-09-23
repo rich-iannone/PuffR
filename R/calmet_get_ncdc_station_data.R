@@ -66,9 +66,6 @@ calmet_get_ncdc_station_data <- function(filename = NULL,
     
   }
   
-  # Download the gzip-compressed data files for the years specified
-  # Provide information on the number of records in data file retrieved       
-  for (i in 1:dim(domain_list)[1]) {
     # Check whether 'year' are within set bounds (1950 to current year)
     if (year < 1892 | year > year(Sys.Date())) {
       stop("Year is not volid.")
