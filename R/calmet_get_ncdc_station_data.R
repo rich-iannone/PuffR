@@ -331,4 +331,7 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
   # Get list of CSV files that were created
   CSV_files_created <- gsub("$", ".csv", files)
   
+  # Return the list of created CSV files
+  return(CSV_files_created)
+  
 }
