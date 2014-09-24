@@ -57,7 +57,7 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
       }
       
       if (remote_file_exists == FALSE){
-        return(NA)
+        NULL
       }
       
     }
