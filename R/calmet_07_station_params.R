@@ -1,22 +1,22 @@
 #' Set CALMET surface station, precipitation station, and upper air parameters
 #' @description This function validates and writes CALMET parameters for surface stations, precipitation stations, and upper air soundings to the working CALMET.INP file.
 #' @param calmet_inp the absolute path and filename for the working CALMET input file.
-#' @param read_data_from_files 
-#' @param surf_station_vars_name 
-#' @param surf_station_vars_ID 
-#' @param surf_station_vars_x_coord 
-#' @param surf_station_vars_y_coord 
-#' @param surf_station_vars_tz 
-#' @param surf_station_vars_anem_hgt 
-#' @param upper_air_params_name 
-#' @param upper_air_params_ID 
-#' @param upper_air_params_x_coord 
-#' @param upper_air_params_y_coord 
-#' @param upper_air_params_tz 
-#' @param precip_station_params_name 
-#' @param precip_station_params_stn_code 
-#' @param precip_station_params_x_coord 
-#' @param precip_station_params_y_coord 
+#' @param read_data_from_files an option to read data from GEO.DAT and SURF.DAT residing the the working folder.
+#' @param surf_station_vars_name a vector containing names for each of the surface stations. If 'read_data_from_files' is set to TRUE, values aren't required.
+#' @param surf_station_vars_ID a vector containing ID strings for each of the surface stations. If 'read_data_from_files' is set to TRUE, values aren't required.
+#' @param surf_station_vars_x_coord a vector containing X direction coordinates for each of the surface stations. If 'read_data_from_files' is set to TRUE, values aren't required.
+#' @param surf_station_vars_y_coord a vector containing Y direction coordinates for each of the surface stations. If 'read_data_from_files' is set to TRUE, values aren't required.
+#' @param surf_station_vars_tz a vector containing time zone values for each of the surface stations. If 'read_data_from_files' is set to TRUE, values aren't required.
+#' @param surf_station_vars_anem_hgt a vector containing anemometer heights for each of the surface stations. If 'read_data_from_files' is set to TRUE, values aren't required.
+#' @param upper_air_params_name the name of the upper air sounding. If 'read_data_from_files' is set to TRUE, a value isn't required.
+#' @param upper_air_params_ID the ID string of the upper air sounding. If 'read_data_from_files' is set to TRUE, a value isn't required.
+#' @param upper_air_params_x_coord the X direction of the upper air sounding. If 'read_data_from_files' is set to TRUE, a value isn't required.
+#' @param upper_air_params_y_coord the Y direction of the upper air sounding. If 'read_data_from_files' is set to TRUE, a value isn't required.
+#' @param upper_air_params_tz the time zone value of the upper air sounding. If 'read_data_from_files' is set to TRUE, a value isn't required.
+#' @param precip_station_params_name a vector containing anemometer heights for each of the precipitation stations. If 'read_data_from_files' is set to TRUE, values aren't required.
+#' @param precip_station_params_stn_code a vector containing station codes for each of the precipitation stations. If 'read_data_from_files' is set to TRUE, values aren't required. 
+#' @param precip_station_params_x_coord a vector containing X direction values for each of the precipitation stations. If 'read_data_from_files' is set to TRUE, values aren't required.
+#' @param precip_station_params_y_coord a vector containing Y direction values for each of the precipitation stations. If 'read_data_from_files' is set to TRUE, values aren't required.
 #' @export calmet_07_station_params
 
 calmet_07_station_params <- function(calmet_inp = "calmet_template.txt",
