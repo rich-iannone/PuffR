@@ -35,7 +35,9 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
       
       if (local_file_exists == TRUE){
         
-        files <- paste(local_archive_dir, "/", data_filename, sep = "")
+        file_copied <- file.copy(paste(local_archive_dir, "/", data_filename, sep = ""),
+                                 paste(getwd(), "/", data_filename, sep = ""), overwrite = TRUE)
+        
         
       }
     }
