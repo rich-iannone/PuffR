@@ -252,8 +252,8 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
       imputed_values[imputed_values < 0] <- 0
       
       # Replace NA values with predicted values from imputation
-      for (i in 1:length(missing_sky_cover_indices)){
-        GF1_sky_cover_coverage_code[missing_sky_cover_indices[i]] <- imputed_values[i]
+      for (j in 1:length(missing_sky_cover_indices)){
+        GF1_sky_cover_coverage_code[missing_sky_cover_indices[j]] <- imputed_values[j]
       }
       
       # Place the sky coverage vector into the 'additional.data' data frame
