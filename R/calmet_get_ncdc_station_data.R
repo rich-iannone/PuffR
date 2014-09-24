@@ -38,6 +38,10 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
         file_copied <- file.copy(paste(local_archive_dir, "/", data_filename, sep = ""),
                                  paste(getwd(), "/", data_filename, sep = ""), overwrite = TRUE)
         
+        # Extract the downloaded data file
+        system(paste("gunzip ", data_filename, sep = ""),
+               intern = FALSE, ignore.stderr = TRUE)
+        
         
       }
     }
