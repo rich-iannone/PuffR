@@ -144,25 +144,22 @@ calmet_surface_met <- function(location_name,
   
   if (is.null(use_CSV_files)){
     
-    # Get all surface met data and write CSV files to the working folder
-    calmet_get_ncdc_station_data(year = year,
-                                 bbox_lat_lon = bbox_lat_lon,
-                                 local_archive_dir = local_archive_dir)
-    
-    # Generate a file list for the newly-generated CSV files
-    CSV_files <- list.files(path = ".", pattern = "[0-9]*-[0-9]*-[0-9]*.csv")
-    
+    # Get all surface met data, write CSV files to the working folder, get a vector
+    # list of the generate CSV files
+    CSV_files <- calmet_get_ncdc_station_data(year = year,
+                                              bbox_lat_lon = bbox_lat_lon,
+                                              local_archive_dir = local_archive_dir)
+        
     # Get additional files to compensate for missing data at either the beginning or end of
     # the year (since datasets are standardized to UTC-00:00)
     if (time_offset < 0 & year < as.numeric(format(Sys.time(), "%Y"))){
       
-      for (i in 1:length(CSV_files)){
-        calmet_get_ncdc_station_data(filename = gsub("([0-9]*-[0-9]*-)[0-9]*.csv",
-                                                     paste("\\1", year + 1, ".gz", sep = ''),
-                                                     CSV_files[i]),
-                                     local_archive_dir = local_archive_dir)
-        
-      }
+        for (i in 1:length(CSV_files)){
+          calmet_get_ncdc_station_data(data_filename = gsub("([0-9]*-[0-9]*-)[0-9]*.csv",
+                                                            paste("\\1", year + 1, ".gz", sep = ''),
+                                                            CSV_files[i]),
+                                       local_archive_dir = local_archive_dir)
+        }
     }
     
     #     if (time_offset > 0){
