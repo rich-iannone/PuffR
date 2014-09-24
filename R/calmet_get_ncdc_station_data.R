@@ -130,7 +130,7 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
       outputs[i, 1] <- paste(sprintf("%06d", domain_list[i,1]),
                              "-", sprintf("%05d", domain_list[i,2]),
                              "-", year, ".gz", sep = "")
-    
+      
       if (!is.null(local_archive_dir)){
         
         local_file_exists <- file.exists(paste(local_archive_dir, "/", outputs[i, 1], sep = ""))
@@ -138,7 +138,7 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
         if (local_file_exists == TRUE){
           
           file_copied <- file.copy(paste(local_archive_dir, "/", outputs[i, 1] , sep = ""),
-                             paste(getwd(), "/", outputs[i, 1] , sep = ""), overwrite = TRUE)
+                                   paste(getwd(), "/", outputs[i, 1] , sep = ""), overwrite = TRUE)
           
           # Determine if file is available locally
           outputs[i, 2] <- ifelse(file_copied == "TRUE", 'available', 'missing')
@@ -180,7 +180,7 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
     # Generate report of stations and file transfers
     file_report <- cbind(domain_list, outputs)
     row.names(file_report) <- 1:nrow(file_report)
-        
+    
     # Get list of data files
     files <- gsub(".gz", "", subset(file_report, STATUS == "available")[,12])
     
