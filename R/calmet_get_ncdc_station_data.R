@@ -70,7 +70,13 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
       
     }
     
-    files <- list.files(pattern = paste(gsub(".gz", "", data_filename), "$", sep = ''))
+    if (file.exists(gsub(".gz", "", data_filename))){
+      files <- list.files(pattern = paste(gsub(".gz", "", data_filename), "$", sep = ''))
+    }
+    
+    if (!file.exists(gsub(".gz", "", data_filename))){
+      return(NULL)
+    }
     
   }
   
