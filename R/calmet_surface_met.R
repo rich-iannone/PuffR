@@ -297,7 +297,7 @@ calmet_surface_met <- function(location_name,
       # Create matrix of vector objects
       missing_df <- as.data.frame(matrix(missing_vectors,
                                          nrow = length(missing_times),
-                                         ncol = 20),
+                                         ncol = 21),
                                   stringsAsFactors = FALSE)
       
       
