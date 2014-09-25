@@ -438,26 +438,26 @@ calmet_surface_met <- function(location_name,
       
       cat(# Wind speed, m/s (WS)
           station_data_frames[[j]][[1]]$WIND.SPD[i],
-          "  ",
+          " ",
           # Wind direction, degrees (WD)
           station_data_frames[[j]][[1]]$WIND.DIR[i],
-          "  ",
+          " ",
           # Ceiling height, hundreds of feet (ICEIL)
           station_data_frames[[j]][[1]]$CEIL.HGT[i],
-          "  ",
+          " ",
           # Opaque sky cover, tenths (ICC)
           station_data_frames[[j]][[1]]$SKY.COVER[i]
           "  ",
+          " ",
           # Air temperature, K (TEMPK)
           station_data_frames[[j]][[1]]$TEMP[i],
-          "  ",
+          " ",
           # Relative humidity, % (IRH)
           station_data_frames[[j]][[1]]$RH[i],
-          "  ",
+          " ",
           # Station pressure, mb (PRES)
           station_data_frames[[j]][[1]]$ATM.PRES[i],
-          "  ",
-          
+          " ",
           # Precipitation code (IPCODE) 
           #   0 = no precipitation
           #   1-18 = liquid precipitation
