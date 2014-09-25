@@ -436,8 +436,7 @@ calmet_surface_met <- function(location_name,
     
     for (j in 1:length(station_data_frames)){
       
-      cat("  ",
-          # Wind speed, m/s (WS)
+      cat(# Wind speed, m/s (WS)
           station_data_frames[[j]][[1]]$WIND.SPD[i],
           "  ",
           # Wind direction, degrees (WD)
