@@ -21,6 +21,15 @@ calmet_upper_air <- function(year,
                              output_file_name = "FSL-Sounding.txt",
                              details_in_file_name = TRUE){
   
+  # Include require statements
+  require(RCurl)
+  require(stringr)
+  
+  
+  
+  
+  
+  
   # Obtain the HTML source from a URI containing a query
   URI <- getURL(paste("http://www.esrl.noaa.gov/raobs/intl/GetRaobs.cgi?",
                       "shour=All+Times&ltype=All+Levels&wunits=Tenths+of+Meters%2FSecond",
