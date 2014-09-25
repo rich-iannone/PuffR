@@ -1,7 +1,6 @@
-#' Download the upper air data and produce a data frame.
-#' @description This function allows for the downloading and processing of upper air sounding data.
-#' @param start_date the starting date of the sounding data request in the format "YYYY-MM-DD". The earliest sounding for the specified date will be included in the request.
-#' @param end_date the end date of the sounding data request in the format "YYYY-MM-DD". The last sounding for the specified date will be included in the request.
+#' Create an upper air data file for CALMET
+#' @description This function retrieves upper air sounding data and processes it to generate an upper air input file for CALMET.
+#' @param year the year for the UP.DAT file.
 #' @param hour_type the types of hours to be supplied in the returned dataset. The default is "0z,12z", which includes sounding data from launches near 12:00 UTC and those near 24:00 UTC. The option "all" provides all of the soundings available from the dataset, and the options "12z" and "0z" provide data from those soundings launched near 12:00 UTC or 24:00 UTC, respectively.
 #' @param level_type the types of levels to be supplied in the returned dataset. The default is "all", which includes all sounding types. Other options are "mandatory" (includes only the mandatory-type levels) and "mandatory_and_significant" (includes only the mandatory- and significant-type levels).
 #' @param wind_units the desired wind units for the sounding data request. Options are tenths of meters per second ("tenths_ms", the default) and "knots".
