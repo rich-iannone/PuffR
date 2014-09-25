@@ -306,9 +306,9 @@ calmet_surface_met <- function(location_name,
                                 "LAT", "LONG", "ELEV", "WIND.DIR", "WIND.SPD",
                                 "CEIL.HGT", "TEMP", "DEW.POINT", "ATM.PRES",
                                 "SKY.COVER", "PRECIP.RATE", "RH", "PRECIP.CODE",
-                                "missing_times")
+                                "time_series")
             
-      missing_df$missing_times <- as.POSIXct(missing_df$missing_times,
+      missing_df$time_series <- as.POSIXct(missing_df$time_series,
                                            origin = "1970-01-01",
                                            tz = "GMT")
       
