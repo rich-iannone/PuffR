@@ -261,6 +261,17 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
       
     }
     
+    if (number_of_sky_cover_lines < 1000){
+      
+      # Create vector of missing values with length equal to number of rows
+      # of 'additional.data'
+      missing_sky_cover <- rep(999, nrow(additional.data))
+      
+      # Place the sky coverage vector into the 'additional.data' data frame
+      additional.data$SKY.COVER <- missing_sky_cover
+      
+    }
+    
     #
     # precipitation: AA[1-2]
     #
