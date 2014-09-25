@@ -446,7 +446,7 @@ calmet_surface_met <- function(location_name,
           station_data_frames[[j]][[1]]$CEIL.HGT[i],
           "  ",
           # Opaque sky cover, tenths (ICC)
-          # (still to prepare)
+          station_data_frames[[j]][[1]]$SKY.COVER[i]
           "  ",
           # Air temperature, K (TEMPK)
           station_data_frames[[j]][[1]]$TEMP[i],
