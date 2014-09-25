@@ -120,6 +120,11 @@ calmet_upper_air <- function(year,
     }
   }
   
+  # Get start date and end dates
+  start_date <- paste(year, "-01-01", sep = "")
+  end_date <- paste(year, "-12-31", sep = "")
+  
+  # Get formatted starting date
   bdate <- paste(str_replace_all(start_date, "-", ""), "00", sep = '') 
   
   # Get formatted ending date
