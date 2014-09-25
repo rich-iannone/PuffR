@@ -437,32 +437,39 @@ calmet_surface_met <- function(location_name,
     for (j in 1:length(station_data_frames)){
       
       cat(# Wind speed, m/s (WS)
-          station_data_frames[[j]][[1]]$WIND.SPD[i],
+          format(station_data_frames[[j]][[1]]$WIND.SPD[i],
+                 width = 6, justify = "right"),
           " ",
           # Wind direction, degrees (WD)
-          station_data_frames[[j]][[1]]$WIND.DIR[i],
+          format(station_data_frames[[j]][[1]]$WIND.DIR[i],
+                 width = 6, justify = "right"),
           " ",
           # Ceiling height, hundreds of feet (ICEIL)
-          station_data_frames[[j]][[1]]$CEIL.HGT[i],
+          format(station_data_frames[[j]][[1]]$CEIL.HGT[i],
+                 width = 6, justify = "right"),
           " ",
           # Opaque sky cover, tenths (ICC)
-          station_data_frames[[j]][[1]]$SKY.COVER[i]
-          "  ",
+          format(station_data_frames[[j]][[1]]$SKY.COVER[i],
+                 width = 6, justify = "right"),
           " ",
           # Air temperature, K (TEMPK)
-          station_data_frames[[j]][[1]]$TEMP[i],
+          format(station_data_frames[[j]][[1]]$TEMP[i],
+                 width = 6, justify = "right"),
           " ",
           # Relative humidity, % (IRH)
-          station_data_frames[[j]][[1]]$RH[i],
+          format(station_data_frames[[j]][[1]]$RH[i],
+                 width = 6, justify = "right"),
           " ",
           # Station pressure, mb (PRES)
-          station_data_frames[[j]][[1]]$ATM.PRES[i],
+          format(station_data_frames[[j]][[1]]$ATM.PRES[i],
+                 width = 6, justify = "right"),
           " ",
           # Precipitation code (IPCODE) 
           #   0 = no precipitation
           #   1-18 = liquid precipitation
           #   19-45 = frozen precipitation
-          station_data_frames[[j]][[1]]$PRECIP.CODE[i],
+          format(station_data_frames[[j]][[1]]$PRECIP.CODE[i],
+                 width = 6, justify = "right"),
           file = paste(output_file), append = TRUE)
       
       cat("", file = output_file, sep = "\n", append = TRUE)
