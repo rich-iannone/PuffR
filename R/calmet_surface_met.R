@@ -204,8 +204,8 @@ calmet_surface_met <- function(location_name,
     CSV_files <- list.files(path = ".", pattern = "[0-9]*-[0-9]*.csv")
     
     # Define the start and end times and determine number of hours in each year
-    start_time <- ISOdatetime(start_year, 1, 1, hour = 0, min = 0, sec = 0, tz = "GMT")
-    end_time <- ISOdatetime(end_year, 12, 31, hour = 24, min = 0, sec = 0, tz = "GMT")
+    start_time <- ISOdatetime(year, 1, 1, hour = 0, min = 0, sec = 0, tz = "GMT")
+    end_time <- ISOdatetime(year, 12, 31, hour = 24, min = 0, sec = 0, tz = "GMT")
     time_difference <- difftime(end_time, start_time, units = 'hours')
     total_hours <- time_difference[[1]]
     
@@ -245,7 +245,7 @@ calmet_surface_met <- function(location_name,
       
       # Trim data frame to only contain target times
       station_data_frames[[i]][[1]] <- 
-        subset(station_data_frames[[i]][[1]], YR >= start_year & YR <= end_year) # 8741
+        subset(station_data_frames[[i]][[1]], YR >= year & YR <= year) # 8741
       
       # Obtain new vector of POSIXct timestamps
       POSIXdatetime <- ISOdatetime(year = station_data_frames[[i]][[1]]$YR,
