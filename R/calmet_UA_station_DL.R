@@ -11,16 +11,15 @@
 #' @param details_in_file_name incorporates details about the sounding data into the filename. Set to "TRUE" by default to provide self-describing filenames and reducing the risk of overwriting files. Setting to "FALSE" strictly uses the filename specified in the 'output_file_name' argument.
 #' @export calmet_UA_station_DL
 
-calmet_UA_station_DL <- function(start_date,
-                                 end_date,
-                                 hour_type = "0z,12z",
-                                 level_type = "all",
-                                 wind_units = "tenths_ms",
-                                 station_number = NULL,
-                                 station_wban_wmo = NULL,
-                                 output_file_path = "working",
-                                 output_file_name = "FSL-Sounding.txt",
-                                 details_in_file_name = TRUE){
+calmet_upper_air <- function(year,
+                             hour_type = "0z,12z",
+                             level_type = "all",
+                             wind_units = "tenths_ms",
+                             station_number = NULL,
+                             station_wban_wmo = NULL,
+                             output_file_path = "working",
+                             output_file_name = "FSL-Sounding.txt",
+                             details_in_file_name = TRUE){
   
   # Obtain the HTML source from a URI containing a query
   URI <- getURL(paste("http://www.esrl.noaa.gov/raobs/intl/GetRaobs.cgi?",
