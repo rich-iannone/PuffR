@@ -172,61 +172,70 @@ calmet_upper_air <- function(location_name,
   # Initialize the data objects
   # Loop through list of strings, extract and clean the substrings corresponding to data elements
   # Create a data frame with vector lists and coerce some objects into numeric objects
-  for (i in 1:length(lines)){
+  for (i in 1:length(sounding_lines)){
     if (i == 1) {
-      init <- mat.or.vec(nr = length(lines), nc = 1)
-      wban <- mat.or.vec(nr = length(lines), nc = 1)
-      wmo <- mat.or.vec(nr = length(lines), nc = 1)
-      lat <- mat.or.vec(nr = length(lines), nc = 1)
-      lon <- mat.or.vec(nr = length(lines), nc = 1)
-      elev <- mat.or.vec(nr = length(lines), nc = 1)
-      station_name <- mat.or.vec(nr = length(lines), nc = 1)
-      prov_state <- mat.or.vec(nr = length(lines), nc = 1)
-      country <- mat.or.vec(nr = length(lines), nc = 1)
+      init <- mat.or.vec(nr = length(sounding_lines), nc = 1)
+      wban <- mat.or.vec(nr = length(sounding_lines), nc = 1)
+      wmo <- mat.or.vec(nr = length(sounding_lines), nc = 1)
+      lat <- mat.or.vec(nr = length(sounding_lines), nc = 1)
+      lon <- mat.or.vec(nr = length(sounding_lines), nc = 1)
+      elev <- mat.or.vec(nr = length(sounding_lines), nc = 1)
+      station_name <- mat.or.vec(nr = length(sounding_lines), nc = 1)
+      prov_state <- mat.or.vec(nr = length(sounding_lines), nc = 1)
+      country <- mat.or.vec(nr = length(sounding_lines), nc = 1)
     }
+    
     init[i] <- 
-      str_match(string = lines[i],
+      str_match(string = sounding_lines[i],
                 pattern = "^([0-9A-Z]*)")[1,2]
+    
     wban[i] <- 
-      str_match(string = lines[i],
+      str_match(string = sounding_lines[i],
                 pattern = "^[0-9A-Z]+[ ]+([0-9]*)")[1,2]
+    
     wmo[i] <- 
-      str_match(string = lines[i],
+      str_match(string = sounding_lines[i],
                 pattern = "^[0-9A-Z]+[ ]+[0-9]* ([0-9]{5})")[1,2]
+    
     lat[i] <- 
-      as.numeric(str_match(string = lines[i],
+      as.numeric(str_match(string = sounding_lines[i],
                            pattern = paste("^[0-9A-Z]+[ ]+[0-9]* ",
                                            "[0-9]{5} ([0-9/.-]*)", sep = ''))[1,2])
+    
     lon[i] <- 
-      as.numeric(str_match(string = lines[i],
+      as.numeric(str_match(string = sounding_lines[i],
                            pattern = paste("^[0-9A-Z]+[ ]+[0-9]* [0-9]{5} ",
                                            "[0-9/.-]* ([0-9/.-]*)", sep = ''))[1,2])
+    
     elev[i] <- 
-      as.numeric(str_match(string = lines[i],
+      as.numeric(str_match(string = sounding_lines[i],
                            pattern = paste("^[0-9A-Z]+[ ]+[0-9]* ",
                                            "[0-9]{5} [0-9/.-]* [0-9/.-]* ",
                                            "([0-9-]{5,6})", sep = ''))[1,2])
+    
     station_name[i] <- 
-      str_trim(str_match(string = lines[i],
+      str_trim(str_match(string = sounding_lines[i],
                          pattern = paste("^[0-9A-Z]+[ ]+[0-9]* ",
                                          "[0-9]{5} [0-9/.-]* [0-9/.-]* ",
                                          "[0-9-]{5,6}  (.+) [0-9A-Z]{2} ",
                                          "[0-9A-Z]{2}$", sep = ''))[1,2],
                side = "both")
+    
     prov_state[i] <- 
-      str_match(string = lines[i],
+      str_match(string = sounding_lines[i],
                 pattern = paste("^[0-9A-Z]+[ ]+[0-9]* ",
                                 "[0-9]{5} [0-9/.-]* [0-9/.-]* ",
                                 "[0-9-]{5,6}  .+ ([0-9A-Z]{2}) ",
                                 "[0-9A-Z]{2}$", sep = ''))[1,2]
+    
     country[i] <- 
-      str_match(string = lines[i],
+      str_match(string = sounding_lines[i],
                 pattern = paste("^[0-9A-Z]+[ ]+[0-9]* ",
                                 "[0-9]{5} [0-9/.-]* [0-9/.-]* ",
                                 "[0-9-]{5,6}  .+ [0-9A-Z]{2} ",
                                 "([0-9A-Z]{2})$", sep = ''))[1,2]
     
-    if (i == length(lines)) {
+    if (i == length(sounding_lines)) {
       # Create data frame with vector objects of equal length 
       df_soundings <- as.data.frame(cbind(init, wban, wmo, lat, lon,
                                           elev, station_name, prov_state,
