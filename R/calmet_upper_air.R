@@ -246,9 +246,9 @@ calmet_upper_air <- function(location_name,
       df_soundings[,5] <- as.numeric(df_soundings[,5])
       df_soundings[,6] <- as.numeric(df_soundings[,6])
       
-      # Remove objects from global environment
+      # Remove objects
       rm(i, init, wban, wmo, lat, lon, elev, station_name, prov_state,
-         country, URI, pattern, lines)
+         country, URI, pattern, sounding_lines)
     }
   }
   
