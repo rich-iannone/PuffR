@@ -309,48 +309,6 @@ calmet_upper_air <- function(location_name,
   edate <- paste(str_replace_all(end_date, "-", ""), "23", sep = '') 
 
   
-  # Get formatted 'shour' string
-  if (hour_type == "all") shour <- "All+Times"
-  if (hour_type == "0z") shour <- "0z+ONLY"
-  if (hour_type == "12z") shour <- "12z+ONLY"
-  if (hour_type == "0z,12z") shour <- "0z%2C+12z+ONLY"
-  
-  # Get formatted 'ltype' string
-  if (level_type == "all") ltype <- "All+Levels"
-  if (level_type == "mandatory") ltype <- "Mandatory"
-  if (level_type == "mandatory_and_significant") ltype <- "Mand+%26+Sigs"
-  
-  # Get formatted 'wunits' string
-  if (wind_units == "tenths_ms") wunits <- "Tenths+of+Meter%2FSecond" 
-  
-  # Resolve the output file path based on whether "working" is set (setting absolute path to
-  # current working directory of the R process) and an absolute file path is specified
-  resolved_output_file_path <- ifelse(output_file_path == "working",
-                                      paste(getwd(), "/", sep = ''),
-                                      output_file_path)
-  
-  # Combine resolved output file path with protocol
-  output_file_path_with_protocol <- paste("file://", 
-                                          resolved_output_file_path, 
-                                          sep = '')
-  
-  # Get Station information
-  if (is.null(station_number) & is.null(station_wban_wmo)) {
-    if (exists("target_station")) station_list_position <- as.numeric(row.names(target_station))
-  } else if (!is.null(station_number) & is.null(station_wban_wmo)) {
-    # If a 'target_station' was set using the 'select.sounding.station' function,
-    # get the 'station_list_position' value from that
-    if (exists("target_station")) station_list_position <- as.numeric(row.names(target_station))
-    # If no 'target_station' set, defer to using the 'station_number' value
-    if (!exists("target_station")) station_list_position <- station_number
-  } else if (is.null(station_number) & !is.null(station_wban_wmo)) {
-    wban_wmo_list <- as.data.frame(cbind(df_soundings$wban, df_soundings$wmo))
-    wban_wmo_list$V3 <- do.call(paste, c(wban_wmo_list[c("V1", "V2")], sep = "-"))
-    wban_wmo_list$V1 <- NULL
-    wban_wmo_list$V2 <- NULL
-    station_list_position <- match(station_wban_wmo,wban_wmo_list$V3)
-    rm(wban_wmo_list)
-  }
   
   # Construct 'station_list' string based on requested station
   station_list <- paste(df_soundings[station_list_position,1],
