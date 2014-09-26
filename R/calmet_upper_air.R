@@ -29,10 +29,16 @@ calmet_upper_air <- function(location_name,
   require(rgdal)
   require(lubridate)
   
+  ####
+  # Get bounding box for domain
+  ####
   
   
   
   
+  ####
+  # Get dataframe with all sounding stations
+  ####
   
   # Obtain the HTML source from a URI containing a query
   URI <- getURL(paste("http://www.esrl.noaa.gov/raobs/intl/GetRaobs.cgi?",
@@ -132,6 +138,15 @@ calmet_upper_air <- function(location_name,
          country, URI, pattern, lines)
     }
   }
+  
+  ####
+  # Locate the nearest sounding station 
+  ####
+  
+  
+  ####
+  # Get the sounding data from the nearest station
+  ####
   
   # Get start date and end dates
   start_date <- paste(year, "-01-01", sep = "")
@@ -260,5 +275,13 @@ calmet_upper_air <- function(location_name,
   # Read back the file as lines
   sounding_data <- readLines(con = paste(output_file_path_with_protocol,
                                          output_file_name, sep = ''))
+  ####
+  # Process the upper air sounding data
+  ####
+  
+  ####
+  # Subset the list object
+  ####
+  
   
 }
