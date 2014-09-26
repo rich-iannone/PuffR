@@ -293,11 +293,21 @@ calmet_upper_air <- function(location_name,
   start_date <- paste(year, "-01-01", sep = "")
   end_date <- paste(year, "-12-31", sep = "")
   
-  # Get formatted starting date
+  # Set 'shour' as "0z%2C+12z+ONLY"
+  shour <- "0z%2C+12z+ONLY"
+  
+  # Set 'ltype' as "All+Levels"
+  ltype <- "All+Levels"
+  
+  # Set 'wunits' as "Tenths+of+Meter%2FSecond"
+  wunits <- "Tenths+of+Meter%2FSecond"
+  
+  # Get formatted beginning date
   bdate <- paste(str_replace_all(start_date, "-", ""), "00", sep = '') 
   
   # Get formatted ending date
   edate <- paste(str_replace_all(end_date, "-", ""), "23", sep = '') 
+
   
   # Get formatted 'shour' string
   if (hour_type == "all") shour <- "All+Times"
