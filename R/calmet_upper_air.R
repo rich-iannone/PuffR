@@ -1,14 +1,14 @@
 #' Create an upper air data file for CALMET
 #' @description This function retrieves upper air sounding data and processes it to generate an upper air input file for CALMET.
+#' @param location_name an assigned name for the CALMET domain.
 #' @param year the year for the UP.DAT file.
-#' @param hour_type the types of hours to be supplied in the returned dataset. The default is "0z,12z", which includes sounding data from launches near 12:00 UTC and those near 24:00 UTC. The option "all" provides all of the soundings available from the dataset, and the options "12z" and "0z" provide data from those soundings launched near 12:00 UTC or 24:00 UTC, respectively.
-#' @param level_type the types of levels to be supplied in the returned dataset. The default is "all", which includes all sounding types. Other options are "mandatory" (includes only the mandatory-type levels) and "mandatory_and_significant" (includes only the mandatory- and significant-type levels).
-#' @param wind_units the desired wind units for the sounding data request. Options are tenths of meters per second ("tenths_ms", the default) and "knots".
-#' @param station_number the selection of the desired sounding site can be performed by identifying a line number from the dataframe supplied by the 'get.sounding.stations' function.
-#' @param station_wban_wmo the selection of the desired sounding site for the data request can be achieved by supplying WBAN and WMO numbers in the form of "XXXXX-YYYYY" (WBAN first, WMO second).
-#' @param output_file_path the output file path for the retrieved sounding data can be specified here by using "working", which sets the path to the current working directory, or, by specifying an absolute path.
-#' @param output_file_name the desired filename for the retrieved sounding data, including an extension such as ".txt" or ".dat". The default is "FSL-Sounding.txt", so, not modifying this argument over several uses (especially in conjunction with a "FALSE" setting for the 'details_in_file_name' argument) may result in overwriting previously generated files.
-#' @param details_in_file_name incorporates details about the sounding data into the filename. Set to "TRUE" by default to provide self-describing filenames and reducing the risk of overwriting files. Setting to "FALSE" strictly uses the filename specified in the 'output_file_name' argument.
+#' @param lat_dec_deg the latitude of the CALMET domain in decimal degrees. The location of this point is defined in the lat_long_grid_loc argument.
+#' @param lon_dec_deg the longitude of the CALMET domain in decimal degrees. The location of this point is defined in the lat_long_grid_loc argument.
+#' @param lat_lon_grid_loc the location of the lat/long inputs in relation to the domain. Choices are: 1 (center), 2 (lower left), 3 (lower right), 4 (upper left), 5 (upper right).
+#' @param domain_width_m the width of the meteorological domain in meters.
+#' @param domain_height_m the height of the meteorological domain in meters.
+#' @param cell_resolution_m the grid cell resolution in meters.
+#' @param time_offset the offset from UTC-00:00 in hours.
 #' @export calmet_upper_air
 
 calmet_upper_air <- function(year,
