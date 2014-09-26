@@ -132,8 +132,6 @@ calmet_upper_air(location_name = "the_city",
                  time_offset = -8)
 ```
 
-
-
 Creating working CALMET and CALPUFF input files occurs through a stepwise process. Below is the basic CALMET workflow.
 
 <img src="inst/PuffR_CALMET.png" width="100%">
