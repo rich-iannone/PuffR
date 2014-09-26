@@ -257,6 +257,12 @@ calmet_upper_air <- function(location_name,
   ####
   
   
+  df_soundings_domain <- subset(df_soundings,
+                                df_soundings$lat >= bbox_lat_lon@ymin &
+                                  df_soundings$lat <= bbox_lat_lon@ymax &
+                                  df_soundings$lon >= bbox_lat_lon@xmin &
+                                  df_soundings$lon <= bbox_lat_lon@xmax)
+  
   ####
   # Get the sounding data from the nearest station
   ####
