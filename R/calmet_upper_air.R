@@ -166,8 +166,7 @@ calmet_upper_air <- function(location_name,
   sounding_lines <- gsub(pattern = "<OPTION> ", replacement = "",
                          x = sounding_lines)
   
-  sounding_lines <- str_split(sounding_lines, "\n\n")
-  sounding_lines <- unlist(sounding_lines)
+  sounding_lines <- unlist(str_split(sounding_lines, "\n\n"))
   
   # Initialize the data objects
   # Loop through list of strings, extract and clean the substrings corresponding to data elements
