@@ -154,12 +154,20 @@ calmet_upper_air <- function(location_name,
                    sep = '')
   
   # Generate vector list of strings from URI page source
-  lines <- gsub(pattern = pattern, replacement = "\\1", x = URI)
-  lines <- gsub(pattern = ".*MULTIPLE SIZE=\"10\">\n", replacement = "", x = lines)
-  lines <- gsub(pattern = "\n\n</SELECT>.*", replacement = "", x = lines)
-  lines <- gsub(pattern = "<OPTION> ", replacement = "", x = lines)
-  lines <- str_split(lines, "\n\n")
-  lines <- unlist(lines)
+  sounding_lines <- gsub(pattern = pattern, replacement = "\\1",
+                         x = URI)
+  
+  sounding_lines <- gsub(pattern = ".*MULTIPLE SIZE=\"10\">\n", replacement = "",
+                         x = sounding_lines)
+  
+  sounding_lines <- gsub(pattern = "\n\n</SELECT>.*", replacement = "",
+                         x = sounding_lines)
+  
+  sounding_lines <- gsub(pattern = "<OPTION> ", replacement = "",
+                         x = sounding_lines)
+  
+  sounding_lines <- str_split(sounding_lines, "\n\n")
+  sounding_lines <- unlist(sounding_lines)
   
   # Initialize the data objects
   # Loop through list of strings, extract and clean the substrings corresponding to data elements
