@@ -71,6 +71,7 @@ calmet_define_geophys(location_name = "the_city"
                       lat_lon_grid_loc = 1,
                       domain_width_m = 8000,
                       domain_height_m = 8000,
+                      cell_resolution_m = 250,
                       download_SRTM = TRUE)
 ```
 
@@ -83,6 +84,7 @@ calmet_define_geophys(location_name = "the_city"
                       lat_lon_grid_loc = 1,
                       domain_width_m = 8000,
                       domain_height_m = 8000,
+                      cell_resolution_m = 250,
                       download_SRTM = FALSE,
                       SRTM_file_path = "/Volumes/Big HD/SRTM V4 GeoTIFF/")
 ```
@@ -95,23 +97,42 @@ This function currently defaults to generating seasonal GEO.DAT files:
 - `geo--the_city-32x32x250--4-fall.txt`
 - `geo--the_city-32x32x250--5-winter.txt`
 
-The naming of these files is handled by PuffR. Functions for setting up the CALMET input file will rely on consistent naming of the files for file handling and for parsing the metadata that is stored within. This scheme allows for data persistence and minimal repetition of basic parameters.
+The naming of these files is handled by PuffR. Functions for setting up the CALMET input file will rely on consistent naming of the files for file handling and for parsing the metadata that is stored within. This scheme allows for data persistence and minimal repetition of basic parameters. Here, the filename could be interpreted as: 
 
-How about surface meteorology? We can produce a SURF.DAT file using the `calmet_surface_met` function. In the following example, we can obtain a SURF.DAT file from the same domain, specifying the beginning and ending years:
+`[type]--[location_name]-[nx]x[ny]x[cell_resolution_m]--[season_no]-[season_name].txt`
+
+How about surface meteorology? We can produce a SURF.DAT file using the `calmet_surface_met` function. In the following example, we can obtain a SURF.DAT file from the same domain.
 
 ```R
 calmet_surface_met(location_name = "the_city",
-                   start_year = 2011,
-                   end_year = 2011,
+                   year = 2011,
                    lat_dec_deg = 49.250117,
                    lon_dec_deg = -123.076122,
                    lat_lon_grid_loc = 1,
                    domain_width_m = 8000,
                    domain_height_m = 8000,
+                   cell_resolution_m = 250,
                    time_offset = -8)
 ```
+As for the `calmet_define_geophys` function, the `calmet_surface_met` function requires that you supply the following: `location_name`, `lat_dec_deg`, `lon_dec_deg`, `lat_lon_grid_loc`, `domain_width_m`, and `domain_height_m`. The `time_offset` value, which is the time difference from UTC+0000, is also required here to make adjustments to the time values in the meteorological source data (standardized to UTC+0000). The function will generate the following file:
 
-This function currently requires that you supply a `time_offset` value, which is the time difference from UTC+0000. The arguments `location_name`, `lat_dec_deg`, `lon_dec_deg`, `lat_lon_grid_loc`, `domain_width_m`, and `domain_height_m` are common to this function and to the `calmet_define_geophys` function.
+- `surf--the_city-32x32x250--2011.txt`
+
+What about the upper air situation? That is also covered in PuffR. Simply use the `calmet_upper_air` function and an UP.DAT file will be generated.
+
+```R
+calmet_upper_air(location_name = "the_city",
+                 year = 2011,
+                 lat_dec_deg = 49.250117,
+                 lon_dec_deg = -123.076122,
+                 lat_lon_grid_loc = 1,
+                 domain_width_m = 8000,
+                 domain_height_m = 8000,
+                 cell_resolution_m = 250,
+                 time_offset = -8)
+```
+
+
 
 Creating working CALMET and CALPUFF input files occurs through a stepwise process. Below is the basic CALMET workflow.
 
