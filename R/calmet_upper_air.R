@@ -281,6 +281,10 @@ calmet_upper_air <- function(location_name,
       
     }	
   }
+  
+  station_wban_wmo <- paste(df_soundings_domain[1,2], "-",
+                            df_soundings_domain[1,3], sep = '')
+  
   ####
   # Get the sounding data from the nearest station
   ####
