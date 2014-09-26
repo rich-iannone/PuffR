@@ -9,6 +9,8 @@ calmet_surface_met(location_name, year, lat_dec_deg = NULL,
   local_archive_dir = NULL, use_CSV_files = NULL)
 }
 \arguments{
+\item{location_name}{an assigned name for the CALMET domain.}
+
 \item{year}{the year for the SURF.DAT file.}
 
 \item{lat_dec_deg}{the latitude of the CALMET domain in decimal degrees. The location of this point is defined in the lat_long_grid_loc argument.}
