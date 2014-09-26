@@ -1,5 +1,6 @@
 #' Obtain surface meteorology and generate input files
 #' @description Obtain surface meteorology and generate input files
+#' @param location_name an assigned name for the CALMET domain.
 #' @param year the year for the SURF.DAT file.
 #' @param lat_dec_deg the latitude of the CALMET domain in decimal degrees. The location of this point is defined in the lat_long_grid_loc argument.
 #' @param lon_dec_deg the longitude of the CALMET domain in decimal degrees. The location of this point is defined in the lat_long_grid_loc argument.
