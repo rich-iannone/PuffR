@@ -628,5 +628,141 @@ calmet_upper_air <- function(location_name,
   # Subset the list object
   ####
   
+  # Find how many values of the list need to be trimmed from the beginning then
+  # trim those list items and save as a new list object
+  for (i in 1:length(sounding_list)) {
+    if (i == 1) above_req_date_time <- mat.or.vec(nr = length(sounding_list), nc = 1)
+    above_req_date_time[i] <- 
+      ISOdatetime(year = sounding_list[[i]][[1]][[4]],
+                  month = sounding_list[[i]][[1]][[3]],
+                  day = sounding_list[[i]][[1]][[2]],
+                  hour = sounding_list[[i]][[1]][[1]],
+                  min = 0, sec = 0, tz = "GMT") >= req_start_date_time
+    trim_number_from_left <- length(above_req_date_time) -
+      sum(above_req_date_time, na.rm = TRUE)   
+  }
+  
+  # Find how many values of the list need to be trimmed from the end   
+  for (i in 1:length(sounding_list)) {
+    if (i == 1) below_req_date_time <- mat.or.vec(nr = length(sounding_list), nc = 1)
+    below_req_date_time[i] <- 
+      ISOdatetime(year = sounding_list[[i]][[1]][[4]],
+                  month = sounding_list[[i]][[1]][[3]],
+                  day = sounding_list[[i]][[1]][[2]],
+                  hour = sounding_list[[i]][[1]][[1]],
+                  min = 0, sec = 0, tz = "GMT") <= req_end_date_time
+    trim_number_from_right <- length(below_req_date_time) -
+      sum(below_req_date_time, na.rm = TRUE)
+  }
+  
+  # Make copy of processed_sounding_data before trimming it
+  trimmed_processed_sounding_data <- sounding_list
+  
+  # Trim the 'trimmed_processed_sounding_data' object at the beginning
+  if (trim_number_from_left > 0) {
+    for (i in 1:trim_number_from_left) {
+      trimmed_processed_sounding_data[1] <- NULL
+    }
+  }
+  
+  # Trim the 'trimmed_processed_sounding_data' object at the end
+  if (trim_number_from_right > 0) {
+    for (i in 1:trim_number_from_right) {
+      trimmed_processed_sounding_data[length(trimmed_processed_sounding_data)] <- NULL
+    }
+  }
+  
+  # Remove objects from global environment
+  rm(req_start_date_time, req_end_date_time,
+     processed_sounding_data_start_date_time, processed_sounding_data_end_date_time,
+     trim_number_from_left, trim_number_from_right,
+     above_req_date_time, below_req_date_time)
+  
+  # Construct the first portion of header line, which is constant throughout
+  header_line_constant <- paste("   6201     94240   ")
+  
+  ####
+  # Loop through the list, outputting lines at 0z and at 12z
+  # Check that the next item in the list is within 10-14 h of the previous
+  # If there is no list item available, then get the sounding data from the
+  # previous period ~24 h earlier
+  ####
+  
+  # Generate a file for writing
+  cat(file = output_file)
+  
+  # Add header to top of output file
+  cat(header_1, header_2, header_3, header_4, header_5, header_6,
+      sep = "\n", file = output_file, append = TRUE)
+  
+  # Remove objects from global environment
+  rm(header_1, header_2, header_3, header_4, header_5, header_6)
+  
+  # Start loop for header line
+  for (i in 1:length(trimmed_processed_sounding_data)) {
+    header_line <- 
+      paste(header_line_constant,
+            trimmed_processed_sounding_data[[i]][[1]][[4]],
+            formatC(trimmed_processed_sounding_data[[i]][[1]][[3]], # month
+                    width = 2, flag = " "),
+            formatC(trimmed_processed_sounding_data[[i]][[1]][[2]], # day
+                    width = 2, flag = " "),
+            formatC(trimmed_processed_sounding_data[[i]][[1]][[1]], # hour
+                    width = 2, flag = " "),
+            formatC(as.numeric(trimmed_processed_sounding_data[[i]][[1]][[14]]) - 3, # lines
+                    width = 7, flag = " "),
+            formatC(as.numeric(trimmed_processed_sounding_data[[i]][[1]][[14]]) - 3, # lines
+                    width = 33, flag = " "),
+            sep = '')
+    
+    # Write header_line to file
+    cat(header_line, sep = "\n", file = output_file, append = TRUE)
+    
+    # Start loop for data lines
+    for (j in 1:nrow(trimmed_processed_sounding_data[[i]][[2]])) {
+      if (j == 1) data_line <- mat.or.vec(nr = nrow(trimmed_processed_sounding_data[[i]][[2]]),
+                                          nc = 1) 
+      data_line[j] <-
+        paste(formatC(trimmed_processed_sounding_data[[i]][[2]][[j, 2]], # pressure
+                      width = 9, format = "f", digits = 1, flag = " "),
+              ",",
+              formatC(trimmed_processed_sounding_data[[i]][[2]][[j, 3]], # height
+                      width = 6, format = "f", digits = 0, flag = " "),
+              ",",
+              ifelse(trimmed_processed_sounding_data[[i]][[2]][[j, 4]] > 900, 
+                     formatC(999.9, width = 5, format = "f",
+                             digits = 1, flag = " "),
+                     formatC(trimmed_processed_sounding_data[[i]][[2]][[j, 4]] + 273, # temp
+                             width = 2, format = "f", digits = 1, flag = " ")),
+              ",",
+              ifelse(trimmed_processed_sounding_data[[i]][[2]][[j, 6]] > 900,
+                     formatC(999, width = 3, format = "f",
+                             digits = 0, flag = " "),
+                     formatC(trimmed_processed_sounding_data[[i]][[2]][[j, 6]], # WD
+                             width = 3, format = "f", digits = 0, flag = " ")),
+              ",",
+              ifelse(trimmed_processed_sounding_data[[i]][[2]][[j, 7]] > 900,
+                     formatC(999.9, width = 5, format = "f",
+                             digits = 1, flag = " "),                
+                     formatC(trimmed_processed_sounding_data[[i]][[2]][[j, 7]], # WS
+                             width = 5, format = "f", 
+                             digits = 1, flag = " ")),
+              ifelse(j == nrow(trimmed_processed_sounding_data[[i]][[2]]), "", ","),
+              sep = '')
+      
+      # Close loop for data lines
+    }
+    
+    # Scan for entries with negative height and delete such records
+    for (k in 1:length(data_line)) {
+      if (trimmed_processed_sounding_data[[i]][[2]][[k, 3]] < 0) data_line <- data_line[-k]
+    }
+    
+    # Write data lines to file
+    cat(data_line, sep = "\n", file = output_file, append = TRUE)
+    
+    # Close loop for header line
+  }
+  
   
 }
