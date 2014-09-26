@@ -11,15 +11,15 @@
 #' @param time_offset the offset from UTC-00:00 in hours.
 #' @export calmet_upper_air
 
-calmet_upper_air <- function(year,
-                             hour_type = "0z,12z",
-                             level_type = "all",
-                             wind_units = "tenths_ms",
-                             station_number = NULL,
-                             station_wban_wmo = NULL,
-                             output_file_path = "working",
-                             output_file_name = "FSL-Sounding.txt",
-                             details_in_file_name = TRUE){
+calmet_upper_air <- function(location_name,
+                             year,
+                             lat_dec_deg = NULL,
+                             lon_dec_deg = NULL,
+                             lat_lon_grid_loc = 1,
+                             domain_width_m = NULL,
+                             domain_height_m = NULL,
+                             cell_resolution_m = 250,
+                             time_offset){
   
   # Include require statements
   require(RCurl)
