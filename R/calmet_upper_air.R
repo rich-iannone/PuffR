@@ -364,23 +364,6 @@ calmet_upper_air <- function(location_name,
   # Get the data as a large character object
   sounding_data <- getURL(data_URI)
   
-  # Append additional details to the output file name if request for such details is TRUE
-  if (details_in_file_name == TRUE) {
-    if (str_detect(output_file_name, fixed(".txt"))) {
-      output_file_name <- str_replace(output_file_name, fixed(".txt"), "")
-    }
-    output_file_name <-
-      paste(output_file_name, "__",
-            "WBAN-", df_soundings[station_list_position,2], "_",
-            "WMO-", df_soundings[station_list_position,3], "_",
-            "Station-", strtrim(df_soundings[station_list_position,7], 10),
-            ifelse(nchar(df_soundings[station_list_position,7]) > 10, "...", "_"),
-            bdate, "-",
-            edate,
-            ".txt",
-            sep = "")
-  }
-  
   # Write the data to the output file
   writeLines(sounding_data,
              con = paste(output_file_path_with_protocol,
