@@ -309,7 +309,13 @@ calmet_upper_air <- function(location_name,
   edate <- paste(str_replace_all(end_date, "-", ""), "23", sep = '') 
 
   
+  wban_wmo_list <- as.data.frame(cbind(df_soundings$wban, df_soundings_domain$wmo))
+  wban_wmo_list$V3 <- do.call(paste, c(wban_wmo_list[c("V1", "V2")], sep = "-"))
+  wban_wmo_list$V1 <- NULL
+  wban_wmo_list$V2 <- NULL
   
+  station_list_position <- match(station_wban_wmo,wban_wmo_list$V3)
+
   # Construct 'station_list' string based on requested station
   station_list <- paste(df_soundings[station_list_position,1],
                         df_soundings[station_list_position,2],
