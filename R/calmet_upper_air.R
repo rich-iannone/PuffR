@@ -263,6 +263,24 @@ calmet_upper_air <- function(location_name,
                                   df_soundings$lon >= bbox_lat_lon@xmin &
                                   df_soundings$lon <= bbox_lat_lon@xmax)
   
+  if (nrow(df_soundings_domain) < 1){
+    
+    deg_increment <- 0
+    
+    repeat {
+      deg_increment <- deg_increment + 0.1
+      
+      df_soundings_domain <-
+        subset(df_soundings,
+               df_soundings$lat >= (bbox_lat_lon@ymin - deg_increment) &
+                 df_soundings$lat <= (bbox_lat_lon@ymax + deg_increment) &
+                 df_soundings$lon >= (bbox_lat_lon@xmin - deg_increment) &
+                 df_soundings$lon <= (bbox_lat_lon@xmax + deg_increment))
+      
+      if(nrow(df_soundings_domain) != 0) break
+      
+    }	
+  }
   ####
   # Get the sounding data from the nearest station
   ####
