@@ -24,6 +24,10 @@ calmet_upper_air <- function(location_name,
   # Include require statements
   require(RCurl)
   require(stringr)
+  require(plyr)
+  require(raster)
+  require(rgdal)
+  require(lubridate)
   
   
   
