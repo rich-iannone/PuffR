@@ -366,13 +366,12 @@ calmet_upper_air <- function(location_name,
   
   # Write the data to the output file
   writeLines(sounding_data,
-             con = paste(output_file_path_with_protocol,
-                         output_file_name, sep = ''),
+             con = "sounding_output.txt",
              sep = "\n")
   
   # Read back the file as lines
-  sounding_data <- readLines(con = paste(output_file_path_with_protocol,
-                                         output_file_name, sep = ''))
+  sounding_data <- readLines(con = "sounding_output.txt")
+  
   ####
   # Process the upper air sounding data
   ####
