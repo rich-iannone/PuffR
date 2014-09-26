@@ -33,8 +33,104 @@ calmet_upper_air <- function(location_name,
   # Get bounding box for domain
   ####
   
+  # Round the provided width and the height of the met domain to the resolution of the cell
+  domain_width_m <- round_any(domain_width_m, cell_resolution_m, round)
+  domain_height_m <- round_any(domain_height_m, cell_resolution_m, round)
   
+  # Get matrix of longitude and latitude for chosen point
+  lat_lon_dec_deg <- cbind(lon_dec_deg, lat_dec_deg)
   
+  # Determine the UTM zone
+  UTM_zone <- (floor((lon_dec_deg + 180)/6) %% 60) + 1
+  
+  # Determine whether domain is in Northern Hemisphere or Southern Hemisphere
+  UTM_hemisphere <- ifelse(lat_dec_deg >= 0, "N", "S")
+  
+  # Define a PROJ.4 projection string for a lat/lon projection
+  proj_string_longlat <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+  
+  # Define a PROJ.4 projection string for a UTM projection
+  proj_string_UTM <- paste("+proj=utm +zone=",
+                           UTM_zone,
+                           " +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
+                           sep = '')
+  
+  # Project as UTM coordinates from the determined UTM zone, round to cell resolution using the
+  # 'round_any' function from the 'plyr' package
+  UTM_location <- project(lat_lon_dec_deg, proj_string_UTM)
+  UTM_location <- round_any(UTM_location, cell_resolution_m, round)
+  
+  # Do these length and width values accomodate an integer number of cells of the specified resolution?
+  # These checks will be later part of a function in setting domain width and height
+  is_number_cells_across_x_an_int <- ifelse(domain_width_m %% cell_resolution_m != 0, FALSE, TRUE)
+  is_number_cells_across_y_an_int <- ifelse(domain_height_m %% cell_resolution_m != 0, FALSE, TRUE)
+  
+  # Get the number of cells in the x direction
+  number_cells_across_x <- ifelse(is_number_cells_across_x_an_int == TRUE,
+                                  domain_width_m/cell_resolution_m, NULL)
+  
+  # Get the number of cells in the y direction
+  number_cells_across_y <- ifelse(is_number_cells_across_y_an_int == TRUE,
+                                  domain_height_m/cell_resolution_m, NULL)
+  
+  # Get the total number of cells
+  total_cells <- number_cells_across_x * number_cells_across_y
+  
+  # Generate an output file name for the UP.DAT file
+  output_file <- paste("up--", location_name, "-",
+                       number_cells_across_x, "x",
+                       number_cells_across_y, "x",
+                       cell_resolution_m, "--",
+                       year, ".txt", sep = '')
+  
+  # Get extents of UTM grid (left, right, bottom, top) in meters
+  left_UTM <- get_grid_extents_UTM(side = "left",
+                                   lat_lon_grid_loc = lat_lon_grid_loc,
+                                   UTM_location = UTM_location,
+                                   domain_width_m = domain_width_m,
+                                   domain_height_m = domain_height_m)
+  
+  right_UTM <- get_grid_extents_UTM(side = "right",
+                                    lat_lon_grid_loc = lat_lon_grid_loc,
+                                    UTM_location = UTM_location,
+                                    domain_width_m = domain_width_m,
+                                    domain_height_m = domain_height_m)
+  
+  bottom_UTM <- get_grid_extents_UTM(side = "bottom",
+                                     lat_lon_grid_loc = lat_lon_grid_loc,
+                                     UTM_location = UTM_location,
+                                     domain_width_m = domain_width_m,
+                                     domain_height_m = domain_height_m)
+  
+  top_UTM <- get_grid_extents_UTM(side = "top",
+                                  lat_lon_grid_loc = lat_lon_grid_loc,
+                                  UTM_location = UTM_location,
+                                  domain_width_m = domain_width_m,
+                                  domain_height_m = domain_height_m)
+  
+  # Create a data frame object for UTM values of LL, LR, UL, and UR
+  LL_LR_UL_UR_UTM_m_DF <- data.frame("x" = c(left_UTM, right_UTM, left_UTM, right_UTM), 
+                                     "y" = c(bottom_UTM, bottom_UTM, top_UTM, top_UTM))
+  
+  # Create a SpatialPoints object for UTM values of LL, LR, UL, and UR
+  LL_LR_UL_UR_UTM_m_SP <- SpatialPoints(as.matrix(LL_LR_UL_UR_UTM_m_DF),
+                                        proj4string = CRS(proj_string_UTM))
+  
+  # Generate Extent object in UTM
+  bbox_UTM <- extent(LL_LR_UL_UR_UTM_m_SP)
+  
+  # Create a RasterLayer object for UTM values
+  LL_LR_UL_UR_UTM_m_RL <- raster(nrows = number_cells_across_x,
+                                 ncols = number_cells_across_x,
+                                 ext = bbox_UTM,
+                                 crs = proj_string_UTM)
+  
+  # Create a SpatialPoints object for lat/lon values of LL, LR, UL, and UR through a
+  # spatial transform
+  LL_LR_UL_UR_longlat_SP <- spTransform(LL_LR_UL_UR_UTM_m_SP, CRS("+proj=longlat +ellps=GRS80"))
+  
+  # Generate Extents object in lat/lon projection
+  bbox_lat_lon <- extent(LL_LR_UL_UR_longlat_SP)
   
   ####
   # Get dataframe with all sounding stations
