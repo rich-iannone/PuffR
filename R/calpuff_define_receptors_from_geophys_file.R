@@ -5,7 +5,7 @@
 #' @param height_above_ground the chosen height above ground for all the discrete receptors.
 #' @param download_SRTM a choice of whether to download the SRTM GeoTIFF height data from a server or read the identical files from a local folder.
 #' @param SRTM_file_path path to a folder containing a collection of SRTM V4 zip archive files.
-#' @export calpuff_define_receptors_from_geophys_file
+#' @export calpuff_def_recep_from_geophys
 
 calpuff_def_recep_from_geophys <- function(geophys_file = NULL,
                                            resolution_scale_factor = 0.5,
