@@ -62,7 +62,7 @@ It's early days so the package will be changing rapidly. I invite you to send me
 
 Creating working CALMET and CALPUFF input files, and executing the models, occurs through a stepwise process. Below is the basic CALMET workflow.
 
-<img src="inst/PuffR_CALMET_CALPUFF.png" width="100%">
+<img src="inst/PuffR_CALMET_CALPUFF.jpg" width="100%">
 
 
 Let's generate a geophysical input file for a portion of the Vancouver area. This will consist of a grid centered (use `lat_lon_grid_loc = 1` for a center reference) on 49.250117ºN and 123.076122ºW (`lat_dec_deg = 49.5` and `lon_dec_deg = -125.30364`). The width (E-W distance) of the grid will be 8000 m, and the height (N-S distance) will be the same (`domain_width_m = 8000` and `domain_height_m = 8000`. We will elect to download SRTM terrain height data from "http://gis-lab.info/data/srtm-tif/" (with `download_SRTM = TRUE`).
