@@ -252,7 +252,7 @@ Calling each of these functions builds the temporary `calpuff_template.txt` file
 - greater selection of data sources for generating geophysical input files
 - method to create a precipitation input file for CALMET (PRECIP.DAT)
 - method to create an overwater meteorological data file for CALMET (SEA.DAT)
-- method to import and validate MM4/MM5 files ()
+- method to import and validate MM4/MM5 files (3D.DAT)
 - data imputation methods for upper air soundings
 - method for specifying emissions sources and creating time-and-space-varying emissions for point, line, area, and volume sources
 - method for computing building downwash for point sources near large structures
