@@ -7,11 +7,11 @@
 #' @param SRTM_file_path path to a folder containing a collection of SRTM V4 zip archive files.
 #' @export calpuff_define_receptors_from_geophys_file
 
-calpuff_define_receptors_from_geophys_file <- function(geophys_file = NULL,
-                                                       resolution_scale_factor = 0.5,
-                                                       height_above_ground = 2.5,
-                                                       download_SRTM = TRUE,
-                                                       SRTM_file_path = NULL){
+calpuff_def_recep_from_geophys <- function(geophys_file = NULL,
+                                           resolution_scale_factor = 0.5,
+                                           height_above_ground = 2.5,
+                                           download_SRTM = TRUE,
+                                           SRTM_file_path = NULL){
   
   # Add require statements
   require(rgdal)
