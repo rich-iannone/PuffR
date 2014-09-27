@@ -255,6 +255,6 @@ Calling each of these functions builds the temporary `calpuff_template.txt` file
 - method to import and validate MM4/MM5 files (3D.DAT)
 - data imputation methods for upper air soundings
 - method for specifying emissions sources and creating time-and-space-varying emissions for point, line, area, and volume sources
-- method for computing building downwash for point sources near large structures
+- method for computing building downwash for point sources near large structures (BPIP)
 - output/visualization of concentrations at receptors
 - much more!
