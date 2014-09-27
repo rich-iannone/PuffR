@@ -122,7 +122,7 @@ As for the `calmet_define_geophys` function, the `calmet_surface_met` function r
 What about the upper air situation? That is also covered in PuffR. Simply use the `calmet_upper_air` function and an UP.DAT file will be generated.
 
 ```R
-calmet_upper_air(location_name = "the_city",
+calmet_upper_air(location_name = "Vancouver",
                  year = 2011,
                  lat_dec_deg = 49.196116,
                  lon_dec_deg = -122.505866,
