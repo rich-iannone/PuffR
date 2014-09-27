@@ -247,6 +247,15 @@ Calling each of these functions builds the temporary `calpuff_template.txt` file
 
 - `calpuff_in--[location_name]--[nx]x[ny]x[cell_resolution_m]--[year]--[source_id]--[pollutant].inp`
 
+After running CALPUFF, files with the following structures will be generated:
+
+- `calpuff_out--concdat--[location_name]--[nx]x[ny]x[cell_resolution_m]--[year]--[source_id]--[pollutant].dat`
+- `calpuff_out--dfdat--[location_name]--[nx]x[ny]x[cell_resolution_m]--[year]--[source_id]--[pollutant].dat`
+- `calpuff_out--wfdat--[location_name]--[nx]x[ny]x[cell_resolution_m]--[year]--[source_id]--[pollutant].dat`
+- `calpuff_out--pufflist--[location_name]--[nx]x[ny]x[cell_resolution_m]--[year]--[source_id]--[pollutant].txt`
+
+These correspond to (1) a binary concentration data file, (2) a binary dry flux data file, (3) a binary wet flux data file, and (4) an ascii list file (for run diagnostics).
+
 ### Project Roadmap
 
 - greater selection of data sources for generating geophysical input files
