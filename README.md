@@ -60,7 +60,7 @@ It's early days so the package will be changing rapidly. I invite you to send me
 
 ### PuffR Workflow
 
-Creating working CALMET and CALPUFF input files, and executing the models, occurs through a stepwise process. Below is the basic CALMET workflow.
+Creating working CALMET and CALPUFF input files, and executing the models, occurs through a stepwise process. Below is the basic workflow (functions on the left, input/output files on the right).
 
 <img src="inst/PuffR_CALMET_CALPUFF.jpg" width="100%">
 
