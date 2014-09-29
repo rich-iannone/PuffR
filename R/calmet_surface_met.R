@@ -426,6 +426,9 @@ calmet_surface_met <- function(location_name,
   cat("Station Information:",
       file = paste(output_file), sep = "\n", append = TRUE)
   
+  # Add station information to file header
+  cat(station_information_strings,
+      file = paste(output_file), sep = "\n", append = TRUE)
   
   # Add map projection keyword [NONE] to file header
   cat("NONE",
