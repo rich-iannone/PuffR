@@ -31,22 +31,21 @@ calmet_define_geophys(location_name, lat_dec_deg = NULL, lon_dec_deg = NULL,
 
 \item{LU_method}{the method for obtaining CALMET land use codes for the selected domain; current options are (1) "MODIS_Global" and (2) "BTM_BC" (a method specific to the province of British Columbia in Canada, and, requires a local copy of the BC BTM V1 shapefile).}
 
-\item{shapefile_dir}{if the chosen 'LU_method' requires the use of a local shapefile, supply the relative or absolute path to the shapefile here.}
+\item{shapefile_dir}{if the chosen 'LU_method' requires the use of a local shapefile (currently, the "BTM_BC" uses shapefile data), supply the relative or absolute path to the shapefile here.}
 }
 \description{
 Define the CALMET domain and determine the best gridded values for land use, terrain heights, and micrometeorological parameters for creation of a geophysical input file.
 }
 \examples{
 \dontrun{
-# Create a CALMET domain of 100 by 100 km in the Los Angeles area.
-# Chosen lat/lon coordinates are for the center of the domain.
-calmet_define_geophys(location_name = "losangeles",
-                      lat_dec_deg = 34.050184,
-                      lon_dec_deg = -118.253959,
+# Generate a geophysical input file (GEO.DAT) for CALMET
+calmet_define_geophys(location_name = "test",
+                      lat_dec_deg = 49.196116,
+                      lon_dec_deg = -122.505866,
                       lat_lon_grid_loc = 1,
-                      domain_width_m = 100000,
-                      domain_height_m = 100000,
-                      cell_resolution_m = 250
+                      domain_width_m = 117000,
+                      domain_height_m = 43250,
+                      cell_resolution_m = 500
                       download_SRTM = TRUE)
 }
 }
