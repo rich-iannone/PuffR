@@ -418,7 +418,7 @@ calmet_surface_met <- function(location_name,
   cat(as.character(length(station_information_strings) + 2),
       file = paste(output_file), sep = "\n", append = TRUE)
   
-  # Add line 3 to file header (single comment line)
+  # Add line 3 to file header
   cat("Produced by PuffR !Do not edit by hand!",
       file = paste(output_file), sep = "\n", append = TRUE)
   
