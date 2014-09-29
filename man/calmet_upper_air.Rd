@@ -29,4 +29,18 @@ calmet_upper_air(location_name, year, lat_dec_deg = NULL,
 \description{
 This function retrieves upper air sounding data and processes it to generate an upper air input file for CALMET.
 }
+\examples{
+\dontrun{
+# Generate an upper air station file
+calmet_upper_air(location_name = 'test',
+                 year = 2005,
+                 lat_dec_deg = 49.196116,
+                 lon_dec_deg = -122.505866,
+                 lat_lon_grid_loc = 1,
+                 domain_width_m = 117000,
+                 domain_height_m = 43250,
+                 cell_resolution_m = 500,
+                 time_offset = -8)
+}
+}
 
