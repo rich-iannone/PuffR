@@ -421,6 +421,11 @@ calmet_surface_met <- function(location_name,
   # Add line 3 to file header
   cat("Produced by PuffR !Do not edit by hand!",
       file = paste(output_file), sep = "\n", append = TRUE)
+
+  # Add line 4 to file header
+  cat("Station Information:",
+      file = paste(output_file), sep = "\n", append = TRUE)
+  
   
   # Add map projection keyword [NONE] to file header
   cat("NONE",
