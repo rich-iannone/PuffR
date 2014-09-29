@@ -210,6 +210,46 @@ calmet_surface_met <- function(location_name,
     time_difference <- difftime(end_time, start_time, units = 'hours')
     total_hours <- time_difference[[1]]
     
+    # Get key station information as a character vector
+    for (i in 1:length(CSV_files)){
+      
+      # Initialize the vector object
+      if (i == 1) station_information_strings <- vector(mode = "character", length = 0)
+      
+      # Create new identifiers for the stations
+      identifier_1 <- paste(formatC(i, digits = 3, flag = "0"))
+      identifier_2 <- paste(formatC(i, digits = 5, flag = "0"))
+      
+      # Obtain the station's latitude and longitude
+      station_lat <- read.csv(CSV_files[i], header = TRUE, stringsAsFactors = FALSE)[1,8]
+      station_lon <- read.csv(CSV_files[i], header = TRUE, stringsAsFactors = FALSE)[1,9]
+      
+      # Reproject the lat/lon coordinates as UTM coordinates
+      station_lat_lon_dec_deg <- cbind(station_lon, station_lat)
+      station_UTM <- project(station_lat_lon_dec_deg, proj_string_UTM)
+      station_UTM_easting_km <- round((station_UTM[1,1] / 1000), digits = 3)
+      station_UTM_northing_km <- round((station_UTM[1,2] / 1000), digits = 3) 
+      
+      # Get the station's time offset and format the value for use in CALMET
+      station_time_offset <- -(time_offset)
+      
+      # Set a fixed anenometer height of 20 m AGL
+      station_anenometer_height <- 20
+      
+      # Format the values into a character string
+      station_values_string <- paste(identifier_1, " ",
+                                     identifier_2, " ",
+                                     station_UTM_easting_km, " ",
+                                     station_UTM_northing_km, " ",
+                                     station_time_offset, " ",
+                                     station_anenometer_height,
+                                     sep = "")
+      
+      station_information_strings <- c(station_information_strings,
+                                       station_values_string)
+      
+    }
+    
     # Create the hourly time series as a list of POSIXct time objects
     time_series <- as.list(c(1:total_hours))
     for (i in 1:total_hours) {
