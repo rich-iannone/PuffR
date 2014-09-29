@@ -415,7 +415,7 @@ calmet_surface_met <- function(location_name,
       file = paste(output_file), sep = "\n", append = TRUE)
   
   # Add line 2 to file header (number of comment lines to follow)
-  cat("1",
+  cat(as.character(length(station_information_strings) + 2),
       file = paste(output_file), sep = "\n", append = TRUE)
   
   # Add line 3 to file header (single comment line)
