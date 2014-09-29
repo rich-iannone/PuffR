@@ -10,7 +10,7 @@
 #' @param download_SRTM a choice of whether to download the SRTM GeoTIFF height data from a server or read the identical files from a local folder.
 #' @param SRTM_file_path path to a folder containing a collection of SRTM V4 zip archive files.
 #' @param LU_method the method for obtaining CALMET land use codes for the selected domain; current options are (1) "MODIS_Global" and (2) "BTM_BC" (a method specific to the province of British Columbia in Canada, and, requires a local copy of the BC BTM V1 shapefile).
-#' @param shapefile_dir if the chosen 'LU_method' requires the use of a local shapefile, supply the relative or absolute path to the shapefile here.
+#' @param shapefile_dir if the chosen 'LU_method' requires the use of a local shapefile (currently, the "BTM_BC" uses shapefile data), supply the relative or absolute path to the shapefile here.
 #' @export calmet_define_geophys
 #' @examples
 #' \dontrun{
