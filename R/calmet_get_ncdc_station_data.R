@@ -46,6 +46,13 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
         if (file.exists(data_filename)) file.remove(data_filename)
         
       }
+      
+      if (local_file_exists == FALSE){
+        
+        file_copied <- FALSE
+                
+      }
+      
     }
     
     if (is.null(local_archive_dir)){
