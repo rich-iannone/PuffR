@@ -10,6 +10,19 @@
 #' @param cell_resolution_m the grid cell resolution in meters.
 #' @param time_offset the offset from UTC-00:00 in hours.
 #' @export calmet_upper_air
+#' @examples
+#' \dontrun{
+#' # Generate an upper air station file
+#' calmet_upper_air(location_name = 'test',
+#'                  year = 2005,
+#'                  lat_dec_deg = 49.196116,
+#'                  lon_dec_deg = -122.505866,
+#'                  lat_lon_grid_loc = 1,
+#'                  domain_width_m = 117000,
+#'                  domain_height_m = 43250,
+#'                  cell_resolution_m = 500,
+#'                  time_offset = -8)
+#'}
 
 calmet_upper_air <- function(location_name,
                              year,
