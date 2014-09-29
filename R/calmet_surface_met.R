@@ -439,7 +439,8 @@ calmet_surface_met <- function(location_name,
             formatC(abs(time_offset), width = 2, flag = "0"), "00", sep = ''),
       file = paste(output_file), sep = "\n", append = TRUE)
   
-  # Add line 6 to file header (Beginning and end times for file, number of met stations)
+  # Add time and station info to file header (Beginning and end times for
+  # file, number of met stations)
   cat(year(time_series[[1]]),
       "  ",
       yday(time_series[[1]]),
