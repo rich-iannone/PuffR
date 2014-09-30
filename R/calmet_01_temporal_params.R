@@ -25,12 +25,12 @@ calmet_01_temporal_params <- function(calmet_inp = "calmet_template.txt",
                                       ibmo = NULL,
                                       ibdy = NULL,
                                       ibhr = NULL,
-                                      ibsec = NULL,
+                                      ibsec = 0,
                                       ieyr = NULL,
                                       iemo = NULL,
                                       iedy = NULL,
                                       iehr = NULL,
-                                      iesec = NULL,
+                                      iesec = 0,
                                       abtz = NULL,
                                       nsecdt = 3600,
                                       irtype = 1,
@@ -49,12 +49,12 @@ calmet_01_temporal_params <- function(calmet_inp = "calmet_template.txt",
   if (is.null(ibmo)) ibmo <- NA
   if (is.null(ibdy)) ibdy <- NA
   if (is.null(ibhr)) ibhr <- NA
-  if (is.null(ibsec)) ibsec <- NA
+#   if (is.null(ibsec)) ibsec <- NA
   if (is.null(ieyr)) ieyr <- NA
   if (is.null(iemo)) iemo <- NA
   if (is.null(iedy)) iedy <- NA
   if (is.null(iehr)) iehr <- NA
-  if (is.null(iesec)) iesec <- NA
+#   if (is.null(iesec)) iesec <- NA
   if (is.null(abtz)) abtz <- NA
   
   # If option set to read data from SURF.DAT file, get the relevant values
@@ -85,8 +85,8 @@ calmet_01_temporal_params <- function(calmet_inp = "calmet_template.txt",
     ibhr <- gsub("[ ]*[0-9]*[ ]*[0-9]*[ ]*([0-9]*).*", "\\1",
                  surf_dat_header[2])
     
-    ibsec <- gsub("[ ]*[0-9]*[ ]*[0-9]*[ ]*[0-9]*[ ]*([0-9]*).*", "\\1",
-                  surf_dat_header[2])
+#     ibsec <- gsub("[ ]*[0-9]*[ ]*[0-9]*[ ]*[0-9]*[ ]*([0-9]*).*", "\\1",
+#                   surf_dat_header[2])
     
     ieyr <- gsub("[ ]*[0-9]*[ ]*[0-9]*[ ]*[0-9]*[ ]*[0-9]*[ ]*([0-9]*).*", "\\1",
                  surf_dat_header[2])
@@ -99,9 +99,9 @@ calmet_01_temporal_params <- function(calmet_inp = "calmet_template.txt",
                         "[ ]*[0-9]*[ ]*[0-9]*[ ]*([0-9]*).*"), "\\1",
                  surf_dat_header[2])
     
-    iesec <- gsub(paste0("[ ]*[0-9]*[ ]*[0-9]*[ ]*[0-9]*[ ]*[0-9]*",
-                         "[ ]*[0-9]*[ ]*[0-9]*[ ]*[0-9]*[ ]*([0-9]*).*"), "\\1",
-                  surf_dat_header[2])
+#     iesec <- gsub(paste0("[ ]*[0-9]*[ ]*[0-9]*[ ]*[0-9]*[ ]*[0-9]*",
+#                          "[ ]*[0-9]*[ ]*[0-9]*[ ]*[0-9]*[ ]*([0-9]*).*"), "\\1",
+#                   surf_dat_header[2])
     
     ibmo <- month(ISOdatetime(as.numeric(ibyr),
                               month = 1, day = 1, hour = 0, min = 0, sec = 0,
