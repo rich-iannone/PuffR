@@ -137,13 +137,13 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
     # a MESOPUFF-II-type output file (PACOUT.DAT) is desired
     if (as.numeric(gsub(".*([0-9])..", "\\1",
                         calmet_inp_working[grep("IFORMO",
-                                                calmet_inp_working)])) == 0){
+                                                calmet_inp_working)])) == 1){
       metdat <- TRUE
       metlst <- TRUE
       pacdat <- FALSE
     } else if (as.numeric(gsub(".*([0-9])..", "\\1",
                                calmet_inp_working[grep("IFORMO",
-                                                       calmet_inp_working)])) == 1){
+                                                       calmet_inp_working)])) == 2){
       metdat <- FALSE
       metlst <- FALSE
       pacdat <- TRUE
