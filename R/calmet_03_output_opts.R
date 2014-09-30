@@ -35,7 +35,7 @@
 
 calmet_03_output_opts <- function(calmet_inp = "calmet_template.txt",
                                   lsave = TRUE,
-                                  iformo = 0,
+                                  iformo = 1,
                                   lprint = FALSE,
                                   iprinf = 1,
                                   iuvout = NULL,
