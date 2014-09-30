@@ -289,7 +289,8 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
         
         if (length(grep("GEODAT", true_fields_values[j])) == 1){
           calmet_inp_working[true_fields_indices[j]] <- 
-            paste("! GEODAT = geo", file_stub, " !", sep = '')
+            paste("! GEODAT = geo", gsub("^(.*--)[0-9][0-9][0-9][0-9]-(.*)", "\\1\\2", file_stub),
+                  " !", sep = '')
         }
         
         if (length(grep("SRFDAT", true_fields_values[j])) == 1){
