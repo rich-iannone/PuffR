@@ -182,6 +182,10 @@ calmet_surface_met <- function(location_name,
       }
     }
     
+    # Create vector list of additional CSV files that were downloaded
+    additional_CSV_files <- list.files(pattern = paste("[0-9]*-[0-9]*-", year + 1, ".csv",
+                                                       sep = ''))
+     
     }
     
     #     if (time_offset > 0){
