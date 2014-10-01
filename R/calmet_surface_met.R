@@ -174,12 +174,14 @@ calmet_surface_met <- function(location_name,
     # the year (since datasets are standardized to UTC-00:00)
     if (time_offset < 0 & year < as.numeric(format(Sys.time(), "%Y"))){
       
-        for (i in 1:length(CSV_files)){
-          calmet_get_ncdc_station_data(data_filename = gsub("([0-9]*-[0-9]*-)[0-9]*.csv",
-                                                            paste("\\1", year + 1, ".gz", sep = ''),
-                                                            CSV_files[i]),
-                                       local_archive_dir = local_archive_dir)
-        }
+      for (i in 1:length(CSV_files)){
+        calmet_get_ncdc_station_data(data_filename = gsub("([0-9]*-[0-9]*-)[0-9]*.csv",
+                                                          paste("\\1", year + 1, ".gz", sep = ''),
+                                                          CSV_files[i]),
+                                     local_archive_dir = local_archive_dir)
+      }
+    }
+    
     }
     
     #     if (time_offset > 0){
@@ -367,7 +369,7 @@ calmet_surface_met <- function(location_name,
                                 "CEIL.HGT", "TEMP", "DEW.POINT", "ATM.PRES",
                                 "SKY.COVER", "PRECIP.RATE", "RH", "PRECIP.CODE",
                                 "time_series")
-            
+      
       missing_df$time_series <- as.POSIXct(missing_df$time_series,
                                            origin = "1970-01-01",
                                            tz = "GMT")
@@ -440,7 +442,7 @@ calmet_surface_met <- function(location_name,
   # Add line 3 to file header
   cat("Produced by PuffR !Do not edit by hand!",
       file = paste(output_file), sep = "\n", append = TRUE)
-
+  
   # Add line 4 to file header
   cat("Station Information:",
       file = paste(output_file), sep = "\n", append = TRUE)
@@ -512,40 +514,40 @@ calmet_surface_met <- function(location_name,
     for (j in 1:length(station_data_frames)){
       
       cat(# Wind speed, m/s (WS)
-          format(station_data_frames[[j]][[1]]$WIND.SPD[i],
-                 width = 6, justify = "right"),
-          " ",
-          # Wind direction, degrees (WD)
-          format(station_data_frames[[j]][[1]]$WIND.DIR[i],
-                 width = 6, justify = "right"),
-          " ",
-          # Ceiling height, hundreds of feet (ICEIL)
-          format(station_data_frames[[j]][[1]]$CEIL.HGT[i],
-                 width = 6, justify = "right"),
-          " ",
-          # Opaque sky cover, tenths (ICC)
-          format(station_data_frames[[j]][[1]]$SKY.COVER[i],
-                 width = 6, justify = "right"),
-          " ",
-          # Air temperature, K (TEMPK)
-          format(station_data_frames[[j]][[1]]$TEMP[i],
-                 width = 6, justify = "right"),
-          " ",
-          # Relative humidity, % (IRH)
-          format(station_data_frames[[j]][[1]]$RH[i],
-                 width = 6, justify = "right"),
-          " ",
-          # Station pressure, mb (PRES)
-          format(station_data_frames[[j]][[1]]$ATM.PRES[i],
-                 width = 6, justify = "right"),
-          " ",
-          # Precipitation code (IPCODE) 
-          #   0 = no precipitation
-          #   1-18 = liquid precipitation
-          #   19-45 = frozen precipitation
-          format(station_data_frames[[j]][[1]]$PRECIP.CODE[i],
-                 width = 6, justify = "right"),
-          file = paste(output_file), append = TRUE)
+        format(station_data_frames[[j]][[1]]$WIND.SPD[i],
+               width = 6, justify = "right"),
+        " ",
+        # Wind direction, degrees (WD)
+        format(station_data_frames[[j]][[1]]$WIND.DIR[i],
+               width = 6, justify = "right"),
+        " ",
+        # Ceiling height, hundreds of feet (ICEIL)
+        format(station_data_frames[[j]][[1]]$CEIL.HGT[i],
+               width = 6, justify = "right"),
+        " ",
+        # Opaque sky cover, tenths (ICC)
+        format(station_data_frames[[j]][[1]]$SKY.COVER[i],
+               width = 6, justify = "right"),
+        " ",
+        # Air temperature, K (TEMPK)
+        format(station_data_frames[[j]][[1]]$TEMP[i],
+               width = 6, justify = "right"),
+        " ",
+        # Relative humidity, % (IRH)
+        format(station_data_frames[[j]][[1]]$RH[i],
+               width = 6, justify = "right"),
+        " ",
+        # Station pressure, mb (PRES)
+        format(station_data_frames[[j]][[1]]$ATM.PRES[i],
+               width = 6, justify = "right"),
+        " ",
+        # Precipitation code (IPCODE) 
+        #   0 = no precipitation
+        #   1-18 = liquid precipitation
+        #   19-45 = frozen precipitation
+        format(station_data_frames[[j]][[1]]$PRECIP.CODE[i],
+               width = 6, justify = "right"),
+        file = paste(output_file), append = TRUE)
       
       cat("", file = output_file, sep = "\n", append = TRUE)
       
