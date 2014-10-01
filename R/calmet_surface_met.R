@@ -380,7 +380,7 @@ calmet_surface_met <- function(location_name,
                                          ncol = 21),
                                   stringsAsFactors = FALSE)
       
-      
+      # Add column names to the 'missing_df' data frame
       colnames(missing_df) <- c("USAFID", "WBAN", "YR", "M", "D", "HR", "MIN",
                                 "LAT", "LONG", "ELEV", "WIND.DIR", "WIND.SPD",
                                 "CEIL.HGT", "TEMP", "DEW.POINT", "ATM.PRES",
