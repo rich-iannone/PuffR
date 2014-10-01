@@ -166,6 +166,9 @@ calmet_surface_met <- function(location_name,
       }
     }
     
+    # Update the list of CSV files that are acceptable to use
+    CSV_files <- list.files(pattern = "[0-9]{6}-[0-9]{5}-[0-9]{4}.*.csv$")
+    
     
     # Get additional files to compensate for missing data at either the beginning or end of
     # the year (since datasets are standardized to UTC-00:00)
