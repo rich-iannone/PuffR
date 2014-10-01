@@ -447,12 +447,14 @@ calmet_surface_met <- function(location_name,
       "  ",
       hour(time_series[[1]]),
       "  ",
+      "0  ",
       year(time_series[[total_hours]] + 3600),
       "  ",
       yday(time_series[[total_hours]] + 3600),
       "  ",
       hour(time_series[[total_hours]] + 3600),
       "  ",
+      "0  ",
       length(CSV_files),
       file = paste(output_file), sep = '', append = TRUE)
   
@@ -476,11 +478,15 @@ calmet_surface_met <- function(location_name,
         "  ",
         hour(time_series[[i]]),
         "  ",
+        "0  ",
         year(time_series[[i]] + 3600),
         "  ", 
         yday(time_series[[i]] + 3600),
         "  ",
-        hour(time_series[[i]] + 3600), file = paste(output_file), append = TRUE)
+        hour(time_series[[i]] + 3600),
+        "  ",
+        "0  ",
+        file = paste(output_file), append = TRUE)
     
     cat("", file = paste(output_file), sep = "\n", append = TRUE)
     
