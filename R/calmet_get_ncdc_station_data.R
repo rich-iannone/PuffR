@@ -197,6 +197,9 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
     # Filter file list to only use those files that were requested
     files <- files[which(outputs[, 1] %in% paste(files, ".gz", sep = ""))]
     
+    # Remove any NA values from vector
+    files <- files[!is.na(files)]
+    
   }
   
   # Define column widths from met data file
