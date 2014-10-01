@@ -353,6 +353,9 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
     write.csv(data, file = paste(gsub(".*/(.*)", "\\1", gsub(".gz$", "", files[i])), ".csv", sep = ""),
               row.names = FALSE)
     
+    # Remove the data file from the working directory
+    file.remove(files[i])
+    
   }
   
   # Get list of CSV files that were created
