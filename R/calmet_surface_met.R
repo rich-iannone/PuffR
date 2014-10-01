@@ -186,6 +186,13 @@ calmet_surface_met <- function(location_name,
     additional_CSV_files <- list.files(pattern = paste("[0-9]*-[0-9]*-", year + 1, ".csv",
                                                        sep = ''))
      
+    # Include only records that are on the hour
+    for (i in 1:length(additional_CSV_files)){
+      the_data <- read.csv(additional_CSV_files[i], header = TRUE, stringsAsFactors = FALSE)
+      the_data_on_hour <- subset(the_data, MIN == 0)
+      write.table(the_data_on_hour, file = additional_CSV_files[i], sep = ",", row.names = FALSE)
+    }
+    
     }
     
     #     if (time_offset > 0){
