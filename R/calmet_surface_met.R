@@ -155,8 +155,6 @@ calmet_surface_met <- function(location_name,
     for (i in 1:length(CSV_files)){
       the_data <- read.csv(CSV_files[i], header = TRUE, stringsAsFactors = FALSE)
       the_data_on_hour <- subset(the_data, MIN == 0)
-      nrow(the_data)
-      nrow(the_data_on_hour)
       write.table(the_data_on_hour, file = CSV_files[i], sep = ",", row.names = FALSE)
     }
     
