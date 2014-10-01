@@ -160,6 +160,15 @@ calmet_surface_met <- function(location_name,
       write.table(the_data_on_hour, file = CSV_files[i], sep = ",", row.names = FALSE)
     }
     
+    # Include only those files with more than 5000 hours for the year
+    for (i in 1:length(CSV_files)){
+      the_data <- read.csv(CSV_files[i], header = TRUE, stringsAsFactors = FALSE)
+      if(nrow(the_data) < 5000) {
+        file.remove(CSV_files[i])
+      }
+    }
+    
+    
     # Get additional files to compensate for missing data at either the beginning or end of
     # the year (since datasets are standardized to UTC-00:00)
     if (time_offset < 0 & year < as.numeric(format(Sys.time(), "%Y"))){
