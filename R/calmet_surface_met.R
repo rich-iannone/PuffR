@@ -237,7 +237,7 @@ calmet_surface_met <- function(location_name,
     }
     
     # Clean up folder
-    file.remove(CSV_files, gsub(".csv", "", CSV_files))
+    file.remove(additional_CSV_files, gsub(".csv", "", CSV_files))
     
     # Generate a new list of CSV files
     CSV_files <- list.files(path = ".", pattern = "^[0-9]*-[0-9]*.csv")
