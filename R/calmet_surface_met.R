@@ -150,7 +150,16 @@ calmet_surface_met <- function(location_name,
     CSV_files <- calmet_get_ncdc_station_data(year = year,
                                               bbox_lat_lon = bbox_lat_lon,
                                               local_archive_dir = local_archive_dir)
-        
+    
+    # Include only records that are on the hour
+    for (i in 1:length(CSV_files)){
+      the_data <- read.csv(CSV_files[i], header = TRUE, stringsAsFactors = FALSE)
+      the_data_on_hour <- subset(the_data, MIN == 0)
+      nrow(the_data)
+      nrow(the_data_on_hour)
+      write.table(the_data_on_hour, file = CSV_files[i], sep = ",", row.names = FALSE)
+    }
+    
     # Get additional files to compensate for missing data at either the beginning or end of
     # the year (since datasets are standardized to UTC-00:00)
     if (time_offset < 0 & year < as.numeric(format(Sys.time(), "%Y"))){
