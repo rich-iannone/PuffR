@@ -5,8 +5,8 @@
 \usage{
 calmet_01_temporal_params(calmet_inp = "calmet_template.txt",
   read_data_from_surf_dat = TRUE, ibyr = NULL, ibmo = NULL, ibdy = NULL,
-  ibhr = NULL, ibsec = NULL, ieyr = NULL, iemo = NULL, iedy = NULL,
-  iehr = NULL, iesec = NULL, abtz = NULL, nsecdt = 3600, irtype = 1,
+  ibhr = NULL, ibsec = 0, ieyr = NULL, iemo = NULL, iedy = NULL,
+  iehr = NULL, iesec = 0, abtz = NULL, nsecdt = 3600, irtype = 1,
   lcalgrd = TRUE, itest = 2, mreg = 0)
 }
 \arguments{
