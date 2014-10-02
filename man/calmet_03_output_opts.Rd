@@ -4,7 +4,7 @@
 \title{Set CALMET parameters for the output options}
 \usage{
 calmet_03_output_opts(calmet_inp = "calmet_template.txt", lsave = TRUE,
-  iformo = 0, lprint = FALSE, iprinf = 1, iuvout = NULL, iwout = NULL,
+  iformo = 1, lprint = FALSE, iprinf = 1, iuvout = NULL, iwout = NULL,
   itout = NULL, stability = TRUE, ustar = TRUE, monin = TRUE,
   mixht = TRUE, wstar = TRUE, precip = TRUE, sensheat = TRUE,
   convzi = TRUE, ldb = TRUE, nn1 = 1, nn2 = 24, ldbcst = FALSE,
