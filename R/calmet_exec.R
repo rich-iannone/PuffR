@@ -7,3 +7,6 @@ calmet_exec <- function(calmet_exec){
   
   # Obtain list of CALMET input files
   calmet_in_files <- list.files(pattern = "^calmet_in.*.txt")
+  
+  # Process each input file with CALMET
+  for (i in 1:length(calmet_in_files)){
