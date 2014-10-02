@@ -16,3 +16,10 @@ calmet_exec <- function(calmet_exec){
                                           calmet_exec, "' ", calmet_in_files[i],
                                           sep = ""),
                           intern = TRUE)
+    
+    # Write 'console_log' to a text file
+    writeLines(console_log, con = paste("log_for_", calmet_in_files[i], sep = '' ))
+
+  }
+  
+}
