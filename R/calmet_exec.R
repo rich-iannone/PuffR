@@ -10,3 +10,9 @@ calmet_exec <- function(calmet_exec){
   
   # Process each input file with CALMET
   for (i in 1:length(calmet_in_files)){
+    
+    # Run the input file with CALMET and capture output as lines to 'console_log'
+    console_log <- system(command = paste("cd ", getwd(), " ; '",
+                                          calmet_exec, "' ", calmet_in_files[i],
+                                          sep = ""),
+                          intern = TRUE)
