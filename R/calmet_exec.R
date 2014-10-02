@@ -5,4 +5,5 @@
 
 calmet_exec <- function(calmet_exec){
   
-}
+  # Obtain list of CALMET input files
+  calmet_in_files <- list.files(pattern = "^calmet_in.*.txt")
