@@ -96,10 +96,6 @@ calmet_01_temporal_params <- function(calmet_inp = "calmet_template.txt",
                         "[ ]*[0-9]*[ ]*[0-9]*[ ]*([0-9]*).*"), "\\1",
                  surf_dat_header[2])
     
-#     iesec <- gsub(paste0("[ ]*[0-9]*[ ]*[0-9]*[ ]*[0-9]*[ ]*[0-9]*",
-#                          "[ ]*[0-9]*[ ]*[0-9]*[ ]*[0-9]*[ ]*([0-9]*).*"), "\\1",
-#                   surf_dat_header[2])
-    
     ibmo <- month(ISOdatetime(as.numeric(ibyr),
                               month = 1, day = 1, hour = 0, min = 0, sec = 0,
                               tz = "GMT") + ((as.numeric(ibjulday) - 1) * (3600 * 24)))
