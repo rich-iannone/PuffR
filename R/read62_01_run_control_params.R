@@ -24,6 +24,8 @@ read62_01_run_control_params <- function(read62_inp = "read62_template.txt",
                                          lxsfc = TRUE,
                                          zvsfc = 200){
   
+  # Add require statement
+  require(lubridate)
   
   # Read in the working calmet.inp file as a character vector
   read62_inp_working <- readLines(read62_inp, warn = FALSE)
