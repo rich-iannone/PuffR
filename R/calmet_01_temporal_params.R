@@ -85,9 +85,6 @@ calmet_01_temporal_params <- function(calmet_inp = "calmet_template.txt",
     ibhr <- gsub("[ ]*[0-9]*[ ]*[0-9]*[ ]*([0-9]*).*", "\\1",
                  surf_dat_header[2])
     
-#     ibsec <- gsub("[ ]*[0-9]*[ ]*[0-9]*[ ]*[0-9]*[ ]*([0-9]*).*", "\\1",
-#                   surf_dat_header[2])
-    
     ieyr <- gsub("[ ]*[0-9]*[ ]*[0-9]*[ ]*[0-9]*[ ]*[0-9]*[ ]*([0-9]*).*", "\\1",
                  surf_dat_header[2])
     
