@@ -5,7 +5,7 @@
 read62_inp_generate_template <- function(){
   
   writeLines(
-    c("READ62.INP      2.1             Hour Start and End Times with Seconds                           ",
+    c("READ62.INP      2.1             Hour Start and End Times with Seconds",
       "",
       "0 -- Input and Output Files",
       "",
