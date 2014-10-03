@@ -12,6 +12,8 @@ calmet_01_temporal_params(calmet_inp = "calmet_template.txt",
 \arguments{
 \item{calmet_inp}{the absolute path and filename for the working CALMET input file.}
 
+\item{read_data_from_surf_dat}{}
+
 \item{ibyr}{}
 
 \item{ibmo}{}
