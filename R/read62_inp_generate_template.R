@@ -49,6 +49,6 @@ read62_inp_generate_template <- function(){
       "! ZVSFC = 200 !",
       "",
       "!END!",
-      ""), "calmet_template.txt", sep = "\n")
+      ""), "read62_template.txt", sep = "\n")
   
 }
