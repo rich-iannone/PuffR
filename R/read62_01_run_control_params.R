@@ -30,6 +30,9 @@ read62_01_run_control_params <- function(read62_inp = "read62_template.txt",
   # Transform TRUE or FALSE value for 'lxtop' to string
   lxtop <- ifelse(lxtop == TRUE, "T", "F")
   
+  # Transform TRUE or FALSE value for 'lxsfc' to string
+  lxsfc <- ifelse(lxsfc == TRUE, "T", "F")
+  
   # Read in the working calmet.inp file as a character vector
   read62_inp_working <- readLines(read62_inp, warn = FALSE)
   
