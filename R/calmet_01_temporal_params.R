@@ -1,6 +1,7 @@
 #' Set CALMET temporal and model run parameters
 #' @description This function validates and writes CALMET parameters for the model starting and ending times, the time zone, and model timings.
 #' @param calmet_inp the absolute path and filename for the working CALMET input file.
+#' @param read_data_from_surf_dat 
 #' @param ibyr 
 #' @param ibmo 
 #' @param ibdy 
