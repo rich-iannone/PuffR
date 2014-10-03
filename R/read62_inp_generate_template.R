@@ -16,7 +16,7 @@ read62_inp_generate_template <- function(){
       "",
       "! LCFILES = T !",
       "",
-      "!END!",
+      "! END !",
       "",
       "--------------------------------------------------------------------------------",
       "",
@@ -48,7 +48,7 @@ read62_inp_generate_template <- function(){
       "! LXSFC = T   !",
       "! ZVSFC = 200 !",
       "",
-      "!END!",
+      "! END !",
       ""), "read62_template.txt", sep = "\n")
   
 }
