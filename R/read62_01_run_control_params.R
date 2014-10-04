@@ -53,6 +53,11 @@ read62_01_run_control_params <- function(read62_inp = "read62_template.txt",
     # the first of the set
     if (length(surf_dat_file > 1)) surf_dat_file <- surf_dat_file[1]
     
+    # Obtain several lines from the header portion of the SURF.DAT file
+    surf_dat_header <- readLines(surf_dat_file, warn = FALSE)[
+      (as.numeric(readLines(surf_dat_file, warn = FALSE)[2]) + 4):
+        (as.numeric(readLines(surf_dat_file, warn = FALSE)[2]) + 5)]
+        
   }
   
   # Read in the working calmet.inp file as a character vector
