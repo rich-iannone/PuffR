@@ -46,6 +46,9 @@ read62_01_run_control_params <- function(read62_inp = "read62_template.txt",
   # If option set to read data from SURF.DAT file, get the relevant values
   if (read_data_from_surf_dat == TRUE){
   
+    # Generate vector list of all SURF.DAT files in the working folder
+    surf_dat_file <- list.files(pattern = "surf--.*")
+    
   }
   
   # Read in the working calmet.inp file as a character vector
