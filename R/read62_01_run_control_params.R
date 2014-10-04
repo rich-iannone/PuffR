@@ -43,6 +43,11 @@ read62_01_run_control_params <- function(read62_inp = "read62_template.txt",
   if (is.null(iedy)) iedy <- NA
   if (is.null(iehr)) iehr <- NA
   
+  # If option set to read data from SURF.DAT file, get the relevant values
+  if (read_data_from_surf_dat == TRUE){
+  
+  }
+  
   # Read in the working calmet.inp file as a character vector
   read62_inp_working <- readLines(read62_inp, warn = FALSE)
   
