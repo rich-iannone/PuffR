@@ -58,6 +58,43 @@ read62_01_run_control_params <- function(read62_inp = "read62_template.txt",
       (as.numeric(readLines(surf_dat_file, warn = FALSE)[2]) + 4):
         (as.numeric(readLines(surf_dat_file, warn = FALSE)[2]) + 5)]
         
+    # Get the time data
+    ibyr <- gsub("[ ]*([0-9]*).*", "\\1",
+                 surf_dat_header[2])
+    
+    ibjulday <- gsub("[ ]*[0-9]*[ ]*([0-9]*).*", "\\1",
+                     surf_dat_header[2])
+    
+    ibhr <- gsub("[ ]*[0-9]*[ ]*[0-9]*[ ]*([0-9]*).*", "\\1",
+                 surf_dat_header[2])
+    
+    ieyr <- gsub("[ ]*[0-9]*[ ]*[0-9]*[ ]*[0-9]*[ ]*[0-9]*[ ]*([0-9]*).*", "\\1",
+                 surf_dat_header[2])
+    
+    iejulday <- gsub(paste0("[ ]*[0-9]*[ ]*[0-9]*[ ]*[0-9]*[ ]*[0-9]*",
+                            "[ ]*[0-9]*[ ]*([0-9]*).*"), "\\1",
+                     surf_dat_header[2])
+    
+    iehr <- gsub(paste0("[ ]*[0-9]*[ ]*[0-9]*[ ]*[0-9]*[ ]*[0-9]*",
+                        "[ ]*[0-9]*[ ]*[0-9]*[ ]*([0-9]*).*"), "\\1",
+                 surf_dat_header[2])
+    
+    ibmo <- month(ISOdatetime(as.numeric(ibyr),
+                              month = 1, day = 1, hour = 0, min = 0, sec = 0,
+                              tz = "GMT") + ((as.numeric(ibjulday) - 1) * (3600 * 24)))
+    
+    ibdy <- day(ISOdatetime(as.numeric(ibyr),
+                            month = 1, day = 1, hour = 0, min = 0, sec = 0,
+                            tz = "GMT") + ((as.numeric(ibjulday) - 1) * (3600 * 24)))
+    
+    iemo <- month(ISOdatetime(as.numeric(ieyr),
+                              month = 1, day = 1, hour = 0, min = 0, sec = 0,
+                              tz = "GMT") + ((as.numeric(iejulday) - 1) * (3600 * 24)))
+    
+    iedy <- day(ISOdatetime(as.numeric(ieyr),
+                            month = 1, day = 1, hour = 0, min = 0, sec = 0,
+                            tz = "GMT") + ((as.numeric(iejulday) - 1) * (3600 * 24)))
+    
   }
   
   # Read in the working calmet.inp file as a character vector
