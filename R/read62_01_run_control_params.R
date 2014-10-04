@@ -33,6 +33,16 @@ read62_01_run_control_params <- function(read62_inp = "read62_template.txt",
   # Transform TRUE or FALSE value for 'lxsfc' to string
   lxsfc <- ifelse(lxsfc == TRUE, "T", "F")
   
+  # Change NULL values for certain arguments to NA values
+  if (is.null(ibyr)) ibyr <- NA
+  if (is.null(ibmo)) ibmo <- NA
+  if (is.null(ibdy)) ibdy <- NA
+  if (is.null(ibhr)) ibhr <- NA
+  if (is.null(ieyr)) ieyr <- NA
+  if (is.null(iemo)) iemo <- NA
+  if (is.null(iedy)) iedy <- NA
+  if (is.null(iehr)) iehr <- NA
+  
   # Read in the working calmet.inp file as a character vector
   read62_inp_working <- readLines(read62_inp, warn = FALSE)
   
