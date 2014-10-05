@@ -2,22 +2,22 @@
 #' @description This function validates and writes CALMET parameters for the model starting and ending times, the time zone, and model timings.
 #' @param calmet_inp the absolute path and filename for the working CALMET input file.
 #' @param read_data_from_surf_dat 
-#' @param ibyr 
-#' @param ibmo 
-#' @param ibdy 
-#' @param ibhr 
-#' @param ibsec 
-#' @param ieyr 
-#' @param iemo 
-#' @param iedy 
-#' @param iehr 
-#' @param iesec 
-#' @param abtz 
+#' @param ibyr the starting year for the CALMET run.
+#' @param ibmo the starting month for the CALMET run.
+#' @param ibdy the starting day for the CALMET run.
+#' @param ibhr the starting hour for the CALMET run.
+#' @param ibsec the starting second for the CALMET run.
+#' @param ieyr the ending year for the CALMET run.
+#' @param iemo the ending month for the CALMET run.
+#' @param iedy the ending day for the CALMET run.
+#' @param iehr the ending hour for the CALMET run.
+#' @param iesec the ending second for the CALMET run.
+#' @param abtz the time zone for the CALMET domain.
 #' @param nsecdt 
 #' @param irtype 
 #' @param lcalgrd 
 #' @param itest 
-#' @param mreg 
+#' @param mreg choice of whether to use EPA regulatory options.
 #' @export calmet_01_temporal_params
 
 calmet_01_temporal_params <- function(calmet_inp = "calmet_template.txt",
