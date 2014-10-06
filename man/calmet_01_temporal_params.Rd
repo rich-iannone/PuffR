@@ -12,39 +12,39 @@ calmet_01_temporal_params(calmet_inp = "calmet_template.txt",
 \arguments{
 \item{calmet_inp}{the absolute path and filename for the working CALMET input file.}
 
-\item{read_data_from_surf_dat}{}
+\item{read_data_from_surf_dat}{an option to read the time variable data from an extant SURF.DAT file in the working folder.}
 
-\item{ibyr}{}
+\item{ibyr}{the starting year for the CALMET run.}
 
-\item{ibmo}{}
+\item{ibmo}{the starting month for the CALMET run.}
 
-\item{ibdy}{}
+\item{ibdy}{the starting day for the CALMET run.}
 
-\item{ibhr}{}
+\item{ibhr}{the starting hour for the CALMET run.}
 
-\item{ibsec}{}
+\item{ibsec}{the starting second for the CALMET run.}
 
-\item{ieyr}{}
+\item{ieyr}{the ending year for the CALMET run.}
 
-\item{iemo}{}
+\item{iemo}{the ending month for the CALMET run.}
 
-\item{iedy}{}
+\item{iedy}{the ending day for the CALMET run.}
 
-\item{iehr}{}
+\item{iehr}{the ending hour for the CALMET run.}
 
-\item{iesec}{}
+\item{iesec}{the ending second for the CALMET run.}
 
-\item{abtz}{}
+\item{abtz}{the time zone for the CALMET domain.}
 
-\item{nsecdt}{}
+\item{nsecdt}{the number of seconds between time steps.}
 
-\item{irtype}{}
+\item{irtype}{the CALMET run type, where the '0' option computes wind fields only and the '1' option computes wind fields and several micrometeorological variables (U*, W*, L, Zi, etc.).}
 
-\item{lcalgrd}{}
+\item{lcalgrd}{the option of whether to compute special data fields required by CALGRID.}
 
-\item{itest}{}
+\item{itest}{a flag to stop the model run after the setup phase, which is useful for checking for correctness in model inputs and assoicated files.}
 
-\item{mreg}{}
+\item{mreg}{choice of whether to use EPA regulatory options.}
 }
 \description{
 This function validates and writes CALMET parameters for the model starting and ending times, the time zone, and model timings.
