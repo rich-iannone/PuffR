@@ -1,6 +1,25 @@
 #' Set READ62 run control parameters
 #' @description This function validates and writes READ62 run control parameters to the working READ62.INP file.
 #' @param read62_inp the absolute path and filename for the working CALMET input file.
+#' @param read_data_from_surf_dat an option to read the time variable data from an extant SURF.DAT file in the working folder.
+#' @param ibyr the starting year for the CALMET run.
+#' @param ibmo the starting month for the CALMET run.
+#' @param ibdy the starting day for the CALMET run.
+#' @param ibhr the starting hour for the CALMET run.
+#' @param ibsec the starting second for the CALMET run.
+#' @param ieyr the ending year for the CALMET run.
+#' @param iemo the ending month for the CALMET run.
+#' @param iedy the ending day for the CALMET run.
+#' @param iehr the ending hour for the CALMET run.
+#' @param iesec the ending second for the CALMET run.
+#' @param jdat 
+#' @param isub 
+#' @param ifmt 
+#' @param pstop 
+#' @param lxtop 
+#' @param pvtop 
+#' @param lxsfc 
+#' @param zvsfc 
 #' @export read62_01_run_control_params
 
 read62_01_run_control_params <- function(read62_inp = "read62_template.txt",
