@@ -1,7 +1,7 @@
 #' Set CALMET temporal and model run parameters
 #' @description This function validates and writes CALMET parameters for the model starting and ending times, the time zone, and model timings.
 #' @param calmet_inp the absolute path and filename for the working CALMET input file.
-#' @param read_data_from_surf_dat 
+#' @param read_data_from_surf_dat an option to read the time variable data from an extant SURF.DAT file in the working folder.
 #' @param ibyr the starting year for the CALMET run.
 #' @param ibmo the starting month for the CALMET run.
 #' @param ibdy the starting day for the CALMET run.
@@ -13,10 +13,10 @@
 #' @param iehr the ending hour for the CALMET run.
 #' @param iesec the ending second for the CALMET run.
 #' @param abtz the time zone for the CALMET domain.
-#' @param nsecdt 
-#' @param irtype 
-#' @param lcalgrd 
-#' @param itest 
+#' @param nsecdt the number of seconds between time steps.
+#' @param irtype the CALMET run type, where the '0' option computes wind fields only and the '1' option computes wind fields and several micrometeorological variables (U*, W*, L, Zi, etc.).
+#' @param lcalgrd the option of whether to compute special data fields required by CALGRID.
+#' @param itest a flag to stop the model run after the setup phase, which is useful for checking for correctness in model inputs and assoicated files.
 #' @param mreg choice of whether to use EPA regulatory options.
 #' @export calmet_01_temporal_params
 
