@@ -142,14 +142,16 @@ read62_01_run_control_params <- function(read62_inp = "read62_template.txt",
   # Generate a vector list of calmet.inp keywords
   keywords <- c("IBYR", "IBMO", "IBDY", "IBHR", "IBSEC",
                 "IEYR", "IEMO", "IEDY", "IEHR", "IESEC",
-                "JDAT", "ISUB", "IFMT", "PSTOP", "LXTOP",
-                "PVTOP", "LXSFC", "ZVSFC")
+                "JDAT", "ISUB", "IFMT", "PSTOP", 
+                "LHT", "LTEMP", "LWD", "LWS",
+                "LXTOP", "PVTOP", "LXSFC", "ZVSFC")
   
   # Generate a vector list of the formatted replacements
   replacements <- c(ibyr, ibmo, ibdy, ibhr, ibsec,
                     ieyr, iemo, iedy, iehr, iesec,
-                    jdat, isub, ifmt, pstop, lxtop,
-                    pvtop, lxsfc, zvsfc)
+                    jdat, isub, ifmt, pstop, 
+                    lht, ltemp, lwd, lws,
+                    lxtop, pvtop, lxsfc, zvsfc)
                     
   # Modify all parameters in working calmet.inp vector
   read62_inp_working <- replace_in_inp(inp_file_working = read62_inp_working,
