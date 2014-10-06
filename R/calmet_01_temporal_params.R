@@ -16,7 +16,7 @@
 #' @param nsecdt the number of seconds between time steps.
 #' @param irtype the CALMET run type, where the '0' option computes wind fields only and the '1' option computes wind fields and several micrometeorological variables (U*, W*, L, Zi, etc.).
 #' @param lcalgrd the option of whether to compute special data fields required by CALGRID.
-#' @param itest a flag to stop the model run after the setup phase, which is useful for checking for correctness in model inputs and assoicated files.
+#' @param itest a flag to stop the model run after the setup phase, which is useful for checking for correctness in model inputs and associated files.
 #' @param mreg choice of whether to use EPA regulatory options.
 #' @export calmet_01_temporal_params
 
