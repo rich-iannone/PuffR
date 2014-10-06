@@ -11,6 +11,44 @@ read62_01_run_control_params(read62_inp = "read62_template.txt",
 }
 \arguments{
 \item{read62_inp}{the absolute path and filename for the working CALMET input file.}
+
+\item{read_data_from_surf_dat}{an option to read the time variable data from an extant SURF.DAT file in the working folder.}
+
+\item{ibyr}{the starting year for the CALMET run.}
+
+\item{ibmo}{the starting month for the CALMET run.}
+
+\item{ibdy}{the starting day for the CALMET run.}
+
+\item{ibhr}{the starting hour for the CALMET run.}
+
+\item{ibsec}{the starting second for the CALMET run.}
+
+\item{ieyr}{the ending year for the CALMET run.}
+
+\item{iemo}{the ending month for the CALMET run.}
+
+\item{iedy}{the ending day for the CALMET run.}
+
+\item{iehr}{the ending hour for the CALMET run.}
+
+\item{iesec}{the ending second for the CALMET run.}
+
+\item{jdat}{}
+
+\item{isub}{}
+
+\item{ifmt}{}
+
+\item{pstop}{}
+
+\item{lxtop}{}
+
+\item{pvtop}{}
+
+\item{lxsfc}{}
+
+\item{zvsfc}{}
 }
 \description{
 This function validates and writes READ62 run control parameters to the working READ62.INP file.
