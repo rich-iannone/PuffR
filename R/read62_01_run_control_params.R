@@ -12,14 +12,18 @@
 #' @param iedy the ending day for the CALMET run.
 #' @param iehr the ending hour for the CALMET run.
 #' @param iesec the ending second for the CALMET run.
-#' @param jdat 
-#' @param isub 
-#' @param ifmt 
-#' @param pstop 
-#' @param lxtop 
-#' @param pvtop 
-#' @param lxsfc 
-#' @param zvsfc 
+#' @param jdat the type of NCDC input sounding data file; where '1' is the TD-6201 format and '2' is the NCDC FSL format.
+#' @param isub the format of substitute UP.DAT input sounding data file; where '0' indicates that no substitute will be used, '1' states that the delimiter between sounding levels is a forward slash (and WS and WD have integer representations), and '2' states that the delimiter between sounding levels is a comma (and WS and WD have floating point representations). 
+#' @param ifmt the format of the main UP.DAT input sounding data file; where '1' states that the delimiter between sounding levels is a forward slash (and WS and WD have integer representations), and '2' states that the delimiter between sounding levels is a comma (and WS and WD have floating point representations).
+#' @param pstop the top pressure level (in mb units) for which data are extracted. The pressure level must correspond to a height that equals or exceeds the top of the CALMET modeling domain, or else CALMET will stop with an error message.
+#' @param lht a missing data control option for height that is used determine when a sounding level is rejected. If the height is missing from a level, that level will be rejected.
+#' @param ltemp a missing data control option for temperature that is used determine when a sounding level is rejected. If the temperature is missing from a level, that level will be rejected.
+#' @param lwd a missing data control option for wind direction that is used determine when a sounding level is rejected. If the wind direction is missing from a level, that level will be rejected.
+#' @param lws a missing data control option for wind speed that is used determine when a sounding level is rejected. If the wind speed is missing from a level, that level will be rejected.
+#' @param lxtop choice of whether to extrapolate to extend missing profile data to PSTOP pressure level.
+#' @param pvtop if 'lxtop' is TRUE, then pvtop is the pressure level corresponding to where valid data must exist.
+#' @param lxsfc choice of whether to extrapolate to extend missing profile data to the surface.
+#' @param zvsfc if 'lxsfc' is TRUE, then zvsfc is the height (in meters) corresponding to where valid data must exist.
 #' @export read62_01_run_control_params
 
 read62_01_run_control_params <- function(read62_inp = "read62_template.txt",
