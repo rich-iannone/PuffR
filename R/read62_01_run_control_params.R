@@ -54,6 +54,18 @@ read62_01_run_control_params <- function(read62_inp = "read62_template.txt",
   # Add require statement
   require(lubridate)
   
+  # Transform TRUE or FALSE value for 'lht' to string
+  lht <- ifelse(lht == TRUE, "T", "F")
+  
+  # Transform TRUE or FALSE value for 'ltemp' to string
+  ltemp <- ifelse(ltemp == TRUE, "T", "F")
+  
+  # Transform TRUE or FALSE value for 'lwd' to string
+  lwd <- ifelse(lwd == TRUE, "T", "F")
+  
+  # Transform TRUE or FALSE value for 'lws' to string
+  lws <- ifelse(lws == TRUE, "T", "F")
+  
   # Transform TRUE or FALSE value for 'lxtop' to string
   lxtop <- ifelse(lxtop == TRUE, "T", "F")
   
