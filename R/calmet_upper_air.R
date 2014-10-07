@@ -280,11 +280,15 @@ calmet_upper_air <- function(location_name,
   # box until a single station is captured
   if (nrow(df_soundings_domain) < 1){
     
+    # Set the initial degree increment to 0
     deg_increment <- 0
     
+    # Increase the size of the bounding box sides in 0.1 degree increments until
+    # the expanded domain captures a single sounding station
     repeat {
       deg_increment <- deg_increment + 0.1
       
+      # Obtain subset of 'df_soundings_domain' data frame
       df_soundings_domain <-
         subset(df_soundings,
                df_soundings$lat >= (bbox_lat_lon@ymin - deg_increment) &
@@ -297,11 +301,39 @@ calmet_upper_air <- function(location_name,
     }	
   }
   
+  # Assign the captured sounding station as the primary sounding station
   primary_station_wban_wmo <- paste(df_soundings_domain[1,2], "-",
                                     df_soundings_domain[1,3], sep = '')
   
+  
+  # Obtain the secondary sounding station by further expanding the domain in
+  # 0.1 degree increments until 2 stations are captured within the bounding box
+  repeat {
+    
+    # Use the retained 'deg_increment' value and continue incrementing by 0.1
+    deg_increment <- deg_increment + 0.1
+    
+    # Obtain subset of 'df_soundings_domain' data frame
+    df_soundings_domain <-
+      subset(df_soundings,
+             df_soundings$lat >= (bbox_lat_lon@ymin - deg_increment) &
+               df_soundings$lat <= (bbox_lat_lon@ymax + deg_increment) &
+               df_soundings$lon >= (bbox_lat_lon@xmin - deg_increment) &
+               df_soundings$lon <= (bbox_lat_lon@xmax + deg_increment))
+    
+    # Break from loop when 2 entries exist in the data frame
+    if(nrow(df_soundings_domain) == 2) break
+    
+  }
+  
+  # Obtain a string containing the WBAN and WMO numbers for both captured stations
+  station_wban_wmo <- paste(df_soundings_domain[,2], "-",
+                            df_soundings_domain[,3], sep = '')
+  
+  # Assign the sounding station that is different from the primary sounding station
+  # as the secondary sounding station
   ####
-  # Get the sounding data from the nearest station
+  # Get the sounding data for both the primary and secondary stations
   ####
   
   # Get start date and end dates
