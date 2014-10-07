@@ -268,13 +268,16 @@ calmet_upper_air <- function(location_name,
   # Locate the nearest sounding station 
   ####
   
-  
+  # Create a subset of the df_sounding data frame through constraining by the
+  # bounding box
   df_soundings_domain <- subset(df_soundings,
                                 df_soundings$lat >= bbox_lat_lon@ymin &
                                   df_soundings$lat <= bbox_lat_lon@ymax &
                                   df_soundings$lon >= bbox_lat_lon@xmin &
                                   df_soundings$lon <= bbox_lat_lon@xmax)
   
+  # Obtain the primary sounding station for the domain by expanding the bounding
+  # box until a single station is captured
   if (nrow(df_soundings_domain) < 1){
     
     deg_increment <- 0
@@ -294,8 +297,8 @@ calmet_upper_air <- function(location_name,
     }	
   }
   
-  station_wban_wmo <- paste(df_soundings_domain[1,2], "-",
-                            df_soundings_domain[1,3], sep = '')
+  primary_station_wban_wmo <- paste(df_soundings_domain[1,2], "-",
+                                    df_soundings_domain[1,3], sep = '')
   
   ####
   # Get the sounding data from the nearest station
@@ -319,7 +322,7 @@ calmet_upper_air <- function(location_name,
   
   # Get formatted ending date
   edate <- paste(str_replace_all(end_date, "-", ""), "23", sep = '') 
-
+  
   
   wban_wmo_list <- as.data.frame(cbind(df_soundings$wban, df_soundings_domain$wmo))
   wban_wmo_list$V3 <- do.call(paste, c(wban_wmo_list[c("V1", "V2")], sep = "-"))
@@ -327,7 +330,7 @@ calmet_upper_air <- function(location_name,
   wban_wmo_list$V2 <- NULL
   
   station_list_position <- match(station_wban_wmo,wban_wmo_list$V3)
-
+  
   # Construct 'station_list' string based on requested station
   station_list <- paste(df_soundings[station_list_position,1],
                         df_soundings[station_list_position,2],
@@ -433,7 +436,7 @@ calmet_upper_air <- function(location_name,
   
   # Use a while loop to cycle through the 'sounding_data' object and extract elements
   while (i < length(sounding_data)){
-  
+    
     header_254 <- as.data.frame(do.call('rbind', 
                                         str_split(gsub("^[ ]{1,3}", "",
                                                        gsub("[ ]{2,6}", " ",
@@ -514,7 +517,7 @@ calmet_upper_air <- function(location_name,
     header <- cbind(header_254, header_1, header_2, header_3)
     
     header[, c(1:4,9:16)] <- sapply(header[, c(1:4,9:16)], as.numeric)
-
+    
     header$lintyp_254 <- NULL
     header$lintyp_1 <- NULL
     header$lintyp_2 <- NULL
@@ -562,7 +565,7 @@ calmet_upper_air <- function(location_name,
     
     # Remove the 'data' object
     rm(data)
-        
+    
     # Create a progress bar
     pb <- txtProgressBar(min = 1, max = length(sounding_data), style = 3)
     setTxtProgressBar(pb, i)
