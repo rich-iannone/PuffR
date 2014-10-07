@@ -333,6 +333,10 @@ calmet_upper_air <- function(location_name,
   
   # Assign the sounding station that is different from the primary sounding station
   # as the secondary sounding station
+  secondary_station_wban_wmo <-
+    station_wban_wmo[which(!(station_wban_wmo %in% primary_station_wban_wmo))[1]]
+  
+
   ####
   # Get the sounding data for both the primary and secondary stations
   ####
