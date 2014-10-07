@@ -14,8 +14,8 @@
 #' @param iesec the ending second for the CALPUFF run.
 #' @param abtz the time zone for the CALPUFF domain.
 #' @param nsecdt the number of seconds between time steps.
-#' @param nse 
-#' @param itest
+#' @param nse number of stationary emission sources.
+#' @param itest a flag to stop the model run after the setup phase, which is useful for checking for correctness in model inputs and associated files.
 #' @param mrestart
 #' @param nrespd
 #' @param metfm
