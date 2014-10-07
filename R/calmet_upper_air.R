@@ -634,10 +634,10 @@ calmet_upper_air <- function(location_name,
                 hour = sounding_list[[length(sounding_list)]][[1]][[1]],
                 min = 0, sec = 0, tz = "GMT")
   
-#   if (req_start_date_time <= processed_sounding_data_start_date_time |
-#         req_end_date_time >= processed_sounding_data_end_date_time  ) {
-#     stop("Requested time frame for data is not entirely available in processed dataset.")
-#   }
+  #   if (req_start_date_time <= processed_sounding_data_start_date_time |
+  #         req_end_date_time >= processed_sounding_data_end_date_time  ) {
+  #     stop("Requested time frame for data is not entirely available in processed dataset.")
+  #   }
   
   ####
   # Subset the list object
