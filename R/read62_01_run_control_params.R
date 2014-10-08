@@ -1,4 +1,4 @@
-#' Set READ62 run control parameters
+#' Set the READ62 run control parameters
 #' @description This function validates and writes READ62 run control parameters to the working READ62.INP file.
 #' @param read62_inp the absolute path and filename for the working CALMET input file.
 #' @param read_data_from_surf_dat an option to read the time variable data from an extant SURF.DAT file in the working folder.
