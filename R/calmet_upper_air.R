@@ -364,6 +364,9 @@ calmet_upper_air <- function(location_name,
   # Obtain the position of the primary sounding station in 'df_soundings'
   primary_station_wban_wmo_position <- match(primary_station_wban_wmo, wban_wmo_list)
   
+  # Obtain the position of the secondary sounding station in 'df_soundings'
+  secondary_station_wban_wmo_position <- match(secondary_station_wban_wmo, wban_wmo_list)
+  
   ####
   # Process the upper air sounding data
   ####
