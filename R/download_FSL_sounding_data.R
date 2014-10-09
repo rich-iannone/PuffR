@@ -1,3 +1,15 @@
+#' Download an upper air data file in the FSL format
+#' @description Download an upper air data file from NOAA in the FSL format.
+#' @param sounding_priority a character string that determines whether the sounding is considered as "primary" or "secondary".
+#' @param df_soundings a data frame containing a complete database of global sounding sites.
+#' @param station_list_position the row of interest from the 'df_soundings' data frame.
+#' @param starting_hour the starting hour for the sounding data.
+#' @param level_type the type of levels to obtain from the FSL upper air sounding data.
+#' @param wind_units the type of wind units to obtain from the FSL upper air sounding data.
+#' @param beginning_date the beginning date of the requested sounding data.
+#' @param ending_date the ending date of the requested sounding data.
+#' @export download_FSL_sounding_data
+
 download_FSL_sounding_data <- function(sounding_priority,
                                        df_soundings,
                                        station_list_position,
