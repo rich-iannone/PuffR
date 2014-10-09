@@ -52,4 +52,7 @@ download_FSL_sounding_data <- function(sounding_priority,
                     str_match(string = noaa_cgi_message,
                               pattern = "temp(.*)(tmp)")[1,2], "tmp", sep = '')
   
+  # Get the sounding data as a large character object
+  sounding_data <- getURL(data_URI)
+  
 }
