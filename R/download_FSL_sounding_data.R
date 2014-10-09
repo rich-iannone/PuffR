@@ -102,6 +102,10 @@ download_FSL_sounding_data <- function(sounding_priority,
     writeLines(sounding_data,
                con = secondary_sounding_filename,
                sep = "\n")
+    
+    # Invisibly return the filename of the secondary sounding
+    invisible(secondary_sounding_filename)
+    
   }
-  
+    
 }
