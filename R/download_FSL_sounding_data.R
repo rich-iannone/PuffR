@@ -99,6 +99,7 @@ download_FSL_sounding_data <- function(sounding_priority,
                                          ".txt",
                                          sep = '')
     
+    # Write the secondary sounding file
     writeLines(sounding_data,
                con = secondary_sounding_filename,
                sep = "\n")
