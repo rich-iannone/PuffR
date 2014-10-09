@@ -353,7 +353,7 @@ calmet_upper_air <- function(location_name,
   wunits <- "Tenths+of+Meter%2FSecond"
   
   # Get formatted beginning date
-  bdate <- paste(str_replace_all(start_date, "-", ""), "00", sep = '') 
+  bdate <- paste(str_replace_all(start_date, "-", ""), "00", sep = '')
   
   # Get formatted ending date
   edate <- paste(str_replace_all(end_date, "-", ""), "23", sep = '') 
