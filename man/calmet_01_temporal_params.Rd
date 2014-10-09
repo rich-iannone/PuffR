@@ -42,7 +42,7 @@ calmet_01_temporal_params(calmet_inp = "calmet_template.txt",
 
 \item{lcalgrd}{the option of whether to compute special data fields required by CALGRID.}
 
-\item{itest}{a flag to stop the model run after the setup phase, which is useful for checking for correctness in model inputs and assoicated files.}
+\item{itest}{a flag to stop the model run after the setup phase, which is useful for checking for correctness in model inputs and associated files.}
 
 \item{mreg}{choice of whether to use EPA regulatory options.}
 }
