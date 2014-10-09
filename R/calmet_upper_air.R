@@ -306,7 +306,6 @@ calmet_upper_air <- function(location_name,
   primary_station_wban_wmo <- paste(df_soundings_domain[1,2], "-",
                                     df_soundings_domain[1,3], sep = '')
   
-  
   # Obtain the secondary sounding station by further expanding the domain in
   # 0.1 degree increments until 2 stations are captured within the bounding box
   repeat {
@@ -336,7 +335,6 @@ calmet_upper_air <- function(location_name,
   secondary_station_wban_wmo <-
     station_wban_wmo[which(!(station_wban_wmo %in% primary_station_wban_wmo))[1]]
   
-
   ####
   # Get the sounding data for both the primary and secondary stations
   ####
