@@ -96,12 +96,7 @@ download_FSL_sounding_data <- function(sounding_priority,
                                          sep = '')
     
     writeLines(sounding_data,
-               con = paste("secondary_sounding--",
-                           df_soundings[station_list_position,1], "--",
-                           df_soundings[station_list_position,9], "--",
-                           gsub("^([0-9]{4}).*", "\\1", beginning_date),
-                           ".txt",
-                           sep = ''),
+               con = secondary_sounding_filename,
                sep = "\n")
   }
   
