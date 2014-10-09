@@ -47,4 +47,9 @@ download_FSL_sounding_data <- function(sounding_priority,
     "&",
     "oformat=FSL+format+%28ASCII+text%29", sep = ''))
   
+  # Parse message and construct URI for data
+  data_URI <- paste("http://www.esrl.noaa.gov/raobs/temp",
+                    str_match(string = noaa_cgi_message,
+                              pattern = "temp(.*)(tmp)")[1,2], "tmp", sep = '')
+  
 }
