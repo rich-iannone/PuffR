@@ -55,7 +55,7 @@ download_FSL_sounding_data <- function(sounding_priority,
   # Get the sounding data as a large character object
   sounding_data <- getURL(data_URI)
   
-  # Write the data for a primary sounding to an output text file
+  # Write the data for a primary sounding to a text file
   if (sounding_priority == "primary"){
     writeLines(sounding_data,
                con = paste("primary_sounding--",
