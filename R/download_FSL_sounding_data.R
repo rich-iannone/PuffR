@@ -67,4 +67,16 @@ download_FSL_sounding_data <- function(sounding_priority,
                sep = "\n")
   }
   
+  # Write the data for a secondary sounding to an output text file
+  if (sounding_priority == "secondary"){
+    writeLines(sounding_data,
+               con = paste("secondary--",
+                           df_soundings[station_list_position,1], "--",
+                           df_soundings[station_list_position,9], "--",
+                           gsub("^([0-9]{4}).*", "\\1", beginning_date),
+                           ".txt",
+                           sep = ''),
+               sep = "\n")
+  }
+  
 }
