@@ -18,4 +18,33 @@ download_FSL_sounding_data <- function(sounding_priority,
                         df_soundings[station_list_position,8],
                         df_soundings[station_list_position,9], sep = '+')
   
+  # Construct request for data from NOAA
+  noaa_cgi_message <- getURL(paste(
+    "http://www.esrl.noaa.gov/raobs/intl/GetRaobs.cgi?",
+    "bdate=", beginning_date,
+    "&",
+    "edate=", ending_date,
+    "&",
+    "access=All+Sites",
+    "&",
+    "view=NO",
+    "&",
+    "States=States",
+    "&",
+    "Countries=Countries",
+    "&",
+    "shour=", starting_hour,
+    "&",
+    "ltype=", level_type,
+    "&",
+    "wunits=", wind_units,
+    "&",
+    "stationlist=YES",
+    "&",
+    "station_list=", station_list,
+    "&",
+    "osort=Station+Series+Sort",
+    "&",
+    "oformat=FSL+format+%28ASCII+text%29", sep = ''))
+  
 }
