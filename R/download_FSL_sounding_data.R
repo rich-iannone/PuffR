@@ -67,7 +67,7 @@ download_FSL_sounding_data <- function(sounding_priority,
                sep = "\n")
   }
   
-  # Write the data for a secondary sounding to an output text file
+  # Write the data for a secondary sounding to a text file
   if (sounding_priority == "secondary"){
     writeLines(sounding_data,
                con = paste("secondary_sounding--",
