@@ -367,6 +367,16 @@ calmet_upper_air <- function(location_name,
   # Obtain the position of the secondary sounding station in 'df_soundings'
   secondary_station_wban_wmo_position <- match(secondary_station_wban_wmo, wban_wmo_list)
   
+  # Download the FSL data file for the primary sounding station
+  download_FSL_sounding_data(sounding_priority = "primary",
+                             df_soundings = df_soundings,
+                             station_list_position = primary_station_wban_wmo_position,
+                             starting_hour = shour,
+                             level_type = ltype,
+                             wind_units = wunits,
+                             beginning_date = bdate,
+                             ending_date = edate)
+  
   ####
   # Process the upper air sounding data
   ####
