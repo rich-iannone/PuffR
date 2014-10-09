@@ -356,71 +356,7 @@ calmet_upper_air <- function(location_name,
   bdate <- paste(str_replace_all(start_date, "-", ""), "00", sep = '')
   
   # Get formatted ending date
-  edate <- paste(str_replace_all(end_date, "-", ""), "23", sep = '') 
-  
-  
-  wban_wmo_list <- as.data.frame(cbind(df_soundings$wban, df_soundings_domain$wmo))
-  wban_wmo_list$V3 <- do.call(paste, c(wban_wmo_list[c("V1", "V2")], sep = "-"))
-  wban_wmo_list$V1 <- NULL
-  wban_wmo_list$V2 <- NULL
-  
-  station_list_position <- match(station_wban_wmo,wban_wmo_list$V3)
-  
-  # Construct 'station_list' string based on requested station
-  station_list <- paste(df_soundings[station_list_position,1],
-                        df_soundings[station_list_position,2],
-                        df_soundings[station_list_position,3],
-                        df_soundings[station_list_position,4],
-                        df_soundings[station_list_position,5],
-                        sprintf("%05s", df_soundings[station_list_position,6]),
-                        str_replace_all(df_soundings[station_list_position,7], " ", "+"),
-                        df_soundings[station_list_position,8],
-                        df_soundings[station_list_position,9], sep = '+')
-  
-  # Construct request for data from NOAA
-  noaa_cgi_message <- getURL(paste(
-    "http://www.esrl.noaa.gov/raobs/intl/GetRaobs.cgi?",
-    "bdate=", bdate,
-    "&",
-    "edate=", edate,
-    "&",
-    "access=All+Sites",
-    "&",
-    "view=NO",
-    "&",
-    "States=States",
-    "&",
-    "Countries=Countries",
-    "&",
-    "shour=", shour,
-    "&",
-    "ltype=", ltype,
-    "&",
-    "wunits=", wunits,
-    "&",
-    "stationlist=YES",
-    "&",
-    "station_list=", station_list,
-    "&",
-    "osort=Station+Series+Sort",
-    "&",
-    "oformat=FSL+format+%28ASCII+text%29", sep = ''))
-  
-  # Parse message and construct URI for data
-  data_URI <- paste("http://www.esrl.noaa.gov/raobs/temp",
-                    str_match(string = noaa_cgi_message,
-                              pattern = "temp(.*)(tmp)")[1,2], "tmp", sep = '')
-  
-  # Get the data as a large character object
-  sounding_data <- getURL(data_URI)
-  
-  # Write the data to the output file
-  writeLines(sounding_data,
-             con = "sounding_output.txt",
-             sep = "\n")
-  
-  # Read back the file as lines
-  sounding_data <- readLines(con = "sounding_output.txt")
+  edate <- paste(str_replace_all(end_date, "-", ""), "23", sep = '')
   
   ####
   # Process the upper air sounding data
