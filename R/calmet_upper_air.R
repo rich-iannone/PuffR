@@ -361,6 +361,9 @@ calmet_upper_air <- function(location_name,
   # Generate a data frame containing WBAN-WMO keys
   wban_wmo_list <- as.vector(paste(df_soundings$wban, "-", df_soundings$wmo, sep = ''))
   
+  # Obtain the position of the primary sounding station in 'df_soundings'
+  primary_station_wban_wmo_position <- match(primary_station_wban_wmo, wban_wmo_list)
+  
   ####
   # Process the upper air sounding data
   ####
