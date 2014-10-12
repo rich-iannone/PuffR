@@ -1,6 +1,6 @@
 #' Download an upper air data file in the FSL format
 #' @description Download an upper air data file from NOAA in the FSL format.
-#' @param sounding_priority a character string that determines whether the sounding is considered as "primary" or "secondary".
+#' @param sounding_priority a character string that determines the priority of the sounding; choices are either "primary" or "secondary".
 #' @param df_soundings a data frame containing a complete database of global sounding sites.
 #' @param station_list_position the row of interest from the 'df_soundings' data frame.
 #' @param starting_hour the starting hour for the sounding data.
