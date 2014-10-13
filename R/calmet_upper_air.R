@@ -279,6 +279,9 @@ calmet_upper_air <- function(location_name,
   # Set 'shour' as "0z%2C+12z+ONLY"
   shour <- "0z%2C+12z+ONLY"
   
+  # Set 'ltype' as "All+Levels"
+  ltype <- "All+Levels"
+  
   # Create a subset of the df_sounding data frame through constraining by the
   # bounding box
   df_soundings_domain <- subset(df_soundings,
