@@ -291,6 +291,9 @@ calmet_upper_air <- function(location_name,
   # Get formatted ending date
   edate <- paste(str_replace_all(end_date, "-", ""), "23", sep = '')
   
+  # Generate a data frame containing WBAN-WMO keys
+  wban_wmo_list <- as.vector(paste(df_soundings$wban, "-", df_soundings$wmo, sep = ''))
+  
   # Create a subset of the df_sounding data frame through constraining by the
   # bounding box
   df_soundings_domain <- subset(df_soundings,
