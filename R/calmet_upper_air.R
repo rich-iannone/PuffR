@@ -268,6 +268,10 @@ calmet_upper_air <- function(location_name,
   # Locate the nearest sounding station 
   ####
   
+  ####
+  # Get the sounding data for both the primary and secondary stations
+  ####
+  
   # Create a subset of the df_sounding data frame through constraining by the
   # bounding box
   df_soundings_domain <- subset(df_soundings,
