@@ -272,6 +272,10 @@ calmet_upper_air <- function(location_name,
   # Get the sounding data for both the primary and secondary stations
   ####
   
+  # Get start date and end dates
+  start_date <- paste(year, "-01-01", sep = "")
+  end_date <- paste(year, "-12-31", sep = "")
+  
   # Create a subset of the df_sounding data frame through constraining by the
   # bounding box
   df_soundings_domain <- subset(df_soundings,
