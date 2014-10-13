@@ -276,6 +276,9 @@ calmet_upper_air <- function(location_name,
   start_date <- paste(year, "-01-01", sep = "")
   end_date <- paste(year, "-12-31", sep = "")
   
+  # Set 'shour' as "0z%2C+12z+ONLY"
+  shour <- "0z%2C+12z+ONLY"
+  
   # Create a subset of the df_sounding data frame through constraining by the
   # bounding box
   df_soundings_domain <- subset(df_soundings,
