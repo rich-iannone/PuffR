@@ -298,11 +298,12 @@ calmet_upper_air <- function(location_name,
       
       
     }
+    
   }
   
-  # Assign the captured sounding station as the primary sounding station
-  primary_station_wban_wmo <- paste(df_soundings_domain[1,2], "-",
-                                    df_soundings_domain[1,3], sep = '')
+  
+  
+  
   
   # Obtain the secondary sounding station by further expanding the domain in
   # 0.1 degree increments until 2 stations are captured within the bounding box
@@ -333,47 +334,14 @@ calmet_upper_air <- function(location_name,
   secondary_station_wban_wmo <-
     station_wban_wmo[which(!(station_wban_wmo %in% primary_station_wban_wmo))[1]]
   
-  ####
-  # Get the sounding data for both the primary and secondary stations
-  ####
   
-  # Get start date and end dates
-  start_date <- paste(year, "-01-01", sep = "")
-  end_date <- paste(year, "-12-31", sep = "")
   
-  # Set 'shour' as "0z%2C+12z+ONLY"
-  shour <- "0z%2C+12z+ONLY"
   
-  # Set 'ltype' as "All+Levels"
-  ltype <- "All+Levels"
-  
-  # Set 'wunits' as "Tenths+of+Meter%2FSecond"
-  wunits <- "Tenths+of+Meter%2FSecond"
-  
-  # Get formatted beginning date
-  bdate <- paste(str_replace_all(start_date, "-", ""), "00", sep = '')
-  
-  # Get formatted ending date
-  edate <- paste(str_replace_all(end_date, "-", ""), "23", sep = '')
-  
-  # Generate a data frame containing WBAN-WMO keys
-  wban_wmo_list <- as.vector(paste(df_soundings$wban, "-", df_soundings$wmo, sep = ''))
-  
-  # Obtain the position of the primary sounding station in 'df_soundings'
-  primary_station_wban_wmo_position <- match(primary_station_wban_wmo, wban_wmo_list)
   
   # Obtain the position of the secondary sounding station in 'df_soundings'
   secondary_station_wban_wmo_position <- match(secondary_station_wban_wmo, wban_wmo_list)
   
-  # Download the FSL data file for the primary sounding station
-  download_FSL_sounding_data(sounding_priority = "primary",
-                             df_soundings = df_soundings,
-                             station_list_position = primary_station_wban_wmo_position,
-                             starting_hour = shour,
-                             level_type = ltype,
-                             wind_units = wunits,
-                             beginning_date = bdate,
-                             ending_date = edate)
+  
   
   # Download the FSL data file for the secondary sounding station
   download_FSL_sounding_data(sounding_priority = "secondary",
