@@ -288,6 +288,9 @@ calmet_upper_air <- function(location_name,
   # Get formatted beginning date
   bdate <- paste(str_replace_all(start_date, "-", ""), "00", sep = '')
   
+  # Get formatted ending date
+  edate <- paste(str_replace_all(end_date, "-", ""), "23", sep = '')
+  
   # Create a subset of the df_sounding data frame through constraining by the
   # bounding box
   df_soundings_domain <- subset(df_soundings,
