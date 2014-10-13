@@ -282,6 +282,9 @@ calmet_upper_air <- function(location_name,
   # Set 'ltype' as "All+Levels"
   ltype <- "All+Levels"
   
+  # Set 'wunits' as "Tenths+of+Meter%2FSecond"
+  wunits <- "Tenths+of+Meter%2FSecond"
+  
   # Create a subset of the df_sounding data frame through constraining by the
   # bounding box
   df_soundings_domain <- subset(df_soundings,
