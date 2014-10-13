@@ -296,8 +296,6 @@ calmet_upper_air <- function(location_name,
                  df_soundings$lon >= (bbox_lat_lon@xmin - deg_increment) &
                  df_soundings$lon <= (bbox_lat_lon@xmax + deg_increment))
       
-      # Break from loop when an entry exists in the data frame
-      if(nrow(df_soundings_domain) == 1) break
       
     }
   }
