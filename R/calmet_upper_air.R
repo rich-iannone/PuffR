@@ -396,6 +396,10 @@ calmet_upper_air <- function(location_name,
     
   }
   
+  # Add the 'primary_station_wban_wmo' string to the 'excluded_wban_wmo' vector such
+  # that the primary sounding station won't be used automatically as the
+  # secondary station
+  excluded_wban_wmo <- c(excluded_wban_wmo, primary_station_wban_wmo)
   
   
   
