@@ -1,6 +1,6 @@
 #' Run the CALMET model
 #' @description Run the CALMET model.
-#' @param calmet_exec the path and name of the CALMET executable.
+#' @param calmet_exec if the CALMET executable is in the system path, provide the name of the executable only; otherwise, provide the full path and name of the CALMET executable.
 #' @export calmet_exec
 
 calmet_exec <- function(calmet_exec){
