@@ -318,7 +318,10 @@ calmet_upper_air <- function(location_name,
     # Initialize the list of sounding stations that contain no valid data
     empty_wban_wmo <- vector(mode = "character", length = 0)
     
+    # Create repeat loop to capture and validate sounding station data 
     repeat {
+      
+      # Increment the bounding box dimensions by 0.1 degrees
       deg_increment <- deg_increment + 0.1
       
       # Obtain subset of 'df_soundings_domain' data frame
