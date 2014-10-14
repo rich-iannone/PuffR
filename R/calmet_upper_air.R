@@ -489,6 +489,9 @@ calmet_upper_air <- function(location_name,
   # Finalize the READ62 input file by adding file infomation
   ####
   
+  # Read in the working READ62 input file as a character vector
+  read62_inp_working <- readLines("read62_template.txt", warn = FALSE)
+  
 #   ####
 #   # Process the upper air sounding data
 #   ####
