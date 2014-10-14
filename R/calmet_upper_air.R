@@ -362,8 +362,13 @@ calmet_upper_air <- function(location_name,
         # Determine if the file size is above 5000 bytes (valid data file);
         # add file
         if (file.info(downloaded_primary_sounding_file)$size > 5000){
+          
+          # Set the 'primary_file_valid' boolean value as TRUE
           primary_file_valid <- TRUE
+          
         } else {
+          
+          # Set the 'primary_file_valid' boolean value as FALSE
           primary_file_valid <- FALSE
           empty_wban_wmo <- c(empty_wban_wmo, primary_station_wban_wmo)
           station_counter <- station_counter + 1
