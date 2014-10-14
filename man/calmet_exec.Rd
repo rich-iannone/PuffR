@@ -6,7 +6,7 @@
 calmet_exec(calmet_exec)
 }
 \arguments{
-\item{calmet_exec}{the path and name of the CALMET executable.}
+\item{calmet_exec}{if the CALMET executable is in the system path, provide the name of the executable only; otherwise, provide the full path and name of the CALMET executable.}
 }
 \description{
 Run the CALMET model.

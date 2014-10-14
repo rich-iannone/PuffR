@@ -6,7 +6,7 @@
 calpuff_exec(calpuff_exec)
 }
 \arguments{
-\item{calpuff_exec}{the path and name of the CALPUFF executable.}
+\item{calpuff_exec}{if the CALPUFF executable is in the system path, provide the name of the executable only; otherwise, provide the full path and name of the CALPUFF executable.}
 }
 \description{
 Run the CALPUFF model.

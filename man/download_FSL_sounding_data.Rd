@@ -8,7 +8,7 @@ download_FSL_sounding_data(sounding_priority, df_soundings,
   ending_date)
 }
 \arguments{
-\item{sounding_priority}{a character string that determines whether the sounding is considered as "primary" or "secondary".}
+\item{sounding_priority}{a character string that determines the priority of the sounding; choices are either "primary" or "secondary".}
 
 \item{df_soundings}{a data frame containing a complete database of global sounding sites.}
 
