@@ -341,8 +341,8 @@ calmet_upper_air <- function(location_name,
         
         # Exclude the stations that have been determined to contain no valid data
         primary_station_wban_wmo <- 
-          primary_station_wban_wmo[which(!(primary_station_wban_wmo %in% empty_wban_wmo))[1]]
-        
+          primary_station_wban_wmo[which(!(primary_station_wban_wmo %in%
+                                             excluded_wban_wmo))[1]]
         
         # Obtain the position of the primary sounding station in 'df_soundings'
         primary_station_wban_wmo_position <- match(primary_station_wban_wmo,
