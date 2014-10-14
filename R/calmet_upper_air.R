@@ -376,6 +376,10 @@ calmet_upper_air <- function(location_name,
           
           # Increment the 'station_counter' value by 1
           station_counter <- station_counter + 1
+          
+          # Delete the invalid sounding file from the working directory
+          file.remove(downloaded_primary_sounding_file)
+        
         }
         
       }
