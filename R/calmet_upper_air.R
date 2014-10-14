@@ -485,6 +485,10 @@ calmet_upper_air <- function(location_name,
   # Add run control parameters to READ62 file, using defaults
   read62_01_run_control_params()
   
+  ####
+  # Finalize the READ62 input file by adding file infomation
+  ####
+  
 #   ####
 #   # Process the upper air sounding data
 #   ####
