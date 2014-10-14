@@ -310,6 +310,7 @@ calmet_upper_air <- function(location_name,
     
     # Set the initial values for 'primary_file_valid' and 'secondary_file_valid' to FALSE
     primary_file_valid <- FALSE
+    secondary_file_valid <- FALSE
     
     # Initialize the list of sounding stations that contain no valid data
     empty_wban_wmo <- vector(mode = "character", length = 0)
