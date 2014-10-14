@@ -332,6 +332,49 @@ calmet_upper_air <- function(location_name,
                  df_soundings$lon >= (bbox_lat_lon@xmin - deg_increment) &
                  df_soundings$lon <= (bbox_lat_lon@xmax + deg_increment))
       
+      # When an entry exists in the data frame, download the file and
+      # determine whether it contains sounding data
+      if (nrow(df_soundings_domain) == station_counter){
+        
+        # Assign the captured sounding stations as the primary sounding station
+        primary_station_wban_wmo <- paste(df_soundings_domain[1,2], "-",
+                                          df_soundings_domain[1,3], sep = '')
+        
+        # Exclude the stations that have been determined to contain no valid data
+        primary_station_wban_wmo <- 
+          primary_station_wban_wmo[which(!(primary_station_wban_wmo %in% empty_wban_wmo))[1]]
+        
+        
+        # Obtain the position of the primary sounding station in 'df_soundings'
+        primary_station_wban_wmo_position <- match(primary_station_wban_wmo,
+                                                   wban_wmo_list)
+        
+        # Download the FSL data file for the primary sounding station
+        downloaded_primary_sounding_file <- 
+          download_FSL_sounding_data(sounding_priority = "primary",
+                                     df_soundings = df_soundings,
+                                     station_list_position = primary_station_wban_wmo_position,
+                                     starting_hour = shour,
+                                     level_type = ltype,
+                                     wind_units = wunits,
+                                     beginning_date = bdate,
+                                     ending_date = edate)
+        
+        # Determine if the file size is above 5000 bytes (valid data file);
+        # add file
+        if (file.info(downloaded_primary_sounding_file)$size > 5000){
+          primary_file_valid <- TRUE
+        } else {
+          primary_file_valid <- FALSE
+          empty_wban_wmo <- c(empty_wban_wmo, primary_station_wban_wmo)
+          station_counter <- station_counter + 1
+        }
+        
+      }
+      
+      # Break from repeat loop if a sounding file was downloaded and it contained
+      # sounding data
+      if (primary_file_valid == TRUE) break
       
     }
     
