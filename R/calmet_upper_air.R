@@ -414,39 +414,6 @@ calmet_upper_air <- function(location_name,
                df_soundings$lon >= (bbox_lat_lon@xmin - deg_increment) &
                df_soundings$lon <= (bbox_lat_lon@xmax + deg_increment))
     
-    # Break from loop when 2 entries exist in the data frame
-    if(nrow(df_soundings_domain) == 2) break
-    
-  }
-  
-  # Obtain a string containing the WBAN and WMO numbers for both captured stations
-  station_wban_wmo <- paste(df_soundings_domain[,2], "-",
-                            df_soundings_domain[,3], sep = '')
-  
-  # Assign the sounding station that is different from the primary sounding station
-  # as the secondary sounding station
-  secondary_station_wban_wmo <-
-    station_wban_wmo[which(!(station_wban_wmo %in% primary_station_wban_wmo))[1]]
-  
-  
-  
-  
-  
-  # Obtain the position of the secondary sounding station in 'df_soundings'
-  secondary_station_wban_wmo_position <- match(secondary_station_wban_wmo, wban_wmo_list)
-  
-  
-  
-  # Download the FSL data file for the secondary sounding station
-  download_FSL_sounding_data(sounding_priority = "secondary",
-                             df_soundings = df_soundings,
-                             station_list_position = secondary_station_wban_wmo_position,
-                             starting_hour = shour,
-                             level_type = ltype,
-                             wind_units = wunits,
-                             beginning_date = bdate,
-                             ending_date = edate)
-  
   ####
   # Process the upper air sounding data
   ####
