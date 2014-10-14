@@ -265,10 +265,6 @@ calmet_upper_air <- function(location_name,
   }
   
   ####
-  # Locate the nearest sounding station 
-  ####
-  
-  ####
   # Get the sounding data for both the primary and secondary stations
   ####
   
