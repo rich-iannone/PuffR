@@ -312,6 +312,9 @@ calmet_upper_air <- function(location_name,
     # Set the initial 'station_counter' value to be 1
     station_counter <- 1
     
+    # Set the initial value of 'primary_file_valid' to FALSE
+    primary_file_valid <- FALSE
+    
     repeat {
       deg_increment <- deg_increment + 0.1
       
