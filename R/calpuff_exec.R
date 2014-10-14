@@ -1,6 +1,6 @@
 #' Run the CALPUFF model
 #' @description Run the CALPUFF model.
-#' @param calpuff_exec the path and name of the CALPUFF executable.
+#' @param calpuff_exec if the CALPUFF executable is in the system path, provide the name of the executable only; otherwise, provide the full path and name of the CALPUFF executable.
 #' @export calpuff_exec
 
 calpuff_exec <- function(calpuff_exec){
