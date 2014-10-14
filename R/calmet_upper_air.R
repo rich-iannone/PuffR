@@ -414,16 +414,69 @@ calmet_upper_air <- function(location_name,
                df_soundings$lon >= (bbox_lat_lon@xmin - deg_increment) &
                df_soundings$lon <= (bbox_lat_lon@xmax + deg_increment))
     
+    # When an entry exists in the data frame, download the file and
+    # determine whether it contains sounding data
+    if (nrow(df_soundings_domain) == station_counter + 1){
       
+      # Assign the captured sounding stations as candidates for the secondary
+      # sounding station
+      secondary_station_wban_wmo <- paste(df_soundings_domain[,2], "-",
+                                          df_soundings_domain[,3], sep = '')
       
+      # Assign the captured sounding station as the secondary sounding station,
+      # excluding the stations that are either the primary sounding station or have
+      # no valid data
+      secondary_station_wban_wmo <- 
+        secondary_station_wban_wmo[which(!(secondary_station_wban_wmo %in%
+                                             excluded_wban_wmo))[1]]
       
+      # Obtain the position of the primary sounding station in 'df_soundings'
+      secondary_station_wban_wmo_position <- match(secondary_station_wban_wmo,
+                                                   wban_wmo_list)
       
+      # Download the FSL data file for the primary sounding station
+      downloaded_secondary_sounding_file <- 
+        download_FSL_sounding_data(sounding_priority = "secondary",
+                                   df_soundings = df_soundings,
+                                   station_list_position = secondary_station_wban_wmo_position,
+                                   starting_hour = shour,
+                                   level_type = ltype,
+                                   wind_units = wunits,
+                                   beginning_date = bdate,
+                                   ending_date = edate)
       
+      # Determine if the file size is above 5000 bytes (valid data file);
+      # add file
+      if (file.info(downloaded_secondary_sounding_file)$size > 5000){
+        
+        # Set the 'secondary_file_valid' boolean value as TRUE
+        secondary_file_valid <- TRUE
+        
+      } else {
+        
+        # Set the 'secondary_file_valid' boolean value as FALSE
+        secondary_file_valid <- FALSE
+        
+        # Add this sounding to the vector list of excluded soundings
+        excluded_wban_wmo <- c(excluded_wban_wmo, secondary_station_wban_wmo)
+        
+        # Increment the 'station_counter' value by 1
+        station_counter <- station_counter + 1
+        
+        # Delete the invalid sounding file from the working directory
+        file.remove(downloaded_secondary_sounding_file)
       }
       
     }
     
+    # Break from the repeat loop if a sounding file was downloaded and it contained
+    # valid sounding data
+    if (secondary_file_valid == TRUE){
+      print(paste("The sounding file for ", secondary_station_wban_wmo, " was downloaded",
+                  sep = ''))
+      break
     }
+    
   }
   
   
