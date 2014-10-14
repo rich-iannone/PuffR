@@ -370,7 +370,9 @@ calmet_upper_air <- function(location_name,
           
           # Set the 'primary_file_valid' boolean value as FALSE
           primary_file_valid <- FALSE
-          empty_wban_wmo <- c(empty_wban_wmo, primary_station_wban_wmo)
+          
+          # Add this sounding to the vector list of excluded soundings
+          excluded_wban_wmo <- c(excluded_wban_wmo, primary_station_wban_wmo)
           station_counter <- station_counter + 1
         }
         
