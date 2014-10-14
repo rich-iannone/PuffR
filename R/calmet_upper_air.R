@@ -308,7 +308,7 @@ calmet_upper_air <- function(location_name,
     # Set the initial 'station_counter' value to be 1
     station_counter <- 1
     
-    # Set the initial value of 'primary_file_valid' to FALSE
+    # Set the initial values for 'primary_file_valid' and 'secondary_file_valid' to FALSE
     primary_file_valid <- FALSE
     
     # Initialize the list of sounding stations that contain no valid data
