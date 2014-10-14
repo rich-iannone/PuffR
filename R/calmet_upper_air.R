@@ -334,9 +334,10 @@ calmet_upper_air <- function(location_name,
       # determine whether it contains sounding data
       if (nrow(df_soundings_domain) == station_counter){
         
-        # Assign the captured sounding stations as the primary sounding station
-        primary_station_wban_wmo <- paste(df_soundings_domain[1,2], "-",
-                                          df_soundings_domain[1,3], sep = '')
+        # Assign the captured sounding stations as candidates for the primary
+        # sounding station
+        primary_station_wban_wmo <- paste(df_soundings_domain[,2], "-",
+                                          df_soundings_domain[,3], sep = '')
         
         # Exclude the stations that have been determined to contain no valid data
         primary_station_wban_wmo <- 
