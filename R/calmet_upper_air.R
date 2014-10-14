@@ -401,11 +401,6 @@ calmet_upper_air <- function(location_name,
   # secondary station
   excluded_wban_wmo <- c(excluded_wban_wmo, primary_station_wban_wmo)
   
-  
-  
-  
-  # Obtain the secondary sounding station by further expanding the domain in
-  # 0.1 degree increments until 2 stations are captured within the bounding box
   repeat {
     
     # Use the retained 'deg_increment' value and continue incrementing by 0.1
