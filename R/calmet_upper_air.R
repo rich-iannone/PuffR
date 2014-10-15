@@ -512,6 +512,12 @@ calmet_upper_air <- function(location_name,
                                        keyword = "RUNLST",
                                        replacement = gsub(".txt", ".lst", output_file))
   
+  # Define the READ62 'LCFILES' parameter as 'T', meaning that all filenames should
+  # be lowercase
+  read62_inp_working <- replace_in_inp(inp_file_working = read62_inp_working,
+                                       keyword = "LCFILES",
+                                       replacement = "T")
+  
   #   ####
   #   # Process the upper air sounding data
   #   ####
