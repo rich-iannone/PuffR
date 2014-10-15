@@ -22,7 +22,8 @@
 #'                  domain_width_m = 117000,
 #'                  domain_height_m = 43250,
 #'                  cell_resolution_m = 500,
-#'                  time_offset = -8)
+#'                  time_offset = -8,
+#'                  READ62_exec = "read62")
 #'}
 
 calmet_upper_air <- function(location_name,
