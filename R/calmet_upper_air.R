@@ -527,6 +527,9 @@ calmet_upper_air <- function(location_name,
   # Delete the temporary READ62 file from the working folder
   file.remove("read62_template.txt")
   
+  # Execute the READ62 run
+  
+  
   #   ####
   #   # Process the upper air sounding data
   #   ####
