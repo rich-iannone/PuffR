@@ -521,6 +521,9 @@ calmet_upper_air <- function(location_name,
   # Construct a filename for the finalized READ62 input file
   read62_final_filename <- gsub("^up(.*)", "read62\\1", output_file)
   
+  # Write the READ62 input file to a finalized filename
+  writeLines(read62_inp_working, con = read62_final_filename)
+  
   #   ####
   #   # Process the upper air sounding data
   #   ####
