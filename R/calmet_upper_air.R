@@ -502,6 +502,11 @@ calmet_upper_air <- function(location_name,
                                        keyword = "SUBDAT",
                                        replacement = downloaded_secondary_sounding_file)
   
+  # Define the READ62 'UPDAT' parameter as the name of the UP.DAT file
+  read62_inp_working <- replace_in_inp(inp_file_working = read62_inp_working,
+                                       keyword = "UPDAT",
+                                       replacement = output_file)
+  
   #   ####
   #   # Process the upper air sounding data
   #   ####
