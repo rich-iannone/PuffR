@@ -492,6 +492,11 @@ calmet_upper_air <- function(location_name,
   # Read in the working READ62 input file as a character vector
   read62_inp_working <- readLines("read62_template.txt", warn = FALSE)
   
+  # Define the READ62 'INDAT' parameter as the primary sounding file
+  read62_inp_working <- replace_in_inp(inp_file_working = read62_inp_working,
+                                       keyword = "INDAT",
+                                       replacement = downloaded_primary_sounding_file)
+  
   #   ####
   #   # Process the upper air sounding data
   #   ####
