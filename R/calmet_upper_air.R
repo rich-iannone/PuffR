@@ -9,6 +9,7 @@
 #' @param domain_height_m the height of the meteorological domain in meters.
 #' @param cell_resolution_m the grid cell resolution in meters.
 #' @param time_offset the offset from UTC-00:00 in hours.
+#' @param READ62_exec if the READ62 executable is in the system path, provide the name of the executable only; otherwise, provide the full path and name of the READ62 executable.
 #' @export calmet_upper_air
 #' @examples
 #' \dontrun{
