@@ -500,10 +500,9 @@ calmet_upper_air <- function(location_name,
                                        keyword = "INDAT",
                                        replacement = downloaded_primary_sounding_file)
   
-  # Define the READ62 'SUBDAT' parameter as the secondary sounding file
-  read62_inp_working <- replace_in_inp(inp_file_working = read62_inp_working,
-                                       keyword = "SUBDAT",
-                                       replacement = downloaded_secondary_sounding_file)
+  # Comment out the 'SUBDAT' parameter
+  read62_inp_working[which(grepl("SUBDAT", read62_inp_working))] <-
+    gsub("!", "\\*", read62_inp_working[which(grepl("SUBDAT", read62_inp_working))])
   
   # Define the READ62 'UPDAT' parameter as the name of the UP.DAT file
   read62_inp_working <- replace_in_inp(inp_file_working = read62_inp_working,
