@@ -507,6 +507,11 @@ calmet_upper_air <- function(location_name,
                                        keyword = "UPDAT",
                                        replacement = output_file)
   
+  # Define the READ62 'RUNLST' parameter as filename related to the UP.DAT file
+  read62_inp_working <- replace_in_inp(inp_file_working = read62_inp_working,
+                                       keyword = "RUNLST",
+                                       replacement = gsub(".txt", ".lst", output_file))
+  
   #   ####
   #   # Process the upper air sounding data
   #   ####
