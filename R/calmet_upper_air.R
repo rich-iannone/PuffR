@@ -486,7 +486,7 @@ calmet_upper_air <- function(location_name,
   read62_inp_generate_template()
   
   # Add run control parameters to READ62 file, using defaults
-  read62_01_run_control_params(isub = 0, lht = TRUE)
+  read62_01_run_control_params(isub = 0, lht = TRUE, lxtop = FALSE, lxsfc = FALSE)
   
   ####
   # Finalize the READ62 input file by adding file infomation
