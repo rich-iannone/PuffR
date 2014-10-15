@@ -497,6 +497,11 @@ calmet_upper_air <- function(location_name,
                                        keyword = "INDAT",
                                        replacement = downloaded_primary_sounding_file)
   
+  # Define the READ62 'SUBDAT' parameter as the secondary sounding file
+  read62_inp_working <- replace_in_inp(inp_file_working = read62_inp_working,
+                                       keyword = "SUBDAT",
+                                       replacement = downloaded_secondary_sounding_file)
+  
   #   ####
   #   # Process the upper air sounding data
   #   ####
