@@ -5,7 +5,8 @@
 \usage{
 calmet_upper_air(location_name, year, lat_dec_deg = NULL,
   lon_dec_deg = NULL, lat_lon_grid_loc = 1, domain_width_m = NULL,
-  domain_height_m = NULL, cell_resolution_m = 250, time_offset)
+  domain_height_m = NULL, cell_resolution_m = 250, time_offset,
+  READ62_exec_location)
 }
 \arguments{
 \item{location_name}{an assigned name for the CALMET domain.}
@@ -25,6 +26,8 @@ calmet_upper_air(location_name, year, lat_dec_deg = NULL,
 \item{cell_resolution_m}{the grid cell resolution in meters.}
 
 \item{time_offset}{the offset from UTC-00:00 in hours.}
+
+\item{READ62_exec}{if the READ62 executable is in the system path, provide the name of the executable only; otherwise, provide the full path and name of the READ62 executable.}
 }
 \description{
 This function retrieves upper air sounding data and processes it to generate an upper air input file for CALMET.
@@ -40,7 +43,8 @@ calmet_upper_air(location_name = 'test',
                  domain_width_m = 117000,
                  domain_height_m = 43250,
                  cell_resolution_m = 500,
-                 time_offset = -8)
+                 time_offset = -8,
+                 READ62_exec = "read62")
 }
 }
 
