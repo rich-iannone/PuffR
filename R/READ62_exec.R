@@ -9,7 +9,7 @@ READ62_exec <- function(READ62_exec){
   READ62_in_file <- list.files(pattern = "^read62--.*.txt")
   
   # Run the input file with READ62
-  console_log <- system(command = paste("cd ", getwd(), " ; '",
+  console_log <- system(command = paste("cd '", getwd(), "' ; '",
                                         READ62_exec, "' ", READ62_in_file,
                                         sep = ""),
                         intern = TRUE)
