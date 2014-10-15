@@ -32,7 +32,8 @@ calmet_upper_air <- function(location_name,
                              domain_width_m = NULL,
                              domain_height_m = NULL,
                              cell_resolution_m = 250,
-                             time_offset){
+                             time_offset,
+                             READ62_exec_location){
   
   # Include require statements
   require(RCurl)
