@@ -475,7 +475,10 @@ calmet_upper_air <- function(location_name,
     
   }
   
-  # Generate the READ62 input file template in the working folder
+  ####
+  # Generate two READ62 input files and obtain two UP.DAT files
+  ####
+  
   # Generate an output file name for the main UP.DAT file
   output_file <- paste("up--", location_name, "-",
                        number_cells_across_x, "x",
