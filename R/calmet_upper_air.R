@@ -486,16 +486,13 @@ calmet_upper_air <- function(location_name,
                        cell_resolution_m, "--",
                        year, ".txt", sep = '')
   
+  # Generate the READ62 input file template for the secondary station
   read62_inp_generate_template()
   
-  # Add run control parameters to READ62 file, using defaults
+  # Add run control parameters to READ62 file for the secondary station
   read62_01_run_control_params(isub = 0, lht = TRUE, lxtop = FALSE, lxsfc = FALSE)
   
-  ####
-  # Finalize the READ62 input file by adding file infomation
-  ####
-  
-  # Read in the working READ62 input file as a character vector
+  # Read in the working READ62 input file for the secondary station
   read62_inp_working <- readLines("read62_template.txt", warn = FALSE)
   
   # Define the READ62 'INDAT' parameter as the primary sounding file
