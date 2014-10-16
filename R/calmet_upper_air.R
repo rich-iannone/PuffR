@@ -521,10 +521,10 @@ calmet_upper_air <- function(location_name,
                                        replacement = "T")
   
   # Construct a filename for the finalized READ62 input file
-  read62_final_filename <- gsub("^up(.*)", "read62\\1", output_file)
+  read62_final_secondary_filename <- gsub("^up-secondary-(.*)", "read62\\1", output_file)
   
   # Write the READ62 input file to a finalized filename
-  writeLines(read62_inp_working, con = read62_final_filename)
+  writeLines(read62_inp_working, con = read62_final_secondary_filename)
   
   # Delete the temporary READ62 file from the working folder
   file.remove("read62_template.txt")
