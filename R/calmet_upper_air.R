@@ -92,13 +92,6 @@ calmet_upper_air <- function(location_name,
   # Get the total number of cells
   total_cells <- number_cells_across_x * number_cells_across_y
   
-  # Generate an output file name for the UP.DAT file
-  output_file <- paste("up--", location_name, "-",
-                       number_cells_across_x, "x",
-                       number_cells_across_y, "x",
-                       cell_resolution_m, "--",
-                       year, ".txt", sep = '')
-  
   # Get extents of UTM grid (left, right, bottom, top) in meters
   left_UTM <- get_grid_extents_UTM(side = "left",
                                    lat_lon_grid_loc = lat_lon_grid_loc,
@@ -483,6 +476,13 @@ calmet_upper_air <- function(location_name,
   }
   
   # Generate the READ62 input file template in the working folder
+  # Generate an output file name for the main UP.DAT file
+  output_file <- paste("up--", location_name, "-",
+                       number_cells_across_x, "x",
+                       number_cells_across_y, "x",
+                       cell_resolution_m, "--",
+                       year, ".txt", sep = '')
+  
   read62_inp_generate_template()
   
   # Add run control parameters to READ62 file, using defaults
