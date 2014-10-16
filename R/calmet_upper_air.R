@@ -534,5 +534,53 @@ calmet_upper_air <- function(location_name,
   
 
   
+  # Generate the READ62 input file template for the primary station
+  read62_inp_generate_template()
+  
+  # Add run control parameters to READ62 file for the primary station
+  read62_01_run_control_params(lht = TRUE, lxtop = FALSE, lxsfc = FALSE)
+  
+  # Read in the working READ62 input file for the primary station
+  read62_inp_working <- readLines("read62_template.txt", warn = FALSE)
+  
+  # Define the READ62 'INDAT' parameter as the primary sounding file
+  read62_inp_working <- replace_in_inp(inp_file_working = read62_inp_working,
+                                       keyword = "INDAT",
+                                       replacement = downloaded_primary_sounding_file)
+  
+  # Define the READ62 'SUBDAT' parameter as the secondary UP.DAT file
+  read62_inp_working <- replace_in_inp(inp_file_working = read62_inp_working,
+                                       keyword = "SUBDAT",
+                                       replacement = read62_final_secondary_filename)
+  
+  # Define the READ62 'UPDAT' parameter as the name of the UP.DAT file
+  read62_inp_working <- replace_in_inp(inp_file_working = read62_inp_working,
+                                       keyword = "UPDAT",
+                                       replacement = output_file)
+  
+  # Define the READ62 'RUNLST' parameter as filename related to the UP.DAT file
+  read62_inp_working <- replace_in_inp(inp_file_working = read62_inp_working,
+                                       keyword = "RUNLST",
+                                       replacement = gsub(".txt", ".lst", output_file))
+  
+  # Define the READ62 'LCFILES' parameter as 'T', meaning that all filenames should
+  # be lowercase
+  read62_inp_working <- replace_in_inp(inp_file_working = read62_inp_working,
+                                       keyword = "LCFILES",
+                                       replacement = "T")
+  
+  # Construct a filename for the finalized READ62 input file
+  read62_final_primary_filename <- gsub("^up-primary-(.*)", "read62\\1", output_file)
+
+  
+  # Write the READ62 input file to a finalized filename
+  writeLines(read62_inp_working, con = read62_final_primary_filename)
+  
+  # Delete the temporary READ62 file from the working folder
+  file.remove("read62_template.txt")
+  
+  # Execute the READ62 run
+  READ62_exec(READ62_exec_location)
+  
   
 }
