@@ -537,7 +537,8 @@ calmet_upper_air <- function(location_name,
   file.remove("read62_template.txt")
   
   # Execute the READ62 run
-  READ62_exec(READ62_exec_location)
+  READ62_exec(READ62_exec = READ62_exec_location,
+              READ62_file = read62_final_secondary_filename)
   
 
   
@@ -587,7 +588,8 @@ calmet_upper_air <- function(location_name,
   file.remove("read62_template.txt")
   
   # Execute the READ62 run
-  READ62_exec(READ62_exec_location)
+  READ62_exec(READ62_exec = READ62_exec_location,
+              READ62_file = read62_final_primary_filename)
   
   
 }
