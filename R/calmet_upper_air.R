@@ -540,7 +540,8 @@ calmet_upper_air <- function(location_name,
   READ62_exec(READ62_exec = READ62_exec_location,
               READ62_file = read62_final_secondary_filename)
   
-
+  # Delete the READ62 input file
+  file.remove(read62_final_secondary_filename)
   
   # Generate the READ62 input file template for the primary station
   read62_inp_generate_template()
