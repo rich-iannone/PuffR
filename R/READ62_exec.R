@@ -9,7 +9,7 @@ READ62_exec <- function(READ62_exec,
   
   # Run the input file with READ62
   console_log <- system(command = paste("cd '", getwd(), "' ; '",
-                                        READ62_exec, "' ", READ62_in_file,
+                                        READ62_exec, "' ", READ62_file,
                                         sep = ""),
                         intern = TRUE)
   
