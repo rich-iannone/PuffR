@@ -13,6 +13,7 @@ calpuff_exec <- function(calpuff_executable,
                                         sep = ""),
                         intern = TRUE)
   
+  # Return the 'console_log' object
+  return(console_log)
   
 }
-
