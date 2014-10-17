@@ -4,14 +4,15 @@
 #' @param calpuff_exec_file the CALPUFF input file to execute.
 #' @export calpuff_exec
 
-    # Run the input file with CALPUFF and capture output as lines to 'console_log'
-    console_log <- system(command = paste("cd '", getwd(), "' ; '",
-                                          calpuff_executable, "' ", calpuff_in_files[i],
-                                          sep = ""),
-                          intern = TRUE)
 calpuff_exec <- function(calpuff_executable,
                          calpuff_exec_file){
     
+  # Run the input file with CALPUFF and capture output as lines to 'console_log'
+  console_log <- system(command = paste("cd '", getwd(), "' ; '",
+                                        calpuff_executable, "' ", calpuff_exec_file,
+                                        sep = ""),
+                        intern = TRUE)
+  
   
 }
 
