@@ -479,12 +479,19 @@ calmet_upper_air <- function(location_name,
   # Generate two READ62 input files and obtain two UP.DAT files
   ####
   
-  # Generate an output file name for the main UP.DAT file
-  output_file <- paste("up--", location_name, "-",
-                       number_cells_across_x, "x",
-                       number_cells_across_y, "x",
-                       cell_resolution_m, "--",
-                       year, ".txt", sep = '')
+  # Generate an output file name for the primary UP.DAT file
+  output_file_primary <- paste("up--", location_name, "-",
+                               number_cells_across_x, "x",
+                               number_cells_across_y, "x",
+                               cell_resolution_m, "--",
+                               year, ".txt", sep = '')
+  
+  # Generate an output file name for the secondary UP.DAT file
+  output_file_secondary <- paste("up--secondary--", location_name, "-",
+                                 number_cells_across_x, "x",
+                                 number_cells_across_y, "x",
+                                 cell_resolution_m, "--",
+                                 year, ".txt", sep = '')  
   
   # Generate the READ62 input file template for the secondary station
   read62_inp_generate_template()
