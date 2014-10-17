@@ -12,10 +12,6 @@
 calpuff_exec <- function(calpuff_executable,
                          calpuff_exec_file){
     
-    # Write 'console_log' to a text file
-    writeLines(console_log, con = paste("log_for_", calpuff_in_files[i], sep = '' ))
-    
-  }
   
 }
 
