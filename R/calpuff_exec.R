@@ -3,7 +3,7 @@
 #' @param calpuff_exec if the CALPUFF executable is in the system path, provide the name of the executable only; otherwise, provide the full path and name of the CALPUFF executable.
 #' @export calpuff_exec
 
-calpuff_exec <- function(calpuff_exec){
+calpuff_exec <- function(calpuff_executable){
   
   # Obtain list of CALPUFF input files
   calpuff_in_files <- list.files(pattern = "^calpuff_in")
@@ -13,7 +13,7 @@ calpuff_exec <- function(calpuff_exec){
     
     # Run the input file with CALPUFF and capture output as lines to 'console_log'
     console_log <- system(command = paste("cd '", getwd(), "' ; '",
-                                          calpuff_exec, "' ", calpuff_in_files[i],
+                                          calpuff_executable, "' ", calpuff_in_files[i],
                                           sep = ""),
                           intern = TRUE)
     
