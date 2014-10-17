@@ -1,6 +1,7 @@
 #' Run the CALPUFF model
 #' @description Run the CALPUFF model.
 #' @param calpuff_executable if the CALPUFF executable is in the system path, provide the name of the executable only; otherwise, provide the full path and name of the CALPUFF executable.
+#' @param calpuff_exec_file the CALPUFF input file to execute.
 #' @export calpuff_exec
 
   # Obtain list of CALPUFF input files
