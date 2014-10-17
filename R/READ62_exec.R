@@ -4,8 +4,6 @@
 #' @param READ62_file the READ62 input file to execute.
 #' @export READ62_exec
 
-  # Obtain the READ62 input file
-  READ62_in_file <- list.files(pattern = "^read62--.*.txt")
 READ62_exec <- function(READ62_exec,
                         READ62_file){
   
