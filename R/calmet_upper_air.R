@@ -502,7 +502,7 @@ calmet_upper_air <- function(location_name,
   # Read in the working READ62 input file for the secondary station
   read62_inp_working <- readLines("read62_template.txt", warn = FALSE)
   
-  # Define the READ62 'INDAT' parameter as the primary sounding file
+  # Define the READ62 'INDAT' parameter as the secondary sounding file
   read62_inp_working <- replace_in_inp(inp_file_working = read62_inp_working,
                                        keyword = "INDAT",
                                        replacement = downloaded_secondary_sounding_file)
