@@ -6,7 +6,7 @@
 calpuff_exec <- function(calpuff_exec){
   
   # Obtain list of CALPUFF input files
-  calpuff_in_files <- list.files(pattern = "^calpuff_in.*.txt")
+  calpuff_in_files <- list.files(pattern = "^calpuff_in")
   
   # Process each input file with CALPUFF
   for (i in 1:length(calpuff_in_files)){
