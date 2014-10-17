@@ -514,12 +514,12 @@ calmet_upper_air <- function(location_name,
   # Define the READ62 'UPDAT' parameter as the name of the UP.DAT file
   read62_inp_working <- replace_in_inp(inp_file_working = read62_inp_working,
                                        keyword = "UPDAT",
-                                       replacement = output_file)
+                                       replacement = output_file_secondary)
   
   # Define the READ62 'RUNLST' parameter as filename related to the UP.DAT file
   read62_inp_working <- replace_in_inp(inp_file_working = read62_inp_working,
                                        keyword = "RUNLST",
-                                       replacement = gsub(".txt", ".lst", output_file))
+                                       replacement = gsub(".txt", ".lst", output_file_secondary))
   
   # Define the READ62 'LCFILES' parameter as 'T', meaning that all filenames should
   # be lowercase
@@ -528,7 +528,7 @@ calmet_upper_air <- function(location_name,
                                        replacement = "T")
   
   # Construct a filename for the finalized READ62 input file
-  read62_final_secondary_filename <- gsub("^up-secondary-(.*)", "read62\\1", output_file)
+  read62_final_secondary_filename <- gsub("^up--secondary(.*)", "read62\\1", output_file_secondary)
   
   # Write the READ62 input file to a finalized filename
   writeLines(read62_inp_working, con = read62_final_secondary_filename)
