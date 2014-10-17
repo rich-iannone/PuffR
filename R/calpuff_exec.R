@@ -12,7 +12,7 @@ calpuff_exec <- function(calpuff_exec){
   for (i in 1:length(calpuff_in_files)){
     
     # Run the input file with CALPUFF and capture output as lines to 'console_log'
-    console_log <- system(command = paste("cd ", getwd(), " ; '",
+    console_log <- system(command = paste("cd '", getwd(), "' ; '",
                                           calpuff_exec, "' ", calpuff_in_files[i],
                                           sep = ""),
                           intern = TRUE)
