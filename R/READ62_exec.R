@@ -13,7 +13,7 @@ READ62_exec <- function(READ62_exec,
                                         sep = ""),
                         intern = TRUE)
   
-  # Write 'console_log' to a text file
+  # Return the 'console_log' object
   return(console_log)
   
 }
