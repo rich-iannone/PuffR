@@ -8,6 +8,8 @@
 #' @param create_hourly_rda an option to create hourly R data (.rda) files describing pollutant concentrations at every receptor.
 #' @param return_large_df an option to invisibly return a large data frame object.
 #' @param resume_from_set_hour an option to resume processing of concentrations from a set hour of the year.
+#' @param autoresume_processing
+#' @param autoresume_year
 #' @export calpost_get_concentrations_from_time_series_file
 
 calpost_get_concentrations_from_time_series_file <- function(time_series_file = NULL,
