@@ -3,10 +3,12 @@
 \alias{calpuff_exec}
 \title{Run the CALPUFF model}
 \usage{
-calpuff_exec(calpuff_exec)
+calpuff_exec(calpuff_executable, calpuff_exec_file)
 }
 \arguments{
-\item{calpuff_exec}{if the CALPUFF executable is in the system path, provide the name of the executable only; otherwise, provide the full path and name of the CALPUFF executable.}
+\item{calpuff_executable}{if the CALPUFF executable is in the system path, provide the name of the executable only; otherwise, provide the full path and name of the CALPUFF executable.}
+
+\item{calpuff_exec_file}{the CALPUFF input file to execute.}
 }
 \description{
 Run the CALPUFF model.
