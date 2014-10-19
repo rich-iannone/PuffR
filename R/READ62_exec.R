@@ -4,7 +4,7 @@
 #' @param READ62_file the READ62 input file to execute.
 #' @export READ62_exec
 
-READ62_exec <- function(READ62_exec,
+READ62_exec <- function(READ62_executable,
                         READ62_file){
   
   # Run the input file with READ62
