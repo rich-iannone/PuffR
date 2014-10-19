@@ -25,6 +25,10 @@ calpost_get_concentrations_from_time_series_file(time_series_file = NULL,
 \item{return_large_df}{an option to invisibly return a large data frame object.}
 
 \item{resume_from_set_hour}{an option to resume processing of concentrations from a set hour of the year.}
+
+\item{autoresume_processing}{}
+
+\item{autoresume_year}{}
 }
 \description{
 Create a data frame of discrete receptor concentrations using a CALPOST time series outfile file.
