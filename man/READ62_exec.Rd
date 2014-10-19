@@ -3,10 +3,12 @@
 \alias{READ62_exec}
 \title{Run the READ62 executable}
 \usage{
-READ62_exec(READ62_exec)
+READ62_exec(READ62_exec, READ62_file)
 }
 \arguments{
 \item{READ62_exec}{if the READ62 executable is in the system path, provide the name of the executable only; otherwise, provide the full path and name of the READ62 executable.}
+
+\item{READ62_file}{the READ62 input file to execute.}
 }
 \description{
 Run the READ62 executable.
