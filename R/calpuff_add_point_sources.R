@@ -1,5 +1,19 @@
 #' Add point sources to a list for later use in CALPUFF
 #' @description Add point sources to a list for later use in CALPUFF
+#' @param src_name
+#' @param species_name
+#' @param lat
+#' @param lon
+#' @param x_coord_km
+#' @param y_coord_km
+#' @param UTM_zone
+#' @param stack_height
+#' @param base_elev
+#' @param stack_diam
+#' @param exit_velocity
+#' @param exit_temp
+#' @param emission_rate
+#' @param emission_units
 #' @export calpuff_add_point_sources
 
 calpuff_add_point_sources <- function(src_name,
