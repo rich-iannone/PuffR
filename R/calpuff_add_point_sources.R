@@ -41,6 +41,9 @@ calpuff_add_point_sources <- function(src_name,
                                                                    pattern = "/")))],
           "--point_sources.txt", sep = '')
   
+  # Create point sources text file with header if it doesn't exist
+  if (file.exists(pt_sources_filename) == FALSE){
+    
   
   
   
