@@ -18,8 +18,8 @@
 
 calpuff_add_point_sources <- function(src_name,
                                       species_name,
-                                      lat = NULL,
-                                      lon = NULL,
+                                      lat_dec_deg = NULL,
+                                      lon_dec_deg = NULL,
                                       x_coord_km = NULL,
                                       y_coord_km = NULL,
                                       UTM_zone = NULL,
