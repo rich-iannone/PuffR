@@ -31,6 +31,8 @@ calpuff_add_point_sources <- function(src_name,
                                       emission_rate,
                                       emission_units){
   
+  # Add require statements
+  require(stringr)
   
   
   
