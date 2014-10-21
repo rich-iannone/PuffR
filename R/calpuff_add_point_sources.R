@@ -32,8 +32,10 @@ calpuff_add_point_sources <- function(src_name,
                                       emission_units){
   
   # Add require statements
-  require(stringr)
+  require(rgdal)
   require(raster)
+  require(stringr)
+  require(plyr)
   
   # Get expected filename for point sources
   pt_sources_filename <-
