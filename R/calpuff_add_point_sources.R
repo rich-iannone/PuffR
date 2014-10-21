@@ -47,6 +47,28 @@ calpuff_add_point_sources <- function(src_name,
     # Create empty file in working folder
     file.create(pt_sources_filename)
     
+    # Add header row to new point sources file
+    cat(paste("src_name", ",",
+              "species_name", ",",
+              "lat", ",",
+              "lon", ",",
+              "x_coord_km", ",",
+              "y_coord_km", ",",
+              "UTM_zone", ",",
+              "stack_height", ",",
+              "base_elev", ",",
+              "stack_diam", ",",
+              "exit_velocity", ",",
+              "exit_temp", ",",
+              "emission_rate", ",",
+              "emission_units", sep = ''),
+        file = pt_sources_filename,
+        append = TRUE)
+    
+    
+    
+  }
+  
   
   
   
