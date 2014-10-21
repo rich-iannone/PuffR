@@ -33,6 +33,7 @@ calpuff_add_point_sources <- function(src_name,
   
   # Add require statements
   require(stringr)
+  require(raster)
   
   # Get expected filename for point sources
   pt_sources_filename <-
