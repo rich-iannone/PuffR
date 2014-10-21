@@ -34,6 +34,13 @@ calpuff_add_point_sources <- function(src_name,
   # Add require statements
   require(stringr)
   
+  # Get expected filename for point sources
+  pt_sources_filename <-
+    paste(unlist(str_split(getwd(),
+                           pattern = "/"))[length(unlist(str_split(getwd(),
+                                                                   pattern = "/")))],
+          "--point_sources.txt", sep = '')
+  
   
   
   
