@@ -64,9 +64,13 @@ calpuff_add_point_sources <- function(src_name,
               "emission_units", sep = ''),
         file = pt_sources_filename,
         append = TRUE)
-    
-    
-    
+  }
+  
+  # Determine whether lon/lat provided
+  if (!is.null(lat) & !is.null(lon)){
+    lon_lat_provided <- TRUE
+  } else {
+    lon_lat_provided <- FALSE
   }
   
   
