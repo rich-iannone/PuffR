@@ -65,6 +65,7 @@ calpuff_add_point_sources <- function(src_name,
               "exit_temp", ",",
               "emission_rate", ",",
               "emission_units", sep = ''),
+        sep = "\n",
         file = pt_sources_filename,
         append = TRUE)
   }
