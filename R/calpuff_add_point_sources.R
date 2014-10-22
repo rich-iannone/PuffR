@@ -115,6 +115,23 @@ calpuff_add_point_sources <- function(src_name,
     
   }
   
-  
+  # Write the values to the file
+  cat(paste(src_name, ",",
+            species_name, ",",
+            lat_dec_deg, ",",
+            lon_dec_deg, ",",
+            prettyNum(x_coord_km, small.interval = 3), ",",
+            prettyNum(y_coord_km, small.interval = 3), ",",
+            UTM_zone, ",",
+            stack_height, ",",
+            base_elev, ",",
+            stack_diam, ",",
+            exit_velocity, ",",
+            exit_temp, ",",
+            emission_rate, ",",
+            emission_units, sep = ''),
+      "\n",
+      file = pt_sources_filename,
+      append = TRUE)
   
 }
