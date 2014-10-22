@@ -116,6 +116,9 @@ calpuff_add_point_sources <- function(src_name,
     
   }
   
+  # If UTM coordinates provided, convert to lon/lat
+  if (lon_lat_provided == FALSE & UTM_provided == TRUE){
+    
   # Write the values to the file
   cat(paste(src_name, ",",
             species_name, ",",
