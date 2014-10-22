@@ -110,6 +110,11 @@ calpuff_add_point_sources <- function(src_name,
     # Define the UTM x coordinate in km units
     x_coord_km <- UTM_location[1,1] / 1000
     
+    # Define the UTM y coordinate in km units
+    y_coord_km <- UTM_location[1,2] / 1000
+    
+  }
+  
   
   
 }
