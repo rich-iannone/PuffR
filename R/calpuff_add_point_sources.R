@@ -79,8 +79,9 @@ calpuff_add_point_sources <- function(src_name,
     lon_lat_provided <- FALSE
   }
   
-  # Determine whether UTM coordinates provided
-  if (!is.null(x_coord_km) & !is.null(y_coord_km) & !is.null(UTM_zone)){
+  # Determine whether UTM coordinates and zone information provided
+  if (!is.null(x_coord_km) & !is.null(y_coord_km)
+      & !is.null(UTM_zone) & !is.null(UTM_hemisphere)){
     UTM_provided <- TRUE
   } else {
     UTM_provided <- FALSE
