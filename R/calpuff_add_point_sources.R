@@ -128,6 +128,15 @@ calpuff_add_point_sources <- function(src_name,
                              " +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
                              sep = '')
     
+    # Create a SpatialPoints object for the UTM coordinates
+    UTM_m_SP <- SpatialPoints(matrix(c(x_coord_km * 1000,
+                                       y_coord_km * 1000),
+                                     nrow = 1,
+                                     ncol = 2),
+                              proj4string = CRS(proj_string_UTM))
+    
+  }
+  
   # Write the values to the file
   cat(paste(src_name, ",",
             species_name, ",",
