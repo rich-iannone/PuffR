@@ -138,6 +138,9 @@ calpuff_add_point_sources <- function(src_name,
     # Project as UTM coordinates from the determined UTM zone
     latlon_SP <- spTransform(UTM_m_SP, CRS(proj_string_longlat))
     
+    # Extract the latitude in decimal degrees from the SpatialPoints object
+    lat_dec_deg <- latlon_SP@coords[[2]]
+    
   }
   
   # Write the values to the file
