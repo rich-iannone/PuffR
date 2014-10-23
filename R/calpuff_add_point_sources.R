@@ -1,19 +1,20 @@
 #' Add point sources to a list for later use in CALPUFF
 #' @description Add point sources to a list for later use in CALPUFF
-#' @param src_name
-#' @param species_name
-#' @param lat
-#' @param lon
-#' @param x_coord_km
-#' @param y_coord_km
-#' @param UTM_zone
-#' @param stack_height
-#' @param base_elev
-#' @param stack_diam
-#' @param exit_velocity
-#' @param exit_temp
-#' @param emission_rate
-#' @param emission_units
+#' @param src_name the name of the source emitting the species.
+#' @param species_name the name of the species undergoing emissions.
+#' @param lat_dec_deg the latitude of the point source in decimal degrees.
+#' @param lon_dec_deg the longitude of the point source in decimal degrees.
+#' @param x_coord_km the UTM easting value of the point source in km units.
+#' @param y_coord_km the UTM northing value of the point source in km units.
+#' @param UTM_zone the UTM zone for the point source.
+#' @param UTM_hemisphere the UTM hemisphere for the point source.
+#' @param stack_height the stack height of the point source in meters above ground level (m AGL).
+#' @param base_elev the ground elevation at the location of the point source stack in meters above sea level (m ASL).
+#' @param stack_diam the inner diameter of the stack in meters.
+#' @param exit_velocity the exit velocity at the stack tip in units of m/s.
+#' @param exit_temp the temperature of the plume exiting the stack in Kelvin (K) units.
+#' @param emission_rate the rate of constant emissions from the stack; units are defined in the 'emission_units' argument.
+#' @param emission_units the units applied to the value defined in the 'emission_rate' argument. The possible selections are: (1) "g/s", (2) "kg/hr", (3) "lb/hr", (4) "tons/yr", (5) "Odour Unit * m3/s", (6) "Odour Unit * m3/min", (7) "metric tons/yr", (8) "Bq/s", and (9) "GBq/yr".     
 #' @export calpuff_add_point_sources
 
 calpuff_add_point_sources <- function(src_name,
