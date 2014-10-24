@@ -89,4 +89,7 @@ calpuff_add_area_sources <- function(src_name,
     # Get matrix of longitude and latitude for source location
     lat_lon_dec_deg <- cbind(lon_dec_deg, lat_dec_deg)
     
+    # Determine the UTM zone
+    UTM_zone <- (floor((lon_dec_deg + 180)/6) %% 60) + 1
+    
 }
