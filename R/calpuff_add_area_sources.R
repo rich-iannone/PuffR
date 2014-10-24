@@ -4,4 +4,10 @@
 
 calpuff_add_area_sources <- function(){
   
+  # Add require statements
+  require(rgdal)
+  require(raster)
+  require(stringr)
+  require(plyr)
+  
 }
