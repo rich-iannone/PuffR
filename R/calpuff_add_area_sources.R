@@ -45,4 +45,7 @@ calpuff_add_area_sources <- function(src_name,
   # Create area sources text file with header if it doesn't exist
   if (file.exists(area_sources_filename) == FALSE){
     
+    # Create empty file in working folder
+    file.create(area_sources_filename)
+    
 }
