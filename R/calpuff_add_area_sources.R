@@ -83,4 +83,7 @@ calpuff_add_area_sources <- function(src_name,
     UTM_provided <- FALSE
   }  
   
+  # If both lon/lat provided, convert to UTM
+  if (lon_lat_provided == TRUE & UTM_provided == FALSE){
+    
 }
