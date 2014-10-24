@@ -104,4 +104,7 @@ calpuff_add_area_sources <- function(src_name,
                              " +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
                              sep = '')
     
+    # Project as UTM coordinates from the determined UTM zone
+    UTM_location <- project(lat_lon_dec_deg, proj_string_UTM)
+    
 }
