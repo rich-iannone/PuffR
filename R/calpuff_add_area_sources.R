@@ -67,4 +67,12 @@ calpuff_add_area_sources <- function(src_name,
         append = TRUE)
     
   }
+  
+  # Determine whether lon/lat provided
+  if (!is.null(lat_dec_deg) & !is.null(lon_dec_deg)){
+    lon_lat_provided <- TRUE
+  } else {
+    lon_lat_provided <- FALSE
+  }
+  
 }
