@@ -140,4 +140,9 @@ calpuff_add_area_sources <- function(src_name,
     # Extract the latitude in decimal degrees from the SpatialPoints object
     lat_dec_deg <- latlon_SP@coords[[2]]
     
+    # Extract the longitude in decimal degrees from the SpatialPoints object
+    lon_dec_deg <- latlon_SP@coords[[1]]
+    
+  }
+  
 }
