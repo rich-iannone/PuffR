@@ -3,7 +3,41 @@
 \alias{calpuff_add_point_sources}
 \title{Add point sources to a list for later use in CALPUFF}
 \usage{
-calpuff_add_point_sources()
+calpuff_add_point_sources(src_name, species_name, lat_dec_deg = NULL,
+  lon_dec_deg = NULL, x_coord_km = NULL, y_coord_km = NULL,
+  UTM_zone = NULL, UTM_hemisphere = NULL, stack_height, base_elev,
+  stack_diam, exit_velocity, exit_temp, emission_rate, emission_units)
+}
+\arguments{
+\item{src_name}{the name of the source emitting the species.}
+
+\item{species_name}{the name of the species undergoing emissions.}
+
+\item{lat_dec_deg}{the latitude of the point source in decimal degrees.}
+
+\item{lon_dec_deg}{the longitude of the point source in decimal degrees.}
+
+\item{x_coord_km}{the UTM easting value of the point source in km units.}
+
+\item{y_coord_km}{the UTM northing value of the point source in km units.}
+
+\item{UTM_zone}{the UTM zone for the point source.}
+
+\item{UTM_hemisphere}{the UTM hemisphere for the point source.}
+
+\item{stack_height}{the stack height of the point source in meters above ground level (m AGL).}
+
+\item{base_elev}{the ground elevation at the location of the point source stack in meters above sea level (m ASL).}
+
+\item{stack_diam}{the inner diameter of the stack in meters.}
+
+\item{exit_velocity}{the exit velocity at the stack tip in units of m/s.}
+
+\item{exit_temp}{the temperature of the plume exiting the stack in Kelvin (K) units.}
+
+\item{emission_rate}{the rate of constant emissions from the stack; units are defined in the 'emission_units' argument.}
+
+\item{emission_units}{the units applied to the value defined in the 'emission_rate' argument. The possible selections are: (1) "g/s", (2) "kg/hr", (3) "lb/hr", (4) "tons/yr", (5) "Odour Unit * m3/s", (6) "Odour Unit * m3/min", (7) "metric tons/yr", (8) "Bq/s", and (9) "GBq/yr".}
 }
 \description{
 Add point sources to a list for later use in CALPUFF
