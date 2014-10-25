@@ -134,4 +134,7 @@ calpuff_add_area_sources <- function(src_name,
                                      ncol = 2),
                               proj4string = CRS(proj_string_UTM))
     
+    # Project as UTM coordinates from the determined UTM zone
+    latlon_SP <- spTransform(UTM_m_SP, CRS(proj_string_longlat))
+    
 }
