@@ -17,6 +17,14 @@ calpuff_add_line_sources <- function(src_name,
                                      x_coord_km = NULL,
                                      y_coord_km = NULL,
                                      UTM_zone = NULL,
-                                     UTM_hemisphere = NULL){
+                                     UTM_hemisphere = NULL,
+                                     beg_x_coord,
+                                     beg_y_coord,
+                                     end_x_coord,
+                                     end_y_coord,
+                                     release_hgt,
+                                     base_elev,
+                                     emission_rate,
+                                     emission_units){
   
 }
