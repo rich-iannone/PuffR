@@ -8,6 +8,14 @@
 #' @param y_coord_km the UTM northing value of the line source in km units.
 #' @param UTM_zone the UTM zone for the line source.
 #' @param UTM_hemisphere the UTM hemisphere for the line source.
+#' @param beg_x_coord 
+#' @param beg_y_coord 
+#' @param end_x_coord 
+#' @param end_y_coord 
+#' @param release_hgt 
+#' @param base_elev the ground elevation at the location of the area source in meters above sea level (m ASL).
+#' @param emission_rate the rate of constant emissions from the line source; units are defined in the 'emission_units' argument.
+#' @param emission_units the units applied to the value defined in the 'emission_rate' argument. The possible selections are: (1) "g/s", (2) "kg/hr", (3) "lb/hr", (4) "tons/yr", (5) "Odour Unit * m3/s", (6) "Odour Unit * m3/min", (7) "metric tons/yr", (8) "Bq/s", and (9) "GBq/yr".
 #' @export calpuff_add_line_sources
 
 calpuff_add_line_sources <- function(src_name,
