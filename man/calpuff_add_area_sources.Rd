@@ -27,11 +27,11 @@ calpuff_add_area_sources(src_name, species_name, lat_dec_deg = NULL,
 
 \item{effective_height}{}
 
-\item{base_elev}{the ground elevation at the location of the area source stack in meters above sea level (m ASL).}
+\item{base_elev}{the ground elevation at the location of the area source in meters above sea level (m ASL).}
 
 \item{init_sigma_z}{}
 
-\item{emission_rate}{the rate of constant emissions from the stack; units are defined in the 'emission_units' argument.}
+\item{emission_rate}{the rate of constant emissions from the area source; units are defined in the 'emission_units' argument.}
 
 \item{emission_units}{the units applied to the value defined in the 'emission_rate' argument. The possible selections are: (1) "g/m2/s", (2) "kg/m2/hr", (3) "lb/m2/hr", (4) "tons/m2/yr", (5) "Odour Unit * m/s", (6) "Odour Unit * m/min", (7) "metric tons/m2/yr", (8) "Bq/m2/s", and (9) "GBq/m2/yr".}
 }
