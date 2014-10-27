@@ -3,7 +3,44 @@
 \alias{calpuff_add_line_sources}
 \title{Add line sources to a list for later use in CALPUFF}
 \usage{
-calpuff_add_line_sources()
+calpuff_add_line_sources(src_name, species_name, lat_dec_deg = NULL,
+  lon_dec_deg = NULL, x_coord_km = NULL, y_coord_km = NULL,
+  UTM_zone = NULL, UTM_hemisphere = NULL, beg_x_coord, beg_y_coord,
+  end_x_coord, end_y_coord, release_hgt, base_elev, emission_rate,
+  emission_units)
+}
+\arguments{
+\item{src_name}{the name of the source emitting the species.}
+
+\item{species_name}{the name of the species undergoing emissions.}
+
+\item{lat_dec_deg}{the latitude of the line source in decimal degrees.}
+
+\item{lon_dec_deg}{the longitude of the line source in decimal degrees.}
+
+\item{x_coord_km}{the UTM easting value of the line source in km units.}
+
+\item{y_coord_km}{the UTM northing value of the line source in km units.}
+
+\item{UTM_zone}{the UTM zone for the line source.}
+
+\item{UTM_hemisphere}{the UTM hemisphere for the line source.}
+
+\item{beg_x_coord}{}
+
+\item{beg_y_coord}{}
+
+\item{end_x_coord}{}
+
+\item{end_y_coord}{}
+
+\item{release_hgt}{}
+
+\item{base_elev}{the ground elevation at the location of the area source in meters above sea level (m ASL).}
+
+\item{emission_rate}{the rate of constant emissions from the line source; units are defined in the 'emission_units' argument.}
+
+\item{emission_units}{the units applied to the value defined in the 'emission_rate' argument. The possible selections are: (1) "g/s", (2) "kg/hr", (3) "lb/hr", (4) "tons/yr", (5) "Odour Unit * m3/s", (6) "Odour Unit * m3/min", (7) "metric tons/yr", (8) "Bq/s", and (9) "GBq/yr".}
 }
 \description{
 Add line sources to a list for later use in CALPUFF
