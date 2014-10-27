@@ -14,7 +14,7 @@
 #' @param exit_velocity the exit velocity at the stack tip in units of m/s.
 #' @param exit_temp the temperature of the plume exiting the stack in Kelvin (K) units.
 #' @param emission_rate the rate of constant emissions from the stack; units are defined in the 'emission_units' argument.
-#' @param emission_units the units applied to the value defined in the 'emission_rate' argument. The possible selections are: (1) "g/s", (2) "kg/hr", (3) "lb/hr", (4) "tons/yr", (5) "Odour Unit * m3/s", (6) "Odour Unit * m3/min", (7) "metric tons/yr", (8) "Bq/s", and (9) "GBq/yr".     
+#' @param emission_units the units applied to the value defined in the 'emission_rate' argument. The possible selections are: (1) "g/s", (2) "kg/hr", (3) "lb/hr", (4) "tons/yr", (5) "Odour Unit * m3/s", (6) "Odour Unit * m3/min", (7) "metric tons/yr", (8) "Bq/s", and (9) "GBq/yr".
 #' @export calpuff_add_point_sources
 
 calpuff_add_point_sources <- function(src_name,
