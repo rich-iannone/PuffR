@@ -35,4 +35,10 @@ calpuff_add_line_sources <- function(src_name,
                                      emission_rate,
                                      emission_units){
   
+  # Add require statements
+  require(rgdal)
+  require(raster)
+  require(stringr)
+  require(plyr)
+  
 }
