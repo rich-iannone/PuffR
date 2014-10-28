@@ -58,5 +58,28 @@ calpuff_add_line_sources <- function(src_name,
     # Create empty file in working folder
     file.create(line_sources_filename)
     
+    # Add header row to new line sources file
+    cat(paste("src_name", ",",
+              "species_name", ",",
+              "lat_dec_deg", ",",
+              "lon_dec_deg", ",",
+              "x_coord_km", ",",
+              "y_coord_km", ",",
+              "UTM_zone", ",",
+              "UTM_hemisphere", ",",
+              "beg_x_coord", ",",
+              "beg_y_coord", ",",
+              "end_x_coord", ",",
+              "end_y_coord", ",",
+              "release_hgt", ",",
+              "base_elev", ",",
+              "emission_rate", ",",
+              "emission_units", sep = ''),
+        sep = "\n",
+        file = line_sources_filename,
+        append = TRUE)
+    
+  }
+  
   
 }
