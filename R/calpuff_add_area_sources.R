@@ -2,10 +2,10 @@
 #' @description Add area sources to a list for later use in CALPUFF
 #' @param src_name the name of the source emitting the species.
 #' @param species_name the name of the species undergoing emissions.
-#' @param lat_dec_deg the latitude of the area source in decimal degrees.
-#' @param lon_dec_deg the longitude of the area source in decimal degrees.
-#' @param x_coord_km the UTM easting value of the area source in km units.
-#' @param y_coord_km the UTM northing value of the area source in km units.
+#' @param lat_dec_deg a vector of 4 latitude values for the area source in units of decimal degrees.
+#' @param lon_dec_deg a vector of 4 longitude values for the area source in units of decimal degrees.
+#' @param x_coord_km a vector of 4 UTM easting values for the area source in km units.
+#' @param y_coord_km a vector of 4 UTM northing values for the area source in km units.
 #' @param UTM_zone the UTM zone for the area source.
 #' @param UTM_hemisphere the UTM hemisphere for the area source.
 #' @param effective_height
