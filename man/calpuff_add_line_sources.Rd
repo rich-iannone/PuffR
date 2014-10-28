@@ -5,36 +5,27 @@
 \usage{
 calpuff_add_line_sources(src_name, species_name, lat_dec_deg = NULL,
   lon_dec_deg = NULL, x_coord_km = NULL, y_coord_km = NULL,
-  UTM_zone = NULL, UTM_hemisphere = NULL, beg_x_coord, beg_y_coord,
-  end_x_coord, end_y_coord, release_hgt, base_elev, emission_rate,
-  emission_units)
+  UTM_zone = NULL, UTM_hemisphere = NULL, release_hgt, base_elev,
+  emission_rate, emission_units)
 }
 \arguments{
 \item{src_name}{the name of the source emitting the species.}
 
 \item{species_name}{the name of the species undergoing emissions.}
 
-\item{lat_dec_deg}{the latitude of the line source in decimal degrees.}
+\item{lat_dec_deg}{a vector of 2 latitude values for the line source in units of decimal degrees.}
 
-\item{lon_dec_deg}{the longitude of the line source in decimal degrees.}
+\item{lon_dec_deg}{a vector of 2 longitude values for the line source in units of decimal degrees.}
 
-\item{x_coord_km}{the UTM easting value of the line source in km units.}
+\item{x_coord_km}{a vector of 2 UTM easting values for the line source in km units.}
 
-\item{y_coord_km}{the UTM northing value of the line source in km units.}
+\item{y_coord_km}{a vector of 2 UTM northing values for the area source in km units.}
 
 \item{UTM_zone}{the UTM zone for the line source.}
 
 \item{UTM_hemisphere}{the UTM hemisphere for the line source.}
 
-\item{beg_x_coord}{}
-
-\item{beg_y_coord}{}
-
-\item{end_x_coord}{}
-
-\item{end_y_coord}{}
-
-\item{release_hgt}{}
+\item{release_hgt}{the release height of the line source in meters above ground level (m AGL).}
 
 \item{base_elev}{the ground elevation at the location of the area source in meters above sea level (m ASL).}
 
