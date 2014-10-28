@@ -55,5 +55,8 @@ calpuff_add_line_sources <- function(src_name,
   # Create line sources text file with header if it doesn't exist
   if (file.exists(line_sources_filename) == FALSE){
     
+    # Create empty file in working folder
+    file.create(line_sources_filename)
+    
   
 }
