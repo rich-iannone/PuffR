@@ -111,5 +111,10 @@ calpuff_add_line_sources <- function(src_name,
     # Define the UTM x coordinates in km units
     x_coord_km <- UTM_location[,1] / 1000
     
+    # Define the UTM y coordinates in km units
+    y_coord_km <- UTM_location[,2] / 1000
+    
+  }
+  
   
 }
