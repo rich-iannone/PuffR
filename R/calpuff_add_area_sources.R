@@ -142,7 +142,7 @@ calpuff_add_area_sources <- function(src_name,
     # Create a SpatialPoints object for the UTM coordinates
     UTM_m_SP <- SpatialPoints(matrix(c(x_coord_km * 1000,
                                        y_coord_km * 1000),
-                                     nrow = 1,
+                                     nrow = 4,
                                      ncol = 2),
                               proj4string = CRS(proj_string_UTM))
     
