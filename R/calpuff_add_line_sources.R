@@ -116,5 +116,8 @@ calpuff_add_line_sources <- function(src_name,
     
   }
   
+  # If UTM coordinates provided, convert to lon/lat
+  if (lon_lat_provided == FALSE & UTM_provided == TRUE){
+    
   
 }
