@@ -120,10 +120,10 @@ calpuff_add_area_sources <- function(src_name,
     UTM_location <- project(lat_lon_dec_deg, proj_string_UTM)
     
     # Define the UTM x coordinate in km units
-    x_coord_km <- UTM_location[1,1] / 1000
+    x_coord_km <- UTM_location[,1] / 1000
     
     # Define the UTM y coordinate in km units
-    y_coord_km <- UTM_location[1,2] / 1000
+    y_coord_km <- UTM_location[,2] / 1000
     
   }
   
