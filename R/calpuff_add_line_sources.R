@@ -91,7 +91,7 @@ calpuff_add_line_sources <- function(src_name,
     lat_lon_dec_deg <- cbind(lon_dec_deg, lat_dec_deg)
     
     # Determine the UTM zone
-    UTM_zone <- (floor((lon_dec_deg + 180)/6) %% 60) + 1
+    UTM_zone <- unique((floor((lon_dec_deg + 180)/6) %% 60) + 1)[1]
     
     # Determine whether source is in the Northern Hemisphere or the Southern Hemisphere
     UTM_hemisphere <- ifelse(lat_dec_deg >= 0, "N", "S")
