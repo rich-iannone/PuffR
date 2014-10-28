@@ -108,5 +108,8 @@ calpuff_add_line_sources <- function(src_name,
     # Determine whether source is in the Northern Hemisphere or the Southern Hemisphere
     UTM_hemisphere <- ifelse(lat_dec_deg >= 0, "N", "S")
     
+    # Define a PROJ.4 projection string for a lat/lon projection
+    proj_string_longlat <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+    
   
 }
