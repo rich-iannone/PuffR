@@ -119,5 +119,8 @@ calpuff_add_line_sources <- function(src_name,
   # If UTM coordinates provided, convert to lon/lat
   if (lon_lat_provided == FALSE & UTM_provided == TRUE){
     
+    # Define a PROJ.4 projection string for a lat/lon projection
+    proj_string_longlat <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+    
   
 }
