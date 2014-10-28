@@ -128,5 +128,12 @@ calpuff_add_line_sources <- function(src_name,
                              " +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
                              sep = '')
     
+    # Create a SpatialPoints object for the UTM coordinates
+    UTM_m_SP <- SpatialPoints(matrix(c(x_coord_km * 1000,
+                                       y_coord_km * 1000),
+                                     nrow = 1,
+                                     ncol = 2),
+                              proj4string = CRS(proj_string_UTM))
+    
   
 }
