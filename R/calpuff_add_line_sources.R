@@ -44,5 +44,13 @@ calpuff_add_line_sources <- function(src_name,
   require(raster)
   require(stringr)
   require(plyr)
+ 
+  # Get expected filename for line sources
+  line_sources_filename <-
+    paste(unlist(str_split(getwd(),
+                           pattern = "/"))[length(unlist(str_split(getwd(),
+                                                                   pattern = "/")))],
+          "--line_sources.txt", sep = '')
+  
   
 }
