@@ -5,6 +5,8 @@
 #' @export calpuff_add_volume_sources
 
 calpuff_add_volume_sources <- function(src_name,
-                                       species_name){
+                                       species_name,
+                                       emission_rate,
+                                       emission_units){
   
 }
