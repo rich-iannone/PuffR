@@ -10,5 +10,11 @@ calpuff_add_volume_sources <- function(src_name,
                                        species_name,
                                        emission_rate,
                                        emission_units){
+ 
+  # Add require statements
+  require(rgdal)
+  require(raster)
+  require(stringr)
+  require(plyr)
   
 }
