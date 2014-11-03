@@ -91,4 +91,7 @@ calpuff_add_volume_sources <- function(src_name,
   # If both lon/lat provided, convert to UTM
   if (lon_lat_provided == TRUE & UTM_provided == FALSE){
     
+    # Get matrix of longitude and latitude for source location
+    lat_lon_dec_deg <- cbind(lon_dec_deg, lat_dec_deg)
+    
 }
