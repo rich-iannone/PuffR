@@ -49,4 +49,7 @@ calpuff_add_volume_sources <- function(src_name,
   # Create volume sources text file with header if it doesn't exist
   if (file.exists(vol_sources_filename) == FALSE){
     
+    # Create empty file in working folder
+    file.create(vol_sources_filename)
+    
 }
