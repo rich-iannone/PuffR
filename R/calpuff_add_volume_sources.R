@@ -20,6 +20,16 @@
 
 calpuff_add_volume_sources <- function(src_name,
                                        species_name,
+                                       lat_dec_deg = NULL,
+                                       lon_dec_deg = NULL,
+                                       x_coord_km = NULL,
+                                       y_coord_km = NULL,
+                                       UTM_zone = NULL,
+                                       UTM_hemisphere = NULL,
+                                       effective_height,
+                                       base_elev,
+                                       init_sigma_y,
+                                       init_sigma_z,
                                        emission_rate,
                                        emission_units){
  
