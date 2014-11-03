@@ -97,4 +97,7 @@ calpuff_add_volume_sources <- function(src_name,
     # Determine the UTM zone
     UTM_zone <- (floor((lon_dec_deg + 180)/6) %% 60) + 1
     
+    # Determine whether source is in the Northern Hemisphere or the Southern Hemisphere
+    UTM_hemisphere <- ifelse(lat_dec_deg >= 0, "N", "S")
+    
 }
