@@ -39,4 +39,11 @@ calpuff_add_volume_sources <- function(src_name,
   require(stringr)
   require(plyr)
   
+  # Get expected filename for volume sources
+  vol_sources_filename <-
+    paste(unlist(str_split(getwd(),
+                           pattern = "/"))[length(unlist(str_split(getwd(),
+                                                                   pattern = "/")))],
+          "--volume_sources.txt", sep = '')
+  
 }
