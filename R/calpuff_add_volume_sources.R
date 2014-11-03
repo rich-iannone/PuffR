@@ -52,4 +52,24 @@ calpuff_add_volume_sources <- function(src_name,
     # Create empty file in working folder
     file.create(vol_sources_filename)
     
+    # Add header row to new volume sources file
+    cat(paste("src_name", ",",
+              "species_name", ",",
+              "lat_dec_deg", ",",
+              "lon_dec_deg", ",",
+              "x_coord_km", ",",
+              "y_coord_km", ",",
+              "UTM_zone", ",",
+              "UTM_hemisphere", ",",
+              "effective_height", ",",
+              "base_elev", ",",
+              "init_sigma_y", ",",
+              "init_sigma_z", ",",
+              "emission_rate", ",",
+              "emission_units", sep = ''),
+        sep = "\n",
+        file = vol_sources_filename,
+        append = TRUE)
+    
+  }
 }
