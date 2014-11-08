@@ -3,7 +3,7 @@
 \alias{calpuff_create_varying_volume_sources}
 \title{Create CALPUFF input file with volume sources that vary in location and time}
 \usage{
-calpuff_create_varying_volume_sources()
+calpuff_create_varying_volume_sources(CSV_input = NULL, df_input = NULL)
 }
 \description{
 Create CALPUFF input file with volume sources that vary in location and time.

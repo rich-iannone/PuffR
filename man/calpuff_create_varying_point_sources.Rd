@@ -3,7 +3,7 @@
 \alias{calpuff_create_varying_point_sources}
 \title{Create CALPUFF input file with point sources that vary in location and time}
 \usage{
-calpuff_create_varying_point_sources()
+calpuff_create_varying_point_sources(CSV_input = NULL, df_input = NULL)
 }
 \description{
 Create CALPUFF input file with point sources that vary in location and time.
