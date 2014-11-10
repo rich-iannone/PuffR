@@ -107,6 +107,7 @@ How about surface meteorology? We can produce a SURF.DAT file using the `calmet_
 
 ```R
 calmet_surface_met(location_name = "Vancouver",
+                   year = 2011,
                    lat_dec_deg = 49.196116,
                    lon_dec_deg = -122.505866,
                    lat_lon_grid_loc = 1,
