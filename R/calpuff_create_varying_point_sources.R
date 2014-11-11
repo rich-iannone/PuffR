@@ -11,4 +11,13 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
                                                  src_name,
                                                  species_name){
   
+  # Get UTM zone and hemisphere for domain
+  
+  
+  # Construct header lines for file
+  header_1 <- paste0("PTEMARB.DAT     1.54a           ",
+                     "Augmented 5.4 format with Map Projection, DATUM, Time Zone")
+  header_2 <- "UTM     "
+  header_3 <- "10N   "
+  
 }
