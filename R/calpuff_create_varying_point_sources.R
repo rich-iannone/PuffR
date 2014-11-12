@@ -23,11 +23,11 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
   
   # Obtain UTM zone and hemisphere text from 'geo_dat_lines'
   geo_dat_UTM_line <- gsub(" ", "", geo_dat_lines[grep("UTM", geo_dat_lines) + 1])
-    
+  
   # Construct header lines for file
   header_1 <- paste0("PTEMARB.DAT     1.54a           ",
                      "Augmented 5.4 format with Map Projection, DATUM, Time Zone")
-  header_2 <- "UTM     "
-  header_3 <- "10N   "
+  header_2 <- "UTM"
+  header_3 <- geo_dat_UTM_line
   
 }
