@@ -19,7 +19,8 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
   geo_dat_file <- list.files(pattern = paste0("geo--.*?-", domain_dimensions, ".*"))[1]
   
   # Obtain text lines of GEO.DAT file as a vector object
-  geo_dat_lines <- readLines(geo_dat_file)
+  geo_dat_lines <- readLines(geo_dat_file, warn = FALSE)
+  
   
   # Construct header lines for file
   header_1 <- paste0("PTEMARB.DAT     1.54a           ",
