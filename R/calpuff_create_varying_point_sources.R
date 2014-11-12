@@ -10,6 +10,10 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
                                                  df_input = NULL,
                                                  src_name,
                                                  species_name){
+
+  # Obtain domain dimensions from CALPUFF output files
+  calpuff_out_files <- list.files(pattern = "calpuff_out--concdat--.*")
+  domain_dimensions <- unique(gsub("^calpuff_out--concdat--.*?-([x0-9]*).*", "\\1", calpuff_out_files))[1]
   
   # Get UTM zone and hemisphere for domain
   
