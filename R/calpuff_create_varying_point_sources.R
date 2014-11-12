@@ -18,6 +18,9 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
   # Use 'domain_dimensions' to get the first item from a vector list of GEO.DAT files
   geo_dat_file <- list.files(pattern = paste0("geo--.*?-", domain_dimensions, ".*"))[1]
   
+  # Obtain text lines of GEO.DAT file as a vector object
+  geo_dat_lines <- readLines(geo_dat_file)
+  
   # Construct header lines for file
   header_1 <- paste0("PTEMARB.DAT     1.54a           ",
                      "Augmented 5.4 format with Map Projection, DATUM, Time Zone")
