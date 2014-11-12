@@ -16,7 +16,7 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
   domain_dimensions <- unique(gsub("^calpuff_out--concdat--.*?-([x0-9]*).*", "\\1", calpuff_out_files))[1]
   
   # Use 'domain_dimensions' to get the first item from a vector list of GEO.DAT files
-  geo_dat_files <- list.files(pattern = paste0("geo--.*?-", domain_dimensions, ".*"))[1]
+  geo_dat_file <- list.files(pattern = paste0("geo--.*?-", domain_dimensions, ".*"))[1]
   
   # Construct header lines for file
   header_1 <- paste0("PTEMARB.DAT     1.54a           ",
