@@ -30,6 +30,8 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
   # Obtain text lines of SURF.DAT file as a vector object
   surf_dat_lines <- readLines(surf_dat_file, warn = FALSE)
   
+  # Obtain time zone text from 'surf_dat_lines'
+  surf_dat_tz_line <- gsub(" ", "", surf_dat_lines[grep("UTC([+|-])", surf_dat_lines)])
   
   # Construct header lines for file
   header_1 <- paste0("PTEMARB.DAT     1.54a           ",
