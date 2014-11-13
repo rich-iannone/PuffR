@@ -29,5 +29,6 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
                      "Augmented 5.4 format with Map Projection, DATUM, Time Zone")
   header_2 <- "UTM"
   header_3 <- geo_dat_UTM_line
+  header_4 <- "WGS-84"
   
 }
