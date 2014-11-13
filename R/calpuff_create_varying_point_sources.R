@@ -36,10 +36,13 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
   # Construct header lines for file
   header_1 <- paste0("PTEMARB.DAT     2.1             ",
                      "Comments, times with seconds, time zone, coord info")
-  header_2 <- "UTM"
-  header_3 <- geo_dat_UTM_line
-  header_4 <- "WGS-84"
-  header_5 <- surf_dat_tz_line
+  header_2 <- "1"
+  header_3 <- "Produced by PuffR !Do not edit by hand!"
+  header_4 <- "UTM"
+  header_5 <- geo_dat_UTM_line
+  header_6 <- "WGS-84"
+  header_7 <- "  KM"
+  header_8 <- surf_dat_tz_line
   
   
 }
