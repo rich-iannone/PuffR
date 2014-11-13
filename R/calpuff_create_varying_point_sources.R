@@ -34,8 +34,8 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
   surf_dat_tz_line <- gsub(" ", "", surf_dat_lines[grep("UTC([+|-])", surf_dat_lines)])
   
   # Construct header lines for file
-  header_1 <- paste0("PTEMARB.DAT     1.54a           ",
-                     "Augmented 5.4 format with Map Projection, DATUM, Time Zone")
+  header_1 <- paste0("PTEMARB.DAT     2.1             ",
+                     "Comments, times with seconds, time zone, coord info")
   header_2 <- "UTM"
   header_3 <- geo_dat_UTM_line
   header_4 <- "WGS-84"
