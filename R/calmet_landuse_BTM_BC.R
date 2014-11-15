@@ -15,6 +15,7 @@ calmet_landuse_BTM_BC <- function(location_name,
                                   bbox_UTM,
                                   UTM_zone,
                                   UTM_hemisphere,
+                                  cell_resolution_m,
                                   proj_string_longlat,
                                   proj_string_UTM,
                                   shapefile_dir){
