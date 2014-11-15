@@ -4,7 +4,8 @@
 #' @param bbox_longlat a bounding box with latitude and longitude coordinates.
 #' @param bbox_UTM a bounding box with UTM coordinates.
 #' @param UTM_zone the UTM zone in which the domain resides.
-#' @param UTM_hemisphere the hemisphere, either north ("N") or south ("S") in which the domain resides. 
+#' @param UTM_hemisphere the hemisphere, either north ("N") or south ("S") in which the domain resides.
+#' @param cell_resolution_m the cell resolution in meters.
 #' @param proj_string_longlat the chosen PROJ.4 string for the lat/lon coordinate system.
 #' @param proj_string_UTM the chosen PROJ.4 string for the UTM coordinate system.
 #' @param shapefile_dir the directory in which the BC BTM V1 landuse shapefile is stored.
