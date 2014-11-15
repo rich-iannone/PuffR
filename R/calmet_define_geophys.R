@@ -21,7 +21,7 @@
 #'                       lat_lon_grid_loc = 1,
 #'                       domain_width_m = 117000,
 #'                       domain_height_m = 43250,
-#'                       cell_resolution_m = 500
+#'                       cell_resolution_m = 500,
 #'                       download_SRTM = TRUE)
 #'}
 
