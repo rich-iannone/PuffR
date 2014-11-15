@@ -22,7 +22,7 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
   geo_dat_lines <- readLines(geo_dat_file, warn = FALSE)
   
   # Obtain UTM zone and hemisphere text from 'geo_dat_lines'
-  geo_dat_UTM_zone <- gsub(" ", "", geo_dat_lines[grep("UTM", geo_dat_lines) + 1])
+  UTM_zone <- gsub(" ", "", geo_dat_lines[grep("UTM", geo_dat_lines) + 1])
   
   # Use 'domain_dimensions' to get the first item from a vector list of SURF.DAT files
   surf_dat_file <- list.files(pattern = paste0("surf--.*?-", domain_dimensions, ".*"))[1]
@@ -31,7 +31,7 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
   surf_dat_lines <- readLines(surf_dat_file, warn = FALSE)
   
   # Obtain time zone text from 'surf_dat_lines'
-  surf_dat_tz <- gsub(" ", "", surf_dat_lines[grep("UTC([+|-])", surf_dat_lines)])
+  time_zone <- gsub(" ", "", surf_dat_lines[grep("UTC([+|-])", surf_dat_lines)])
   
   # Construct header lines for file
   header_1 <- paste0("PTEMARB.DAT     2.1             ",
