@@ -39,10 +39,11 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
   header_2 <- "1"
   header_3 <- "Produced by PuffR !Do not edit by hand!"
   header_4 <- "UTM"
-  header_5 <- geo_dat_UTM_zone
+  header_5 <- UTM_zone
   header_6 <- "WGS-84"
   header_7 <- "  KM"
-  header_8 <- surf_dat_tz
+  header_8 <- time_zone
+  
   
   
 }
