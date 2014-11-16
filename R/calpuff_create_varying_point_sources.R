@@ -33,6 +33,10 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
   # Obtain time zone text from 'surf_dat_lines'
   time_zone <- gsub(" ", "", surf_dat_lines[grep("UTC([+|-])", surf_dat_lines)])
   
+  # If CSV provided, read in that CSV file
+  if (!is.null(CSV_input)){
+    
+    CSV_df <- read.csv(CSV_input, header = TRUE, stringsAsFactors = FALSE)
   # Construct header lines for file
   header_1 <- paste0("PTEMARB.DAT     2.1             ",
                      "Comments, times with seconds, time zone, coord info")
