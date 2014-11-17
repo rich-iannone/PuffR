@@ -36,6 +36,7 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
   # If data frame provided, read in that data frame object
   if (!is.null(df_input)){
     
+    # Assign 'df_input' to 'point_sources_df'
     point_sources_df <- df_input
     
   # Construct header lines for file
