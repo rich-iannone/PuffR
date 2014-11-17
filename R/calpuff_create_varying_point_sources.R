@@ -45,6 +45,14 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
                                     "bldg_downwash", "user_flag") %in% colnames(point_sources_df)),
                                   TRUE, FALSE)
     
+  }
+  
+  # Get beginning date and time
+  
+  
+  # Get ending date and time
+  
+  
   # Construct header lines for file
   header_1 <- paste0("PTEMARB.DAT     2.1             ",
                      "Comments, times with seconds, time zone, coord info")
@@ -55,7 +63,7 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
   header_6 <- "WGS-84"
   header_7 <- "  KM"
   header_8 <- time_zone
-  
+  header_9 <- "1988  11   0  0000  1988  11  24 0000"
   
   
 }
