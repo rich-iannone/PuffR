@@ -39,6 +39,12 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
     # Assign 'df_input' to 'point_sources_df'
     point_sources_df <- df_input
     
+    # Check that each required column is present
+    all_columns_present <- ifelse(all(c("src_name", "date_time", "x", "y",
+                                    "stk_height", "stk_diam", "stk_base_elev",
+                                    "bldg_downwash", "user_flag") %in% colnames(point_sources_df)),
+                                  TRUE, FALSE)
+    
   # Construct header lines for file
   header_1 <- paste0("PTEMARB.DAT     2.1             ",
                      "Comments, times with seconds, time zone, coord info")
