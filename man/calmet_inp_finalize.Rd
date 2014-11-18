@@ -17,15 +17,15 @@ calmet_inp_finalize(calmet_inp = "calmet_template.txt",
 
 \item{get_filenames_from_wd}{}
 
-\item{geodat}{}
+\item{geodat}{the name of the intended GEO.DAT file.}
 
-\item{srfdat}{}
+\item{srfdat}{the name of the intended SURF.DAT file.}
 
-\item{clddat}{}
+\item{clddat}{the name of the intended CLOUD.DAT file.}
 
-\item{prcdat}{}
+\item{prcdat}{the name of the intended PRECIP.DAT file.}
 
-\item{wtdat}{}
+\item{wtdat}{the name of the intended WT.DAT file.}
 
 \item{metlst}{}
 
