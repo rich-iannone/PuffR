@@ -9,7 +9,7 @@
 #' @param wtdat the name of the intended WT.DAT file.
 #' @param metlst 
 #' @param metdat 
-#' @param pacdat 
+#' @param pacdat the name of the created PACOUT.DAT file.
 #' @param lcfiles 
 #' @param nusta 
 #' @param nowsta 
@@ -19,7 +19,7 @@
 #' @param seadat 
 #' @param m3ddat 
 #' @param igfdat 
-#' @param diadat 
+#' @param diadat the name of the intended DIAG.DAT file.
 #' @param prgdat 
 #' @param tstprt 
 #' @param tstout 
