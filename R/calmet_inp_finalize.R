@@ -2,11 +2,11 @@
 #' @description This function sets the input and output filenames for CALMET model runs generates one or a series of CALMET.INP files.
 #' @param calmet_inp the absolute path and filename for the working CALMET input file.
 #' @param get_filenames_from_wd 
-#' @param geodat 
-#' @param srfdat 
-#' @param clddat 
-#' @param prcdat 
-#' @param wtdat 
+#' @param geodat the name of the intended GEO.DAT file.
+#' @param srfdat the name of the intended SURF.DAT file.
+#' @param clddat the name of the intended CLOUD.DAT file.
+#' @param prcdat the name of the intended PRECIP.DAT file.
+#' @param wtdat the name of the intended WT.DAT file.
 #' @param metlst 
 #' @param metdat 
 #' @param pacdat 
