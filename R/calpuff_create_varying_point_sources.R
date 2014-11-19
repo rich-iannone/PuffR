@@ -45,6 +45,9 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
                                     "bldg_downwash", "user_flag") %in% colnames(point_sources_df)),
                                   TRUE, FALSE)
     
+    # Check that the 'src_name' column has the correct class
+    src_name_is_character <- ifelse(class(point_sources_df$src_name) == "character", TRUE, FALSE)
+    
   }
   
   # Get beginning date and time
