@@ -52,7 +52,13 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
     date_time_is_numeric <- ifelse(class(point_sources_df$date_time) == "numeric", TRUE, FALSE)
 
     # Check that the remaining columns are of numeric class
-    other_columns_are_numeric <- ifelse(class(point_sources_df[,3]) == "numeric", TRUE, FALSE)
+    other_columns_are_numeric <- ifelse(class(point_sources_df[,3]) == "numeric" &
+                                          class(point_sources_df[,4]) == "numeric" &
+                                          class(point_sources_df[,5]) == "numeric" &
+                                          class(point_sources_df[,6]) == "numeric" &
+                                          class(point_sources_df[,7]) == "numeric" &
+                                          class(point_sources_df[,8]) == "numeric" &
+                                          class(point_sources_df[,9]) == "numeric", TRUE, FALSE)
     
   }
   
