@@ -10,7 +10,7 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
                                                  df_input = NULL,
                                                  src_name,
                                                  species_name){
-
+  
   # Obtain domain dimensions from CALPUFF output files
   calpuff_out_files <- list.files(pattern = "calpuff_out--concdat--.*")
   domain_dimensions <- unique(gsub("^calpuff_out--concdat--.*?-([x0-9]*).*", "\\1", calpuff_out_files))[1]
@@ -26,7 +26,7 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
   
   # Use 'domain_dimensions' to get the first item from a vector list of SURF.DAT files
   surf_dat_file <- list.files(pattern = paste0("surf--.*?-", domain_dimensions, ".*"))[1]
-
+  
   # Obtain text lines of SURF.DAT file as a vector object
   surf_dat_lines <- readLines(surf_dat_file, warn = FALSE)
   
@@ -41,8 +41,8 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
     
     # Check that each required column is present
     all_columns_present <- ifelse(all(c("src_name", "date_time", "x", "y",
-                                    "stk_height", "stk_diam", "stk_base_elev",
-                                    "bldg_downwash", "user_flag") %in% colnames(point_sources_df)),
+                                        "stk_height", "stk_diam", "stk_base_elev",
+                                        "bldg_downwash", "user_flag") %in% colnames(point_sources_df)),
                                   TRUE, FALSE)
     
     # Check that the 'src_name' column has the correct class
@@ -50,7 +50,7 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
     
     # Check that the 'date_time' column is of numeric class
     date_time_is_numeric <- ifelse(class(point_sources_df$date_time) == "numeric", TRUE, FALSE)
-
+    
     # Check that the remaining columns are of numeric class
     other_columns_are_numeric <- ifelse(class(point_sources_df[,3]) == "numeric" &
                                           class(point_sources_df[,4]) == "numeric" &
