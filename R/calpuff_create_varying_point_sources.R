@@ -48,6 +48,9 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
     # Check that the 'src_name' column has the correct class
     src_name_is_character <- ifelse(class(point_sources_df$src_name) == "character", TRUE, FALSE)
     
+    # Check that the 'date_time' column is of numeric class
+    date_time_is_numeric <- ifelse(class(point_sources_df$date_time) == "numeric", TRUE, FALSE)
+    
   }
   
   # Get beginning date and time
