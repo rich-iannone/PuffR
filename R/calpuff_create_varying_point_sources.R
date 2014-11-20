@@ -45,7 +45,7 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
                                         "bldg_downwash", "user_flag") %in% colnames(point_sources_df)),
                                   TRUE, FALSE)
     
-    # Determine the class of 'src_name', tranforming to 'character'
+    # Determine the class of 'src_name' column, tranforming to 'character'
     if (class(point_sources_df$src_name) == "character"){
       NULL
     } else if (class(point_sources_df$src_name) == "factor"){
