@@ -92,7 +92,12 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
   header_6 <- "WGS-84"
   header_7 <- "  KM"
   header_8 <- time_zone
-  header_9 <- "1988  11   0  0000  1988  11  24 0000"
-  
-  
+  header_9 <- paste0(year(beginning_date_time), "  ",
+                     month(beginning_date_time), "   ",
+                     hour(beginning_date_time), " ",
+                     "0000",
+                     year(ending_date_time), "  ",
+                     month(ending_date_time), "   ",
+                     hour(ending_date_time), " ",
+                     "0000")
 }
