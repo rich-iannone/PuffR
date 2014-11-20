@@ -11,6 +11,9 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
                                                  src_name,
                                                  species_name){
   
+  # Add require statement
+  require(lubridate)
+  
   # Obtain domain dimensions from CALPUFF output files
   calpuff_out_files <- list.files(pattern = "calpuff_out--concdat--.*")
   domain_dimensions <- unique(gsub("^calpuff_out--concdat--.*?-([x0-9]*).*", "\\1", calpuff_out_files))[1]
