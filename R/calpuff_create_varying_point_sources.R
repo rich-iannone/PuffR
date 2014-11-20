@@ -43,7 +43,7 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
     point_sources_df <- df_input
     
     # Check that each required column is present
-    all_columns_present <- ifelse(all(c("src_name", "date_time", "x", "y",
+    all_columns_present <- ifelse(all(c("src_name", "x", "y",
                                         "stk_height", "stk_diam", "stk_base_elev",
                                         "bldg_downwash", "user_flag") %in% colnames(point_sources_df)),
                                   TRUE, FALSE)
