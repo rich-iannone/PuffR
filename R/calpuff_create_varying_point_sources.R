@@ -56,16 +56,16 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
     } else if (class(point_sources_df$src_name) == "numeric"){
       point_sources_df$src_name <- as.character(point_sources_df$src_name)
     }
-
+    
     # Determine the class of 'date_time' column, tranforming to 'POSIXct'
     if (class(point_sources_df$date_time)[1] == "POSIXct"){
       NULL
     } else if (class(point_sources_df$date_time) == "factor"){
       point_sources_df$date_time <- as.POSIXct(as.numeric(as.character(point_sources_df[,2])),
-                                              origin = "1970-01-01", tz = "GMT")  
+                                               origin = "1970-01-01", tz = "GMT")  
     } else if (class(point_sources_df$date_time) == "numeric"){
       point_sources_df$date_time <- as.POSIXct(point_sources_df[,2],
-                                              origin = "1970-01-01", tz = "GMT") 
+                                               origin = "1970-01-01", tz = "GMT") 
     }
     
     # Change 'character'/'factor' classes to numeric class
