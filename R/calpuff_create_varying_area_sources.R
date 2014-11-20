@@ -10,5 +10,9 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
                                                 df_input = NULL,
                                                 src_name,
                                                 species_name){
+ 
+  # Add require statement
+  require(lubridate)
+  
   
 }
