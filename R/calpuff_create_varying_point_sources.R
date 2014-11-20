@@ -65,6 +65,15 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
                                               origin = "1970-01-01", tz = "GMT") 
     }
     
+    # Change 'character'/'factor' classes to numeric class
+    for (i in 3:9){
+      if (class(point_sources_df[,i]) == "character"){
+        point_sources_df[,i] <- as.numeric(point_sources_df[,i])
+      } else if (class(point_sources_df[,i]) == "factor"){
+        point_sources_df[,i] <- as.numeric(as.character(point_sources_df[,i]))
+      }
+    }
+        
   }
   
   # Get beginning date and time
