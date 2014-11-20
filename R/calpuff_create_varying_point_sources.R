@@ -77,13 +77,18 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
       }
     }
         
-  }
-  
-  # Get beginning date and time
+   # Get beginning date and time
   beginning_date_time <- min(point_sources_df$date_time)
   
   # Get ending date and time
   ending_date_time <- max(point_sources_df$date_time)
+  
+  }
+  
+
+  
+  
+  
   
   # Construct header lines for file
   header_1 <- paste0("PTEMARB.DAT     2.1             ",
