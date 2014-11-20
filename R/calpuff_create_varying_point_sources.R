@@ -76,16 +76,16 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
         point_sources_df[,i] <- as.numeric(as.character(point_sources_df[,i]))
       }
     }
-        
-   # Get beginning date and time
-  beginning_date_time <- min(point_sources_df$date_time)
-  
-  # Get ending date and time
-  ending_date_time <- max(point_sources_df$date_time)
-  
+    
+    # Get beginning date and time
+    beginning_date_time <- min(point_sources_df$date_time)
+    
+    # Get ending date and time
+    ending_date_time <- max(point_sources_df$date_time)
+    
   }
   
-
+  
   
   
   
