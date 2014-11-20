@@ -58,7 +58,7 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
     }
     
     # Change 'character'/'factor' classes to numeric class
-    for (i in 3:9){
+    for (i in 2:8){
       if (class(point_sources_df[,i]) == "character"){
         point_sources_df[,i] <- as.numeric(point_sources_df[,i])
       } else if (class(point_sources_df[,i]) == "factor"){
