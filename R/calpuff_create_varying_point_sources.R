@@ -45,6 +45,15 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
                                         "bldg_downwash", "user_flag") %in% colnames(point_sources_df)),
                                   TRUE, FALSE)
     
+    # Determine the class of 'src_name', tranforming to 'character'
+    if (class(point_sources_df$src_name) == "character"){
+      NULL
+    } else if (class(point_sources_df$src_name) == "factor"){
+      point_sources_df$src_name <- as.character(point_sources_df$src_name)
+    } else if (class(point_sources_df$src_name) == "numeric"){
+      point_sources_df$src_name <- as.character(point_sources_df$src_name)
+    }
+
     # Check that the 'date_time' column is of numeric class
     date_time_is_numeric <- ifelse(class(point_sources_df$date_time) == "numeric", TRUE, FALSE)
     
