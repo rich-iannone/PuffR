@@ -67,6 +67,9 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   # Get ending date and time
   ending_date_time <- max(area_sources_df$date_time)
   
+  # Get sorted list of unique dates and times
+  sorted_date_time <- sort(unique(area_sources_df$date_time))
+  
   # Get vector list of sources
   source_names <- sort(unique(area_sources_df$src_name))
   
