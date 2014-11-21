@@ -182,5 +182,11 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
     date_time_blocks <- c(date_time_blocks, date_time_block)    
   }
   
+  # Write all lines to BAEMARB.DAT file
+  cat(header_1, header_2, header_3, header_4, header_5, header_6,
+      header_7, header_8, header_9, header_10, header_11, header_12, header_13,
+      date_time_blocks, "", sep = "\n",
+      file = paste0("baemarb--", gsub("^.*?--(.*?)--.*", "\\1", geo_dat_file), ".txt"),
+      append = FALSE)
   
 }
