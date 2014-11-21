@@ -79,10 +79,20 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   # Construct header lines for file
   header_1 <- paste0("BAEMARB.DAT     2.1             ",
                      "Comments, times with seconds, time zone, coord info")
+  
+  # Format number of comment lines
   header_2 <- "1"
+  
+  # Format a comment line
   header_3 <- "Produced by PuffR !Do not edit by hand!"
+  
+  # Format the coordinate system in use
   header_4 <- "UTM"
+  
+  # Format the UTM zone
   header_5 <- UTM_zone
+  
+  # Format the datum in use
   header_6 <- "WGS-84"
   
   # Format units used for distances
