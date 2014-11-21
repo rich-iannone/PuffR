@@ -18,6 +18,9 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   calmet_out_files <- list.files(pattern = "calmet_out--.*")
   domain_dimensions <- unique(gsub("^calmet_out--.*?-([x0-9]*).*", "\\1", calmet_out_files))[1]
   
+  # Use 'domain_dimensions' to get the first item from a vector list of GEO.DAT files
+  geo_dat_file <- list.files(pattern = paste0("geo--.*?-", domain_dimensions, ".*"))[1]
+  
   # Change 'date_time' column to 'POSIXct' class
   if (class(area_sources_df$date_time)[1] == "POSIXct"){
     NULL
