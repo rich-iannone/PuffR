@@ -25,6 +25,14 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
                                              origin = "1970-01-01", tz = "GMT") 
   }
   
+  # Change 'character'/'factor' classes to numeric class
+  for (i in 3:16){
+    if (class(area_sources_df[,i]) == "character"){
+      area_sources_df[,i] <- as.numeric(area_sources_df[,i])
+    } else if (class(area_sources_df[,i]) == "factor"){
+      area_sources_df[,i] <- as.numeric(as.character(area_sources_df[,i]))
+    }
+  }
   
   
   # Example of a nicely-formatted BAEMARB.DAT file
