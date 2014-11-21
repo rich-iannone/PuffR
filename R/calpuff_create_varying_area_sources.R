@@ -24,6 +24,9 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   # Obtain text lines of GEO.DAT file as a vector object
   geo_dat_lines <- readLines(geo_dat_file, warn = FALSE)
   
+  # Obtain UTM zone and hemisphere text from 'geo_dat_lines'
+  UTM_zone <- gsub(" ", "", geo_dat_lines[grep("UTM", geo_dat_lines) + 1])
+  
   # Change 'date_time' column to 'POSIXct' class
   if (class(area_sources_df$date_time)[1] == "POSIXct"){
     NULL
