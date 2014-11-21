@@ -101,6 +101,9 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   # Format number of sources and number of pollutants
   header_10 <- paste0(length(source_names), "  ", length(pollutant_names))
   
+  # Format names of pollutants
+  header_11 <- paste(pollutant_names, collapse = '  ')
+  
   
   # Example of a nicely-formatted BAEMARB.DAT file
   
