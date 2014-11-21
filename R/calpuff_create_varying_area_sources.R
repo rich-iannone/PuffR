@@ -107,6 +107,8 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
                          gsub("  ", "' '",
                               paste(pollutant_names, collapse = '  '))))
   
+  # Format molecular weights of pollutants
+  header_12 <- paste(pollutant_MW, collapse = '  ')
   
   
   # Example of a nicely-formatted BAEMARB.DAT file
