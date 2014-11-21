@@ -21,6 +21,9 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   # Use 'domain_dimensions' to get the first item from a vector list of GEO.DAT files
   geo_dat_file <- list.files(pattern = paste0("geo--.*?-", domain_dimensions, ".*"))[1]
   
+  # Obtain text lines of GEO.DAT file as a vector object
+  geo_dat_lines <- readLines(geo_dat_file, warn = FALSE)
+  
   # Change 'date_time' column to 'POSIXct' class
   if (class(area_sources_df$date_time)[1] == "POSIXct"){
     NULL
