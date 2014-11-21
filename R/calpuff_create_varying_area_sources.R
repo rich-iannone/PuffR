@@ -131,5 +131,56 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
     header_13 <- c(header_13, header_13_item)
   }
   
+  # Loop through dates and obtain blocks of changing emissions
+  for (i in 1:length(unique(area_sources_df$date_time))){
+    
+    if (i == 1) date_time_blocks <- vector(mode = "character", length = 0)
+    
+    date_time_subset <- subset(area_sources_df, date_time == sorted_date_time[i])
+    
+    date_header <- paste0("       ",
+                          year(date_time_subset$date_time), "  ",
+                          yday(date_time_subset$date_time), "  ",
+                          hour(date_time_subset$date_time), "  ",
+                          "0000", "  ",
+                          year(date_time_subset$date_time), "  ",
+                          yday(date_time_subset$date_time), "  ",
+                          hour(date_time_subset$date_time), "  ",
+                          "3600")
+    
+    date_time_blocks <- c(date_time_blocks, date_header)
+    
+    for (j in 1:nrow(date_time_subset)){
+      if (j == 1) date_time_block <- vector(mode = "character", length = 0)
+      
+      date_time_block_source <- 
+        paste0("'", date_time_subset[j,1], "'", " ",
+               date_time_subset[j,3], "   ",
+               date_time_subset[j,4], "   ",
+               date_time_subset[j,5], "   ",
+               date_time_subset[j,6], "\n",
+               gsub(".", " ", date_time_subset[j,1]), "   ",
+               date_time_subset[j,7], "   ",
+               date_time_subset[j,8], "   ",
+               date_time_subset[j,9], "   ",
+               date_time_subset[j,10], "\n",
+               gsub(".", " ", date_time_subset[j,1]), "   ",
+               date_time_subset[j,11], "   ",
+               date_time_subset[j,12], "   ",
+               date_time_subset[j,13], "\n",
+               gsub(".", " ", date_time_subset[j,1]), "   ",
+               date_time_subset[j,14], "   ",
+               date_time_subset[j,15], "   ",
+               date_time_subset[j,16], "\n",
+               gsub(".", " ", date_time_subset[j,1]), "   ",
+               paste(date_time_subset[j,17:18], collapse = "   "))
+      
+      date_time_block <- c(date_time_block, date_time_block_source)
+      
+    }
+    
+    date_time_blocks <- c(date_time_blocks, date_time_block)    
+  }
+  
   
 }
