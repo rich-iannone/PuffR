@@ -11,6 +11,10 @@ download_SRTMV4_GeoTIFF <- function(lon,
                                     download = TRUE,
                                     SRTM_file_path = NULL){
   
+  # Create RasterLayer object representative of available SRTM tiles
+  rs <- raster(nrows = 24, ncols = 72, xmn = -180, xmx = 180, 
+               ymn = -60, ymx = 60)
+  
   stopifnot(lon >= -180 & lon <= 180)
   stopifnot(lat >= -60 & lat <= 60)
   
