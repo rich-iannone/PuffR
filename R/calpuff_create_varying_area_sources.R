@@ -14,6 +14,16 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   # Add require statement
   require(lubridate)
   
+  # Change 'date_time' column to 'POSIXct' class
+  if (class(area_sources_df$date_time)[1] == "POSIXct"){
+    NULL
+  } else if (class(area_sources_df$date_time) == "factor"){
+    area_sources_df$date_time <- as.POSIXct(as.numeric(as.character(area_sources_df[,2])),
+                                             origin = "1970-01-01", tz = "GMT")  
+  } else if (class(area_sources_df$date_time) == "numeric"){
+    area_sources_df$date_time <- as.POSIXct(area_sources_df[,2],
+                                             origin = "1970-01-01", tz = "GMT") 
+  }
   
   
   
