@@ -14,6 +14,10 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   # Add require statement
   require(lubridate)
   
+  # Obtain domain dimensions from CALMET output files
+  calmet_out_files <- list.files(pattern = "calmet_out--.*")
+  domain_dimensions <- unique(gsub("^calmet_out--.*?-([x0-9]*).*", "\\1", calmet_out_files))[1]
+  
   # Change 'date_time' column to 'POSIXct' class
   if (class(area_sources_df$date_time)[1] == "POSIXct"){
     NULL
