@@ -110,6 +110,13 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   # Format molecular weights of pollutants
   header_12 <- paste(pollutant_MW, collapse = '  ')
   
+  # Format sources with unit definitions
+  for (i in 1:length(source_names)){
+    if (i == 1) header_13 <- vector(mode = "character", length = 0)
+    
+    header_13_item <- paste0("'", source_names[i], "'   'g/s'       0.0        0.0")
+    header_13 <- c(header_13, header_13_item)
+  }
   
   # Example of a nicely-formatted BAEMARB.DAT file
   
