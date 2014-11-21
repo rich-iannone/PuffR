@@ -65,6 +65,27 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   # Get ending date and time
   ending_date_time <- max(area_sources_df$date_time)
   
+  
+  # Construct header lines for file
+  header_1 <- paste0("BAEMARB.DAT     2.1             ",
+                     "Comments, times with seconds, time zone, coord info")
+  header_2 <- "1"
+  header_3 <- "Produced by PuffR !Do not edit by hand!"
+  header_4 <- "UTM"
+  header_5 <- UTM_zone
+  header_6 <- "WGS-84"
+  header_7 <- "  KM"
+  header_8 <- time_zone
+  header_9 <- paste0(year(beginning_date_time), "  ",
+                     month(beginning_date_time), "   ",
+                     hour(beginning_date_time), " ",
+                     "0000",
+                     year(ending_date_time), "  ",
+                     month(ending_date_time), "   ",
+                     hour(ending_date_time), " ",
+                     "0000")
+  
+  
   # Example of a nicely-formatted BAEMARB.DAT file
   
 #   BAEMARB.DAT     2.1             Comments, times with seconds, time zone, coord info
