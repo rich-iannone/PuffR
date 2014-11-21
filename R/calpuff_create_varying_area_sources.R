@@ -81,8 +81,14 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   header_4 <- "UTM"
   header_5 <- UTM_zone
   header_6 <- "WGS-84"
+  
+  # Format units used for distances
   header_7 <- "  KM"
+  
+  # Format time zone
   header_8 <- time_zone
+  
+  # Format beginning and ending dates and times
   header_9 <- paste0(year(beginning_date_time), "  ",
                      month(beginning_date_time), "   ",
                      hour(beginning_date_time), " ",
