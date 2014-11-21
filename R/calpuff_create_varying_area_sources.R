@@ -9,7 +9,7 @@
 calpuff_create_varying_area_sources <- function(CSV_input = NULL,
                                                 df_input = NULL,
                                                 pollutant_MW){
- 
+  
   # Add require statement
   require(lubridate)
   
@@ -43,10 +43,10 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
     NULL
   } else if (class(area_sources_df$date_time) == "factor"){
     area_sources_df$date_time <- as.POSIXct(as.numeric(as.character(area_sources_df[,2])),
-                                             origin = "1970-01-01", tz = "GMT")  
+                                            origin = "1970-01-01", tz = "GMT")  
   } else if (class(area_sources_df$date_time) == "numeric"){
     area_sources_df$date_time <- as.POSIXct(area_sources_df[,2],
-                                             origin = "1970-01-01", tz = "GMT") 
+                                            origin = "1970-01-01", tz = "GMT") 
   }
   
   # Change 'character'/'factor' classes to numeric class
@@ -63,7 +63,7 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   
   # Get beginning date and time    
   beginning_date_time <- min(area_sources_df$date_time)
-      
+  
   # Get ending date and time
   ending_date_time <- max(area_sources_df$date_time)
   
@@ -113,35 +113,35 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   
   # Example of a nicely-formatted BAEMARB.DAT file
   
-#   BAEMARB.DAT     2.1             Comments, times with seconds, time zone, coord info
-#   2
-#   Prepared by user
-#   NOX_FIRE_RUN
-#   LCC     
-#   40.5N           90.0W           30.0N           60.0N           
-#   0.00000000E+00 0.00000000E+00
-#   NWS-84  02-21-2003  
-#   KM
-#   UTC-0500
-#   1994 365  23  0000  1995 142  12 0000
-#   3   3  
-#   'SO2'  'NO'   'NO2' 
-#   64.0000        30.0000        46.0000    
-#   'Fire_Number_1'   'g/s'       0.0        0.0
-#   'Fire_Number_2'   'g/s'       0.0        0.0
-#   'Fire_Number_3'   'g/s'       0.0        0.0
-#   1994  365 23  0000        1995  142  09  3600
-#   'Fire_Number_1'   -84.8600       -84.7423       -84.7423       -84.8600    
-#   -254.620       -254.620       -254.502       -254.502        1.00000    
-#   2259.00        1126.35        5.76000        7.98000        10.0000    
-#   0.000000       0.000000       0.000000    
-#   'Fire_Number_2'   -167.190       -167.029       -167.029       -167.190    
-#   29.0900        29.0900        29.2514        29.2514        1.00000    
-#   1545.00        1126.35        2.97000        20.5500        10.0000    
-#   0.000000       0.000000       0.000000    
-#   'Fire_Number_3'   -65.0600       -64.9668       -64.9668       -65.0600    
-#   -88.9500       -88.9500       -88.8568       -88.8568        1.00000    
-#   1527.00        1126.35        19.1300        3.92000        10.0000    
-#   0.000000       0.000000       0.000000 
+  #   BAEMARB.DAT     2.1             Comments, times with seconds, time zone, coord info
+  #   2
+  #   Prepared by user
+  #   NOX_FIRE_RUN
+  #   LCC     
+  #   40.5N           90.0W           30.0N           60.0N           
+  #   0.00000000E+00 0.00000000E+00
+  #   NWS-84  02-21-2003  
+  #   KM
+  #   UTC-0500
+  #   1994 365  23  0000  1995 142  12 0000
+  #   3   3  
+  #   'SO2'  'NO'   'NO2' 
+  #   64.0000        30.0000        46.0000    
+  #   'Fire_Number_1'   'g/s'       0.0        0.0
+  #   'Fire_Number_2'   'g/s'       0.0        0.0
+  #   'Fire_Number_3'   'g/s'       0.0        0.0
+  #   1994  365 23  0000        1995  142  09  3600
+  #   'Fire_Number_1'   -84.8600       -84.7423       -84.7423       -84.8600    
+  #   -254.620       -254.620       -254.502       -254.502        1.00000    
+  #   2259.00        1126.35        5.76000        7.98000        10.0000    
+  #   0.000000       0.000000       0.000000    
+  #   'Fire_Number_2'   -167.190       -167.029       -167.029       -167.190    
+  #   29.0900        29.0900        29.2514        29.2514        1.00000    
+  #   1545.00        1126.35        2.97000        20.5500        10.0000    
+  #   0.000000       0.000000       0.000000    
+  #   'Fire_Number_3'   -65.0600       -64.9668       -64.9668       -65.0600    
+  #   -88.9500       -88.9500       -88.8568       -88.8568        1.00000    
+  #   1527.00        1126.35        19.1300        3.92000        10.0000    
+  #   0.000000       0.000000       0.000000 
   
 }
