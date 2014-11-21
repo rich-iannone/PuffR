@@ -138,13 +138,13 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
     date_time_subset <- subset(area_sources_df, date_time == sorted_date_time[i])
     
     date_header <- paste0("       ",
-                          year(date_time_subset$date_time), "  ",
-                          yday(date_time_subset$date_time), "  ",
-                          hour(date_time_subset$date_time), "  ",
+                          year(date_time_subset$date_time)[1], "  ",
+                          yday(date_time_subset$date_time)[1], "  ",
+                          hour(date_time_subset$date_time)[1], "  ",
                           "0000", "  ",
-                          year(date_time_subset$date_time), "  ",
-                          yday(date_time_subset$date_time), "  ",
-                          hour(date_time_subset$date_time), "  ",
+                          year(date_time_subset$date_time)[1], "  ",
+                          yday(date_time_subset$date_time)[1], "  ",
+                          hour(date_time_subset$date_time)[1], "  ",
                           "3600")
     
     date_time_blocks <- c(date_time_blocks, date_header)
@@ -175,7 +175,6 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
                paste(date_time_subset[j,17:18], collapse = "   "))
       
       date_time_block <- c(date_time_block, date_time_block_source)
-      
     }
     
     date_time_blocks <- c(date_time_blocks, date_time_block)    
