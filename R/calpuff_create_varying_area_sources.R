@@ -90,11 +90,11 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   
   # Format beginning and ending dates and times
   header_9 <- paste0(year(beginning_date_time), "  ",
-                     month(beginning_date_time), "   ",
+                     yday(beginning_date_time), "  ",
                      hour(beginning_date_time), " ",
-                     "0000",
+                     "0000", "  ",
                      year(ending_date_time), "  ",
-                     month(ending_date_time), "   ",
+                     yday(ending_date_time), "  ",
                      hour(ending_date_time), " ",
                      "0000")
   
