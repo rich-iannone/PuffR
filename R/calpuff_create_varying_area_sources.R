@@ -62,6 +62,8 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   # Get beginning date and time    
   beginning_date_time <- min(area_sources_df$date_time)
       
+  # Get ending date and time
+  ending_date_time <- max(area_sources_df$date_time)
   
   # Example of a nicely-formatted BAEMARB.DAT file
   
