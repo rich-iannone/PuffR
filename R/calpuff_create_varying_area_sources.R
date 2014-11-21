@@ -70,6 +70,8 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   # Get vector list of sources
   source_names <- sort(unique(area_sources_df$src_name))
   
+  # Get vector list of pollutants
+  pollutant_names <- colnames(area_sources_df)[17:length(area_sources_df)]
   
   # Construct header lines for file
   header_1 <- paste0("BAEMARB.DAT     2.1             ",
