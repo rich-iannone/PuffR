@@ -34,6 +34,9 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
     }
   }
   
+  # Change 'q_emit_series' column to 'character' class
+  area_sources_df[,17] <- as.character(area_sources_df[,17])
+  
   
   # Example of a nicely-formatted BAEMARB.DAT file
   
