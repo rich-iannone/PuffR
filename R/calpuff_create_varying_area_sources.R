@@ -35,6 +35,9 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   # Obtain time zone text from 'surf_dat_lines'
   time_zone <- gsub(" ", "", surf_dat_lines[grep("UTC([+|-])", surf_dat_lines)])
   
+  # Change 'source_names' column to 'character' class
+  area_sources_df$src_name <- as.character(area_sources_df$src_name)
+  
   # Change 'date_time' column to 'POSIXct' class
   if (class(area_sources_df$date_time)[1] == "POSIXct"){
     NULL
