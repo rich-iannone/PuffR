@@ -31,7 +31,7 @@ calmet_inp_finalize(calmet_inp = "calmet_template.txt",
 
 \item{metdat}{}
 
-\item{pacdat}{}
+\item{pacdat}{the name of the created PACOUT.DAT file.}
 
 \item{lcfiles}{}
 
@@ -51,7 +51,7 @@ calmet_inp_finalize(calmet_inp = "calmet_template.txt",
 
 \item{igfdat}{}
 
-\item{diadat}{}
+\item{diadat}{the name of the intended DIAG.DAT file.}
 
 \item{prgdat}{}
 
