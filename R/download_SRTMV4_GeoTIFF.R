@@ -86,6 +86,8 @@ download_SRTMV4_GeoTIFF <- function(SP_object = NULL){
   
   for (i in 1:length(file_list)){
     
+    # Construct expected filename for zip file
+    zipfilename <- paste0(temp_dir, "/", file_list[i], ".zip")
     
     
     download.file(url = paste("http://gis-lab.info/data/srtm-tif/", 
