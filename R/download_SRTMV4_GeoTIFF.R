@@ -1,5 +1,6 @@
 #' Download an SRTM V4 GeoTIFF file
 #' @description Download an SRTM V4 GeoTIFF file based on lat/lon coordinates
+#' @param SP_object a SpatialPoints object with a longlat projection.
 #' @export download_SRTMV4_GeoTIFF
 
 download_SRTMV4_GeoTIFF <- function(lon,
