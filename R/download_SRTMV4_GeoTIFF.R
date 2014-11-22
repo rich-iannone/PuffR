@@ -15,6 +15,12 @@ download_SRTMV4_GeoTIFF <- function(SP_object = NULL){
   # Stop function if 'SP_object' not of class 'SpatialPoints'
   stopifnot(class(SP_object)[1] == "SpatialPoints")
   
+  # Stop function for disallowed extents
+  stopifnot(all(SP_object@coords[,1] >= -180) == TRUE)
+  stopifnot(all(SP_object@coords[,1] <= 180) == TRUE)
+  stopifnot(all(SP_object@coords[,2] >= -60) == TRUE)
+  stopifnot(all(SP_object@coords[,2] <= 60) == TRUE)
+  
     
     stopifnot(all(SP_object@coords[,2] >= -60) == TRUE)
     stopifnot(all(SP_object@coords[,2] <= 60) == TRUE)
