@@ -127,7 +127,7 @@ download_SRTMV4_GeoTIFF <- function(SP_object){
   # Merge multiple SRTM files together into single raster
   if (length(file_list) > 1){
     for (i in 1:length(file_list)){
-      if (i == 1) raster_list <- vector(mode = "character", length = 0)
+      if (i == 1) raster_list <- vector(mode = "list", length = 0)
       
       # Generate a list of multiple RasterLayer objects
       raster_list <- c(raster_list, get(file_list[i]))
