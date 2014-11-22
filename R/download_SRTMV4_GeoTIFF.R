@@ -84,6 +84,7 @@ download_SRTMV4_GeoTIFF <- function(SP_object = NULL){
   # Assign a temporary directory path to 'temp_dir'
   temp_dir <- tempdir()
   
+  for (i in 1:length(file_list)){
     
     
     
