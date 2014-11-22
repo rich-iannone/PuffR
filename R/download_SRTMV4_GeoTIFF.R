@@ -52,6 +52,8 @@ download_SRTMV4_GeoTIFF <- function(SP_object = NULL){
   # Get vector of GeoTIFF row numbers
   rowTile_vector <- rowFromY(rs, lat_lon_coords$lat)
   
+  # Create data frame with unique combinations of GeoTIFF column and row numbers 
+  unique_tile_df <- unique(data.frame(rowTile = rowTile_vector, colTile = colTile_vector))
   
   }
   }
