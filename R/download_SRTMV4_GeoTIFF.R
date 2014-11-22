@@ -55,6 +55,20 @@ download_SRTMV4_GeoTIFF <- function(SP_object = NULL){
   # Create data frame with unique combinations of GeoTIFF column and row numbers 
   unique_tile_df <- unique(data.frame(rowTile = rowTile_vector, colTile = colTile_vector))
   
+  # Format values 'unique_tile_df' so leading zeros are provided
+  for (i in 1:nrow(unique_tile_df)){
+    if (i == 1){
+      unique_tile_df$rowTile <- as.character(unique_tile_df$rowTile)
+      unique_tile_df$colTile <- as.character(unique_tile_df$colTile)
+    }
+    
+    if (as.numeric(unique_tile_df$rowTile[i]) < 10){
+      unique_tile_df$rowTile[i] <- paste0("0", unique_tile_df$rowTile[i])
+    }
+    
+    if (as.numeric(unique_tile_df$colTile[i]) < 10){
+      unique_tile_df$colTile[i] <- paste0("0", unique_tile_df$colTile[i])
+    }     
   }
   }
   
