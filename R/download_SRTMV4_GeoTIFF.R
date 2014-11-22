@@ -110,9 +110,7 @@ download_SRTMV4_GeoTIFF <- function(SP_object = NULL){
     # If the expected tif file exists, create a RasterLayer object from it and
     # assign it as an object with the same name as the basename of the file
     if (file.exists(tiffilename)){
-      rs <- raster(tiffilename)
-      projection(rs) <- "+proj=longlat +datum=WGS84"
-      return(rs)
+      assign(file_list[i], raster(tiffilename))
     }
   }
   
