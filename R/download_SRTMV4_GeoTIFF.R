@@ -3,7 +3,7 @@
 #' @param SP_object a SpatialPoints object with a longlat projection.
 #' @export download_SRTMV4_GeoTIFF
 
-download_SRTMV4_GeoTIFF <- function(SP_object = NULL){
+download_SRTMV4_GeoTIFF <- function(SP_object){
   
   # Add require statement
   require(raster)
