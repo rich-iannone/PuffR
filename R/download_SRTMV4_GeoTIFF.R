@@ -1,9 +1,5 @@
 #' Download an SRTM V4 GeoTIFF file
 #' @description Download an SRTM V4 GeoTIFF file based on lat/lon coordinates
-#' @param lon a longitude supplied as decimal degrees.
-#' @param lat a latitude supplied as decimal degrees.
-#' @param download a choice of whether to download the file if it already exists in the specified local path.
-#' @param SRTM_file_path a path for which GeoTIFF files exist locally.
 #' @export download_SRTMV4_GeoTIFF
 
 download_SRTMV4_GeoTIFF <- function(lon,
