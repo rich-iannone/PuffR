@@ -114,30 +114,10 @@ download_SRTMV4_GeoTIFF <- function(SP_object = NULL){
     }
   }
   
-  # If the file is known to exist on a supplied path, read in that file
-  if (!is.null(SRTM_file_path)){
     
-    zipfilename <- paste(SRTM_file_path, "/", f, ".zip", sep = "")
-    tiffilename <- paste(SRTM_file_path, "/", f, ".tif", sep = "")
     
-    if (!file.exists(zipfilename) & !file.exists(tiffilename)){
-      stop("The file doesn't exist.")
     }
     
-    if (file.exists(zipfilename)){
-      unzip(zipfilename, exdir = dirname(zipfilename))
-      file.remove(zipfilename)
-      file.remove(gsub(".zip", ".hdr", zipfilename))
-      file.remove(gsub(".zip", ".tfw", zipfilename))
-      file.remove(paste(SRTM_file_path, "/readme.txt", sep = ''))
-    }
-    
-    if (file.exists(tiffilename)){
-      rs <- raster(tiffilename)
-      projection(rs) <- "+proj=longlat +datum=WGS84"
-      return(rs)
-    }
     
   }
-  
 }
