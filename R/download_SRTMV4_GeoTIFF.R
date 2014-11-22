@@ -70,6 +70,15 @@ download_SRTMV4_GeoTIFF <- function(SP_object = NULL){
       unique_tile_df$colTile[i] <- paste0("0", unique_tile_df$colTile[i])
     }     
   }
+  
+  # Construct filename list for SRTM data downloads
+  for (i in 1:nrow(unique_tile_df)){
+    if (i == 1) file_list <- vector(mode = "character", length = 0)
+    
+    a_file <- paste0("srtm_", unique_tile_df$colTile[i],
+                     "_", unique_tile_df$rowTile[i])
+    
+    file_list <- c(file_list, a_file)
   }
   
   
