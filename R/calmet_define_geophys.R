@@ -34,8 +34,6 @@ calmet_define_geophys <- function(location_name,
                                   cell_resolution_m = 250,
                                   four_seasons = TRUE,
                                   four_season_breaks = c("03-15", "05-31", "08-31", "11-15"),
-                                  download_SRTM = TRUE,
-                                  SRTM_file_path = NULL,
                                   LU_method = "MODIS_Global",
                                   shapefile_dir = NULL){
   
