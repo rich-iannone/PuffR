@@ -21,6 +21,11 @@ download_SRTMV4_GeoTIFF <- function(SP_object = NULL){
   stopifnot(all(SP_object@coords[,2] >= -60) == TRUE)
   stopifnot(all(SP_object@coords[,2] <= 60) == TRUE)
   
+  # Get vector of longitude coordinates
+  lon_coords <- c(SP_object@bbox[1,1],
+                  seq(from = ceiling(SP_object@bbox[1,1]), to = floor(SP_object@bbox[1,2]), by = 1),
+                  SP_object@bbox[1,2])
+  
     
     stopifnot(all(SP_object@coords[,2] >= -60) == TRUE)
     stopifnot(all(SP_object@coords[,2] <= 60) == TRUE)
