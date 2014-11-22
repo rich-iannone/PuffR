@@ -36,36 +36,17 @@ download_SRTMV4_GeoTIFF <- function(SP_object = NULL){
   colnames(lat_lon_coords) <- c("lon", "lat")
   
     
-    stopifnot(all(SP_object@coords[,2] >= -60) == TRUE)
-    stopifnot(all(SP_object@coords[,2] <= 60) == TRUE)
   }
   
   
-  stopifnot(lon >= -180 & lon <= 180)
-  stopifnot(lat >= -60 & lat <= 60)
   
-
   
-  rowTile <- rowFromY(rs, lat)
-  colTile <- colFromX(rs, lon)
-  
-  if (rowTile < 10) {
-    rowTile <- paste("0", rowTile, sep = "")
   }
-  if (colTile < 10) {
-    colTile <- paste("0", colTile, sep = "")
   }
   
-  # Construct filename for SRTM data
-  f <- paste("srtm_", colTile, "_", rowTile, sep = "")
   
-  # If a download is requested, get the file
-  if (download == TRUE){
     
-    temp_dir <- tempdir()
     
-    zipfilename <- paste(temp_dir, "/", f, ".zip", sep = "")
-    tiffilename <- paste(temp_dir, "/", f, ".tif", sep = "")
     
     download.file(url = paste("http://gis-lab.info/data/srtm-tif/", 
                               f, ".zip", sep = ""),
