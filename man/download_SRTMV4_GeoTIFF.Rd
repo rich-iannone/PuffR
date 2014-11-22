@@ -3,7 +3,7 @@
 \alias{download_SRTMV4_GeoTIFF}
 \title{Download an SRTM V4 GeoTIFF file}
 \usage{
-download_SRTMV4_GeoTIFF(SP_object = NULL)
+download_SRTMV4_GeoTIFF(SP_object)
 }
 \arguments{
 \item{SP_object}{a SpatialPoints object with a longlat projection.}
