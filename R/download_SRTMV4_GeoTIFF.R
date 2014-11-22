@@ -114,8 +114,16 @@ download_SRTMV4_GeoTIFF <- function(SP_object = NULL){
     }
   }
   
+  # Return a RasterLayer object if only one file downloaded
+  if (length(file_list) == 1){
     
+    # Assign the single RasterLayer object to 'the_raster'
+    the_raster <- get(file_list)
     
+    # Return the RasterLayer produced from a single SRTM file
+    return(the_raster)
+  }
+  
     }
     
     
