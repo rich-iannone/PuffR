@@ -98,6 +98,7 @@ download_SRTMV4_GeoTIFF <- function(SP_object = NULL){
                   destfile = zipfilename, method = "auto", 
                   quiet = FALSE, mode = "wb", cacheOK = TRUE)
     
+    # Unzip the downloaded file and remove unnecessary files
     if (file.exists(zipfilename)){
       unzip(zipfilename, exdir = dirname(zipfilename))
       file.remove(zipfilename)
@@ -106,6 +107,8 @@ download_SRTMV4_GeoTIFF <- function(SP_object = NULL){
       file.remove(paste(temp_dir, "/readme.txt", sep = ''))
     }
     
+    # If the expected tif file exists, create a RasterLayer object from it and
+    # assign it as an object with the same name as the basename of the file
     if (file.exists(tiffilename)){
       rs <- raster(tiffilename)
       projection(rs) <- "+proj=longlat +datum=WGS84"
