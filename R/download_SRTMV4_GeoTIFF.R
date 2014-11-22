@@ -49,6 +49,8 @@ download_SRTMV4_GeoTIFF <- function(SP_object = NULL){
   # Get vector of GeoTIFF column numbers
   colTile_vector <- colFromX(rs, lat_lon_coords$lon)
   
+  # Get vector of GeoTIFF row numbers
+  rowTile_vector <- rowFromY(rs, lat_lon_coords$lat)
   
   
   }
