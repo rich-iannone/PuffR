@@ -31,6 +31,10 @@ download_SRTMV4_GeoTIFF <- function(SP_object = NULL){
                   seq(from = ceiling(SP_object@bbox[2,1]), to = floor(SP_object@bbox[2,2]), by = 1),
                   SP_object@bbox[2,2])
   
+  # Create data frame with coordinates in row-major order
+  lat_lon_coords <- data.frame(mat.or.vec(nr = 0, nc = 2))
+  colnames(lat_lon_coords) <- c("lon", "lat")
+  
     
     stopifnot(all(SP_object@coords[,2] >= -60) == TRUE)
     stopifnot(all(SP_object@coords[,2] <= 60) == TRUE)
