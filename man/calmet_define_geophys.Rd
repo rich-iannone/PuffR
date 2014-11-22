@@ -7,8 +7,7 @@ calmet_define_geophys(location_name, lat_dec_deg = NULL, lon_dec_deg = NULL,
   lat_lon_grid_loc = 1, domain_width_m = NULL, domain_height_m = NULL,
   cell_resolution_m = 250, four_seasons = TRUE,
   four_season_breaks = c("03-15", "05-31", "08-31", "11-15"),
-  download_SRTM = TRUE, SRTM_file_path = NULL, LU_method = "MODIS_Global",
-  shapefile_dir = NULL)
+  LU_method = "MODIS_Global", shapefile_dir = NULL)
 }
 \arguments{
 \item{location_name}{an assigned name for the CALMET domain.}
@@ -25,9 +24,9 @@ calmet_define_geophys(location_name, lat_dec_deg = NULL, lon_dec_deg = NULL,
 
 \item{cell_resolution_m}{the desired cell resolution in meters.}
 
-\item{download_SRTM}{a choice of whether to download the SRTM GeoTIFF height data from a server or read the identical files from a local folder.}
+\item{four_seasons}{}
 
-\item{SRTM_file_path}{path to a folder containing a collection of SRTM V4 zip archive files.}
+\item{four_season_breaks}{}
 
 \item{LU_method}{the method for obtaining CALMET land use codes for the selected domain; current options are (1) "MODIS_Global" and (2) "BTM_BC" (a method specific to the province of British Columbia in Canada, and, requires a local copy of the BC BTM V1 shapefile).}
 
@@ -45,8 +44,7 @@ calmet_define_geophys(location_name = "test",
                       lat_lon_grid_loc = 1,
                       domain_width_m = 117000,
                       domain_height_m = 43250,
-                      cell_resolution_m = 500,
-                      download_SRTM = TRUE)
+                      cell_resolution_m = 500)
 }
 }
 
