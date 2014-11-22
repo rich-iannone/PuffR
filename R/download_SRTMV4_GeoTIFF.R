@@ -92,8 +92,9 @@ download_SRTMV4_GeoTIFF <- function(SP_object = NULL){
     # Construct expected filename for tif file
     tiffilename <- paste0(temp_dir, "/", file_list[i], ".tif")
     
-    download.file(url = paste("http://gis-lab.info/data/srtm-tif/", 
-                              f, ".zip", sep = ""),
+    # Download the GeoTIFF file from the FTP server
+    download.file(url = paste0("http://gis-lab.info/data/srtm-tif/", 
+                               file_list[i], ".zip"),
                   destfile = zipfilename, method = "auto", 
                   quiet = FALSE, mode = "wb", cacheOK = TRUE)
     
