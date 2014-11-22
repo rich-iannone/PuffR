@@ -3,10 +3,7 @@
 #' @param SP_object a SpatialPoints object with a longlat projection.
 #' @export download_SRTMV4_GeoTIFF
 
-download_SRTMV4_GeoTIFF <- function(lon,
-                                    lat,
-                                    download = TRUE,
-                                    SRTM_file_path = NULL){
+download_SRTMV4_GeoTIFF <- function(SP_object = NULL){
   
   # Create RasterLayer object representative of available SRTM tiles
   rs <- raster(nrows = 24, ncols = 72, xmn = -180, xmx = 180, 
