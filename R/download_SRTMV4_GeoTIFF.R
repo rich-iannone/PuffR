@@ -1,5 +1,5 @@
-#' Download an SRTM V4 GeoTIFF file
-#' @description Download an SRTM V4 GeoTIFF file based on lat/lon coordinates
+#' Download and rasterize SRTM V4 GeoTIFF files
+#' @description Download one or more SRTM V4 GeoTIFF files and merge files as necessary to encompass modelling domain
 #' @param SP_object a SpatialPoints object with a longlat projection.
 #' @export download_SRTMV4_GeoTIFF
 
