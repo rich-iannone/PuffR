@@ -36,13 +36,9 @@ download_SRTMV4_GeoTIFF <- function(SP_object){
   colnames(lat_lon_coords) <- c("lon", "lat")
   
   for (i in 1:length(lon_coords)){
-    
     for (j in 1:length(lat_coords)){
-      
       lat_lon_coord <- data.frame(lon = lon_coords[i], lat = lat_coords[j])
-      
-      lat_lon_coords <- rbind(lat_lon_coords, lat_lon_coord)
-      
+      lat_lon_coords <- rbind(lat_lon_coords, lat_lon_coord) 
     }
   }
   
@@ -134,9 +130,7 @@ download_SRTMV4_GeoTIFF <- function(SP_object){
     }
     
     # Merge multiple RasterLayer objects from 'raster_list'
-    merged_raster <- do.call(merge, raster_list)
-    
-    # Return the merged RasterLayer object
-    return(merged_raster)
   }
 }
+
+
