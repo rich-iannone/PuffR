@@ -12,6 +12,9 @@ download_SRTMV4_GeoTIFF <- function(SP_object = NULL){
   rs <- raster(nrows = 24, ncols = 72, xmn = -180, xmx = 180, 
                ymn = -60, ymx = 60)
   
+  # Stop function if 'SP_object' not of class 'SpatialPoints'
+  stopifnot(class(SP_object)[1] == "SpatialPoints")
+  
     
     stopifnot(all(SP_object@coords[,2] >= -60) == TRUE)
     stopifnot(all(SP_object@coords[,2] <= 60) == TRUE)
