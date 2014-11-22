@@ -130,7 +130,17 @@ download_SRTMV4_GeoTIFF <- function(SP_object){
     }
     
     # Merge multiple RasterLayer objects from 'raster_list'
+    for (i in 1:length(file_list)){
+      
+      merged_raster <- mosaic(get(file_list[i]), get(file_list[i + 1]),
+                              fun = mean)
+      
+      if (length(file_list) == i + 1){
+        return(merged_raster)
+      }
+    }  
   }
 }
+
 
 
