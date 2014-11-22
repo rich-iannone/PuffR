@@ -35,7 +35,15 @@ download_SRTMV4_GeoTIFF <- function(SP_object = NULL){
   lat_lon_coords <- data.frame(mat.or.vec(nr = 0, nc = 2))
   colnames(lat_lon_coords) <- c("lon", "lat")
   
+  for (i in 1:length(lon_coords)){
     
+    for (j in 1:length(lat_coords)){
+      
+      lat_lon_coord <- data.frame(lon = lon_coords[i], lat = lat_coords[j])
+      
+      lat_lon_coords <- rbind(lat_lon_coords, lat_lon_coord)
+      
+    }
   }
   
   
