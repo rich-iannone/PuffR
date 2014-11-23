@@ -7,7 +7,7 @@
 #' @param domain_width_m the desired width of the meteorological domain in meters.
 #' @param domain_height_m the desired height of the meteorological domain in meters.
 #' @param cell_resolution_m the desired cell resolution in meters.
-#' @param four_seasons 
+#' @param four_seasons an option for whether to split the generated GEO.DAT into four separate files, one for each of four seasons.
 #' @param four_season_breaks 
 #' @param LU_method the method for obtaining CALMET land use codes for the selected domain; current options are (1) "MODIS_Global" and (2) "BTM_BC" (a method specific to the province of British Columbia in Canada, and, requires a local copy of the BC BTM V1 shapefile).
 #' @param shapefile_dir if the chosen 'LU_method' requires the use of a local shapefile (currently, the "BTM_BC" uses shapefile data), supply the relative or absolute path to the shapefile here.
