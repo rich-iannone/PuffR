@@ -134,12 +134,12 @@ download_SRTMV4_GeoTIFF <- function(SP_object){
     # Mosaic multiple RasterLayer objects from 'raster_list'
     for (i in 1:length(file_list)){
       
-      merged_raster <- mosaic(get(file_list[i]), get(file_list[i + 1]),
+      raster_mosaic <- mosaic(get(file_list[i]), get(file_list[i + 1]),
                               fun = mean)
       
       # Return 'raster_mosaic' when there are no more raster objects left
       if (length(file_list) == i + 1){
-        return(merged_raster)
+        return(raster_mosaic)
       }
     }  
   }
