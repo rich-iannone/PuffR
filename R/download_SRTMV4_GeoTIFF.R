@@ -31,10 +31,12 @@ download_SRTMV4_GeoTIFF <- function(SP_object){
                   seq(from = ceiling(SP_object@bbox[2,1]), to = floor(SP_object@bbox[2,2]), by = 1),
                   SP_object@bbox[2,2])
   
-  # Create data frame with coordinates in row-major order
+  # Create empty data frame with 2 columns for longitude and latitude values
   lat_lon_coords <- data.frame(mat.or.vec(nr = 0, nc = 2))
   colnames(lat_lon_coords) <- c("lon", "lat")
   
+  # Loop through x and y coordinates to generate a data frame with
+  # coordinates in row-major order
   for (i in 1:length(lon_coords)){
     for (j in 1:length(lat_coords)){
       lat_lon_coord <- data.frame(lon = lon_coords[i], lat = lat_coords[j])
@@ -129,12 +131,13 @@ download_SRTMV4_GeoTIFF <- function(SP_object){
       raster_list <- c(raster_list, get(file_list[i]))
     }
     
-    # Merge multiple RasterLayer objects from 'raster_list'
+    # Mosaic multiple RasterLayer objects from 'raster_list'
     for (i in 1:length(file_list)){
       
       merged_raster <- mosaic(get(file_list[i]), get(file_list[i + 1]),
                               fun = mean)
       
+      # Return 'raster_mosaic' when there are no more raster objects left
       if (length(file_list) == i + 1){
         return(merged_raster)
       }
