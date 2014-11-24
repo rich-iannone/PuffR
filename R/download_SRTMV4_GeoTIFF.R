@@ -144,6 +144,3 @@ download_SRTMV4_GeoTIFF <- function(SP_object){
     }  
   }
 }
-
-
-
