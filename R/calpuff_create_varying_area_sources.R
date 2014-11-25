@@ -42,10 +42,10 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
     NULL
   } else if (class(df_input$date_time) == "factor"){
     df_input$date_time <- as.POSIXct(as.numeric(as.character(df_input[,2])),
-                                            origin = "1970-01-01", tz = "GMT")  
+                                     origin = "1970-01-01", tz = "GMT")  
   } else if (class(df_input$date_time) == "numeric"){
     df_input$date_time <- as.POSIXct(df_input[,2],
-                                            origin = "1970-01-01", tz = "GMT") 
+                                     origin = "1970-01-01", tz = "GMT") 
   }
   
   # Change 'character'/'factor' classes to numeric class
