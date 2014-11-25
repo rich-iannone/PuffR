@@ -35,45 +35,45 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   time_zone <- gsub(" ", "", surf_dat_lines[grep("UTC([+|-])", surf_dat_lines)])
   
   # Change 'source_names' column to 'character' class
-  area_sources_df$src_name <- as.character(area_sources_df$src_name)
+  df_input$src_name <- as.character(df_input$src_name)
   
   # Change 'date_time' column to 'POSIXct' class
-  if (class(area_sources_df$date_time)[1] == "POSIXct"){
+  if (class(df_input$date_time)[1] == "POSIXct"){
     NULL
-  } else if (class(area_sources_df$date_time) == "factor"){
-    area_sources_df$date_time <- as.POSIXct(as.numeric(as.character(area_sources_df[,2])),
+  } else if (class(df_input$date_time) == "factor"){
+    df_input$date_time <- as.POSIXct(as.numeric(as.character(df_input[,2])),
                                             origin = "1970-01-01", tz = "GMT")  
-  } else if (class(area_sources_df$date_time) == "numeric"){
-    area_sources_df$date_time <- as.POSIXct(area_sources_df[,2],
+  } else if (class(df_input$date_time) == "numeric"){
+    df_input$date_time <- as.POSIXct(df_input[,2],
                                             origin = "1970-01-01", tz = "GMT") 
   }
   
   # Change 'character'/'factor' classes to numeric class
   for (i in 3:16){
-    if (class(area_sources_df[,i]) == "character"){
-      area_sources_df[,i] <- as.numeric(area_sources_df[,i])
-    } else if (class(area_sources_df[,i]) == "factor"){
-      area_sources_df[,i] <- as.numeric(as.character(area_sources_df[,i]))
+    if (class(df_input[,i]) == "character"){
+      df_input[,i] <- as.numeric(df_input[,i])
+    } else if (class(df_input[,i]) == "factor"){
+      df_input[,i] <- as.numeric(as.character(df_input[,i]))
     }
   }
   
   # Change 'q_emit_series' column to 'character' class
-  area_sources_df[,17] <- as.character(area_sources_df[,17])
+  df_input[,17] <- as.character(df_input[,17])
   
   # Get beginning date and time    
-  beginning_date_time <- min(area_sources_df$date_time)
+  beginning_date_time <- min(df_input$date_time)
   
   # Get ending date and time
-  ending_date_time <- max(area_sources_df$date_time)
+  ending_date_time <- max(df_input$date_time)
   
   # Get sorted list of unique dates and times
-  sorted_date_time <- sort(unique(area_sources_df$date_time))
+  sorted_date_time <- sort(unique(df_input$date_time))
   
   # Get vector list of sources
-  source_names <- sort(unique(area_sources_df$src_name))
+  source_names <- sort(unique(df_input$src_name))
   
   # Get vector list of pollutants
-  pollutant_names <- colnames(area_sources_df)[17:length(area_sources_df)]
+  pollutant_names <- colnames(df_input)[17:length(df_input)]
   
   # Construct header lines for file
   header_1 <- paste0("BAEMARB.DAT     2.1             ",
@@ -131,11 +131,11 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   }
   
   # Loop through dates and obtain blocks of changing emissions
-  for (i in 1:length(unique(area_sources_df$date_time))){
+  for (i in 1:length(unique(df_input$date_time))){
     
     if (i == 1) date_time_blocks <- vector(mode = "character", length = 0)
     
-    date_time_subset <- subset(area_sources_df, date_time == sorted_date_time[i])
+    date_time_subset <- subset(df_input, date_time == sorted_date_time[i])
     
     date_header <- paste0("       ",
                           year(date_time_subset$date_time)[1], "  ",
