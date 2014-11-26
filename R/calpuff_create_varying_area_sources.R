@@ -34,7 +34,7 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   # Obtain time zone text from 'surf_dat_lines'
   time_zone <- gsub(" ", "", surf_dat_lines[grep("UTC([+|-])", surf_dat_lines)])
   
-  # Read in CSV file if it is provided
+  # Read in CSV file if it is provided and validate CSV
   if (!is.null(CSV_input)){
     
   # Change 'source_names' column to 'character' class
