@@ -23,7 +23,7 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   geo_dat_lines <- readLines(geo_dat_file, warn = FALSE)
   
   # Obtain UTM zone and hemisphere text from 'geo_dat_lines'
-  UTM_zone <- gsub(" ", "", geo_dat_lines[grep("UTM", geo_dat_lines) + 1])
+  UTM_zone <- geo_dat_lines[grep("UTM", geo_dat_lines) + 1]
   
   # Use 'domain_dimensions' to get the first item from a vector list of SURF.DAT files
   surf_dat_file <- list.files(pattern = paste0("surf--.*?-", domain_dimensions, ".*"))[1]
