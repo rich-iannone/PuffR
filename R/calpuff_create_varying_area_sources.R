@@ -2,7 +2,7 @@
 #' @description Create CALPUFF input file with area sources that vary in location and time.
 #' @param CSV_input a path to a CSV file containing hourly area source data.
 #' @param df_input a data frame containing hourly area source data.
-#' @param pollutant_MW a vector containing molecular weights for all pollutants in the supplied dataset.
+#' @param pollutant_MW a vector containing molecular weights for all pollutants in the supplied dataset. The order of the values must be the same as that of the pollutant columns in either the supplied CSV or data frame.
 #' @export calpuff_create_varying_area_sources
 
 calpuff_create_varying_area_sources <- function(CSV_input = NULL,
