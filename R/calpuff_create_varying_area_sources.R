@@ -91,10 +91,7 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
       input_data[,i] <- as.numeric(as.character(input_data[,i]))
     }
   }
-  
-  # Change 'q_emit_series' column to 'character' class
-  df_input[,17] <- as.character(df_input[,17])
-  
+    
   # Get beginning date and time    
   beginning_date_time <- min(input_data$date_time)
   
