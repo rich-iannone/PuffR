@@ -182,6 +182,7 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
     date_time_blocks <- c(date_time_blocks, date_header)
     
     for (j in 1:nrow(date_time_subset)){
+      
       if (j == 1) date_time_block <- vector(mode = "character", length = 0)
       
       date_time_block_source <- 
@@ -204,7 +205,7 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
                date_time_subset[j,15], "   ",
                date_time_subset[j,16], "\n",
                gsub(".", " ", date_time_subset[j,1]), "   ",
-               paste(date_time_subset[j,17:18], collapse = "   "))
+               paste(date_time_subset[j,17:ncol(date_time_subset)], collapse = "   "))
       
       date_time_block <- c(date_time_block, date_time_block_source)
     }
