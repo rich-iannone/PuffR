@@ -11,7 +11,7 @@ calpuff_create_varying_area_sources(CSV_input = NULL, df_input = NULL,
 
 \item{df_input}{a data frame containing hourly area source data.}
 
-\item{pollutant_MW}{a vector containing molecular weights for all pollutants in the supplied dataset.}
+\item{pollutant_MW}{a vector containing molecular weights for all pollutants in the supplied dataset. The order of the values must be the same as that of the pollutant columns in either the supplied CSV or data frame.}
 }
 \description{
 Create CALPUFF input file with area sources that vary in location and time.
