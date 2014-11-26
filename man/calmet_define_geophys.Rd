@@ -24,9 +24,9 @@ calmet_define_geophys(location_name, lat_dec_deg = NULL, lon_dec_deg = NULL,
 
 \item{cell_resolution_m}{the desired cell resolution in meters.}
 
-\item{four_seasons}{}
+\item{four_seasons}{an option for whether to split the generated GEO.DAT into four separate files, one for each of four seasons.}
 
-\item{four_season_breaks}{}
+\item{four_season_breaks}{a character vector (in the format MM-DD) that specifies when the different seasons are to transition to the next.}
 
 \item{LU_method}{the method for obtaining CALMET land use codes for the selected domain; current options are (1) "MODIS_Global" and (2) "BTM_BC" (a method specific to the province of British Columbia in Canada, and, requires a local copy of the BC BTM V1 shapefile).}
 
