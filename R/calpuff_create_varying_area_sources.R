@@ -39,7 +39,7 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
     
     # If the CSV file exists, read in that file
     if (file.exists(CSV_input)){
-      CSV_input <- read.csv(CSV_input, stringsAsFactors = FALSE)
+      input_data <- read.csv(CSV_input, stringsAsFactors = FALSE)
     }
     
     # Stop if the the names of the mandatory columns aren't as expected
