@@ -42,44 +42,53 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
       input_data <- read.csv(CSV_input, stringsAsFactors = FALSE)
     }
     
-    # Stop if the the names of the mandatory columns aren't as expected
-    stopifnot(colnames(CSV_input)[1:16] == c("src_name", "date_time", "vert_x_1", "vert_x_2",
-                                             "vert_x_3", "vert_x_4", "vert_y_1", "vert_y_2",
-                                             "vert_y_3", "vert_y_4", "eff_height", "base_elev",
-                                             "temp_k", "weff", "reff", "sigma_z"))
-    
-    # Stop function if the number of columns isn't at least 17
-    stopifnot(ncol(CSV_input) >= 17)
-    
-    # Stop function if the names of the pollutant columns are not unique
-    stopifnot(length(unique(colnames(CSV_input)[17:length(CSV_input)])) == length(CSV_input) - 16)
-    
     # Stop function if the 'date_time' column not formatted correctly
     stopifnot(all(grepl("[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}",
-                        CSV_input$date_time)) == TRUE)
-    
+                        input_data$date_time)) == TRUE)
+  }
+  
+  # Read in data frame object if it is exists as an object
+  if (!is.null(df_input) & exists("df_input")){
+    input_data <- df_input
   }
   
   # Change 'source_names' column to 'character' class
-  df_input$src_name <- as.character(df_input$src_name)
+  input_data$src_name <- as.character(input_data$src_name)
+  
+  # Stop if the the names of the mandatory columns aren't as expected
+  stopifnot(colnames(input_data)[1:16] == c("src_name", "date_time", "vert_x_1", "vert_x_2",
+                                            "vert_x_3", "vert_x_4", "vert_y_1", "vert_y_2",
+                                            "vert_y_3", "vert_y_4", "eff_height", "base_elev",
+                                            "temp_k", "weff", "reff", "sigma_z"))
+  
+  # Stop function if the number of columns isn't at least 17
+  stopifnot(ncol(input_data) >= 17)
+  
+  # Stop function if the names of the pollutant columns are not unique
+  stopifnot(length(unique(colnames(input_data)[17:length(input_data)])) == length(input_data) - 16)
   
   # Change 'date_time' column to 'POSIXct' class
-  if (class(df_input$date_time)[1] == "POSIXct"){
+  if (class(input_data$date_time)[1] == "POSIXct"){
     NULL
-  } else if (class(df_input$date_time) == "factor"){
-    df_input$date_time <- as.POSIXct(as.numeric(as.character(df_input[,2])),
-                                     origin = "1970-01-01", tz = "GMT")  
-  } else if (class(df_input$date_time) == "numeric"){
-    df_input$date_time <- as.POSIXct(df_input[,2],
-                                     origin = "1970-01-01", tz = "GMT") 
+  } else if (class(input_data$date_time) == "factor"){
+    input_data$date_time <- as.POSIXct(as.numeric(as.character(input_data[,2])),
+                                       origin = "1970-01-01", tz = "GMT")  
+  } else if (class(input_data$date_time) == "numeric"){
+    input_data$date_time <- as.POSIXct(input_data[,2],
+                                       origin = "1970-01-01", tz = "GMT") 
+  } else if (class(input_data$date_time) == "character"){
+    input_data$date_time <- as.POSIXct(input_data[,2],
+                                       origin = "1970-01-01", tz = "GMT")
   }
   
   # Change 'character'/'factor' classes to numeric class
-  for (i in 3:16){
-    if (class(df_input[,i]) == "character"){
-      df_input[,i] <- as.numeric(df_input[,i])
-    } else if (class(df_input[,i]) == "factor"){
-      df_input[,i] <- as.numeric(as.character(df_input[,i]))
+  for (i in 3:ncol(input_data)){
+    if (class(input_data[,i]) == "character"){
+      input_data[,i] <- as.numeric(input_data[,i])
+    } else if (class(input_data[,i]) == "integer"){
+      input_data[,i] <- as.numeric(input_data[,i])
+    } else if (class(input_data[,i]) == "factor"){
+      input_data[,i] <- as.numeric(as.character(input_data[,i]))
     }
   }
   
@@ -87,16 +96,16 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   df_input[,17] <- as.character(df_input[,17])
   
   # Get beginning date and time    
-  beginning_date_time <- min(df_input$date_time)
+  beginning_date_time <- min(input_data$date_time)
   
   # Get ending date and time
-  ending_date_time <- max(df_input$date_time)
+  ending_date_time <- max(input_data$date_time)
   
   # Get sorted list of unique dates and times
-  sorted_date_time <- sort(unique(df_input$date_time))
+  sorted_date_time <- sort(unique(input_data$date_time))
   
   # Get vector list of sources
-  source_names <- sort(unique(df_input$src_name))
+  source_names <- sort(unique(input_data$src_name))
   
   # Get vector list of pollutants
   pollutant_names <- colnames(df_input)[17:length(df_input)]
@@ -157,11 +166,11 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   }
   
   # Loop through dates and obtain blocks of changing emissions
-  for (i in 1:length(unique(df_input$date_time))){
+  for (i in 1:length(unique(input_data$date_time))){
     
     if (i == 1) date_time_blocks <- vector(mode = "character", length = 0)
     
-    date_time_subset <- subset(df_input, date_time == sorted_date_time[i])
+    date_time_subset <- subset(input_data, date_time == sorted_date_time[i])
     
     date_header <- paste0("       ",
                           year(date_time_subset$date_time)[1], "  ",
