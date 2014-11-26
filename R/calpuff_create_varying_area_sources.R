@@ -48,6 +48,9 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
                                              "vert_y_3", "vert_y_4", "eff_height", "base_elev",
                                              "temp_k", "weff", "reff", "sigma_z"))
     
+    # Stop function if the number of columns isn't at least 17
+    stopifnot(ncol(CSV_input) >= 17)
+    
   # Change 'source_names' column to 'character' class
   df_input$src_name <- as.character(df_input$src_name)
   
