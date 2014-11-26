@@ -37,6 +37,11 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
   # Read in CSV file if it is provided and validate CSV
   if (!is.null(CSV_input)){
     
+    # If the CSV file exists, read in that file
+    if (file.exists(CSV_input)){
+      CSV_input <- read.csv(CSV_input, stringsAsFactors = FALSE)
+    }
+    
   # Change 'source_names' column to 'character' class
   df_input$src_name <- as.character(df_input$src_name)
   
