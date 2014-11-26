@@ -94,4 +94,6 @@ calpuff_create_varying_point_sources <- function(CSV_input = NULL,
                      month(ending_date_time), "   ",
                      hour(ending_date_time), " ",
                      "0000")
+  header_10 <- paste0(length(source_names))
+    
 }
