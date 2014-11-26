@@ -51,6 +51,9 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
     # Stop function if the number of columns isn't at least 17
     stopifnot(ncol(CSV_input) >= 17)
     
+    # Stop function if the names of the pollutant columns are not unique
+    stopifnot(length(unique(colnames(CSV_input)[17:length(CSV_input)])) == length(CSV_input) - 16)
+    
   # Change 'source_names' column to 'character' class
   df_input$src_name <- as.character(df_input$src_name)
   
