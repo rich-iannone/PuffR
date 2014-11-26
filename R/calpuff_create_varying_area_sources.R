@@ -210,7 +210,13 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
       date_time_block <- c(date_time_block, date_time_block_source)
     }
     
-    date_time_blocks <- c(date_time_blocks, date_time_block)    
+    date_time_blocks <- c(date_time_blocks, date_time_block)  
+    
+    # Write progress of processing to console if number of hours > 48
+    if (length(unique(input_data$date_time)) > 48){
+      print(paste0(i, " of ", length(unique(input_data$date_time)), " hours accounted for."))
+    }
+    
   }
   
   # Write all lines to BAEMARB.DAT file
