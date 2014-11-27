@@ -216,14 +216,13 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
     if (length(unique(input_data$date_time)) > 48){
       print(paste0(i, " of ", length(unique(input_data$date_time)), " hours accounted for."))
     }
-    
   }
   
   # Write all lines to BAEMARB.DAT file
   cat(header_1, header_2, header_3, header_4, header_5, header_6,
       header_7, header_8, header_9, header_10, header_11, header_12, header_13,
       date_time_blocks, "", sep = "\n",
-      file = paste0("baemarb--", gsub("^.*?--(.*?-[0-9]*x[0-9]*x[0-9]*).txt", "\\1", geo_dat_file)),
-      append = FALSE)
-  
+      file = paste0("baemarb--",
+                    gsub("^.*?--(.*?-[0-9]*x[0-9]*x[0-9]*).txt", "\\1", geo_dat_file)),
+      append = FALSE) 
 }
