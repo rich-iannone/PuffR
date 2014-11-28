@@ -71,12 +71,11 @@ download_FSL_sounding_data <- function(sounding_priority,
   if (sounding_priority == "primary"){
   
     # Construct the name of the primary sounding file
-    primary_sounding_filename <- paste("primary_sounding--",
-                                       df_soundings[station_list_position,1], "--",
-                                       df_soundings[station_list_position,9], "--",
-                                       gsub("^([0-9]{4}).*", "\\1", beginning_date),
-                                       ".txt",
-                                       sep = '')
+    primary_sounding_filename <- paste0("primary_sounding--",
+                                        df_soundings[station_list_position,1], "--",
+                                        df_soundings[station_list_position,9], "--",
+                                        gsub("^([0-9]{4}).*", "\\1", beginning_date),
+                                        ".txt")
     
     # Write the primary sounding file
     writeLines(sounding_data,
