@@ -150,15 +150,14 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
     # Create an .rda file for the hour if it is requested
     if (create_hourly_rda == TRUE){
       save(concentration_small_df,
-           file = paste(location_name, "--",
-                        source_id, "--",
-                        pollutant_id, "--",
-                        year(POSIXdate), "-",
-                        formatC(month(POSIXdate), width = 2, flag = "0"), "-",
-                        formatC(day(POSIXdate), width = 2, flag = "0"), "-",
-                        formatC(hour(POSIXdate), width = 2, flag = "0"), "-",
-                        formatC((i-14), width = 4, flag = "0"), ".csv",
-                        sep = ''))
+           file = paste0(location_name, "--",
+                         source_id, "--",
+                         pollutant_id, "--",
+                         year(POSIXdate), "-",
+                         formatC(month(POSIXdate), width = 2, flag = "0"), "-",
+                         formatC(day(POSIXdate), width = 2, flag = "0"), "-",
+                         formatC(hour(POSIXdate), width = 2, flag = "0"), "-",
+                         formatC((i-14), width = 4, flag = "0"), ".csv"))
     }
     
     
