@@ -273,13 +273,12 @@ calmet_surface_met <- function(location_name,
       station_anenometer_height <- 20
       
       # Format the values into a character string
-      station_values_string <- paste(identifier_1, " ",
+      station_values_string <- paste0(identifier_1, " ",
                                      identifier_2, " ",
                                      station_UTM_easting_km, " ",
                                      station_UTM_northing_km, " ",
                                      station_time_offset, " ",
-                                     station_anenometer_height,
-                                     sep = "")
+                                     station_anenometer_height)
       
       station_information_strings <- c(station_information_strings,
                                        station_values_string)
