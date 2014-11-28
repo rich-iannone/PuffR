@@ -34,10 +34,9 @@ calpuff_def_recep_from_geophys <- function(geophys_file = NULL,
   UTM_zone <- str_trim(readLines(geophys_file)[as.numeric(readLines(geophys_file)[2]) + 4])
   
   # Create a PROJ.4 string for the UTM zone
-  proj_string_UTM <- paste("+proj=utm +zone=",
-                           UTM_zone,
-                           " +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
-                           sep = '')
+  proj_string_UTM <- paste0("+proj=utm +zone=",
+                            UTM_zone,
+                            " +ellps=WGS84 +datum=WGS84 +units=m +no_defs")
   
   # Get extents of UTM grid (left, right, bottom, top) in meters
   left_UTM <- grid_info$xorigkm * 1000
