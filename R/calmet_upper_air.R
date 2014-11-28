@@ -228,17 +228,17 @@ calmet_upper_air <- function(location_name,
     
     prov_state[i] <- 
       str_match(string = sounding_lines[i],
-                pattern = paste("^[0-9A-Z]+[ ]+[0-9]* ",
+                pattern = paste0("^[0-9A-Z]+[ ]+[0-9]* ",
                                 "[0-9]{5} [0-9/.-]* [0-9/.-]* ",
                                 "[0-9-]{5,6}  .+ ([0-9A-Z]{2}) ",
-                                "[0-9A-Z]{2}$", sep = ''))[1,2]
+                                "[0-9A-Z]{2}$"))[1,2]
     
     country[i] <- 
       str_match(string = sounding_lines[i],
-                pattern = paste("^[0-9A-Z]+[ ]+[0-9]* ",
+                pattern = paste0("^[0-9A-Z]+[ ]+[0-9]* ",
                                 "[0-9]{5} [0-9/.-]* [0-9/.-]* ",
                                 "[0-9-]{5,6}  .+ [0-9A-Z]{2} ",
-                                "([0-9A-Z]{2})$", sep = ''))[1,2]
+                                "([0-9A-Z]{2})$"))[1,2]
     
     if (i == length(sounding_lines)) {
       # Create data frame with vector objects of equal length 
