@@ -149,9 +149,8 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
     }
     
     # Construct the movie output name
-    movie_output_name <- paste("movie__",
-                               format(Sys.time(), "%Y-%m-%d--%H-%M-%S"),
-                               sep = "")
+    movie_output_name <- paste0("movie__",
+                                format(Sys.time(), "%Y-%m-%d--%H-%M-%S"))
     
     # Generate the movie file using ffmpeg
     system(paste("cd ", getwd(), " ; ", ffmpeg_path, "/ffmpeg -f image2 -start_number 1 -i '",
