@@ -18,8 +18,6 @@ replace_in_inp <- function(inp_file_working,
                                  inp_file_working, perl = TRUE)])
   }
   
-  
-  
   # Remove space characters in lines with no text characters
   inp_file_working <- gsub("^[ ]*$", "", inp_file_working)
   
