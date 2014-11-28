@@ -482,11 +482,11 @@ calmet_upper_air <- function(location_name,
                                year, ".txt")
   
   # Generate an output file name for the secondary UP.DAT file
-  output_file_secondary <- paste("up--secondary--", location_name, "-",
+  output_file_secondary <- paste0("up--secondary--", location_name, "-",
                                  number_cells_across_x, "x",
                                  number_cells_across_y, "x",
                                  cell_resolution_m, "--",
-                                 year, ".txt", sep = '')  
+                                 year, ".txt")  
   
   # Generate the READ62 input file template for the secondary station
   read62_inp_generate_template()
