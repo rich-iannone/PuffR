@@ -262,8 +262,8 @@ calmet_upper_air <- function(location_name,
   ####
   
   # Get start date and end dates
-  start_date <- paste(year, "-01-01", sep = "")
-  end_date <- paste(year, "-12-31", sep = "")
+  start_date <- paste0(year, "-01-01")
+  end_date <- paste0(year, "-12-31")
   
   # Set 'shour' as "0z%2C+12z+ONLY"
   shour <- "0z%2C+12z+ONLY"
