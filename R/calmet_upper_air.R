@@ -380,8 +380,7 @@ calmet_upper_air <- function(location_name,
       # Break from the repeat loop if a sounding file was downloaded and it contained
       # valid sounding data
       if (primary_file_valid == TRUE){
-        print(paste("The sounding file for ", primary_station_wban_wmo, " was downloaded",
-                    sep = ''))
+        print(paste0("The sounding file for ", primary_station_wban_wmo, " was downloaded"))
         break
       }
       
