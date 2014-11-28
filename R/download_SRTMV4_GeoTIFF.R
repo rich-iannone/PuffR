@@ -105,7 +105,7 @@ download_SRTMV4_GeoTIFF <- function(SP_object){
       file.remove(zipfilename)
       file.remove(gsub(".zip", ".hdr", zipfilename))
       file.remove(gsub(".zip", ".tfw", zipfilename))
-      file.remove(paste(temp_dir, "/readme.txt", sep = ''))
+      file.remove(paste0(temp_dir, "/readme.txt"))
     }
     
     # If the expected tif file exists, create a RasterLayer object from it and
