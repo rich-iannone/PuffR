@@ -47,26 +47,25 @@ calpuff_add_line_sources <- function(src_name,
     file.create(line_sources_filename)
     
     # Add header row to new line sources file
-    cat(paste("src_name", ",",
-              "species_name", ",",
-              "lat_dec_deg_1", ",",
-              "lon_dec_deg_1", ",",
-              "lat_dec_deg_2", ",",
-              "lon_dec_deg_2", ",",
-              "x_coord_km_1", ",",
-              "y_coord_km_1", ",",
-              "x_coord_km_2", ",",
-              "y_coord_km_2", ",",
-              "UTM_zone", ",",
-              "UTM_hemisphere", ",",
-              "release_hgt", ",",
-              "base_elev", ",",
-              "emission_rate", ",",
-              "emission_units", sep = ''),
+    cat(paste0("src_name", ",",
+               "species_name", ",",
+               "lat_dec_deg_1", ",",
+               "lon_dec_deg_1", ",",
+               "lat_dec_deg_2", ",",
+               "lon_dec_deg_2", ",",
+               "x_coord_km_1", ",",
+               "y_coord_km_1", ",",
+               "x_coord_km_2", ",",
+               "y_coord_km_2", ",",
+               "UTM_zone", ",",
+               "UTM_hemisphere", ",",
+               "release_hgt", ",",
+               "base_elev", ",",
+               "emission_rate", ",",
+               "emission_units"),
         sep = "\n",
         file = line_sources_filename,
         append = TRUE)
-    
   }
   
   # Determine whether lon/lat provided
