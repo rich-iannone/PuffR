@@ -35,10 +35,10 @@ calpuff_add_line_sources <- function(src_name,
  
   # Get expected filename for line sources
   line_sources_filename <-
-    paste(unlist(str_split(getwd(),
-                           pattern = "/"))[length(unlist(str_split(getwd(),
-                                                                   pattern = "/")))],
-          "--line_sources.txt", sep = '')
+    paste0(unlist(str_split(getwd(),
+                            pattern = "/"))[length(unlist(str_split(getwd(),
+                                                                    pattern = "/")))],
+           "--line_sources.txt")
   
   # Create line sources text file with header if it doesn't exist
   if (file.exists(line_sources_filename) == FALSE){
