@@ -182,8 +182,7 @@ calmet_surface_met <- function(location_name,
     }
     
     # Create vector list of additional CSV files that were downloaded
-    additional_CSV_files <- list.files(pattern = paste("[0-9]*-[0-9]*-", year + 1, ".csv",
-                                                       sep = ''))
+    additional_CSV_files <- list.files(pattern = paste0("[0-9]*-[0-9]*-", year + 1, ".csv"))
      
     # Include only records that are on the hour
     for (i in 1:length(additional_CSV_files)){
