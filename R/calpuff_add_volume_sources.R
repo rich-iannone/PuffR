@@ -41,10 +41,10 @@ calpuff_add_volume_sources <- function(src_name,
   
   # Get expected filename for volume sources
   vol_sources_filename <-
-    paste(unlist(str_split(getwd(),
-                           pattern = "/"))[length(unlist(str_split(getwd(),
-                                                                   pattern = "/")))],
-          "--volume_sources.txt", sep = '')
+    paste0(unlist(str_split(getwd(),
+                            pattern = "/"))[length(unlist(str_split(getwd(),
+                                                                    pattern = "/")))],
+           "--volume_sources.txt")
   
   # Create volume sources text file with header if it doesn't exist
   if (file.exists(vol_sources_filename) == FALSE){
