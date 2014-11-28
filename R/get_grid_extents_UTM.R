@@ -32,7 +32,6 @@ get_grid_extents_UTM <- function(side,
     }
     
     return(left_UTM)
-    
   }
   
   if (side == 'right'){
@@ -52,7 +51,6 @@ get_grid_extents_UTM <- function(side,
     }
     
     return(right_UTM)
-    
   }
   
   if (side == 'bottom'){
@@ -72,7 +70,6 @@ get_grid_extents_UTM <- function(side,
     }
     
     return(bottom_UTM)
-    
   }
   
   if (side == 'top'){
@@ -92,7 +89,5 @@ get_grid_extents_UTM <- function(side,
     }
     
     return(top_UTM)
-    
   }
-  
 }
