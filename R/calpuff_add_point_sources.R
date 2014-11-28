@@ -41,10 +41,10 @@ calpuff_add_point_sources <- function(src_name,
   
   # Get expected filename for point sources
   pt_sources_filename <-
-    paste(unlist(str_split(getwd(),
-                           pattern = "/"))[length(unlist(str_split(getwd(),
-                                                                   pattern = "/")))],
-          "--point_sources.txt", sep = '')
+    paste0(unlist(str_split(getwd(),
+                            pattern = "/"))[length(unlist(str_split(getwd(),
+                                                                    pattern = "/")))],
+           "--point_sources.txt")
   
   # Create point sources text file with header if it doesn't exist
   if (file.exists(pt_sources_filename) == FALSE){
