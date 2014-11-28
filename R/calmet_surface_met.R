@@ -212,8 +212,8 @@ calmet_surface_met <- function(location_name,
     # Join years of station data together
     for (i in 1:length(CSV_files_unique_stations)){
       CSV_station_years <- list.files(path = ".",
-                                      pattern = paste(CSV_files_unique_stations[i],
-                                                      "-.*.csv", sep = ''))
+                                      pattern = paste0(CSV_files_unique_stations[i],
+                                                      "-.*.csv"))
       for (j in 1:length(CSV_station_years)){
         if (j == 1){
           CSV_all_years_at_station <- read.csv(CSV_station_years[j],
