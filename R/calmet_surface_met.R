@@ -229,7 +229,7 @@ calmet_surface_met <- function(location_name,
         }
         if (j == length(CSV_station_years))
           write.csv(CSV_all_years_at_station,
-                    file = paste(CSV_files_unique_stations[i], ".csv", sep = ""),
+                    file = paste0(CSV_files_unique_stations[i], ".csv"),
                     row.names = FALSE)
       }
     }
