@@ -115,9 +115,8 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
       guides(alpha = FALSE)
     
     # Save plot as a pdf file
-    ggsave(filename = paste(gsub(".csv", "", file_list[i]), ".pdf", sep = ''),
+    ggsave(filename = paste0(gsub(".csv", "", file_list[i]), ".pdf"),
            width = 8, height = 8, units = "in")
-    
   } 
   
   # If requested, create a movie from file list
