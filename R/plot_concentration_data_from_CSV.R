@@ -45,10 +45,9 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
     xxyy <- cbind(xx,yy)
     
     # Create a PROJ.4 string for the UTM zone
-    proj_string_UTM <- paste("+proj=utm +zone=",
-                             UTM_zone,
-                             " +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
-                             sep = '')  
+    proj_string_UTM <- paste0("+proj=utm +zone=",
+                              UTM_zone,
+                              " +ellps=WGS84 +datum=WGS84 +units=m +no_defs")  
     
     # Create a SpatialPoints object for the bounding box that is projected as UTM coordinates
     SP_UTM <- SpatialPoints(xxyy, proj4string = CRS(proj_string_UTM))
