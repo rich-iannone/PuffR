@@ -53,6 +53,5 @@ read62_inp_generate_template <- function(){
       "! ZVSFC = !",
       "",
       "! END !",
-      ""), "read62_template.txt", sep = "\n")
-  
+      ""), "read62_template.txt", sep = "\n") 
 }
