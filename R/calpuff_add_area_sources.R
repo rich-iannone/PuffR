@@ -37,10 +37,10 @@ calpuff_add_area_sources <- function(src_name,
   
   # Get expected filename for area sources
   area_sources_filename <-
-    paste(unlist(str_split(getwd(),
-                           pattern = "/"))[length(unlist(str_split(getwd(),
-                                                                   pattern = "/")))],
-          "--area_sources.txt", sep = '')
+    paste0(unlist(str_split(getwd(),
+                            pattern = "/"))[length(unlist(str_split(getwd(),
+                                                                    pattern = "/")))],
+           "--area_sources.txt")
   
   # Create area sources text file with header if it doesn't exist
   if (file.exists(area_sources_filename) == FALSE){
