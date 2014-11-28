@@ -282,7 +282,6 @@ calmet_surface_met <- function(location_name,
       
       station_information_strings <- c(station_information_strings,
                                        station_values_string)
-      
     }
     
     # Create the hourly time series as a list of POSIXct time objects
@@ -564,9 +563,6 @@ calmet_surface_met <- function(location_name,
         file = paste(output_file), append = TRUE)
       
       cat("", file = output_file, sep = "\n", append = TRUE)
-      
-    } 
-    
+    }  
   }
-  
 }
