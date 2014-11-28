@@ -278,7 +278,7 @@ calmet_upper_air <- function(location_name,
   bdate <- paste0(str_replace_all(start_date, "-", ""), "00")
   
   # Get formatted ending date
-  edate <- paste(str_replace_all(end_date, "-", ""), "23", sep = '')
+  edate <- paste0(str_replace_all(end_date, "-", ""), "23")
   
   # Generate a data frame containing WBAN-WMO keys
   wban_wmo_list <- as.vector(paste(df_soundings$wban, "-", df_soundings$wmo, sep = ''))
