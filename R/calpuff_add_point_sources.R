@@ -116,7 +116,6 @@ calpuff_add_point_sources <- function(src_name,
     
     # Define the UTM y coordinate in km units
     y_coord_km <- UTM_location[1,2] / 1000
-    
   }
   
   # If UTM coordinates provided, convert to lon/lat
@@ -145,7 +144,6 @@ calpuff_add_point_sources <- function(src_name,
     
     # Extract the longitude in decimal degrees from the SpatialPoints object
     lon_dec_deg <- latlon_SP@coords[[1]]
-    
   }
   
   # Write the values to the file
@@ -167,5 +165,4 @@ calpuff_add_point_sources <- function(src_name,
       sep = "\n",
       file = pt_sources_filename,
       append = TRUE)
-  
 }
