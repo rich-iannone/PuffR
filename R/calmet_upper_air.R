@@ -204,26 +204,26 @@ calmet_upper_air <- function(location_name,
     
     lat[i] <- 
       as.numeric(str_match(string = sounding_lines[i],
-                           pattern = paste("^[0-9A-Z]+[ ]+[0-9]* ",
-                                           "[0-9]{5} ([0-9/.-]*)", sep = ''))[1,2])
+                           pattern = paste0("^[0-9A-Z]+[ ]+[0-9]* ",
+                                           "[0-9]{5} ([0-9/.-]*)"))[1,2])
     
     lon[i] <- 
       as.numeric(str_match(string = sounding_lines[i],
-                           pattern = paste("^[0-9A-Z]+[ ]+[0-9]* [0-9]{5} ",
-                                           "[0-9/.-]* ([0-9/.-]*)", sep = ''))[1,2])
+                           pattern = paste0("^[0-9A-Z]+[ ]+[0-9]* [0-9]{5} ",
+                                           "[0-9/.-]* ([0-9/.-]*)"))[1,2])
     
     elev[i] <- 
       as.numeric(str_match(string = sounding_lines[i],
-                           pattern = paste("^[0-9A-Z]+[ ]+[0-9]* ",
+                           pattern = paste0("^[0-9A-Z]+[ ]+[0-9]* ",
                                            "[0-9]{5} [0-9/.-]* [0-9/.-]* ",
-                                           "([0-9-]{5,6})", sep = ''))[1,2])
+                                           "([0-9-]{5,6})"))[1,2])
     
     station_name[i] <- 
       str_trim(str_match(string = sounding_lines[i],
-                         pattern = paste("^[0-9A-Z]+[ ]+[0-9]* ",
+                         pattern = paste0("^[0-9A-Z]+[ ]+[0-9]* ",
                                          "[0-9]{5} [0-9/.-]* [0-9/.-]* ",
                                          "[0-9-]{5,6}  (.+) [0-9A-Z]{2} ",
-                                         "[0-9A-Z]{2}$", sep = ''))[1,2],
+                                         "[0-9A-Z]{2}$"))[1,2],
                side = "both")
     
     prov_state[i] <- 
