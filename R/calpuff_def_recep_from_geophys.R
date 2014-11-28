@@ -143,20 +143,18 @@ calpuff_def_recep_from_geophys <- function(geophys_file = NULL,
   for (i in 1:nrow(srtm_UTM_resampled_no_NA.df)){
     if (i == 1) receptor_strings <- vector(mode = "character", length = 0)
     
-    receptor_string <- paste(formatC(i, width = -6),
-                             "! X = ",
-                             srtm_UTM_resampled_no_NA.df[i, 1] / 1000,
-                             ", ",
-                             srtm_UTM_resampled_no_NA.df[i, 2] / 1000,
-                             ", ",
-                             round(srtm_UTM_resampled_no_NA.df[i, 3], 3),
-                             ", ",
-                             height_above_ground,
-                             " !  ! END !",
-                             sep = '')
+    receptor_string <- paste0(formatC(i, width = -6),
+                              "! X = ",
+                              srtm_UTM_resampled_no_NA.df[i, 1] / 1000,
+                              ", ",
+                              srtm_UTM_resampled_no_NA.df[i, 2] / 1000,
+                              ", ",
+                              round(srtm_UTM_resampled_no_NA.df[i, 3], 3),
+                              ", ",
+                              height_above_ground,
+                              " !  ! END !")
     
     receptor_strings <- c(receptor_strings, receptor_string)
-    
   }
   
   # Write the strings to file 'receptors.txt' in working folder
@@ -164,5 +162,4 @@ calpuff_def_recep_from_geophys <- function(geophys_file = NULL,
   
   # Write the RasterLayer object for the UTM receptor grid to disk
   writeRaster(LL_LR_UL_UR_UTM_m_RL, filename = "receptors.grd", format = "raster")
-  
 }
