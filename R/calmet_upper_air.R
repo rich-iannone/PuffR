@@ -145,11 +145,10 @@ calmet_upper_air <- function(location_name,
   ####
   
   # Obtain the HTML source from a URI containing a query
-  URI <- getURL(paste("http://www.esrl.noaa.gov/raobs/intl/GetRaobs.cgi?",
+  URI <- getURL(paste0("http://www.esrl.noaa.gov/raobs/intl/GetRaobs.cgi?",
                       "shour=All+Times&ltype=All+Levels&wunits=Tenths+of+Meters%2FSecond",
                       "&bdate=1990010100&edate=2013122523&access=All+Sites&view=YES&",
-                      "osort=Station+Series+Sort&oformat=FSL+format+%28ASCII+text%29",
-                      sep = ''))
+                      "osort=Station+Series+Sort&oformat=FSL+format+%28ASCII+text%29"))
   
   if(grepl("Service Temporarily Unavailable", URI) == TRUE) {
     stop("The NOAA DB server is reporting that it's temporarily unavailable.")
