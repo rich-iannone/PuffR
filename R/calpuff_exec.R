@@ -6,11 +6,10 @@
 
 calpuff_exec <- function(calpuff_executable,
                          calpuff_exec_file){
-    
+  
   # Run the input file with CALPUFF and capture output as lines to 'console_log'
-  console_log <- system(command = paste("cd '", getwd(), "' ; '",
-                                        calpuff_executable, "' ", calpuff_exec_file,
-                                        sep = ""),
+  console_log <- system(command = paste0("cd '", getwd(), "' ; '",
+                                         calpuff_executable, "' ", calpuff_exec_file),
                         intern = TRUE)
   
   # Return the 'console_log' object
