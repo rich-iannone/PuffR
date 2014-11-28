@@ -470,8 +470,8 @@ calmet_surface_met <- function(location_name,
       file = paste(output_file), sep = "\n", append = TRUE)
   
   # Add time zone to file header
-  cat(paste("UTC", ifelse(time_offset >=0, "+", "-"),
-            formatC(abs(time_offset), width = 2, flag = "0"), "00", sep = ''),
+  cat(paste0("UTC", ifelse(time_offset >=0, "+", "-"),
+            formatC(abs(time_offset), width = 2, flag = "0"), "00"),
       file = paste(output_file), sep = "\n", append = TRUE)
   
   # Add time and station info to file header (Beginning and end times for
