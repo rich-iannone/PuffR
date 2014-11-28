@@ -31,7 +31,7 @@ download_FSL_sounding_data <- function(sounding_priority,
                         df_soundings[station_list_position,9], sep = '+')
   
   # Construct request for data from NOAA
-  noaa_cgi_message <- getURL(paste(
+  noaa_cgi_message <- getURL(paste0(
     "http://www.esrl.noaa.gov/raobs/intl/GetRaobs.cgi?",
     "bdate=", beginning_date,
     "&",
@@ -57,7 +57,7 @@ download_FSL_sounding_data <- function(sounding_priority,
     "&",
     "osort=Station+Series+Sort",
     "&",
-    "oformat=FSL+format+%28ASCII+text%29", sep = ''))
+    "oformat=FSL+format+%28ASCII+text%29"))
   
   # Parse message and construct URI for data
   data_URI <- paste("http://www.esrl.noaa.gov/raobs/temp",
