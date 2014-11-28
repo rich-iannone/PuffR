@@ -153,12 +153,9 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
                                 format(Sys.time(), "%Y-%m-%d--%H-%M-%S"))
     
     # Generate the movie file using ffmpeg
-    system(paste("cd ", getwd(), " ; ", ffmpeg_path, "/ffmpeg -f image2 -start_number 1 -i '",
-                 "%04d.jpg", "' -r ", frame_rate, " ",
-                 "-vcodec libx264 -pix_fmt yuv420p ",
-                 movie_output_name, ".mov",
-                 sep = ''))
-    
+    system(paste0("cd ", getwd(), " ; ", ffmpeg_path, "/ffmpeg -f image2 -start_number 1 -i '",
+                  "%04d.jpg", "' -r ", frame_rate, " ",
+                  "-vcodec libx264 -pix_fmt yuv420p ",
+                  movie_output_name, ".mov")) 
   }
-  
 }
