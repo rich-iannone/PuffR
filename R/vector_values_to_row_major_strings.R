@@ -21,5 +21,4 @@ vector_values_to_row_major_strings <- function(values_vector,
   }
   
   return(values_strings)
-  
 }
