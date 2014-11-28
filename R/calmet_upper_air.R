@@ -156,9 +156,8 @@ calmet_upper_air <- function(location_name,
   
   # Create a 'pattern' string object cdontaining the regex pattern for extracting
   # sounding data strings from the URI
-  pattern <- paste("<OPTION> [0-9A-Z]*[ ]*[0-9]* [0-9]{5} [0-9/.-]*",
-                   "[0-9/.-]* [0-9-]{5,6}  [.]*  [0-9A-Z]{2} [0-9A-Z]{2}",
-                   sep = '')
+  pattern <- paste0("<OPTION> [0-9A-Z]*[ ]*[0-9]* [0-9]{5} [0-9/.-]*",
+                   "[0-9/.-]* [0-9-]{5,6}  [.]*  [0-9A-Z]{2} [0-9A-Z]{2}")
   
   # Generate vector list of strings from URI page source
   sounding_lines <- gsub(pattern = pattern, replacement = "\\1",
