@@ -87,11 +87,11 @@ calmet_surface_met <- function(location_name,
   total_cells <- number_cells_across_x * number_cells_across_y
   
   # Generate an output file name for the SURF.DAT file
-  output_file <- paste("surf--", location_name, "-",
+  output_file <- paste0("surf--", location_name, "-",
                        number_cells_across_x, "x",
                        number_cells_across_y, "x",
                        cell_resolution_m, "--",
-                       year, ".txt", sep = '')
+                       year, ".txt")
   
   # Get extents of UTM grid (left, right, bottom, top) in meters
   left_UTM <- get_grid_extents_UTM(side = "left",
