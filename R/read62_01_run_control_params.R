@@ -133,7 +133,6 @@ read62_01_run_control_params <- function(read62_inp = "read62_template.txt",
     iedy <- day(ISOdatetime(as.numeric(ieyr),
                             month = 1, day = 1, hour = 0, min = 0, sec = 0,
                             tz = "GMT") + ((as.numeric(iejulday) - 1) * (3600 * 24)))
-    
   }
   
   # Read in the working calmet.inp file as a character vector
@@ -160,5 +159,4 @@ read62_01_run_control_params <- function(read62_inp = "read62_template.txt",
   
   # Write the output to the same working calmet.inp file
   writeLines(read62_inp_working, con = read62_inp)
-  
 }
