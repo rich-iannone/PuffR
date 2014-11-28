@@ -115,8 +115,8 @@ calpuff_def_recep_from_geophys <- function(geophys_file = NULL,
                         guide = guide_legend(title = "Heights")) +
     coord_equal() +
     theme_bw(base_size = 12, base_family = "") +
-    labs(x = paste("UTM (Zone ", UTM_zone, ") Easting, km", sep = '')) +
-    labs(y = paste("UTM (Zone ", UTM_zone, ") Northing, km", sep = '')) +
+    labs(x = paste0("UTM (Zone ", UTM_zone, ") Easting, km")) +
+    labs(y = paste0("UTM (Zone ", UTM_zone, ") Northing, km")) +
     theme(axis.text = element_text(size = rel(1.2)),
           axis.title = element_text(size = rel(1.2)),
           legend.title = element_text(size = rel(1.2)))
