@@ -372,9 +372,7 @@ calmet_upper_air <- function(location_name,
           
           # Delete the invalid sounding file from the working directory
           file.remove(downloaded_primary_sounding_file)
-          
         }
-        
       }
       
       # Break from the repeat loop if a sounding file was downloaded and it contained
@@ -383,9 +381,7 @@ calmet_upper_air <- function(location_name,
         print(paste0("The sounding file for ", primary_station_wban_wmo, " was downloaded"))
         break
       }
-      
     }
-    
   }
   
   # Add the 'primary_station_wban_wmo' string to the 'excluded_wban_wmo' vector such
@@ -458,7 +454,6 @@ calmet_upper_air <- function(location_name,
         # Delete the invalid sounding file from the working directory
         file.remove(downloaded_secondary_sounding_file)
       }
-      
     }
     
     # Break from the repeat loop if a sounding file was downloaded and it contained
@@ -467,7 +462,6 @@ calmet_upper_air <- function(location_name,
       print(paste0("The sounding file for ", secondary_station_wban_wmo, " was downloaded"))
       break
     }
-    
   }
   
   ####
