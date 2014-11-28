@@ -139,14 +139,13 @@ plot_concentration_data_from_CSV <- function(CSV_file_pattern,
     for (i in 1:length(PDF_list)){
       
       # Convert PDF files to JPEG files using ImageMagick, cropping whitespace
-      system(paste("cd ", getwd(), " ; ",
-                   IM_path, "/convert",
-                   " -verbose -density 150 -trim ",
-                   PDF_list[i],
-                   " -quality 100 -sharpen 0x1.0 ",
-                   formatC(i, width = 4, flag = "0"),
-                   ".jpg",
-                   sep = ''))
+      system(paste0("cd ", getwd(), " ; ",
+                    IM_path, "/convert",
+                    " -verbose -density 150 -trim ",
+                    PDF_list[i],
+                    " -quality 100 -sharpen 0x1.0 ",
+                    formatC(i, width = 4, flag = "0"),
+                    ".jpg"))
     }
     
     # Construct the movie output name
