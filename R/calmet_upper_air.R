@@ -579,6 +579,4 @@ calmet_upper_air <- function(location_name,
   # Execute the READ62 run
   READ62_exec(READ62_exec = READ62_exec_location,
               READ62_file = read62_final_primary_filename)
-  
-  
 }
