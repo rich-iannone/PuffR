@@ -49,10 +49,10 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
   if (is.null(resume_from_set_hour) & autoresume_processing == TRUE &
         !is.null(autoresume_year)){
     pattern <- paste0(location_name, "--",
-                     source_id, "--",
-                     pollutant_id, "--",
-                     autoresume_year,
-                     "-[0-9][0-9]-[0-9][0-9]-[0-9][0-9]-[0-9][0-9][0-9][0-9].csv")
+                      source_id, "--",
+                      pollutant_id, "--",
+                      autoresume_year,
+                      "-[0-9][0-9]-[0-9][0-9]-[0-9][0-9]-[0-9][0-9][0-9][0-9].csv")
     
     file_list <- list.files(path = ".",
                             pattern = pattern)
