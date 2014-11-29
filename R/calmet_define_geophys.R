@@ -65,10 +65,9 @@ calmet_define_geophys <- function(location_name,
   proj_string_longlat <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
   
   # Define a PROJ.4 projection string for a UTM projection
-  proj_string_UTM <- paste("+proj=utm +zone=",
-                           UTM_zone,
-                           " +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
-                           sep = '')
+  proj_string_UTM <- paste0("+proj=utm +zone=",
+                            UTM_zone,
+                            " +ellps=WGS84 +datum=WGS84 +units=m +no_defs")
   
   # Project as UTM coordinates from the determined UTM zone, round to nearest cell resolution size
   # using the 'round_any' function from the 'plyr' package
