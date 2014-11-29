@@ -99,7 +99,7 @@ calmet_03_output_opts <- function(calmet_inp = "calmet_template.txt",
   
   # Get number of layers
   nz <- as.numeric(gsub(".*=(.*)!", "\\1",
-                        grep(paste("NZ(?![[:alpha:]])", sep = ''),
+                        grep(paste0("NZ(?![[:alpha:]])"),
                              calmet_inp_working, perl = TRUE, value = TRUE)))
   
   # If 'nz' value can be determined (and 'iuvout', 'iwout', and 'itout' arguments are
