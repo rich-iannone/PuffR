@@ -127,18 +127,17 @@ calmet_07_station_params <- function(calmet_inp = "calmet_template.txt",
       readLines(up_dat_file)[5:(as.numeric(readLines(up_dat_file, warn = FALSE)[2]) + 2)]
     
     up_dat_station_string <-
-      paste("! US1  = ",
-            gsub("^([a-zA-Z0-9]*).*", "'\\1' ",
-                 up_dat_station_info),
-            gsub("^[a-zA-Z0-9]* ([a-zA-Z0-9]*).*", "\\1 ",
-                 up_dat_station_info),
-            gsub("^[a-zA-Z0-9]* [a-zA-Z0-9]* ([\\.0-9]*) .*", "\\1 ",
-                 up_dat_station_info),
-            gsub("^[a-zA-Z0-9]* [a-zA-Z0-9]* [\\.0-9]* ([\\.0-9]*) .*", "\\1 ",
-                 up_dat_station_info),
-            gsub("^[a-zA-Z0-9]* [a-zA-Z0-9]* [\\.0-9]* [\\.0-9]* ([0-9]*)", "\\1",
-                 up_dat_station_info),
-            sep = '') 
+      paste0("! US1  = ",
+             gsub("^([a-zA-Z0-9]*).*", "'\\1' ",
+                  up_dat_station_info),
+             gsub("^[a-zA-Z0-9]* ([a-zA-Z0-9]*).*", "\\1 ",
+                  up_dat_station_info),
+             gsub("^[a-zA-Z0-9]* [a-zA-Z0-9]* ([\\.0-9]*) .*", "\\1 ",
+                  up_dat_station_info),
+             gsub("^[a-zA-Z0-9]* [a-zA-Z0-9]* [\\.0-9]* ([\\.0-9]*) .*", "\\1 ",
+                  up_dat_station_info),
+             gsub("^[a-zA-Z0-9]* [a-zA-Z0-9]* [\\.0-9]* [\\.0-9]* ([0-9]*)", "\\1",
+                  up_dat_station_info)) 
   }
   
   # Write the surface station parameters to 'calmet_inp_working'
