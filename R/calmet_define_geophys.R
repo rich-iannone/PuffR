@@ -320,7 +320,6 @@ calmet_define_geophys <- function(location_name,
       string <- paste(gridded_CALMET_categories[i, ], collapse = ", ")
       gridded_CALMET_categories_strings <- c(gridded_CALMET_categories_strings, string)
     }
-    
   }
   
   if (LU_method == "MODIS_Global"){
@@ -639,7 +638,7 @@ calmet_define_geophys <- function(location_name,
         cat(gridded_heights_UTM_m_row_major_strings, file = geo_dat_filenames[4],
             sep = "\n", append = TRUE)
       }
-      cat(paste(" 2    - ", mmet_descriptions[i - 1], sep = ''),
+      cat(paste0(" 2    - ", mmet_descriptions[i - 1]),
           file = geo_dat_filenames[4],
           sep = "\n", append = TRUE)
       cat(vector_values_to_row_major_strings(values_vector = mmet_fall[,i],
@@ -647,7 +646,5 @@ calmet_define_geophys <- function(location_name,
           file = geo_dat_filenames[4],
           sep = "\n", append = TRUE)
     }
-    
   }
-  
 }
