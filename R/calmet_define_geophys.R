@@ -486,40 +486,35 @@ calmet_define_geophys <- function(location_name,
                       subset(mmet_seasons, season == "Fall"))
     
     # Generate the 5 GEO.DAT filenames
-    geo_dat_filenames <- c(paste("geo--", location_name, "-",
-                                 number_cells_across_x, "x",
-                                 number_cells_across_y, "x",
-                                 cell_resolution_m, "--1-winter.txt",
-                                 sep = ''),
-                           paste("geo--", location_name, "-",
-                                 number_cells_across_x, "x",
-                                 number_cells_across_y, "x",
-                                 cell_resolution_m, "--2-spring.txt",
-                                 sep = ''),
-                           paste("geo--", location_name, "-",
-                                 number_cells_across_x, "x",
-                                 number_cells_across_y, "x",
-                                 cell_resolution_m, "--3-summer.txt",
-                                 sep = ''),
-                           paste("geo--", location_name, "-",
-                                 number_cells_across_x, "x",
-                                 number_cells_across_y, "x",
-                                 cell_resolution_m, "--4-fall.txt",
-                                 sep = ''),
-                           paste("geo--", location_name, "-",
-                                 number_cells_across_x, "x",
-                                 number_cells_across_y, "x",
-                                 cell_resolution_m, "--5-winter.txt",
-                                 sep = ''))
+    geo_dat_filenames <- c(paste0("geo--", location_name, "-",
+                                  number_cells_across_x, "x",
+                                  number_cells_across_y, "x",
+                                  cell_resolution_m, "--1-winter.txt"),
+                           paste0("geo--", location_name, "-",
+                                  number_cells_across_x, "x",
+                                  number_cells_across_y, "x",
+                                  cell_resolution_m, "--2-spring.txt"),
+                           paste0("geo--", location_name, "-",
+                                  number_cells_across_x, "x",
+                                  number_cells_across_y, "x",
+                                  cell_resolution_m, "--3-summer.txt"),
+                           paste0("geo--", location_name, "-",
+                                  number_cells_across_x, "x",
+                                  number_cells_across_y, "x",
+                                  cell_resolution_m, "--4-fall.txt"),
+                           paste0("geo--", location_name, "-",
+                                  number_cells_across_x, "x",
+                                  number_cells_across_y, "x",
+                                  cell_resolution_m, "--5-winter.txt"))
     
     # Create Winter GEO.DAT files
     for (i in 2:7){
       if (i == 2){
         cat(file = geo_dat_filenames[1],
             append = FALSE)
-        geo_dat_h[4] <- paste("1 Winter (01 01 - ",
-                              gsub("-", " ", four_season_breaks[1]),
-                              ")", sep = '')
+        geo_dat_h[4] <- paste0("1 Winter (01 01 - ",
+                               gsub("-", " ", four_season_breaks[1]),
+                               ")")
         cat(geo_dat_h, file = geo_dat_filenames[1],
             sep = "\n", append = TRUE)
         cat(geo_dat_h_LU, file = geo_dat_filenames[1],
