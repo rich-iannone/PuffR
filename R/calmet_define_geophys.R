@@ -179,19 +179,18 @@ calmet_define_geophys <- function(location_name,
                         guide = guide_legend(title = "Heights")) +
     coord_equal() +
     theme_bw(base_size = 12, base_family = "") +
-    labs(x = paste("UTM (Zone ", UTM_zone, UTM_hemisphere, ") Easting, km", sep = '')) +
-    labs(y = paste("UTM (Zone ", UTM_zone, UTM_hemisphere, ") Northing, km", sep = '')) +
+    labs(x = paste0("UTM (Zone ", UTM_zone, UTM_hemisphere, ") Easting, km")) +
+    labs(y = paste0("UTM (Zone ", UTM_zone, UTM_hemisphere, ") Northing, km")) +
     theme(axis.text = element_text(size = rel(1.2)),
           axis.title = element_text(size = rel(1.2)),
           legend.title = element_text(size = rel(1.2)))
   
   # Save terrain plot as a pdf file
-  ggsave(filename = paste("terrain--", location_name, "-",
-                          number_cells_across_x, "x",
-                          number_cells_across_y, "x",
-                          cell_resolution_m, ".pdf",
-                          sep = ''), device = pdf,
-         width = 8, height = 8, units = "in")
+  ggsave(filename = paste0("terrain--", location_name, "-",
+                           number_cells_across_x, "x",
+                           number_cells_across_y, "x",
+                           cell_resolution_m, ".pdf"),
+         device = pdf, width = 8, height = 8, units = "in")
   
   # Extract heights from the resampled DEM in UTM
   gridded_heights_UTM_m_vector <- srtm_UTM_resampled@data@values
