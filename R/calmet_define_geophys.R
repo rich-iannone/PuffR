@@ -210,15 +210,14 @@ calmet_define_geophys <- function(location_name,
   geo_dat_h[3] <- "Produced by PuffR !Do not edit by hand!"
   geo_dat_h[4] <- "Time Information"
   geo_dat_h[5] <- "UTM"
-  geo_dat_h[6] <- paste("  ", UTM_zone, UTM_hemisphere, sep = '')
+  geo_dat_h[6] <- paste0("  ", UTM_zone, UTM_hemisphere)
   geo_dat_h[7] <- "WGS-84  02-21-2003"
-  geo_dat_h[8] <- paste("     ", number_cells_across_x,
-                        "     ", number_cells_across_y,
-                        "     ", round(left_UTM/1000, digits = 3),
-                        "     ", round(bottom_UTM/1000, digits = 3),
-                        "     ", round(cell_resolution_m/1000, digits = 3),
-                        "     ", round(cell_resolution_m/1000, digits = 3),
-                        sep = '')
+  geo_dat_h[8] <- paste0("     ", number_cells_across_x,
+                         "     ", number_cells_across_y,
+                         "     ", round(left_UTM/1000, digits = 3),
+                         "     ", round(bottom_UTM/1000, digits = 3),
+                         "     ", round(cell_resolution_m/1000, digits = 3),
+                         "     ", round(cell_resolution_m/1000, digits = 3))
   geo_dat_h[9] <- "KM  M"   
   
   # Generate a vector of comma-delimited strings containing heights of every row of cells;
@@ -264,18 +263,17 @@ calmet_define_geophys <- function(location_name,
                         name = "Land Use\nCategories") + 
       coord_equal() +
       theme_bw(base_size = 12, base_family = "") +
-      labs(x = paste("UTM (Zone ", UTM_zone, UTM_hemisphere, ") Easting, km", sep = '')) +
-      labs(y = paste("UTM (Zone ", UTM_zone, UTM_hemisphere, ") Northing, km", sep = '')) +
+      labs(x = paste0("UTM (Zone ", UTM_zone, UTM_hemisphere, ") Easting, km")) +
+      labs(y = paste0("UTM (Zone ", UTM_zone, UTM_hemisphere, ") Northing, km")) +
       theme(axis.text = element_text(size = rel(1.2)),
             axis.title = element_text(size = rel(1.2)),
             legend.title = element_text(size = rel(1.2)))
     
     # Save as land use plot as a pdf file
-    ggsave(filename = paste("landuse--", location_name, "-",
-                            number_cells_across_x, "x",
-                            number_cells_across_y, "x",
-                            cell_resolution_m, ".pdf",
-                            sep = ''),
+    ggsave(filename = paste0("landuse--", location_name, "-",
+                             number_cells_across_x, "x",
+                             number_cells_across_y, "x",
+                             cell_resolution_m, ".pdf"),
            plot = g, device = pdf, width = 8, height = 8, units = "in")
     
     # Add ID field to prepare data within polygon for ggplot use
@@ -295,18 +293,17 @@ calmet_define_geophys <- function(location_name,
                         name = "Land Use\nCategories") +
       coord_equal() +
       theme_bw(base_size = 12, base_family = "") +
-      labs(x = paste("UTM (Zone ", UTM_zone, UTM_hemisphere, ") Easting, km", sep = '')) +
-      labs(y = paste("UTM (Zone ", UTM_zone, UTM_hemisphere, ") Northing, km", sep = '')) +
+      labs(x = paste0("UTM (Zone ", UTM_zone, UTM_hemisphere, ") Easting, km")) +
+      labs(y = paste0("UTM (Zone ", UTM_zone, UTM_hemisphere, ") Northing, km")) +
       theme(axis.text = element_text(size = rel(1.2)),
             axis.title = element_text(size = rel(1.2)),
             legend.title = element_text(size = rel(1.2)))
     
     # Save landuse plot as a PDF file
-    ggsave(filename = paste("landuse-shapefile--", location_name, "-",
-                            number_cells_across_x, "x",
-                            number_cells_across_y, "x",
-                            cell_resolution_m, ".pdf",
-                            sep = ''),
+    ggsave(filename = paste0("landuse-shapefile--", location_name, "-",
+                             number_cells_across_x, "x",
+                             number_cells_across_y, "x",
+                             cell_resolution_m, ".pdf"),
            plot = h, device = pdf, width = 8, height = 8, units = "in")
     
     # Extract the 'layer' column from 'raster_LU_df' and create a vector object
