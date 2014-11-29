@@ -78,5 +78,4 @@ calpuff_04_grid_levels <- function(calpuff_inp,
   
   # Write the output to the same working calmet.inp file
   writeLines(calpuff_inp_working, con = calpuff_inp)
-  
 }
