@@ -92,20 +92,19 @@ calmet_07_station_params <- function(calmet_inp = "calmet_template.txt",
     for (i in 1:length(surf_dat_station_info)){
       if (i == 1) surf_dat_station_strings <- vector(mode = "character", length = 0)
       a_string <-
-        paste("! SS", i, ifelse(i < 10, "  = ", " = "),
-              gsub("^([a-zA-Z0-9]*).*", "'\\1' ",
-                   surf_dat_station_info[i]),
-              gsub("^[a-zA-Z0-9]* ([a-zA-Z0-9]*).*", "\\1 ",
-                   surf_dat_station_info[i]),
-              gsub("^[a-zA-Z0-9]* [a-zA-Z0-9]* ([\\.0-9]*) .*", "\\1 ",
-                   surf_dat_station_info[i]),
-              gsub("^[a-zA-Z0-9]* [a-zA-Z0-9]* [\\.0-9]* ([\\.0-9]*) .*", "\\1 ",
-                   surf_dat_station_info[i]),
-              gsub("^[a-zA-Z0-9]* [a-zA-Z0-9]* [\\.0-9]* [\\.0-9]* ([0-9]*) .*", "\\1 ",
-                   surf_dat_station_info[i]),
-              gsub("^[a-zA-Z0-9]* [a-zA-Z0-9]* [\\.0-9]* [\\.0-9]* [0-9]* ([0-9]*)", "\\1 !",
-                   surf_dat_station_info[i]),
-              sep = '')
+        paste0("! SS", i, ifelse(i < 10, "  = ", " = "),
+               gsub("^([a-zA-Z0-9]*).*", "'\\1' ",
+                    surf_dat_station_info[i]),
+               gsub("^[a-zA-Z0-9]* ([a-zA-Z0-9]*).*", "\\1 ",
+                    surf_dat_station_info[i]),
+               gsub("^[a-zA-Z0-9]* [a-zA-Z0-9]* ([\\.0-9]*) .*", "\\1 ",
+                    surf_dat_station_info[i]),
+               gsub("^[a-zA-Z0-9]* [a-zA-Z0-9]* [\\.0-9]* ([\\.0-9]*) .*", "\\1 ",
+                    surf_dat_station_info[i]),
+               gsub("^[a-zA-Z0-9]* [a-zA-Z0-9]* [\\.0-9]* [\\.0-9]* ([0-9]*) .*", "\\1 ",
+                    surf_dat_station_info[i]),
+               gsub("^[a-zA-Z0-9]* [a-zA-Z0-9]* [\\.0-9]* [\\.0-9]* [0-9]* ([0-9]*)", "\\1 !",
+                    surf_dat_station_info[i]))
       surf_dat_station_strings <- c(surf_dat_station_strings, a_string)
     }
     
