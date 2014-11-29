@@ -539,9 +539,9 @@ calmet_define_geophys <- function(location_name,
       if (i == 2){
         cat(file = geo_dat_filenames[5],
             append = FALSE)
-        geo_dat_h[4] <- paste("5 Winter (",
-                              format((as.Date(four_season_breaks[4], "%m-%d") + 1), "%m %d"),
-                              " - 12 31)", sep = '')
+        geo_dat_h[4] <- paste0("5 Winter (",
+                               format((as.Date(four_season_breaks[4], "%m-%d") + 1), "%m %d"),
+                               " - 12 31)")
         cat(geo_dat_h, file = geo_dat_filenames[5],
             sep = "\n", append = TRUE)
         cat(geo_dat_h_LU, file = geo_dat_filenames[5],
