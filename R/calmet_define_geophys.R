@@ -147,10 +147,9 @@ calmet_define_geophys <- function(location_name,
   
   # Reproject cropped RasterLayer object from lat/lon to UTM
   srtm_UTM <- projectRaster(srtm_cropped,
-                            crs = paste("+proj=utm +zone=",
-                                        UTM_zone,
-                                        " +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
-                                        sep = ''))
+                            crs = paste0("+proj=utm +zone=",
+                                         UTM_zone,
+                                         " +ellps=WGS84 +datum=WGS84 +units=m +no_defs"))
   
   # Crop DEM data again using 'bbox' Extent object in UTM projection
   srtm_UTM_resampled <- resample(srtm_UTM, LL_LR_UL_UR_UTM_m_RL)
