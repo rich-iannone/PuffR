@@ -124,7 +124,6 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
       concentration_small_df[j,10] <- location_name
       concentration_small_df[j,11] <- source_id
       concentration_small_df[j,12] <- pollutant_id
-      
     }
     
     # Successively bind the smaller data frame to the larger data frame
@@ -159,13 +158,10 @@ calpost_get_concentrations_from_time_series_file <- function(time_series_file = 
                          formatC(hour(POSIXdate), width = 2, flag = "0"), "-",
                          formatC((i-14), width = 4, flag = "0"), ".csv"))
     }
-    
-    
   }
   
   # Return the 'concentration_df' object invisibly
   if (return_large_df == TRUE){
     invisible(concentration_df)
   }
-  
 }

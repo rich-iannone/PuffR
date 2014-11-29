@@ -158,5 +158,4 @@ calmet_07_station_params <- function(calmet_inp = "calmet_template.txt",
   
   # Write the output to the same working calmet.inp file
   writeLines(calmet_inp_working, con = calmet_inp)
-  
 }
