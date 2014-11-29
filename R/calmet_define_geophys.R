@@ -624,10 +624,10 @@ calmet_define_geophys <- function(location_name,
     for (i in 2:7){
       if (i == 2){
         cat(file = geo_dat_filenames[4], append = FALSE)
-        geo_dat_h[4] <- paste("4 Fall (",
-                              format((as.Date(four_season_breaks[3], "%m-%d") + 1), "%m %d"),
-                              " - ",
-                              gsub("-", " ", four_season_breaks[4]), ")", sep = '')
+        geo_dat_h[4] <- paste0("4 Fall (",
+                               format((as.Date(four_season_breaks[3], "%m-%d") + 1), "%m %d"),
+                               " - ",
+                               gsub("-", " ", four_season_breaks[4]), ")")
         cat(geo_dat_h, file = geo_dat_filenames[4],
             sep = "\n", append = TRUE)
         cat(geo_dat_h_LU, file = geo_dat_filenames[4],
