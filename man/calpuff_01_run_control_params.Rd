@@ -42,17 +42,17 @@ calpuff_01_run_control_params(calpuff_inp = "calpuff_template.txt",
 
 \item{itest}{a flag to stop the model run after the setup phase, which is useful for checking for correctness in model inputs and associated files.}
 
-\item{mrestart}{}
+\item{mrestart}{a flag to interact with restart files.}
 
-\item{nrespd}{}
+\item{nrespd}{the number of periods in the restart output cycle.}
 
-\item{metfm}{}
+\item{metfm}{the meteorological data format to be used.}
 
 \item{mprffm}{}
 
-\item{avet}{}
+\item{avet}{the averaging time in minutes.}
 
-\item{pgtime}{}
+\item{pgtime}{the PG averaging time in minutes.}
 
 \item{ioutu}{}
 
