@@ -16,13 +16,13 @@
 #' @param nsecdt the number of seconds between time steps.
 #' @param nse number of stationary emission sources.
 #' @param itest a flag to stop the model run after the setup phase, which is useful for checking for correctness in model inputs and associated files.
-#' @param mrestart
-#' @param nrespd
-#' @param metfm
-#' @param mprffm
-#' @param avet
-#' @param pgtime
-#' @param ioutu
+#' @param mrestart a flag to interact with restart files.
+#' @param nrespd the number of periods in the restart output cycle.
+#' @param metfm the meteorological data format to be used.
+#' @param mprffm 
+#' @param avet the averaging time in minutes.
+#' @param pgtime the PG averaging time in minutes.
+#' @param ioutu 
 #' @param iovers
 #' @export calpuff_01_run_control_params
 
