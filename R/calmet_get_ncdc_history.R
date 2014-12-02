@@ -11,7 +11,7 @@
 calmet_get_ncdc_history <- function(replace.file = FALSE) {
   
   # Get hourly surface data history CSV from NOAA/NCDC FTP
-  file <- "ftp://ftp.ncdc.noaa.gov/pub/data/noaa/ish-history.csv"
+  file <- "ftp://ftp.ncdc.noaa.gov/pub/data/noaa/isd-history.csv"
   
   if (replace.file == TRUE) {
     repeat {
