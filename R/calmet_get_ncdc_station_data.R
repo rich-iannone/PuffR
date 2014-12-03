@@ -99,7 +99,7 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
     st <- read.csv("ish-history.csv")
     
     # Get formatted list of station names and elevations
-    names(st)[c(3, 10)] <- c("NAME", "ELEV")
+    names(st)[c(3, 9)] <- c("NAME", "ELEV")
     st <- st[, -5]
         
     # Recompose the years from the data file
