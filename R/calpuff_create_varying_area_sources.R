@@ -169,6 +169,9 @@ calpuff_create_varying_area_sources <- function(CSV_input = NULL,
     
     date_time_subset <- subset(input_data, date_time == sorted_date_time[i])
     
+    # Sort data frame by ascending 'src_name'
+    date_time_subset <- date_time_subset[order(date_time_subset[,1]),]
+    
     date_header <- paste0("       ",
                           year(date_time_subset$date_time)[1], "  ",
                           yday(date_time_subset$date_time)[1], "  ",
