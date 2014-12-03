@@ -101,12 +101,7 @@ calmet_get_ncdc_station_data <- function(data_filename = NULL,
     # Get formatted list of station names and elevations
     names(st)[c(3, 10)] <- c("NAME", "ELEV")
     st <- st[, -5]
-    
-    # Reintroduce the decimals in the latitude, longitude, and elevation
-    st$LAT <- st$LAT/1000
-    st$LON <- st$LON/1000
-    st$ELEV <- st$ELEV/10
-    
+        
     # Recompose the years from the data file
     st$BEGIN <- as.numeric(substr(st$BEGIN, 1, 4))
     st$END <- as.numeric(substr(st$END, 1, 4))
