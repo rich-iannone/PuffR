@@ -19,7 +19,7 @@
 #' @param spec2 
 #' @export calpuff_11_chem_params
 
-calpuff_11_chem_params <- function(calpuff_inp,
+calpuff_11_chem_params <- function(calpuff_inp = "calpuff_template.txt",
                                    moz,
                                    bcko3,
                                    mnh3,
