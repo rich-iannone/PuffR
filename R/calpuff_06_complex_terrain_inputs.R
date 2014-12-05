@@ -10,7 +10,7 @@
 #' @param yctdmkm 
 #' @export calpuff_06_complex_terrain_inputs
 
-calpuff_06_complex_terrain_inputs <- function(calpuff_inp,
+calpuff_06_complex_terrain_inputs <- function(calpuff_inp = "calpuff_template.txt",
                                               nhill,
                                               nctrec,
                                               mhill,
