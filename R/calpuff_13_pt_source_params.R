@@ -12,7 +12,7 @@
 #' @param downwash_output 
 #' @export calpuff_13_pt_source_params
 
-calpuff_13_pt_source_params <- function(calpuff_inp,
+calpuff_13_pt_source_params <- function(calpuff_inp = "calpuff_template.txt",
                                         npt1 = NULL,
                                         iptu = NULL,
                                         nspt1 = NULL,
