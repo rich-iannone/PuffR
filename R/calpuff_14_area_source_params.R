@@ -9,7 +9,7 @@
 #' @param arsource_coords 
 #' @export calpuff_14_area_source_params
 
-calpuff_14_area_source_params <- function(calpuff_inp,
+calpuff_14_area_source_params <- function(calpuff_inp = "calpuff_template.txt",
                                           nar1 = NULL,
                                           iaru = NULL,
                                           nsar1 = NULL,
