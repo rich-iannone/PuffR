@@ -8,7 +8,7 @@
 #' @param iveg 
 #' @export calpuff_09_misc_ddep
 
-calpuff_09_misc_ddep <- function(calpuff_inp,
+calpuff_09_misc_ddep <- function(calpuff_inp = "calpuff_template.txt",
                                  rcutr,
                                  rgr,
                                  reactr,
