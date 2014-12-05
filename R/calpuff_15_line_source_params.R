@@ -16,7 +16,7 @@
 #' @param lnsource_params 
 #' @export calpuff_15_line_source_params
 
-calpuff_15_line_source_params <- function(calpuff_inp,
+calpuff_15_line_source_params <- function(calpuff_inp = "calpuff_template.txt",
                                           nln2 = NULL,
                                           nlines = NULL,
                                           ilnu = NULL,
