@@ -28,7 +28,7 @@
 #' @param nn2 
 #' @export calpuff_05_output_opts
 
-calpuff_05_output_opts <- function(calpuff_inp,
+calpuff_05_output_opts <- function(calpuff_inp = "calpuff_template.txt",
                                    icon,
                                    idry,
                                    iwet,
