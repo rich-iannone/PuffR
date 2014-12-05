@@ -54,7 +54,7 @@
 #' @param mdepbc 
 #' @export calpuff_12_misc_disp_comp_params
 
-calpuff_12_misc_disp_comp_params <- function(calpuff_inp,
+calpuff_12_misc_disp_comp_params <- function(calpuff_inp = "calpuff_template.txt",
                                              sytdep,
                                              mhftsz,
                                              jsup,
