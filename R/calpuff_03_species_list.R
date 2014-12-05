@@ -8,7 +8,7 @@
 #' @param species_group_number 
 #' @export calpuff_03_species_list
 
-calpuff_03_species_list <- function(calpuff_inp,
+calpuff_03_species_list <- function(calpuff_inp = "calpuff_template.txt",
                                     species_names_cspec = NULL,
                                     species_modelled = NULL,
                                     species_emitted = NULL,
