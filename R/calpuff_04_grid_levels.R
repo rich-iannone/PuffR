@@ -30,7 +30,7 @@
 #' @param meshdn 
 #' @export calpuff_04_grid_levels
 
-calpuff_04_grid_levels <- function(calpuff_inp,
+calpuff_04_grid_levels <- function(calpuff_inp = "calpuff_template.txt",
                                    pmap = "UTM",
                                    feast = 0.0,
                                    fnorth = 0.0,
