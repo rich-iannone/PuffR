@@ -1,6 +1,6 @@
 #' Set one or more CALPUFF line source parameters
 #' @description This function validates and writes CALPUFF line source parameters.
-#' @param calpuff_inp 
+#' @param calpuff_inp the absolute path and filename for the working CALPUFF input file.
 #' @param nln2 
 #' @param nlines 
 #' @param ilnu 
