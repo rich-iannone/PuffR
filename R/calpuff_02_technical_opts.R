@@ -1,6 +1,6 @@
 #' Set CALPUFF technical options
 #' @description This function validates and writes CALPUFF parameters for the model's technical options.
-#' @param calpuff_inp
+#' @param calpuff_inp the absolute path and filename for the working CALPUFF input file.
 #' @param mgauss 
 #' @param mctadj 
 #' @param mctsg 
