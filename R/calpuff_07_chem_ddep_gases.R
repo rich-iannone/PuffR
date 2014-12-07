@@ -1,6 +1,6 @@
 #' Set the CALPUFF chemical parameters for dry deposition of gases
 #' @description This function validates and writes CALPUFF chemical parameters for dry deposition of gases.
-#' @param calpuff_inp 
+#' @param calpuff_inp the absolute path and filename for the working CALPUFF input file.
 #' @param species_diffusivity 
 #' @param species_alpha_star 
 #' @param species_reactivity 
