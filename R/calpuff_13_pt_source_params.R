@@ -1,6 +1,6 @@
 #' Set one or more CALPUFF point source parameters
 #' @description This function validates and writes CALPUFF point source parameters.
-#' @param calpuff_inp 
+#' @param calpuff_inp the absolute path and filename for the working CALPUFF input file.
 #' @param npt1 
 #' @param iptu 
 #' @param nspt1
