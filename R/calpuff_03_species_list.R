@@ -1,6 +1,6 @@
 #' Set the CALPUFF species list
 #' @description This function validates and writes CALPUFF parameters for the model's species list.
-#' @param calpuff_inp 
+#' @param calpuff_inp the absolute path and filename for the working CALPUFF input file.
 #' @param species_names_cspec 
 #' @param species_modelled 
 #' @param species_emitted 
