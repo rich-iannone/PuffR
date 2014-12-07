@@ -1,6 +1,6 @@
 #' Set CALPUFF parameters for the map projection, datum, and grid definitions
 #' @description This function validates and writes CALPUFF parameters for the map projection, datum, and grid definitions to the working CALPUFF.INP file.
-#' @param calpuff_inp 
+#' @param calpuff_inp the absolute path and filename for the working CALPUFF input file.
 #' @param pmap 
 #' @param feast 
 #' @param fnorth 
