@@ -1,6 +1,6 @@
 #' Set the CALPUFF chemistry parameters
 #' @description This function validates and writes CALPUFF parameters for atmospheric chemistry.
-#' @param calpuff_inp 
+#' @param calpuff_inp the absolute path and filename for the working CALPUFF input file.
 #' @param moz 
 #' @param bcko3 
 #' @param mnh3 
