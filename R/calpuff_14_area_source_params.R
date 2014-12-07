@@ -1,6 +1,6 @@
 #' Set one or more CALPUFF area source parameters
 #' @description This function validates and writes CALPUFF area source parameters.
-#' @param calpuff_inp 
+#' @param calpuff_inp the absolute path and filename for the working CALPUFF input file.
 #' @param nar1 
 #' @param iaru 
 #' @param nsar1 
