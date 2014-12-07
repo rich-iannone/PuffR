@@ -1,6 +1,6 @@
 #' Set miscellaneous CALPUFF parameters for dry deposition
 #' @description This function validates and writes miscellaneous CALPUFF parameters for dry deposition.
-#' @param calpuff_inp 
+#' @param calpuff_inp the absolute path and filename for the working CALPUFF input file.
 #' @param rcutr 
 #' @param rgr 
 #' @param reactr 
