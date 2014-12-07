@@ -1,6 +1,6 @@
 #' Set miscellaneous CALPUFF dispersion and computational parameters
 #' @description This function validates and writes miscellaneous CALPUFF dispersion and computational parameters.
-#' @param calpuff_inp 
+#' @param calpuff_inp the absolute path and filename for the working CALPUFF input file.
 #' @param sytdep 
 #' @param mhftsz 
 #' @param jsup 
