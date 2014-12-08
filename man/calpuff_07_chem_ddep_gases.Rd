@@ -3,12 +3,13 @@
 \alias{calpuff_07_chem_ddep_gases}
 \title{Set the CALPUFF chemical parameters for dry deposition of gases}
 \usage{
-calpuff_07_chem_ddep_gases(calpuff_inp, species_diffusivity = NULL,
-  species_alpha_star = NULL, species_reactivity = NULL,
-  species_mesophyll_resistance = NULL, species_HL_coefficient = NULL)
+calpuff_07_chem_ddep_gases(calpuff_inp = "calpuff_template.txt",
+  species_diffusivity = NULL, species_alpha_star = NULL,
+  species_reactivity = NULL, species_mesophyll_resistance = NULL,
+  species_HL_coefficient = NULL)
 }
 \arguments{
-\item{calpuff_inp}{}
+\item{calpuff_inp}{the absolute path and filename for the working CALPUFF input file.}
 
 \item{species_diffusivity}{}
 
