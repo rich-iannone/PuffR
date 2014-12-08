@@ -3,20 +3,20 @@
 \alias{calpuff_14_area_source_params}
 \title{Set one or more CALPUFF area source parameters}
 \usage{
-calpuff_14_area_source_params(calpuff_inp, nar1 = NULL, iaru = NULL,
-  nsar1 = NULL, nar2 = NULL, arsource_params = NULL,
-  arsource_coords = NULL)
+calpuff_14_area_source_params(calpuff_inp = "calpuff_template.txt",
+  nar1 = NULL, iaru = NULL, nsar1 = NULL, nar2 = NULL,
+  arsource_params = NULL, arsource_coords = NULL)
 }
 \arguments{
-\item{calpuff_inp}{}
+\item{calpuff_inp}{the absolute path and filename for the working CALPUFF input file.}
 
-\item{nar1}{}
+\item{nar1}{the number of area sources.}
 
-\item{iaru}{}
+\item{iaru}{the units used for line source emissions, where the possible selections are: (1) "g/m^2/s", (2) "kg/m^2/hr", (3) "lb/m^2/hr", (4) "tons/m^2/yr", (5) "Odour Unit * m/s", (6) "Odour Unit * m/min", and (7) "metric tons/m^2/yr".}
 
-\item{nsar1}{}
+\item{nsar1}{the number of source-species combinations with variable emissions scaling factors.}
 
-\item{nar2}{}
+\item{nar2}{the number of area sources with variable location and emission parameters.}
 
 \item{arsource_params}{}
 
