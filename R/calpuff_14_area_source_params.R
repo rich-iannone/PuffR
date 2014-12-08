@@ -1,10 +1,10 @@
 #' Set one or more CALPUFF area source parameters
 #' @description This function validates and writes CALPUFF area source parameters.
 #' @param calpuff_inp the absolute path and filename for the working CALPUFF input file.
-#' @param nar1 
-#' @param iaru 
-#' @param nsar1 
-#' @param nar2 
+#' @param nar1 the number of area sources.
+#' @param iaru the units used for line source emissions, where the possible selections are: (1) "g/m^2/s", (2) "kg/m^2/hr", (3) "lb/m^2/hr", (4) "tons/m^2/yr", (5) "Odour Unit * m/s", (6) "Odour Unit * m/min", and (7) "metric tons/m^2/yr".
+#' @param nsar1 the number of source-species combinations with variable emissions scaling factors.
+#' @param nar2 the number of area sources with variable location and emission parameters.
 #' @param arsource_params 
 #' @param arsource_coords 
 #' @export calpuff_14_area_source_params
