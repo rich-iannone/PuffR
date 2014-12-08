@@ -3,25 +3,25 @@
 \alias{calpuff_13_pt_source_params}
 \title{Set one or more CALPUFF point source parameters}
 \usage{
-calpuff_13_pt_source_params(calpuff_inp, npt1 = NULL, iptu = NULL,
-  nspt1 = NULL, npt2 = NULL, ptsource_name = NULL,
-  ptsource_params = NULL, ptsource_zpltfm = NULL, ptsource_fmfac = NULL,
-  downwash_output = NULL)
+calpuff_13_pt_source_params(calpuff_inp = "calpuff_template.txt",
+  npt1 = NULL, iptu = NULL, nspt1 = NULL, npt2 = NULL,
+  ptsource_name = NULL, ptsource_params = NULL, ptsource_zpltfm = NULL,
+  ptsource_fmfac = NULL, downwash_output = NULL)
 }
 \arguments{
-\item{calpuff_inp}{}
+\item{calpuff_inp}{the absolute path and filename for the working CALPUFF input file.}
 
-\item{npt1}{}
+\item{npt1}{the number of point sources.}
 
-\item{iptu}{}
+\item{iptu}{the units used for line source emissions, where the possible selections are: (1) "g/s", (2) "kg/hr", (3) "lb/hr", (4) "tons/yr", (5) "Odour Unit * m^3/s", (6) "Odour Unit * m^3/min", and (7) "metric tons/yr".}
 
-\item{nspt1}{}
+\item{nspt1}{the number of source-species combinations with variable emissions scaling factors.}
 
-\item{npt2}{}
+\item{npt2}{the number of point sources with variable location and emission parameters.}
 
-\item{ptsource_name}{}
+\item{ptsource_name}{a vector of assigned names for each point source.}
 
-\item{ptsource_params}{}
+\item{ptsource_params}{a list of point source parameters for each source in the order of: (1) x UTM coordinate (km), (2) y UTM coordinate (km), (3) stack height (m), (4) base elevation (m), (5) stack diameter (m), (6) exit velocity (m/s), (7) exit temperature (K), (8) building downwash computed (where 1 is yes, 0 is no), (9) emission rates for each species emitted from point source in units specified in the 'iptu' argument.}
 
 \item{ptsource_zpltfm}{}
 
