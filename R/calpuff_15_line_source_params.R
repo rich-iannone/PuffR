@@ -1,11 +1,11 @@
 #' Set one or more CALPUFF line source parameters
 #' @description This function validates and writes CALPUFF line source parameters.
 #' @param calpuff_inp the absolute path and filename for the working CALPUFF input file.
-#' @param nln2 
+#' @param nln2 the number of buoyant line sources with variable location and emission parameters.
 #' @param nlines the number of buoyant line sources.
 #' @param ilnu the units used for line source emissions, where the possible selections are: (1) "g/s", (2) "kg/hr", (3) "lb/hr", (4) "tons/yr", (5) "Odour Unit * m^3/s", (6) "Odour Unit * m^3/min", and (7) "metric tons/yr".
-#' @param nsln1 
-#' @param mxnseg 
+#' @param nsln1 the number of source-species combinations with variable emissions scaling factors.
+#' @param mxnseg the maximum number of line segments to model each line.
 #' @param nlrise the number of distances at which transitional rise is computed.
 #' @param xl the average building length in meters.
 #' @param hbl the average building height in meters.
