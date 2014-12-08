@@ -3,12 +3,13 @@
 \alias{calpuff_05_output_opts}
 \title{Set the CALPUFF output options}
 \usage{
-calpuff_05_output_opts(calpuff_inp, icon, idry, iwet, it2d, irho, ivis, lcomprs,
-  iqaplot, ipftrak, imflx, imbal, inrise, icprt, idprt, iwprt, icfrq, idfrq,
-  iwfrq, iprtu, imesg, ldebug, ipfdeb, npfdeb, nn1, nn2)
+calpuff_05_output_opts(calpuff_inp = "calpuff_template.txt", icon, idry, iwet,
+  it2d, irho, ivis, lcomprs, iqaplot, ipftrak, imflx, imbal, inrise, icprt,
+  idprt, iwprt, icfrq, idfrq, iwfrq, iprtu, imesg, ldebug, ipfdeb, npfdeb, nn1,
+  nn2)
 }
 \arguments{
-\item{calpuff_inp}{}
+\item{calpuff_inp}{the absolute path and filename for the working CALPUFF input file.}
 
 \item{icon}{}
 
