@@ -3,11 +3,12 @@
 \alias{calpuff_11_chem_params}
 \title{Set the CALPUFF chemistry parameters}
 \usage{
-calpuff_11_chem_params(calpuff_inp, moz, bcko3, mnh3, mavgnh3, bcknh3, rnite1,
-  rnite2, rnite3, mh2o2, bckh2o2, bckpmf, ofrac, vcnx, ndecay, spec1, spec2)
+calpuff_11_chem_params(calpuff_inp = "calpuff_template.txt", moz, bcko3, mnh3,
+  mavgnh3, bcknh3, rnite1, rnite2, rnite3, mh2o2, bckh2o2, bckpmf, ofrac, vcnx,
+  ndecay, spec1, spec2)
 }
 \arguments{
-\item{calpuff_inp}{}
+\item{calpuff_inp}{the absolute path and filename for the working CALPUFF input file.}
 
 \item{moz}{}
 
