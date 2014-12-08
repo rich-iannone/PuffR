@@ -3,12 +3,12 @@
 \alias{calpuff_10_wdep_params}
 \title{Set the CALPUFF parameters for wet deposition}
 \usage{
-calpuff_10_wdep_params(calpuff_inp,
+calpuff_10_wdep_params(calpuff_inp = "calpuff_template.txt",
   species_scaveng_coeff_liquid_precip = NULL,
   species_scaveng_coeff_froze_precip = NULL)
 }
 \arguments{
-\item{calpuff_inp}{}
+\item{calpuff_inp}{the absolute path and filename for the working CALPUFF input file.}
 
 \item{species_scaveng_coeff_liquid_precip}{}
 
