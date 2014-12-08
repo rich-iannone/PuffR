@@ -3,12 +3,13 @@
 \alias{calpuff_03_species_list}
 \title{Set the CALPUFF species list}
 \usage{
-calpuff_03_species_list(calpuff_inp, species_names_cspec = NULL,
-  species_modelled = NULL, species_emitted = NULL, species_ddep = NULL,
+calpuff_03_species_list(calpuff_inp = "calpuff_template.txt",
+  species_names_cspec = NULL, species_modelled = NULL,
+  species_emitted = NULL, species_ddep = NULL,
   species_group_number = NULL)
 }
 \arguments{
-\item{calpuff_inp}{}
+\item{calpuff_inp}{the absolute path and filename for the working CALPUFF input file.}
 
 \item{species_names_cspec}{}
 
