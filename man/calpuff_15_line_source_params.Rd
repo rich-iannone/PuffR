@@ -3,37 +3,37 @@
 \alias{calpuff_15_line_source_params}
 \title{Set one or more CALPUFF line source parameters}
 \usage{
-calpuff_15_line_source_params(calpuff_inp, nln2 = NULL, nlines = NULL,
-  ilnu = NULL, nsln1 = NULL, mxnseg = NULL, nlrise = NULL, xl = NULL,
-  hbl = NULL, wbl = NULL, wml = NULL, dxl = NULL, fprimel = NULL,
-  lnsource_params = NULL)
+calpuff_15_line_source_params(calpuff_inp = "calpuff_template.txt",
+  nln2 = NULL, nlines = NULL, ilnu = NULL, nsln1 = NULL,
+  mxnseg = NULL, nlrise = NULL, xl = NULL, hbl = NULL, wbl = NULL,
+  wml = NULL, dxl = NULL, fprimel = NULL, lnsource_params = NULL)
 }
 \arguments{
-\item{calpuff_inp}{}
+\item{calpuff_inp}{the absolute path and filename for the working CALPUFF input file.}
 
-\item{nln2}{}
+\item{nln2}{the number of buoyant line sources with variable location and emission parameters.}
 
-\item{nlines}{}
+\item{nlines}{the number of buoyant line sources.}
 
-\item{ilnu}{}
+\item{ilnu}{the units used for line source emissions, where the possible selections are: (1) "g/s", (2) "kg/hr", (3) "lb/hr", (4) "tons/yr", (5) "Odour Unit * m^3/s", (6) "Odour Unit * m^3/min", and (7) "metric tons/yr".}
 
-\item{nsln1}{}
+\item{nsln1}{the number of source-species combinations with variable emissions scaling factors.}
 
-\item{mxnseg}{}
+\item{mxnseg}{the maximum number of line segments to model each line.}
 
-\item{nlrise}{}
+\item{nlrise}{the number of distances at which transitional rise is computed.}
 
-\item{xl}{}
+\item{xl}{the average building length in meters.}
 
-\item{hbl}{}
+\item{hbl}{the average building height in meters.}
 
-\item{wbl}{}
+\item{wbl}{the average building width in meters.}
 
-\item{wml}{}
+\item{wml}{the average line source width in meters.}
 
-\item{dxl}{}
+\item{dxl}{the average separation between buildings in meters.}
 
-\item{fprimel}{}
+\item{fprimel}{the average buoyancy parameter, in units of m^4/s^3}
 
 \item{lnsource_params}{}
 }
