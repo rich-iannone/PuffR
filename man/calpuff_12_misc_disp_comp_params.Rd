@@ -3,15 +3,16 @@
 \alias{calpuff_12_misc_disp_comp_params}
 \title{Set miscellaneous CALPUFF dispersion and computational parameters}
 \usage{
-calpuff_12_misc_disp_comp_params(calpuff_inp, sytdep, mhftsz, jsup, conk1,
-  conk2, tbd, iurb1, iurb2, ilanduin, z0in, xlaiin, elevin, xlatin, xlonin,
-  anemht, isigmav, imixctdm, xmxlen, xsamlen, mxnew, mxsam, ncount, symin,
-  szmin, szcap_m, svmin, swmin, cdiv, nlutibl, wscalm, xmaxzi, xminzi, wscat,
-  plx0, ptg0, ppc, sl2pf, nsplit, iresplit, zisplit, roldmax, nsplith, sysplith,
-  shsplith, cnsplith, epsslug, epsarea, dsrise, htminbc, rsampbc, mdepbc)
+calpuff_12_misc_disp_comp_params(calpuff_inp = "calpuff_template.txt", sytdep,
+  mhftsz, jsup, conk1, conk2, tbd, iurb1, iurb2, ilanduin, z0in, xlaiin, elevin,
+  xlatin, xlonin, anemht, isigmav, imixctdm, xmxlen, xsamlen, mxnew, mxsam,
+  ncount, symin, szmin, szcap_m, svmin, swmin, cdiv, nlutibl, wscalm, xmaxzi,
+  xminzi, wscat, plx0, ptg0, ppc, sl2pf, nsplit, iresplit, zisplit, roldmax,
+  nsplith, sysplith, shsplith, cnsplith, epsslug, epsarea, dsrise, htminbc,
+  rsampbc, mdepbc)
 }
 \arguments{
-\item{calpuff_inp}{}
+\item{calpuff_inp}{the absolute path and filename for the working CALPUFF input file.}
 
 \item{sytdep}{}
 
