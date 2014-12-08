@@ -3,10 +3,11 @@
 \alias{calpuff_09_misc_ddep}
 \title{Set miscellaneous CALPUFF parameters for dry deposition}
 \usage{
-calpuff_09_misc_ddep(calpuff_inp, rcutr, rgr, reactr, nint, iveg)
+calpuff_09_misc_ddep(calpuff_inp = "calpuff_template.txt", rcutr, rgr, reactr,
+  nint, iveg)
 }
 \arguments{
-\item{calpuff_inp}{}
+\item{calpuff_inp}{the absolute path and filename for the working CALPUFF input file.}
 
 \item{rcutr}{}
 
