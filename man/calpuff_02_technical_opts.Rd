@@ -3,13 +3,14 @@
 \alias{calpuff_02_technical_opts}
 \title{Set CALPUFF technical options}
 \usage{
-calpuff_02_technical_opts(calpuff_inp, mgauss, mctadj, mctsg, mslug, mtrans,
-  mtip, mrise, mbdw, mshear, msplit, mchem, maqchem, mlwc, mwet, mdry, mtilt,
-  mdisp, mturbvw, mdisp2, mtauly, mtauadv, mcturb, mrough, mpartl, mpartlba,
-  mtinv, mpdf, msgtibl, mbcon, msource, mfog, mreg)
+calpuff_02_technical_opts(calpuff_inp = "calpuff_template.txt", mgauss,
+  mctadj, mctsg, mslug, mtrans, mtip, mrise, mbdw, mshear, msplit, mchem,
+  maqchem, mlwc, mwet, mdry, mtilt, mdisp, mturbvw, mdisp2, mtauly, mtauadv,
+  mcturb, mrough, mpartl, mpartlba, mtinv, mpdf, msgtibl, mbcon, msource, mfog,
+  mreg)
 }
 \arguments{
-\item{calpuff_inp}{}
+\item{calpuff_inp}{the absolute path and filename for the working CALPUFF input file.}
 
 \item{mgauss}{}
 
