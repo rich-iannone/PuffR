@@ -3,15 +3,16 @@
 \alias{calpuff_04_grid_levels}
 \title{Set CALPUFF parameters for the map projection, datum, and grid definitions}
 \usage{
-calpuff_04_grid_levels(calpuff_inp, pmap = "UTM", feast = 0, fnorth = 0,
-  iutmzn = NULL, utmhem = NULL, rlat0 = "40N", rlon0 = "90W",
-  xlat1 = "30N", xlat2 = "60N", datum = "WGS-84", nx = NULL,
-  ny = NULL, dgridkm = NULL, xorigkm = NULL, yorigkm = NULL, nz = 12,
-  zface = c(0, 20, 40, 80, 100, 150, 200, 300, 400, 800, 1400, 2000, 3000),
-  ibcomp, jbcomp, iecomp, jecomp, lsamp, ibsamp, jbsamp, iesamp, jesamp, meshdn)
+calpuff_04_grid_levels(calpuff_inp = "calpuff_template.txt", pmap = "UTM",
+  feast = 0, fnorth = 0, iutmzn = NULL, utmhem = NULL, rlat0 = "40N",
+  rlon0 = "90W", xlat1 = "30N", xlat2 = "60N", datum = "WGS-84",
+  nx = NULL, ny = NULL, dgridkm = NULL, xorigkm = NULL,
+  yorigkm = NULL, nz = 12, zface = c(0, 20, 40, 80, 100, 150, 200, 300,
+  400, 800, 1400, 2000, 3000), ibcomp, jbcomp, iecomp, jecomp, lsamp, ibsamp,
+  jbsamp, iesamp, jesamp, meshdn)
 }
 \arguments{
-\item{calpuff_inp}{}
+\item{calpuff_inp}{the absolute path and filename for the working CALPUFF input file.}
 
 \item{pmap}{}
 
