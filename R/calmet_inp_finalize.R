@@ -39,7 +39,6 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
                                 metlst = NULL,
                                 metdat = NULL,
                                 pacdat = NULL,
-                                lcfiles = TRUE,
                                 nusta = NULL,
                                 nowsta = NULL,
                                 nm3d = NULL,
@@ -55,7 +54,8 @@ calmet_inp_finalize <- function(calmet_inp = "calmet_template.txt",
                                 tstkin = NULL,
                                 tstfrd = NULL,
                                 tstslp = NULL,
-                                dcstgd = NULL){
+                                dcstgd = NULL,
+                                lcfiles = TRUE){
   
   # Read in the working calmet.inp file as a character vector
   calmet_inp_working <- readLines(calmet_inp, warn = FALSE)
