@@ -6,11 +6,11 @@
 calmet_inp_finalize(calmet_inp = "calmet_template.txt",
   get_filenames_from_wd = TRUE, geodat = NULL, srfdat = NULL,
   clddat = NULL, prcdat = NULL, wtdat = NULL, metlst = NULL,
-  metdat = NULL, pacdat = NULL, lcfiles = TRUE, nusta = NULL,
-  nowsta = NULL, nm3d = NULL, nigf = NULL, updat = NULL,
-  seadat = NULL, m3ddat = NULL, igfdat = NULL, diadat = NULL,
-  prgdat = NULL, tstprt = NULL, tstout = NULL, tstkin = NULL,
-  tstfrd = NULL, tstslp = NULL, dcstgd = NULL)
+  metdat = NULL, pacdat = NULL, nusta = NULL, nowsta = NULL,
+  nm3d = NULL, nigf = NULL, updat = NULL, seadat = NULL,
+  m3ddat = NULL, igfdat = NULL, diadat = NULL, prgdat = NULL,
+  tstprt = NULL, tstout = NULL, tstkin = NULL, tstfrd = NULL,
+  tstslp = NULL, dcstgd = NULL, lcfiles = TRUE)
 }
 \arguments{
 \item{calmet_inp}{the absolute path and filename for the working CALMET input file.}
