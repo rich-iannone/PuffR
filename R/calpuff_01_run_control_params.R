@@ -41,15 +41,15 @@ calpuff_01_run_control_params <- function(calpuff_inp = "calpuff_template.txt",
                                           abtz = NULL,
                                           nsecdt = 3600,
                                           nse,
-                                          itest,
-                                          mrestart,
-                                          nrespd,
-                                          metfm,
-                                          mprffm,
-                                          avet,
-                                          pgtime,
-                                          ioutu,
-                                          iovers){
+                                          itest = 2,
+                                          mrestart = 0,
+                                          nrespd = 0,
+                                          metfm = 1,
+                                          mprffm = 1,
+                                          avet = 60.0,
+                                          pgtime = 60.0,
+                                          ioutu = 1,
+                                          iovers = 2){
   
   # Add require statement
   require(lubridate)
