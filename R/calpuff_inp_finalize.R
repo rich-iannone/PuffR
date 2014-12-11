@@ -53,7 +53,7 @@ calpuff_inp_finalize <- function(calpuff_inp = "calpuff_template.txt",
       if (i == 1) concdat_years <- vector(mode = "numeric", length = 0)
       
       concdat_yr <- as.numeric(gsub(".*-[0-9]*x[0-9]*x[0-9]*--([0-9][0-9][0-9][0-9]).txt",
-                                   "\\1", concdat_files[i]))
+                                    "\\1", concdat_files[i]))
       concdat_years <- c(concdat_years, concdat_yr)
     }
     
@@ -78,8 +78,8 @@ calpuff_inp_finalize <- function(calpuff_inp = "calpuff_template.txt",
     
     # Modify all parameters in working calmet.inp vector
     calpuff_inp_working <- replace_in_inp(inp_file_working = calpuff_inp_working,
-                                         keyword = keywords,
-                                         replacement = replacements)
+                                          keyword = keywords,
+                                          replacement = replacements)
     
     # Write the output to the same working calmet.inp file
     writeLines(calpuff_inp_working, con = calpuff_inp)
@@ -101,8 +101,8 @@ calpuff_inp_finalize <- function(calpuff_inp = "calpuff_template.txt",
     # Read in the working calmet.inp file as a character vector
     calpuff_inp_working <- readLines(calpuff_inp, warn = FALSE)
     
-  # Remove the "calpuff_template.txt" file from the working folder
-  file.remove("calpuff_template.txt")
-  
+    # Remove the "calpuff_template.txt" file from the working folder
+    file.remove("calpuff_template.txt")
+    
+  }
 }
-
