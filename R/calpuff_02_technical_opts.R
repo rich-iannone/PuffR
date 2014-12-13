@@ -19,8 +19,6 @@
 #' @param mtilt the choice of whether to model gravitational settling (i.e., plume tilt).
 #' @param mdisp the choice of method for calculating dispersion coefficients: (1) dispersion coefficients computed from measured values of turbulence, sigma v, sigma w, (2) = dispersion coefficients from internally calculated sigma v, sigma w using micrometeorological variables (u*, w*, L, etc.), (3) PG dispersion coefficients for RURAL areas (computed using the ISCST multi-segment approximation) and MP coefficients in urban areas, (4) same as option 3 except PG coefficients computed using the MESOPUFF II equations, and (5) CTDM sigmas used for stable and neutral conditions.
 #' @param mturbvw the selection of method sigma-v/sigma-theta, sigma-w measurements used (ignored unless mdisp is either 1 or 5): (1) use sigma-v or sigma-theta measurements from PROFILE.DAT to compute sigma-y (valid for METFM = 1, 2, 3, 4, 5), (2) use sigma-w measurements from PROFILE.DAT to compute sigma-z (valid for METFM = 1, 2, 3, 4, 5), (3) use both sigma-(v/theta) and sigma-w from PROFILE.DAT to compute sigma-y and sigma-z (valid for METFM = 1, 2, 3, 4, 5), and (4) use sigma-theta measurements from PLMMET.DAT to compute sigma-y (valid only if METFM = 3).
-#' @param mdisp2 
-#' @param mtauly 
 #' @param mtauadv 
 #' @param mcturb 
 #' @param mrough 
@@ -55,8 +53,6 @@ calpuff_02_technical_opts <- function(calpuff_inp = "calpuff_template.txt",
                                       mdisp = 3,
                                       mturbvw = 3,
                                       mdisp2 = 3,
-                                      mtauly = 0,
-                                      mtauadv = 0,
                                       mcturb = 1,
                                       mrough = 0,
                                       mpartl = 1,
