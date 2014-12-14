@@ -25,7 +25,7 @@
 #' @param mpartl 
 #' @param mpartlba 
 #' @param mtinv 
-#' @param mpdf 
+#' @param mpdf the choice of whether use a PDF for dispersion under convective conditions.
 #' @param msgtibl 
 #' @param mbcon 
 #' @param msource 
