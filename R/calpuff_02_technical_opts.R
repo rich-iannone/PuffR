@@ -25,10 +25,10 @@
 #' @param mpartl 
 #' @param mpartlba 
 #' @param mtinv 
-#' @param mpdf the choice of whether use a PDF for dispersion under convective conditions.
-#' @param msgtibl 
-#' @param mbcon 
-#' @param msource 
+#' @param mpdf the choice of whether to use a PDF for dispersion under convective conditions.
+#' @param msgtibl the choice of whether to use the subgrid TIBL module for the shoreline.
+#' @param mbcon the choice of whether to use boundary concentrations in the model calculations.
+#' @param msource the choice of whether to save individual source contributions.
 #' @param mfog 
 #' @param mreg 
 #' @export calpuff_02_technical_opts
