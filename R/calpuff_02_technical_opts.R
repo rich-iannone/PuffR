@@ -59,9 +59,9 @@ calpuff_02_technical_opts <- function(calpuff_inp = "calpuff_template.txt",
                                       mpartlba = 1,
                                       mtinv = 0,
                                       mpdf = FALSE,
-                                      msgtibl = 0,
-                                      mbcon = 0,
-                                      msource = 0,
+                                      msgtibl = FALSE,
+                                      mbcon = FALSE,
+                                      msource = FALSE,
                                       mfog = 0,
                                       mreg = 0){
   
