@@ -55,4 +55,10 @@ calpuff_01_run_control_params <- function(calpuff_inp = "calpuff_template.txt",
   # Add require statement
   require(lubridate)
   
+  # Generate a vector list of calpuff.inp keywords
+  keywords <- c("METRUN", "IBYR", "IBMO", "IBDY", "IBHR", "IBSEC",
+                "IEYR", "IEMO", "IEDY", "IEHR", "IESEC",
+                "ABTZ", "NSECDT", "NSE", "ITEST", "MRESTART",
+                "NRESPD", "METFM", "MPRFFM", "AVET", "PGTIME",
+                "IOUTU", "IOVERS")
 }
