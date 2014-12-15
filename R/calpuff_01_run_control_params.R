@@ -61,4 +61,12 @@ calpuff_01_run_control_params <- function(calpuff_inp = "calpuff_template.txt",
                 "ABTZ", "NSECDT", "NSE", "ITEST", "MRESTART",
                 "NRESPD", "METFM", "MPRFFM", "AVET", "PGTIME",
                 "IOUTU", "IOVERS")
+  
+  # Generate a vector list of the formatted replacements
+  replacements <- c(metrun, ibyr, ibmo, ibdy, ibhr, ibsec,
+                    ieyr, iemo, iedy, iehr, iesec,
+                    abtz, nsecdt, nse, itest, mrestart,
+                    nrespd, metfm, mprffm, avet, pgtime,
+                    ioutu, iovers)
+  
 }
