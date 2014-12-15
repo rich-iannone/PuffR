@@ -17,20 +17,20 @@
 #' @param mwet the choice of whether to model wet removal of pollutants.
 #' @param mdry the choice of whether to model dry deposition of pollutants.
 #' @param mtilt the choice of whether to model gravitational settling (i.e., plume tilt).
-#' @param mdisp the choice of method for calculating dispersion coefficients: (1) dispersion coefficients computed from measured values of turbulence, sigma v, sigma w, (2) = dispersion coefficients from internally calculated sigma v, sigma w using micrometeorological variables (u*, w*, L, etc.), (3) PG dispersion coefficients for RURAL areas (computed using the ISCST multi-segment approximation) and MP coefficients in urban areas, (4) same as option 3 except PG coefficients computed using the MESOPUFF II equations, and (5) CTDM sigmas used for stable and neutral conditions.
-#' @param mturbvw the selection of method sigma-v/sigma-theta, sigma-w measurements used (ignored unless mdisp is either 1 or 5): (1) use sigma-v or sigma-theta measurements from PROFILE.DAT to compute sigma-y (valid for METFM = 1, 2, 3, 4, 5), (2) use sigma-w measurements from PROFILE.DAT to compute sigma-z (valid for METFM = 1, 2, 3, 4, 5), (3) use both sigma-(v/theta) and sigma-w from PROFILE.DAT to compute sigma-y and sigma-z (valid for METFM = 1, 2, 3, 4, 5), and (4) use sigma-theta measurements from PLMMET.DAT to compute sigma-y (valid only if METFM = 3).
-#' @param mdisp2  
-#' @param mcturb 
-#' @param mrough 
-#' @param mpartl 
-#' @param mpartlba 
-#' @param mtinv 
+#' @param mdisp the choice of method for calculating dispersion coefficients: (1) dispersion coefficients computed from measured values of turbulence, sigma v, sigma w, (2) = dispersion coefficients from internally calculated sigma v, sigma w using micrometeorological variables (u*, w*, L, etc.), (3) use PG dispersion coefficients for rural areas (computed using the ISCST multi-segment approximation) and MP coefficients in urban areas, (4) same as option 3 except PG coefficients computed using the MESOPUFF II equations, and (5) CTDM sigmas used for stable and neutral conditions.
+#' @param mturbvw the selection of method for sigma-v/sigma-theta, sigma-w measurements used (ignored unless mdisp is either 1 or 5): (1) use sigma-v or sigma-theta measurements from PROFILE.DAT to compute sigma-y (valid for METFM = 1, 2, 3, 4, 5), (2) use sigma-w measurements from PROFILE.DAT to compute sigma-z (valid for METFM = 1, 2, 3, 4, 5), (3) use both sigma-(v/theta) and sigma-w from PROFILE.DAT to compute sigma-y and sigma-z (valid for METFM = 1, 2, 3, 4, 5), and (4) use sigma-theta measurements from PLMMET.DAT to compute sigma-y (valid only if METFM = 3).
+#' @param mdisp2 the choice of back-up method used to compute dispersion when measured turbulence data are missing (ignored unless mdisp is either 1 or 5): (2) use dispersion coefficients from internally calculated sigma v, sigma w using micrometeorological variables, (3) use PG dispersion coefficients for rural areas (computed using the ISCST multi-segment approximation) and MP coefficients in urban areas, and (4) same as option 3 except PG coefficients computed using the MESOPUFF II equations.
+#' @param mcturb the choice of method used to compute turbulence sigma-v & sigma-w using micrometeorological variables (ignored unless mdisp or mdisp2 is 2): (1) use standard CALPUFF subroutines, and (2) use AERMOD subroutines.
+#' @param mrough the choice of whether to use PG sigma-y,z to adjust for roughness.
+#' @param mpartl the choice of whether to model partial plume penetration of elevated inversions for point sources.
+#' @param mpartlba the choice of whether to model partial plume penetration of elevated inversions for buoyant area sources.
+#' @param mtinv confirmation that the strength of temperature inversion is provided in PROFILE.DAT extended records.
 #' @param mpdf the choice of whether to use a PDF for dispersion under convective conditions.
 #' @param msgtibl the choice of whether to use the subgrid TIBL module for the shoreline.
 #' @param mbcon the choice of whether to use boundary concentrations in the model calculations.
 #' @param msource the choice of whether to save individual source contributions.
-#' @param mfog 
-#' @param mreg 
+#' @param mfog the choice of reporting methods for analyses of fogging and icing impacts due to emissions from arrays of mechanically-forced cooling towers: (0) none, (1) report results in plume-mode format, and (2) report results in receptor-mode format.
+#' @param mreg the choice of whether to enable options to determine whether they conform to EPA regulatory values.
 #' @export calpuff_02_technical_opts
 
 calpuff_02_technical_opts <- function(calpuff_inp = "calpuff_template.txt",
