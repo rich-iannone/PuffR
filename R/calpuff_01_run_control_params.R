@@ -69,4 +69,9 @@ calpuff_01_run_control_params <- function(calpuff_inp = "calpuff_template.txt",
                     nrespd, metfm, mprffm, avet, pgtime,
                     ioutu, iovers)
   
+  # Modify all parameters in working calpuff.inp vector
+  calpuff_inp_working <- replace_in_inp(inp_file_working = calpuff_inp_working,
+                                        keyword = keywords,
+                                        replacement = replacements)
+  
 }
