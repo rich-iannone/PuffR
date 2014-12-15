@@ -74,4 +74,7 @@ calpuff_01_run_control_params <- function(calpuff_inp = "calpuff_template.txt",
                                         keyword = keywords,
                                         replacement = replacements)
   
+  # Write the output to the same working calpuff.inp file
+  writeLines(calpuff_inp_working, con = calpuff_inp)
+  
 }
