@@ -65,7 +65,7 @@ calpuff_02_technical_opts <- function(calpuff_inp = "calpuff_template.txt",
                                       mfog = 0,
                                       mreg = 0){
   
-  # Generate a vector list of calmet.inp keywords
+  # Generate a vector list of calpuff.inp keywords
   keywords <- c("MGAUSS", "MCTADJ", "MCTSG", "MSLUG", "MTRANS", "MTIP", "MRISE", 
                 "MBDW", "MSHEAR", "MSPLIT", "MCHEM", "MAQCHEM", "MLWC", 
                 "MWET", "MDRY", "MTILT", "MDISP", "MTURBVW", "MDISP2", 
@@ -79,12 +79,12 @@ calpuff_02_technical_opts <- function(calpuff_inp = "calpuff_template.txt",
                     mtauly, mtauadv, mcturb, mrough, mpartl, mpartlba,
                     mtinv, mpdf, msgtibl, mbcon, msource, mfog, mreg)
   
-  # Modify all parameters in working calmet.inp vector
+  # Modify all parameters in working calpuff.inp vector
   calpuff_inp_working <- replace_in_inp(inp_file_working = calpuff_inp_working,
                                         keyword = keywords,
                                         replacement = replacements)
   
-  # Write the output to the same working calmet.inp file
+  # Write the output to the same working calpuff.inp file
   writeLines(calpuff_inp_working, con = calpuff_inp)
   
 }
