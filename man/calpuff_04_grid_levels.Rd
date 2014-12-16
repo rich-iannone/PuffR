@@ -8,45 +8,46 @@ calpuff_04_grid_levels(calpuff_inp = "calpuff_template.txt", pmap = "UTM",
   rlon0 = "90W", xlat1 = "30N", xlat2 = "60N", datum = "WGS-84",
   nx = NULL, ny = NULL, dgridkm = NULL, xorigkm = NULL,
   yorigkm = NULL, nz = 12, zface = c(0, 20, 40, 80, 100, 150, 200, 300,
-  400, 800, 1400, 2000, 3000), ibcomp, jbcomp, iecomp, jecomp, lsamp, ibsamp,
-  jbsamp, iesamp, jesamp, meshdn)
+  400, 800, 1400, 2000, 3000), ibcomp = NULL, jbcomp = NULL,
+  iecomp = NULL, jecomp = NULL, lsamp = NULL, ibsamp = NULL,
+  jbsamp = NULL, iesamp = NULL, jesamp = NULL, meshdn = 1)
 }
 \arguments{
 \item{calpuff_inp}{the absolute path and filename for the working CALPUFF input file.}
 
-\item{pmap}{}
+\item{pmap}{the projection of the CALPUFF domain.}
 
-\item{feast}{}
+\item{feast}{the false easting at the projection origin for TTM, LCC, or LAZA projection types.}
 
-\item{fnorth}{}
+\item{fnorth}{the false northing at the projection origin for TTM, LCC, or LAZA projection types.}
 
-\item{iutmzn}{}
+\item{iutmzn}{the UTM zone.}
 
-\item{utmhem}{}
+\item{utmhem}{the UTM hemisphere.}
 
-\item{rlat0}{}
+\item{rlat0}{latitude (decimal degrees) of projection origin for TTM, LCC, PS, EM, or LAZA projection types.}
 
-\item{rlon0}{}
+\item{rlon0}{longitude (decimal degrees) of projection origin for TTM, LCC, PS, EM, or LAZA projection types.}
 
-\item{xlat1}{}
+\item{xlat1}{the lower matching parallel of latitude (decimal degrees) for LCC or PS projection types.}
 
-\item{xlat2}{}
+\item{xlat2}{the upper matching parallel of latitude (decimal degrees) for LCC or PS projection types.}
 
-\item{datum}{}
+\item{datum}{the datum-region for output coordinates.}
 
-\item{nx}{}
+\item{nx}{the number of grid cells in the x direction.}
 
-\item{ny}{}
+\item{ny}{the number of grid cells in the y direction.}
 
-\item{dgridkm}{}
+\item{dgridkm}{the grid spacing in units of km.}
 
-\item{xorigkm}{}
+\item{xorigkm}{the reference grid x coordinate (in km) of the southwest corner of grid cell (1, 1).}
 
-\item{yorigkm}{}
+\item{yorigkm}{the reference grid y coordinate (in km) of the southwest corner of grid cell (1, 1).}
 
-\item{nz}{}
+\item{nz}{the number of vertical levels.}
 
-\item{zface}{}
+\item{zface}{a vector containing cell face heights in meters.}
 
 \item{ibcomp}{}
 
