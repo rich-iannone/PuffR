@@ -3,78 +3,77 @@
 \alias{calpuff_02_technical_opts}
 \title{Set CALPUFF technical options}
 \usage{
-calpuff_02_technical_opts(calpuff_inp = "calpuff_template.txt", mgauss,
-  mctadj, mctsg, mslug, mtrans, mtip, mrise, mbdw, mshear, msplit, mchem,
-  maqchem, mlwc, mwet, mdry, mtilt, mdisp, mturbvw, mdisp2, mtauly, mtauadv,
-  mcturb, mrough, mpartl, mpartlba, mtinv, mpdf, msgtibl, mbcon, msource, mfog,
-  mreg)
+calpuff_02_technical_opts(calpuff_inp = "calpuff_template.txt", mgauss = 1,
+  mctadj = 3, mctsg = FALSE, mslug = FALSE, mtrans = TRUE,
+  mtip = TRUE, mrise = 1, mbdw = 1, mshear = FALSE, msplit = FALSE,
+  mchem = 0, maqchem = FALSE, mlwc = 1, mwet = TRUE, mdry = TRUE,
+  mtilt = FALSE, mdisp = 3, mturbvw = 3, mdisp2 = 3, mcturb = 1,
+  mrough = FALSE, mpartl = TRUE, mpartlba = TRUE, mtinv = FALSE,
+  mpdf = FALSE, msgtibl = FALSE, mbcon = FALSE, msource = FALSE,
+  mfog = 0, mreg = 0)
 }
 \arguments{
 \item{calpuff_inp}{the absolute path and filename for the working CALPUFF input file.}
 
-\item{mgauss}{}
+\item{mgauss}{vertical distribution used in the near field: (0) uniform, and (1) Gaussian.}
 
-\item{mctadj}{}
+\item{mctadj}{the type of terrain adjustment method to use: (0) none, (1) ISC-type, (2) CALPUFF-type, and (3) partial plume path adjustment.}
 
-\item{mctsg}{}
+\item{mctsg}{the choice of whether to model subgrid-scale complex terrain.}
 
-\item{mslug}{}
+\item{mslug}{the choice of whether to model near field puffs as elongated slugs.}
 
-\item{mtrans}{}
+\item{mtrans}{the choice of whether to model transitional plume rise.}
 
-\item{mtip}{}
+\item{mtip}{the choice of whether to model stack tip downwash.}
 
-\item{mrise}{}
+\item{mrise}{the choice of method for calculating plume rise for point sources not subject to building downwash: (1) Briggs plume rise, and (2) numerical plume rise.}
 
-\item{mbdw}{}
+\item{mbdw}{the choice of method for simulating building downwash: (1) ISC method, and (2) PRIME method.}
 
-\item{mshear}{}
+\item{mshear}{the choice of whether to model vertical wind shear above the stack top using modified Briggs plume rise.}
 
-\item{msplit}{}
+\item{msplit}{the choice of whether to allow splitting of puffs.}
 
-\item{mchem}{}
+\item{mchem}{the choice of method for simulating chemical transformation: (0) none, (1) internally calculate using MESOPUFF II, (2) use specified transformation rates, (3) internally calculate using RIVAD/ARM3 scheme, (4) calculate secondary organic aerosol (with the MESOPUFF II scheme for OH), (5) using a specific half, possibly with transfer to child species, (6) using transformation rates calculated internally (updated RIVAD scheme with ISORROPIA equilibrium), and (7) using transformation rates calculated internally (updated RIVAD scheme with ISORROPIA equilibrium and CalTech SOA).}
 
-\item{maqchem}{}
+\item{maqchem}{the choice of whether to model aqueous phase chemistry using transformation rates and wet scavenging coefficients adjusted for in-cloud aqueous phase reactions (ignored unless mchem set to either 6 or 7).}
 
-\item{mlwc}{}
+\item{mlwc}{the method for determining liquid water content (ignored if maqchem is FALSE): (0) water content estimated from cloud cover and presence of precipitation, and (1) gridded cloud water data read from CALMET water content output files.}
 
-\item{mwet}{}
+\item{mwet}{the choice of whether to model wet removal of pollutants.}
 
-\item{mdry}{}
+\item{mdry}{the choice of whether to model dry deposition of pollutants.}
 
-\item{mtilt}{}
+\item{mtilt}{the choice of whether to model gravitational settling (i.e., plume tilt).}
 
-\item{mdisp}{}
+\item{mdisp}{the choice of method for calculating dispersion coefficients: (1) dispersion coefficients computed from measured values of turbulence, sigma v, sigma w, (2) = dispersion coefficients from internally calculated sigma v, sigma w using micrometeorological variables (u*, w*, L, etc.), (3) use PG dispersion coefficients for rural areas (computed using the ISCST multi-segment approximation) and MP coefficients in urban areas, (4) same as option 3 except PG coefficients computed using the MESOPUFF II equations, and (5) CTDM sigmas used for stable and neutral conditions.}
 
-\item{mturbvw}{}
+\item{mturbvw}{the selection of method for sigma-v/sigma-theta, sigma-w measurements used (ignored unless mdisp is either 1 or 5): (1) use sigma-v or sigma-theta measurements from PROFILE.DAT to compute sigma-y (valid for METFM = 1, 2, 3, 4, 5), (2) use sigma-w measurements from PROFILE.DAT to compute sigma-z (valid for METFM = 1, 2, 3, 4, 5), (3) use both sigma-(v/theta) and sigma-w from PROFILE.DAT to compute sigma-y and sigma-z (valid for METFM = 1, 2, 3, 4, 5), and (4) use sigma-theta measurements from PLMMET.DAT to compute sigma-y (valid only if METFM = 3).}
 
-\item{mdisp2}{}
+\item{mdisp2}{the choice of back-up method used to compute dispersion when measured turbulence data are missing (ignored unless mdisp is either 1 or 5): (2) use dispersion coefficients from internally calculated sigma v, sigma w using micrometeorological variables, (3) use PG dispersion coefficients for rural areas (computed using the ISCST multi-segment approximation) and MP coefficients in urban areas, and (4) same as option 3 except PG coefficients computed using the MESOPUFF II equations.}
 
-\item{mtauly}{}
+\item{mcturb}{the choice of method used to compute turbulence sigma-v & sigma-w using micrometeorological variables (ignored unless mdisp or mdisp2 is 2): (1) use standard CALPUFF subroutines, and (2) use AERMOD subroutines.}
 
-\item{mtauadv}{}
+\item{mrough}{the choice of whether to use PG sigma-y,z to adjust for roughness.}
 
-\item{mcturb}{}
+\item{mpartl}{the choice of whether to model partial plume penetration of elevated inversions for point sources.}
 
-\item{mrough}{}
+\item{mpartlba}{the choice of whether to model partial plume penetration of elevated inversions for buoyant area sources.}
 
-\item{mpartl}{}
+\item{mtinv}{confirmation that the strength of temperature inversion is provided in PROFILE.DAT extended records.}
 
-\item{mpartlba}{}
+\item{mpdf}{the choice of whether to use a PDF for dispersion under convective conditions.}
 
-\item{mtinv}{}
+\item{msgtibl}{the choice of whether to use the subgrid TIBL module for the shoreline.}
 
-\item{mpdf}{}
+\item{mbcon}{the choice of whether to use boundary concentrations in the model calculations.}
 
-\item{msgtibl}{}
+\item{msource}{the choice of whether to save individual source contributions.}
 
-\item{mbcon}{}
+\item{mfog}{the choice of reporting methods for analyses of fogging and icing impacts due to emissions from arrays of mechanically-forced cooling towers: (0) none, (1) report results in plume-mode format, and (2) report results in receptor-mode format.}
 
-\item{msource}{}
-
-\item{mfog}{}
-
-\item{mreg}{}
+\item{mreg}{the choice of whether to enable options to determine whether they conform to EPA regulatory values.}
 }
 \description{
 This function validates and writes CALPUFF parameters for the model's technical options.
