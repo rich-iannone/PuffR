@@ -49,25 +49,25 @@ calpuff_04_grid_levels(calpuff_inp = "calpuff_template.txt", pmap = "UTM",
 
 \item{zface}{a vector containing cell face heights in meters.}
 
-\item{ibcomp}{}
+\item{ibcomp}{the x index at the lower-left corner of the computational grid.}
 
-\item{jbcomp}{}
+\item{jbcomp}{the y index at the lower-left corner of the computational grid.}
 
-\item{iecomp}{}
+\item{iecomp}{the x index at the upper-right corner of the computational grid.}
 
-\item{jecomp}{}
+\item{jecomp}{the y index at the upper-right corner of the computational grid.}
 
-\item{lsamp}{}
+\item{lsamp}{the choice of whether gridded receptors are to be used.}
 
-\item{ibsamp}{}
+\item{ibsamp}{the x index at the lower-left corner of the sampling grid.}
 
-\item{jbsamp}{}
+\item{jbsamp}{the y index at the lower-left corner of the sampling grid.}
 
-\item{iesamp}{}
+\item{iesamp}{the x index at the upper-right corner of the sampling grid.}
 
-\item{jesamp}{}
+\item{jesamp}{the y index at the upper-right corner of the sampling grid.}
 
-\item{meshdn}{}
+\item{meshdn}{the nesting factor of the sampling grid.}
 }
 \description{
 This function validates and writes CALPUFF parameters for the map projection, datum, and grid definitions to the working CALPUFF.INP file.
