@@ -18,11 +18,11 @@
 #' @param yorigkm the reference grid y coordinate (in km) of the southwest corner of grid cell (1, 1).
 #' @param nz the number of vertical levels.
 #' @param zface a vector containing cell face heights in meters.
-#' @param ibcomp 
-#' @param jbcomp 
-#' @param iecomp 
-#' @param jecomp 
-#' @param lsamp 
+#' @param ibcomp the x index at the lower-left corner of the computational grid.
+#' @param jbcomp the y index at the lower-left corner of the computational grid.
+#' @param iecomp the x index at the upper-right corner of the computational grid.
+#' @param jecomp the y index at the upper-right corner of the computational grid.
+#' @param lsamp the choice of whether gridded receptors are to be used.
 #' @param ibsamp 
 #' @param jbsamp 
 #' @param iesamp 
