@@ -23,11 +23,11 @@
 #' @param iecomp the x index at the upper-right corner of the computational grid.
 #' @param jecomp the y index at the upper-right corner of the computational grid.
 #' @param lsamp the choice of whether gridded receptors are to be used.
-#' @param ibsamp 
-#' @param jbsamp 
-#' @param iesamp 
-#' @param jesamp 
-#' @param meshdn 
+#' @param ibsamp the x index at the lower-left corner of the sampling grid.
+#' @param jbsamp the y index at the lower-left corner of the sampling grid.
+#' @param iesamp the x index at the upper-right corner of the sampling grid.
+#' @param jesamp the y index at the upper-right corner of the sampling grid.
+#' @param meshdn the nesting factor of the sampling grid.
 #' @export calpuff_04_grid_levels
 
 calpuff_04_grid_levels <- function(calpuff_inp = "calpuff_template.txt",
