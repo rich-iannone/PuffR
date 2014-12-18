@@ -118,6 +118,13 @@ calpuff_04_grid_levels <- function(calpuff_inp = "calpuff_template.txt",
                     geo_dat_header[3])
     dgridkm <- gsub("[ ]*[0-9]*[ ]*[0-9]*[ ]*[\\.0-9]*[ ]*[\\.0-9]*[ ]*([\\.0-9]*).*", "\\1",
                     geo_dat_header[3])
+    
+    # Get values for full computation of the grid
+    ibcomp <- 1
+    jbcomp <- 1
+    iecomp <- nx
+    jecomp <- ny
+    
   }
   
   # Generate a formatted character string for 'zface'
