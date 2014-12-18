@@ -56,6 +56,9 @@ calpuff_01_run_control_params <- function(calpuff_inp = "calpuff_template.txt",
   # Add require statement
   require(lubridate)
   
+  # Transform TRUE or FALSE value for 'metrun' to string
+  metrun <- ifelse(metrun == TRUE, "T", "F")
+  
   # Change NULL values for certain arguments to NA values
   if (is.null(ibyr)) ibyr <- NA
   if (is.null(ibmo)) ibmo <- NA
