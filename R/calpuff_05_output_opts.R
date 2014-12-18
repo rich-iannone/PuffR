@@ -55,7 +55,7 @@ calpuff_05_output_opts <- function(calpuff_inp = "calpuff_template.txt",
                                    nn1,
                                    nn2){
   
-  # Generate a vector list of calmet.inp keywords
+  # Generate a vector list of calpuff.inp keywords
   keywords <- c("ICON", "IDRY", "IWET", "IT2D", "IRHO", "IVIS", "LCOMPRS", "IQAPLOT",
                 "IPFTRAK", "IMFLX", "IMBAL", "INRISE", "ICPRT", "IDPRT", "IWPRT",
                 "ICFRQ", "IDFRQ", "IWFRQ", "IPRTU", "IMESG", "LDEBUG",
@@ -67,12 +67,12 @@ calpuff_05_output_opts <- function(calpuff_inp = "calpuff_template.txt",
                     icfrq, idfrq, iwfrq, iprtu, imesg, ldebug,
                     ipfdeb, npfdeb, nn1, nn2)
   
-  # Modify all parameters in working calmet.inp vector
+  # Modify all parameters in working calpuff.inp vector
   calpuff_inp_working <- replace_in_inp(inp_file_working = calpuff_inp_working,
                                         keyword = keywords,
                                         replacement = replacements)
   
-  # Write the output to the same working calmet.inp file
+  # Write the output to the same working calpuff.inp file
   writeLines(calpuff_inp_working, con = calpuff_inp)
   
 }
