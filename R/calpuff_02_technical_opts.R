@@ -114,6 +114,13 @@ calpuff_02_technical_opts <- function(calpuff_inp = "calpuff_template.txt",
     maqchem <- 0
   }
   
+  # Transform TRUE or FALSE value for 'mwet' to a numeric value
+  if (mwet == TRUE){
+    mwet <- 1
+  } else if (mwet == FALSE){
+    mwet <- 0
+  }
+  
   # Generate a vector list of calpuff.inp keywords
   keywords <- c("MGAUSS", "MCTADJ", "MCTSG", "MSLUG", "MTRANS", "MTIP", "MRISE", 
                 "MBDW", "MSHEAR", "MSPLIT", "MCHEM", "MAQCHEM", "MLWC", 
