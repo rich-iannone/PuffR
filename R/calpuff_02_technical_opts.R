@@ -65,6 +65,9 @@ calpuff_02_technical_opts <- function(calpuff_inp = "calpuff_template.txt",
                                       mfog = 0,
                                       mreg = 0){
   
+  # Provide fixed values for 'mtauly' and 'mtauadv'
+  mtauly <- mtauadv <- 0
+  
   # Transform TRUE or FALSE value for 'mctsg' to a numeric value
   if (mctsg == TRUE){
     mctsg <- 1
