@@ -60,7 +60,9 @@ calpuff_04_grid_levels <- function(calpuff_inp = "calpuff_template.txt",
                                    jesamp = NULL,
                                    meshdn = 1){
   
-  # Generate a vector list of calmet.inp keywords
+  
+  
+  # Generate a vector list of calpuff.inp keywords
   keywords <- c("PMAP", "FEAST", "FNORTH", "IUTMZN", "UTMHEM", "RLAT0", "RLON0", 
                 "XLAT1", "XLAT2", "DATUM", "NX", "NY", "DGRIDKM", "XORIGKM", "YORIGKM", 
                 "NZ", "ZFACE", "IBCOMP", "JBCOMP", "IECOMP", "JECOMP", "LSAMP",
@@ -72,11 +74,11 @@ calpuff_04_grid_levels <- function(calpuff_inp = "calpuff_template.txt",
                     nz, zface, ibcomp, jbcomp, iecomp, jecomp, lsamp,
                     ibsamp, jbsamp, iesamp, jesamp, meshdn)
   
-  # Modify all parameters in working calmet.inp vector
+  # Modify all parameters in working calpuff.inp vector
   calpuff_inp_working <- replace_in_inp(inp_file_working = calpuff_inp_working,
                                         keyword = keywords,
                                         replacement = replacements)
   
-  # Write the output to the same working calmet.inp file
+  # Write the output to the same working calpuff.inp file
   writeLines(calpuff_inp_working, con = calpuff_inp)
 }
