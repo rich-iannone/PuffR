@@ -135,6 +135,13 @@ calpuff_02_technical_opts <- function(calpuff_inp = "calpuff_template.txt",
     mtilt <- 0
   }
   
+  # Transform TRUE or FALSE value for 'mrough' to a numeric value
+  if (mrough == TRUE){
+    mrough <- 1
+  } else if (mrough == FALSE){
+    mrough <- 0
+  }
+  
   # Generate a vector list of calpuff.inp keywords
   keywords <- c("MGAUSS", "MCTADJ", "MCTSG", "MSLUG", "MTRANS", "MTIP", "MRISE", 
                 "MBDW", "MSHEAR", "MSPLIT", "MCHEM", "MAQCHEM", "MLWC", 
