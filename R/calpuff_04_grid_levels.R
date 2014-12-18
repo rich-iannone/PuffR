@@ -96,6 +96,10 @@ calpuff_04_grid_levels <- function(calpuff_inp = "calpuff_template.txt",
       (as.numeric(readLines(geo_dat_file, warn = FALSE)[2]) + 4):
       (as.numeric(readLines(geo_dat_file, warn = FALSE)[2]) + 6)]
     
+    # Get the UTM zone and hemisphere
+    iutmzn <- as.numeric(gsub("[ ]*([0-9]*).*", "\\1", geo_dat_header[1]))
+    utmhem <- gsub("[ ]*[0-9]*([A-Z]*)[ ]*", "\\1", geo_dat_header[1])
+    
   }
   
   # Read in the working calpuff.inp file as a character vector
