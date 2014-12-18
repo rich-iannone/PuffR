@@ -184,6 +184,13 @@ calpuff_02_technical_opts <- function(calpuff_inp = "calpuff_template.txt",
     mbcon <- 0
   }  
   
+  # Transform TRUE or FALSE value for 'msource' to a numeric value
+  if (msource == TRUE){
+    msource <- 1
+  } else if (msource == FALSE){
+    msource <- 0
+  }  
+  
   # Generate a vector list of calpuff.inp keywords
   keywords <- c("MGAUSS", "MCTADJ", "MCTSG", "MSLUG", "MTRANS", "MTIP", "MRISE", 
                 "MBDW", "MSHEAR", "MSPLIT", "MCHEM", "MAQCHEM", "MLWC", 
