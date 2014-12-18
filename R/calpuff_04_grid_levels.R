@@ -91,6 +91,11 @@ calpuff_04_grid_levels <- function(calpuff_inp = "calpuff_template.txt",
     # the first of the set
     if (length(geo_dat_file > 1)) geo_dat_file <- geo_dat_file[1]
     
+    # Obtain several lines from the header portion of the GEO.DAT file
+    geo_dat_header <- readLines(geo_dat_file, warn = FALSE)[
+      (as.numeric(readLines(geo_dat_file, warn = FALSE)[2]) + 4):
+      (as.numeric(readLines(geo_dat_file, warn = FALSE)[2]) + 6)]
+    
   }
   
   # Read in the working calpuff.inp file as a character vector
