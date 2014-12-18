@@ -74,6 +74,19 @@ calpuff_01_run_control_params <- function(calpuff_inp = "calpuff_template.txt",
   if (is.null(nspec)) nspec <- NA
   if (is.null(nse)) nse <- NA
   
+  # If option set to run all CALMET periods, set non-NA, placeholder values
+  if (metrun == TRUE){
+    ibyr <- 2001
+    ibmo <- 1
+    ibdy <- 1
+    ibhr <- 1
+    ieyr <- 2002
+    iemo <- 2
+    iedy <- 2
+    iehr <- 2
+    abtz <- "UTC-0000"
+  }
+  
   # Read in the working calpuff.inp file as a character vector
   calpuff_inp_working <- readLines(calpuff_inp, warn = FALSE)
   
