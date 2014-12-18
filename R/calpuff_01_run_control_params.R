@@ -27,8 +27,7 @@
 #' @export calpuff_01_run_control_params
 
 calpuff_01_run_control_params <- function(calpuff_inp = "calpuff_template.txt",
-                                          read_data_from_surf_dat = TRUE,
-                                          metrun = TRUE,
+                                          run_all_calmet_periods = TRUE,
                                           ibyr = NULL,
                                           ibmo = NULL,
                                           ibdy = NULL,
