@@ -142,6 +142,13 @@ calpuff_02_technical_opts <- function(calpuff_inp = "calpuff_template.txt",
     mrough <- 0
   }
   
+  # Transform TRUE or FALSE value for 'mpartl' to a numeric value
+  if (mpartl == TRUE){
+    mpartl <- 1
+  } else if (mpartl == FALSE){
+    mpartl <- 0
+  }
+  
   # Generate a vector list of calpuff.inp keywords
   keywords <- c("MGAUSS", "MCTADJ", "MCTSG", "MSLUG", "MTRANS", "MTIP", "MRISE", 
                 "MBDW", "MSHEAR", "MSPLIT", "MCHEM", "MAQCHEM", "MLWC", 
