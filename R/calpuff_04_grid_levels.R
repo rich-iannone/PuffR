@@ -60,6 +60,9 @@ calpuff_04_grid_levels <- function(calpuff_inp = "calpuff_template.txt",
                                    jesamp = NULL,
                                    meshdn = 1){
   
+  # Transform TRUE or FALSE value for 'lsamp' to string
+  lsamp <- ifelse(lsamp == TRUE, "T", "F")
+  
   # Change NULL values for certain arguments to NA values
   if (is.null(iutmzn)) iutmzn <- NA
   if (is.null(utmhem)) utmhem <- NA
