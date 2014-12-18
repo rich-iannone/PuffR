@@ -74,7 +74,7 @@ calpuff_01_run_control_params <- function(calpuff_inp = "calpuff_template.txt",
   if (is.null(nse)) nse <- NA
   
   # If option set to run all CALMET periods, set non-NA, placeholder values
-  if (metrun == TRUE){
+  if (metrun == "T"){
     ibyr <- 2001
     ibmo <- 1
     ibdy <- 1
