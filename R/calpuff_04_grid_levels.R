@@ -125,6 +125,11 @@ calpuff_04_grid_levels <- function(calpuff_inp = "calpuff_template.txt",
     iecomp <- nx
     jecomp <- ny
     
+    # Get values for full sampling from the grid
+    ibsamp <- 1
+    jbsamp <- 1
+    iesamp <- nx
+    jesamp <- ny
   }
   
   # Generate a formatted character string for 'zface'
