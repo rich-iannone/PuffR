@@ -84,6 +84,9 @@ calpuff_04_grid_levels <- function(calpuff_inp = "calpuff_template.txt",
   # If option set to read x,y data from GEO.DAT file, get the relevant values
   if (read_xy_from_geo_dat == TRUE){
     
+    # Generate vector list of all GEO.DAT files in the working folder
+    geo_dat_file <- list.files(pattern = "geo--.*")
+    
   }
   
   # Read in the working calpuff.inp file as a character vector
