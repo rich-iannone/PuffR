@@ -170,6 +170,13 @@ calpuff_02_technical_opts <- function(calpuff_inp = "calpuff_template.txt",
     mpdf <- 0
   }
   
+  # Transform TRUE or FALSE value for 'msgtibl' to a numeric value
+  if (msgtibl == TRUE){
+    msgtibl <- 1
+  } else if (msgtibl == FALSE){
+    msgtibl <- 0
+  }  
+  
   # Generate a vector list of calpuff.inp keywords
   keywords <- c("MGAUSS", "MCTADJ", "MCTSG", "MSLUG", "MTRANS", "MTIP", "MRISE", 
                 "MBDW", "MSHEAR", "MSPLIT", "MCHEM", "MAQCHEM", "MLWC", 
