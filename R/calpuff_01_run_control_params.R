@@ -55,6 +55,9 @@ calpuff_01_run_control_params <- function(calpuff_inp = "calpuff_template.txt",
   # Add require statement
   require(lubridate)
   
+  # Read in the working calpuff.inp file as a character vector
+  calmet_inp_working <- readLines(calpuff_inp, warn = FALSE)
+  
   # Generate a vector list of calpuff.inp keywords
   keywords <- c("METRUN", "IBYR", "IBMO", "IBDY", "IBHR", "IBSEC",
                 "IEYR", "IEMO", "IEDY", "IEHR", "IESEC",
