@@ -87,6 +87,10 @@ calpuff_04_grid_levels <- function(calpuff_inp = "calpuff_template.txt",
     # Generate vector list of all GEO.DAT files in the working folder
     geo_dat_file <- list.files(pattern = "geo--.*")
     
+    # If there are multiple GEO.DAT files in the working folder, choose only
+    # the first of the set
+    if (length(geo_dat_file > 1)) geo_dat_file <- geo_dat_file[1]
+    
   }
   
   # Read in the working calpuff.inp file as a character vector
