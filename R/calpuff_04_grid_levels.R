@@ -62,6 +62,9 @@ calpuff_04_grid_levels <- function(calpuff_inp = "calpuff_template.txt",
   
   
   
+  # Read in the working calpuff.inp file as a character vector
+  calpuff_inp_working <- readLines(calpuff_inp, warn = FALSE)
+  
   # Generate a vector list of calpuff.inp keywords
   keywords <- c("PMAP", "FEAST", "FNORTH", "IUTMZN", "UTMHEM", "RLAT0", "RLON0", 
                 "XLAT1", "XLAT2", "DATUM", "NX", "NY", "DGRIDKM", "XORIGKM", "YORIGKM", 
