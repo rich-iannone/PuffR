@@ -78,6 +78,8 @@ calpuff_04_grid_levels <- function(calpuff_inp = "calpuff_template.txt",
   if (is.null(iesamp)) iesamp <- NA
   if (is.null(jesamp)) jesamp <- NA
   
+  # Provide standard z heights if no vector provided
+  if (is.null(zface)) zface = c(0,20,40,80,100,150,200,300,400,800,1400,2000,3000)
   
   # Read in the working calpuff.inp file as a character vector
   calpuff_inp_working <- readLines(calpuff_inp, warn = FALSE)
