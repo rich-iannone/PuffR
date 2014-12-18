@@ -55,6 +55,19 @@ calpuff_01_run_control_params <- function(calpuff_inp = "calpuff_template.txt",
   # Add require statement
   require(lubridate)
   
+  # Change NULL values for certain arguments to NA values
+  if (is.null(ibyr)) ibyr <- NA
+  if (is.null(ibmo)) ibmo <- NA
+  if (is.null(ibdy)) ibdy <- NA
+  if (is.null(ibhr)) ibhr <- NA
+  if (is.null(ieyr)) ieyr <- NA
+  if (is.null(iemo)) iemo <- NA
+  if (is.null(iedy)) iedy <- NA
+  if (is.null(iehr)) iehr <- NA
+  if (is.null(abtz)) abtz <- NA
+  if (is.null(nspec)) nspec <- NA
+  if (is.null(nse)) nse <- NA
+  
   # Read in the working calpuff.inp file as a character vector
   calpuff_inp_working <- readLines(calpuff_inp, warn = FALSE)
   
