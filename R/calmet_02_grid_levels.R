@@ -53,7 +53,7 @@ calmet_02_grid_levels <- function(calmet_inp = "calmet_template.txt",
   if (is.null(xorigkm)) xorigkm <- NA
   if (is.null(yorigkm)) yorigkm <- NA
   
-  # Stop function of pmap not part of 'possible_projections' set
+  # Stop function if 'pmap' value not part of 'possible_projections' set
   if (!(pmap %in% possible_projections)){
     stop("The chosen projection is not valid.")
   }
