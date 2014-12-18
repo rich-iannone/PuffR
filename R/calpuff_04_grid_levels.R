@@ -103,6 +103,17 @@ calpuff_04_grid_levels <- function(calpuff_inp = "calpuff_template.txt",
     # Get the datum information
     datum <- gsub("([-A-Z0-9]*)[ ]*.*", "\\1", geo_dat_header[2])
     
+    # Get the grid information
+    nx <- gsub("[ ]*([0-9]*).*", "\\1",
+               geo_dat_header[3])
+    ny <- gsub("[ ]*[0-9]*[ ]*([0-9]*).*", "\\1",
+               geo_dat_header[3])
+    xorigkm <- gsub("[ ]*[0-9]*[ ]*[0-9]*[ ]*([\\.0-9]*).*", "\\1",
+                    geo_dat_header[3])
+    yorigkm <- gsub("[ ]*[0-9]*[ ]*[0-9]*[ ]*[\\.0-9]*[ ]*([\\.0-9]*).*", "\\1",
+                    geo_dat_header[3])
+    dgridkm <- gsub("[ ]*[0-9]*[ ]*[0-9]*[ ]*[\\.0-9]*[ ]*[\\.0-9]*[ ]*([\\.0-9]*).*", "\\1",
+                    geo_dat_header[3])
   }
   
   # Read in the working calpuff.inp file as a character vector
