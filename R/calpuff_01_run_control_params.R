@@ -78,15 +78,15 @@ calpuff_01_run_control_params <- function(calpuff_inp = "calpuff_template.txt",
   calpuff_inp_working <- readLines(calpuff_inp, warn = FALSE)
   
   # Generate a vector list of calpuff.inp keywords
-  keywords <- c("METRUN", "IBYR", "IBMO", "IBDY", "IBHR", "IBSEC",
-                "IEYR", "IEMO", "IEDY", "IEHR", "IESEC",
+  keywords <- c("METRUN", "IBYR", "IBMO", "IBDY", "IBHR", "IBMIN", "IBSEC",
+                "IEYR", "IEMO", "IEDY", "IEHR", "IEMIN", "IESEC",
                 "ABTZ", "NSECDT", "NSPEC", "NSE", "ITEST", "MRESTART",
                 "NRESPD", "METFM", "MPRFFM", "AVET", "PGTIME",
                 "IOUTU", "IOVERS")
   
   # Generate a vector list of the formatted replacements
-  replacements <- c(metrun, ibyr, ibmo, ibdy, ibhr, ibsec,
-                    ieyr, iemo, iedy, iehr, iesec,
+  replacements <- c(metrun, ibyr, ibmo, ibdy, ibhr, ibmin, ibsec,
+                    ieyr, iemo, iedy, iehr, iemin, iesec,
                     abtz, nsecdt, nspec, nse, itest, mrestart,
                     nrespd, metfm, mprffm, avet, pgtime,
                     ioutu, iovers)
