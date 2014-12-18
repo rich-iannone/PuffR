@@ -31,6 +31,7 @@
 #' @export calpuff_04_grid_levels
 
 calpuff_04_grid_levels <- function(calpuff_inp = "calpuff_template.txt",
+                                   read_xy_from_geo_dat = TRUE,
                                    pmap = "UTM",
                                    feast = 0.0,
                                    fnorth = 0.0,
