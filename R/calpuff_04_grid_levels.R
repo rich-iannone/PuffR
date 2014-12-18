@@ -71,14 +71,16 @@ calpuff_04_grid_levels <- function(calpuff_inp = "calpuff_template.txt",
   if (is.null(dgridkm)) dgridkm <- NA
   if (is.null(xorigkm)) xorigkm <- NA
   if (is.null(yorigkm)) yorigkm <- NA
-  if (is.null(ibcomp)) ibcomp <- NA
-  if (is.null(jbcomp)) jbcomp <- NA
-  if (is.null(iecomp)) iecomp <- NA
-  if (is.null(jecomp)) jecomp <- NA
-  if (is.null(ibsamp)) ibsamp <- NA
-  if (is.null(jbsamp)) jbsamp <- NA
-  if (is.null(iesamp)) iesamp <- NA
-  if (is.null(jesamp)) jesamp <- NA
+  
+  # Change NULL values for computational and sampling grid parameters
+  if (is.null(ibcomp)) ibcomp <- -1
+  if (is.null(jbcomp)) jbcomp <- -1
+  if (is.null(iecomp)) iecomp <- -1
+  if (is.null(jecomp)) jecomp <- -1
+  if (is.null(ibsamp)) ibsamp <- -1
+  if (is.null(jbsamp)) jbsamp <- -1
+  if (is.null(iesamp)) iesamp <- -1
+  if (is.null(jesamp)) jesamp <- -1
   
   # Provide standard z heights if no vector provided
   if (is.null(zface)) zface = c(0,20,40,80,100,150,200,300,400,800,1400,2000,3000)
