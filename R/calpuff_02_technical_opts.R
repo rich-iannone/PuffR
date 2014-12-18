@@ -72,6 +72,13 @@ calpuff_02_technical_opts <- function(calpuff_inp = "calpuff_template.txt",
     mctsg <- 0
   }
   
+  # Transform TRUE or FALSE value for 'mslug' to a numeric value
+  if (mslug == TRUE){
+    mslug <- 1
+  } else if (mslug == FALSE){
+    mslug <- 0
+  }
+  
   
   # Generate a vector list of calpuff.inp keywords
   keywords <- c("MGAUSS", "MCTADJ", "MCTSG", "MSLUG", "MTRANS", "MTIP", "MRISE", 
