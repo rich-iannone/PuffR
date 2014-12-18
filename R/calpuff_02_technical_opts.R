@@ -194,6 +194,9 @@ calpuff_02_technical_opts <- function(calpuff_inp = "calpuff_template.txt",
     msource <- 0
   }  
   
+  # Read in the working calpuff.inp file as a character vector
+  calpuff_inp_working <- readLines(calpuff_inp, warn = FALSE)
+  
   # Generate a vector list of calpuff.inp keywords
   keywords <- c("MGAUSS", "MCTADJ", "MCTSG", "MSLUG", "MTRANS", "MTIP", "MRISE", 
                 "MBDW", "MSHEAR", "MSPLIT", "MCHEM", "MAQCHEM", "MLWC", 
