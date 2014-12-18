@@ -60,6 +60,23 @@ calpuff_04_grid_levels <- function(calpuff_inp = "calpuff_template.txt",
                                    jesamp = NULL,
                                    meshdn = 1){
   
+  # Change NULL values for certain arguments to NA values
+  if (is.null(iutmzn)) iutmzn <- NA
+  if (is.null(utmhem)) utmhem <- NA
+  if (is.null(nx)) nx <- NA
+  if (is.null(ny)) ny <- NA
+  if (is.null(dgridkm)) dgridkm <- NA
+  if (is.null(xorigkm)) xorigkm <- NA
+  if (is.null(yorigkm)) yorigkm <- NA
+  if (is.null(ibcomp)) ibcomp <- NA
+  if (is.null(jbcomp)) jbcomp <- NA
+  if (is.null(iecomp)) iecomp <- NA
+  if (is.null(jecomp)) jecomp <- NA
+  if (is.null(lsamp)) lsamp <- NA
+  if (is.null(ibsamp)) ibsamp <- NA
+  if (is.null(jbsamp)) jbsamp <- NA
+  if (is.null(iesamp)) iesamp <- NA
+  if (is.null(jesamp)) jesamp <- NA
   
   
   # Read in the working calpuff.inp file as a character vector
