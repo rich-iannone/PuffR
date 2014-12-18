@@ -116,6 +116,9 @@ calpuff_04_grid_levels <- function(calpuff_inp = "calpuff_template.txt",
                     geo_dat_header[3])
   }
   
+  # Generate a formatted character string for 'zface'
+  zface <- paste(zface, collapse = ", ")
+  
   # Read in the working calpuff.inp file as a character vector
   calpuff_inp_working <- readLines(calpuff_inp, warn = FALSE)
   
