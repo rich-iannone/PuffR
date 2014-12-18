@@ -58,7 +58,7 @@ calpuff_01_run_control_params <- function(calpuff_inp = "calpuff_template.txt",
   require(lubridate)
   
   # Transform TRUE or FALSE value for 'metrun' to string
-  metrun <- ifelse(metrun == TRUE, "T", "F")
+  metrun <- ifelse(run_all_calmet_periods == TRUE, "T", "F")
   
   # Change NULL values for certain arguments to NA values
   if (is.null(ibyr)) ibyr <- NA
