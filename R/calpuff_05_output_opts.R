@@ -1,31 +1,31 @@
 #' Set the CALPUFF output options
 #' @description This function validates and writes CALPUFF output options.
 #' @param calpuff_inp the absolute path and filename for the working CALPUFF input file.
-#' @param icon 
-#' @param idry 
-#' @param iwet 
-#' @param it2d 
-#' @param irho 
-#' @param ivis 
-#' @param lcomprs 
-#' @param iqaplot 
-#' @param ipftrak 
-#' @param imflx 
-#' @param imbal 
-#' @param inrise 
-#' @param icprt 
-#' @param idprt 
-#' @param iwprt 
-#' @param icfrq 
-#' @param idfrq 
-#' @param iwfrq 
-#' @param iprtu 
-#' @param imesg 
-#' @param ldebug 
-#' @param ipfdeb 
-#' @param npfdeb 
-#' @param nn1 
-#' @param nn2 
+#' @param icon the choice of whether to create a concentration output file.
+#' @param idry the choice of whether to create a dry deposition flux output file.
+#' @param iwet the choice of whether to create a wet deposition flux output file.
+#' @param it2d the choice of whether to create a 2D temperature output file.
+#' @param irho the choice of whether to create a 2D density output file.
+#' @param ivis the choice of whether to create a relative humidity output file (required for visibility analysis).
+#' @param lcomprs the choice of whether to compress the output data files.
+#' @param iqaplot the choice of whether to create a standard series of output files (e.g. locations of sources, receptors, grids, etc.) for QA purposes.
+#' @param ipftrak the choice of method for tracking puff locations and properties to the PFTRAK.DAT file: (0) no puff tracking, (1) track puffs at the end of each timestep, or (2) track puffs at the end of each sampling step.
+#' @param imflx the choice of whether to output data on mass flux across specified boundaries for selected species.
+#' @param imbal the choice of whether to output mass balance data for each species to the MASSBAL.DAT file.
+#' @param inrise the choice of whether to output plume properties for each rise increment, for each model timestep, for a single species to the RISE.DAT file.
+#' @param icprt the choice of whether to print concentrations.
+#' @param idprt the choice of whether to print dry flux data.
+#' @param iwprt the choice of whether to print wet flux data.
+#' @param icfrq the number of time intervals for which the concentration is printed.
+#' @param idfrq the number of time intervals for which the dry flux data is printed.
+#' @param iwfrq the number of time intervals for which the wet flux data is printed.
+#' @param iprtu the choice of units used when printing: (1) g/m3 for concentration, g/m2/s for deposition, (2) mg/m3 for concentration, mg/m2/s for deposition, (3) ug/m3 for concentration, ug/m2/s for deposition, (4) ng/m3 for concentration, ng/m2/s for deposition, or (5) odour units for concentration.
+#' @param imesg the choice of method for displaying messages during model execution: (0) no messages, (1) messages with advection step and puff ID, or (2) messages with date-time, number of old puffs, and number of emitted puffs.
+#' @param ldebug the choice of whether to store debugging information for the model run.
+#' @param ipfdeb the first puff to track when gathering debugging information.
+#' @param npfdeb the number of puffs to track when gathering debugging information.
+#' @param nn1 the meteorological period to beginning gathering output.
+#' @param nn2 the meteorological period to end gathering output.
 #' @export calpuff_05_output_opts
 
 calpuff_05_output_opts <- function(calpuff_inp = "calpuff_template.txt",
