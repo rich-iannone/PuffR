@@ -3,63 +3,66 @@
 \alias{calpuff_05_output_opts}
 \title{Set the CALPUFF output options}
 \usage{
-calpuff_05_output_opts(calpuff_inp = "calpuff_template.txt", icon, idry, iwet,
-  it2d, irho, ivis, lcomprs, iqaplot, ipftrak, imflx, imbal, inrise, icprt,
-  idprt, iwprt, icfrq, idfrq, iwfrq, iprtu, imesg, ldebug, ipfdeb, npfdeb, nn1,
-  nn2)
+calpuff_05_output_opts(calpuff_inp = "calpuff_template.txt", icon = TRUE,
+  idry = TRUE, iwet = TRUE, it2d = FALSE, irho = FALSE, ivis = TRUE,
+  lcomprs = TRUE, iqaplot = TRUE, ipftrak = 0, imflx = FALSE,
+  imbal = FALSE, inrise = FALSE, icprt = FALSE, idprt = FALSE,
+  iwprt = FALSE, icfrq = 1, idfrq = 1, iwfrq = 1, iprtu = 1,
+  imesg = 2, ldebug = FALSE, ipfdeb = 1, npfdeb = 1, nn1 = 1,
+  nn2 = 10)
 }
 \arguments{
 \item{calpuff_inp}{the absolute path and filename for the working CALPUFF input file.}
 
-\item{icon}{}
+\item{icon}{the choice of whether to create a concentration output file.}
 
-\item{idry}{}
+\item{idry}{the choice of whether to create a dry deposition flux output file.}
 
-\item{iwet}{}
+\item{iwet}{the choice of whether to create a wet deposition flux output file.}
 
-\item{it2d}{}
+\item{it2d}{the choice of whether to create a 2D temperature output file.}
 
-\item{irho}{}
+\item{irho}{the choice of whether to create a 2D density output file.}
 
-\item{ivis}{}
+\item{ivis}{the choice of whether to create a relative humidity output file (required for visibility analysis).}
 
-\item{lcomprs}{}
+\item{lcomprs}{the choice of whether to compress the output data files.}
 
-\item{iqaplot}{}
+\item{iqaplot}{the choice of whether to create a standard series of output files (e.g. locations of sources, receptors, grids, etc.) for QA purposes.}
 
-\item{ipftrak}{}
+\item{ipftrak}{the choice of method for tracking puff locations and properties to the PFTRAK.DAT file: (0) no puff tracking, (1) track puffs at the end of each timestep, or (2) track puffs at the end of each sampling step.}
 
-\item{imflx}{}
+\item{imflx}{the choice of whether to output data on mass flux across specified boundaries for selected species.}
 
-\item{imbal}{}
+\item{imbal}{the choice of whether to output mass balance data for each species to the MASSBAL.DAT file.}
 
-\item{inrise}{}
+\item{inrise}{the choice of whether to output plume properties for each rise increment, for each model timestep, for a single species to the RISE.DAT file.}
 
-\item{icprt}{}
+\item{icprt}{the choice of whether to print concentrations.}
 
-\item{idprt}{}
+\item{idprt}{the choice of whether to print dry flux data.}
 
-\item{iwprt}{}
+\item{iwprt}{the choice of whether to print wet flux data.}
 
-\item{icfrq}{}
+\item{icfrq}{the number of time intervals for which the concentration is printed.}
 
-\item{idfrq}{}
+\item{idfrq}{the number of time intervals for which the dry flux data is printed.}
 
-\item{iwfrq}{}
+\item{iwfrq}{the number of time intervals for which the wet flux data is printed.}
 
-\item{iprtu}{}
+\item{iprtu}{the choice of units used when printing: (1) g/m3 for concentration, g/m2/s for deposition, (2) mg/m3 for concentration, mg/m2/s for deposition, (3) ug/m3 for concentration, ug/m2/s for deposition, (4) ng/m3 for concentration, ng/m2/s for deposition, or (5) odour units for concentration.}
 
-\item{imesg}{}
+\item{imesg}{the choice of method for displaying messages during model execution: (0) no messages, (1) messages with advection step and puff ID, or (2) messages with date-time, number of old puffs, and number of emitted puffs.}
 
-\item{ldebug}{}
+\item{ldebug}{the choice of whether to store debugging information for the model run.}
 
-\item{ipfdeb}{}
+\item{ipfdeb}{the first puff to track when gathering debugging information.}
 
-\item{npfdeb}{}
+\item{npfdeb}{the number of puffs to track when gathering debugging information.}
 
-\item{nn1}{}
+\item{nn1}{the meteorological period to beginning gathering output.}
 
-\item{nn2}{}
+\item{nn2}{the meteorological period to end gathering output.}
 }
 \description{
 This function validates and writes CALPUFF output options.
