@@ -24,6 +24,8 @@ calpuff_01_run_control_params(calpuff_inp = "calpuff_template.txt",
 
 \item{ibhr}{the starting hour for the CALPUFF run.}
 
+\item{ibmin}{the starting minute for the CALPUFF run.}
+
 \item{ibsec}{the starting second for the CALPUFF run.}
 
 \item{ieyr}{the ending year for the CALPUFF run.}
@@ -33,6 +35,8 @@ calpuff_01_run_control_params(calpuff_inp = "calpuff_template.txt",
 \item{iedy}{the ending day for the CALPUFF run.}
 
 \item{iehr}{the ending hour for the CALPUFF run.}
+
+\item{iemin}{the starting minute for the CALPUFF run.}
 
 \item{iesec}{the ending second for the CALPUFF run.}
 
