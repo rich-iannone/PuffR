@@ -19,6 +19,9 @@ calpuff_06_complex_terrain_inputs <- function(calpuff_inp = "calpuff_template.tx
                                               xctdmkm,
                                               yctdmkm){
   
+  # Read in the working calpuff.inp file as a character vector
+  calpuff_inp_working <- readLines(calpuff_inp, warn = FALSE)
+  
   # Generate a vector list of calpuff.inp keywords
   keywords <- c("NHILL", "NCTREC", "MHILL",
                 "XHILL2M", "ZHILL2M", "XCTDMKM", "YCTDMKM")
