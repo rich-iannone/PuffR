@@ -6,11 +6,13 @@
 #' @param ibmo the starting month for the CALPUFF run.
 #' @param ibdy the starting day for the CALPUFF run.
 #' @param ibhr the starting hour for the CALPUFF run.
+#' @param ibmin the starting minute for the CALPUFF run.
 #' @param ibsec the starting second for the CALPUFF run.
 #' @param ieyr the ending year for the CALPUFF run.
 #' @param iemo the ending month for the CALPUFF run.
 #' @param iedy the ending day for the CALPUFF run.
 #' @param iehr the ending hour for the CALPUFF run.
+#' @param iemin the starting minute for the CALPUFF run.
 #' @param iesec the ending second for the CALPUFF run.
 #' @param abtz the time zone for the CALPUFF domain.
 #' @param nsecdt the number of seconds between time steps.
