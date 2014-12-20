@@ -4,12 +4,12 @@
 \title{Set CALPUFF run control parameters}
 \usage{
 calpuff_01_run_control_params(calpuff_inp = "calpuff_template.txt",
-  read_data_from_surf_dat = TRUE, metrun = TRUE, ibyr = NULL,
-  ibmo = NULL, ibdy = NULL, ibhr = NULL, ibsec = 0, ieyr = NULL,
-  iemo = NULL, iedy = NULL, iehr = NULL, iesec = 0, abtz = NULL,
-  nsecdt = 3600, nse = NULL, itest = 2, mrestart = 0, nrespd = 0,
-  metfm = 1, mprffm = 1, avet = 60, pgtime = 60, ioutu = 1,
-  iovers = 2)
+  run_all_calmet_periods = TRUE, ibyr = NULL, ibmo = NULL, ibdy = NULL,
+  ibhr = NULL, ibmin = 0, ibsec = 0, ieyr = NULL, iemo = NULL,
+  iedy = NULL, iehr = NULL, iemin = 0, iesec = 0, abtz = NULL,
+  nsecdt = 3600, nspec = NULL, nse = NULL, itest = 2, mrestart = 0,
+  nrespd = 0, metfm = 1, mprffm = 1, avet = 60, pgtime = 60,
+  ioutu = 1, iovers = 2)
 }
 \arguments{
 \item{calpuff_inp}{the absolute path and filename for the working CALPUFF input file.}
