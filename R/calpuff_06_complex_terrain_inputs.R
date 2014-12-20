@@ -11,13 +11,13 @@
 #' @export calpuff_06_complex_terrain_inputs
 
 calpuff_06_complex_terrain_inputs <- function(calpuff_inp = "calpuff_template.txt",
-                                              nhill,
-                                              nctrec,
-                                              mhill,
-                                              xhill2m,
-                                              zhill2m,
-                                              xctdmkm,
-                                              yctdmkm){
+                                              nhill = 0,
+                                              nctrec = 0,
+                                              mhill = 2,
+                                              xhill2m = 1.0,
+                                              zhill2m = 1.0,
+                                              xctdmkm = 0,
+                                              yctdmkm = 0){
   
   # Read in the working calpuff.inp file as a character vector
   calpuff_inp_working <- readLines(calpuff_inp, warn = FALSE)
