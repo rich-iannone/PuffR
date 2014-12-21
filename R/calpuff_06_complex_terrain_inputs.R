@@ -1,8 +1,8 @@
 #' Set the CALPUFF subgrid scale complex terrain inputs
 #' @description This function validates and writes CALPUFF subgrid scale complex terrain inputs.
 #' @param calpuff_inp the absolute path and filename for the working CALPUFF input file.
-#' @param nhill 
-#' @param nctrec 
+#' @param nhill the number of terrain features.
+#' @param nctrec the number of special complex terrain receptors.
 #' @param mhill 
 #' @param xhill2m 
 #' @param zhill2m 
