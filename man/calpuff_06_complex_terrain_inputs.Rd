@@ -3,15 +3,16 @@
 \alias{calpuff_06_complex_terrain_inputs}
 \title{Set the CALPUFF subgrid scale complex terrain inputs}
 \usage{
-calpuff_06_complex_terrain_inputs(calpuff_inp = "calpuff_template.txt", nhill,
-  nctrec, mhill, xhill2m, zhill2m, xctdmkm, yctdmkm)
+calpuff_06_complex_terrain_inputs(calpuff_inp = "calpuff_template.txt",
+  nhill = 0, nctrec = 0, mhill = 2, xhill2m = 1, zhill2m = 1,
+  xctdmkm = 0, yctdmkm = 0)
 }
 \arguments{
 \item{calpuff_inp}{the absolute path and filename for the working CALPUFF input file.}
 
-\item{nhill}{}
+\item{nhill}{the number of terrain features.}
 
-\item{nctrec}{}
+\item{nctrec}{the number of special complex terrain receptors.}
 
 \item{mhill}{}
 
