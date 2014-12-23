@@ -15,6 +15,9 @@ calpuff_09_misc_ddep <- function(calpuff_inp = "calpuff_template.txt",
                                  nint = 9,
                                  iveg = 1){
   
+  # Read in the working calpuff.inp file as a character vector
+  calpuff_inp_working <- readLines(calpuff_inp, warn = FALSE)
+  
   # Generate a vector list of calmet.inp keywords
   keywords <- c("RCUTR", "RGR", "REACTR", "NINT", "IVEG")
   
