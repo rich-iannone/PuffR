@@ -3,11 +3,11 @@
 #' @param calpuff_inp the absolute path and filename for the working CALPUFF input file.
 #' @param nhill the number of terrain features.
 #' @param nctrec the number of special complex terrain receptors.
-#' @param mhill 
-#' @param xhill2m 
-#' @param zhill2m 
-#' @param xctdmkm 
-#' @param yctdmkm 
+#' @param mhill provenance of terrain and CTSG Receptor data: (1) hill and receptor data created by CTDM processors and read from HILL.DAT and HILLRCT.DAT files, or (2) hill data created by OPTHILL.
+#' @param xhill2m factor to convert horizontal dimensions to meters.
+#' @param zhill2m factor to convert vertical dimensions to meters.
+#' @param xctdmkm the x-origin of the CTDM system relative to the CALPUFF coordinate system, in kilometers.
+#' @param yctdmkm the y-origin of the CTDM system relative to the CALPUFF coordinate system, in kilometers.
 #' @export calpuff_06_complex_terrain_inputs
 
 calpuff_06_complex_terrain_inputs <- function(calpuff_inp = "calpuff_template.txt",
