@@ -18,7 +18,7 @@ calpuff_09_misc_ddep <- function(calpuff_inp = "calpuff_template.txt",
   # Read in the working calpuff.inp file as a character vector
   calpuff_inp_working <- readLines(calpuff_inp, warn = FALSE)
   
-  # Generate a vector list of calmet.inp keywords
+  # Generate a vector list of calpuff.inp keywords
   keywords <- c("RCUTR", "RGR", "REACTR", "NINT", "IVEG")
   
   # Generate a vector list of the formatted replacements
@@ -29,7 +29,7 @@ calpuff_09_misc_ddep <- function(calpuff_inp = "calpuff_template.txt",
                                         keyword = keywords,
                                         replacement = replacements)
   
-  # Write the output to the same working calmet.inp file
+  # Write the output to the same working calpuff.inp file
   writeLines(calpuff_inp_working, con = calpuff_inp)
   
 }
