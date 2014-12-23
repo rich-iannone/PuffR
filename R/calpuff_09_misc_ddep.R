@@ -9,11 +9,11 @@
 #' @export calpuff_09_misc_ddep
 
 calpuff_09_misc_ddep <- function(calpuff_inp = "calpuff_template.txt",
-                                 rcutr,
-                                 rgr,
-                                 reactr,
-                                 nint,
-                                 iveg){
+                                 rcutr = 30.0,
+                                 rgr = 5.0,
+                                 reactr = 8.0,
+                                 nint = 9,
+                                 iveg = 1){
   
   # Generate a vector list of calmet.inp keywords
   keywords <- c("RCUTR", "RGR", "REACTR", "NINT", "IVEG")
