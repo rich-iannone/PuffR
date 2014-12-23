@@ -14,15 +14,15 @@ calpuff_06_complex_terrain_inputs(calpuff_inp = "calpuff_template.txt",
 
 \item{nctrec}{the number of special complex terrain receptors.}
 
-\item{mhill}{}
+\item{mhill}{provenance of terrain and CTSG Receptor data: (1) hill and receptor data created by CTDM processors and read from HILL.DAT and HILLRCT.DAT files, or (2) hill data created by OPTHILL.}
 
-\item{xhill2m}{}
+\item{xhill2m}{factor to convert horizontal dimensions to meters.}
 
-\item{zhill2m}{}
+\item{zhill2m}{factor to convert vertical dimensions to meters.}
 
-\item{xctdmkm}{}
+\item{xctdmkm}{the x-origin of the CTDM system relative to the CALPUFF coordinate system, in kilometers.}
 
-\item{yctdmkm}{}
+\item{yctdmkm}{the y-origin of the CTDM system relative to the CALPUFF coordinate system, in kilometers.}
 }
 \description{
 This function validates and writes CALPUFF subgrid scale complex terrain inputs.
