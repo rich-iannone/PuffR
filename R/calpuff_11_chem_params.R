@@ -15,8 +15,6 @@
 #' @param ofrac 
 #' @param vcnx 
 #' @param ndecay 
-#' @param spec1 
-#' @param spec2 
 #' @export calpuff_11_chem_params
 
 calpuff_11_chem_params <- function(calpuff_inp = "calpuff_template.txt",
