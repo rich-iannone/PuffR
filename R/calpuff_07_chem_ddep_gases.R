@@ -15,4 +15,7 @@ calpuff_07_chem_ddep_gases <- function(calpuff_inp = "calpuff_template.txt",
                                        species_mesophyll_resistance = NULL,
                                        species_HL_coefficient = NULL){
   
+  # Read in the working calpuff.inp file as a character vector
+  calpuff_inp_working <- readLines(calpuff_inp, warn = FALSE)
+  
 }
