@@ -3,21 +3,21 @@
 \alias{calpuff_09_misc_ddep}
 \title{Set miscellaneous CALPUFF parameters for dry deposition}
 \usage{
-calpuff_09_misc_ddep(calpuff_inp = "calpuff_template.txt", rcutr, rgr, reactr,
-  nint, iveg)
+calpuff_09_misc_ddep(calpuff_inp = "calpuff_template.txt", rcutr = 30,
+  rgr = 5, reactr = 8, nint = 9, iveg = 1)
 }
 \arguments{
 \item{calpuff_inp}{the absolute path and filename for the working CALPUFF input file.}
 
-\item{rcutr}{}
+\item{rcutr}{the reference cuticle resistance in units of s/cm.}
 
-\item{rgr}{}
+\item{rgr}{rcutr the reference ground resistance in units of s/cm.}
 
-\item{reactr}{}
+\item{reactr}{the reference pollutant reactivity.}
 
-\item{nint}{}
+\item{nint}{the number of particle-size intervals used to evaluate effective particle deposition velocity.}
 
-\item{iveg}{}
+\item{iveg}{the choice of vegetation state in unirrigated areas: (1) active and unstressed vegetation, (2) active and stressed vegetation, or (3) inactive vegetation.}
 }
 \description{
 This function validates and writes miscellaneous CALPUFF parameters for dry deposition.
