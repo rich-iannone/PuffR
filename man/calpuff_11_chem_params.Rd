@@ -3,30 +3,35 @@
 \alias{calpuff_11_chem_params}
 \title{Set the CALPUFF chemistry parameters}
 \usage{
-calpuff_11_chem_params(calpuff_inp = "calpuff_template.txt", moz, bcko3, mnh3,
-  mavgnh3, bcknh3, rnite1, rnite2, rnite3, mh2o2, bckh2o2, bckpmf, ofrac, vcnx,
-  ndecay, spec1, spec2)
+calpuff_11_chem_params(calpuff_inp = "calpuff_template.txt", moz = 1,
+  bcko3 = c(40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40), mnh3 = 0,
+  mavgnh3 = 1, bcknh3 = c(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10),
+  rnite1 = 0.2, rnite2 = 2, rnite3 = 2, mh2o2 = 1, bckh2o2 = c(1, 1,
+  1, 1, 1, 1, 1, 1, 1, 1, 1, 1), bckpmf = c(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+  1), ofrac = c(0.15, 0.15, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2,
+  0.15), vcnx = c(50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50),
+  ndecay = 0)
 }
 \arguments{
 \item{calpuff_inp}{the absolute path and filename for the working CALPUFF input file.}
 
-\item{moz}{}
+\item{moz}{the choice of ozone data input (ignored unless mchem is 1, 3, 4, 6, or 7): (0) use a monthly background ozone option, or (1) read hourly ozone concentrations from an OZONE.DAT file.}
 
-\item{bcko3}{}
+\item{bcko3}{monthly ozone concentrations as ppbV values (ignored unless mchem is 1, 3, 4, 6, or 7, and, moz is 0 or 1).}
 
-\item{mnh3}{}
+\item{mnh3}{the choice of ammonia data input (ignored unless mchem is 6 or 7): (0) use monthly background ammonia values, or (1) read hourly ammonia concentrations for each vertical layer from a NH3Z.DAT file.}
 
-\item{mavgnh3}{}
+\item{mavgnh3}{the choice of ammonia vertical averaging method (ignored unless mchem is 6 or 7, and, mnh3 is 1): (0) do not calculate averages and use NH3 at puff center height, or (1) average NH3 values over vertical extent of puff.}
 
-\item{bcknh3}{}
+\item{bcknh3}{monthly ammonia concentrations as ppbV values (ignored unless mchem is 1 or 3, or, mchem is 6 or 7 and mnh3 is 0).}
 
-\item{rnite1}{}
+\item{rnite1}{the nighttime SO2 loss rate in percent per hour. This rate is used only at night for when mchem is set to 1. This rate is added to the computed rate both day and night when mchem is either 6 or 7 for heterogeneous reaction chemistry.}
 
-\item{rnite2}{}
+\item{rnite2}{the nighttime NOx loss rate in percent per hour (ignored unless mchem is set to 1).}
 
-\item{rnite3}{}
+\item{rnite3}{the nighttime HNO3 formation rate in percent per hour (ignored unless mchem is set to 1).}
 
-\item{mh2o2}{}
+\item{mh2o2}{the choice of ammonia data input (ignored unless mchem is 6 or 7): (0) use a monthly background H2O2 option, or (1) read hourly H2O2 concentrations from an H2O2.DAT file.}
 
 \item{bckh2o2}{}
 
@@ -37,10 +42,6 @@ calpuff_11_chem_params(calpuff_inp = "calpuff_template.txt", moz, bcko3, mnh3,
 \item{vcnx}{}
 
 \item{ndecay}{}
-
-\item{spec1}{}
-
-\item{spec2}{}
 }
 \description{
 This function validates and writes CALPUFF parameters for atmospheric chemistry.
