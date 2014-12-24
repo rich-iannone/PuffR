@@ -1,15 +1,15 @@
 #' Set the CALPUFF chemistry parameters
 #' @description This function validates and writes CALPUFF parameters for atmospheric chemistry.
 #' @param calpuff_inp the absolute path and filename for the working CALPUFF input file.
-#' @param moz 
-#' @param bcko3 
-#' @param mnh3 
-#' @param mavgnh3 
-#' @param bcknh3 
-#' @param rnite1 
-#' @param rnite2 
-#' @param rnite3 
-#' @param mh2o2 
+#' @param moz the choice of ozone data input (ignored unless mchem is 1, 3, 4, 6, or 7): (0) use a monthly background ozone option, or (1) read hourly ozone concentrations from an OZONE.DAT file.
+#' @param bcko3 monthly ozone concentrations as ppbV values (ignored unless mchem is 1, 3, 4, 6, or 7, and, moz is 0 or 1).
+#' @param mnh3 the choice of ammonia data input (ignored unless mchem is 6 or 7): (0) use monthly background ammonia values, or (1) read hourly ammonia concentrations for each vertical layer from a NH3Z.DAT file.
+#' @param mavgnh3 the choice of ammonia vertical averaging method (ignored unless mchem is 6 or 7, and, mnh3 is 1): (0) do not calculate averages and use NH3 at puff center height, or (1) average NH3 values over vertical extent of puff.
+#' @param bcknh3 monthly ammonia concentrations as ppbV values (ignored unless mchem is 1 or 3, or, mchem is 6 or 7 and mnh3 is 0).
+#' @param rnite1 the nighttime SO2 loss rate in percent per hour. This rate is used only at night for when mchem is set to 1. This rate is added to the computed rate both day and night when mchem is either 6 or 7 for heterogeneous reaction chemistry.
+#' @param rnite2 the nighttime NOx loss rate in percent per hour (ignored unless mchem is set to 1).
+#' @param rnite3 the nighttime HNO3 formation rate in percent per hour (ignored unless mchem is set to 1).
+#' @param mh2o2 the choice of ammonia data input (ignored unless mchem is 6 or 7): (0) use a monthly background H2O2 option, or (1) read hourly H2O2 concentrations from an H2O2.DAT file.
 #' @param bckh2o2 
 #' @param bckpmf 
 #' @param ofrac 
