@@ -10,7 +10,7 @@
 #' @param rnite2 the nighttime NOx loss rate in percent per hour (ignored unless mchem is set to 1).
 #' @param rnite3 the nighttime HNO3 formation rate in percent per hour (ignored unless mchem is set to 1).
 #' @param mh2o2 the choice of ammonia data input (ignored unless mchem is 6 or 7): (0) use a monthly background H2O2 option, or (1) read hourly H2O2 concentrations from an H2O2.DAT file.
-#' @param bckh2o2 
+#' @param bckh2o2 monthly H2O2 concentrations as ppbV values (ignored unless mchem is 1 and either mh2o2 is 0 or mh2o2 is 1 and all hourly H2O2 data is missing).
 #' @param bckpmf 
 #' @param ofrac 
 #' @param vcnx 
