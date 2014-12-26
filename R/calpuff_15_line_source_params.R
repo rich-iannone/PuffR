@@ -31,6 +31,9 @@ calpuff_15_line_source_params <- function(calpuff_inp = "calpuff_template.txt",
                                           fprimel = NULL,
                                           lnsource_params = NULL){
   
+  # Read in the working calpuff.inp file as a character vector
+  calpuff_inp_working <- readLines(calpuff_inp, warn = FALSE)
+  
   # Generate a vector list of calpuff.inp keywords
   keywords <- c("NLN2", "NLINES", "ILNU", "NSLN1", "MXNSEG", "NLRISE",
                 "XL", "HBL", "WBL", "WML", "DXL", "FPRIMEL")
