@@ -3,13 +3,22 @@
 \alias{calpuff_12_misc_disp_comp_params}
 \title{Set miscellaneous CALPUFF dispersion and computational parameters}
 \usage{
-calpuff_12_misc_disp_comp_params(calpuff_inp = "calpuff_template.txt", sytdep,
-  mhftsz, jsup, conk1, conk2, tbd, iurb1, iurb2, ilanduin, z0in, xlaiin, elevin,
-  xlatin, xlonin, anemht, isigmav, imixctdm, xmxlen, xsamlen, mxnew, mxsam,
-  ncount, symin, szmin, szcap_m, svmin, swmin, cdiv, nlutibl, wscalm, xmaxzi,
-  xminzi, wscat, plx0, ptg0, ppc, sl2pf, nsplit, iresplit, zisplit, roldmax,
-  nsplith, sysplith, shsplith, cnsplith, epsslug, epsarea, dsrise, htminbc,
-  rsampbc, mdepbc)
+calpuff_12_misc_disp_comp_params(calpuff_inp = "calpuff_template.txt",
+  sytdep = 550, mhftsz = FALSE, jsup = 5, conk1 = 0.01, conk2 = 0.1,
+  tbd = 0.5, iurb1 = 10, iurb2 = 19, ilanduin = 20, z0in = 0.25,
+  xlaiin = 0, elevin = 0, xlatin = 0, xlonin = 0, anemht = 10,
+  isigmav = 1, imixctdm = 0, xmxlen = 1, xsamlen = 1, mxnew = 99,
+  mxsam = 99, ncount = 2, symin = 1, szmin = 1, szcap_m = 5e+06,
+  svmin = c(0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.37, 0.37, 0.37, 0.37, 0.37, 0.37),
+  swmin = c(0.2, 0.12, 0.08, 0.06, 0.03, 0.016, 0.2, 0.12, 0.08, 0.06, 0.03,
+  0.016), cdiv = c(0, 0), nlutibl = 4, wscalm = 0.5, xmaxzi = 3000,
+  xminzi = 20, wscat = c(1.54, 3.09, 5.14, 8.23, 10.8), plx0 = c(0.07,
+  0.07, 0.1, 0.15, 0.35, 0.55), ptg0 = c(0.02, 0.035), ppc = c(0.5, 0.5,
+  0.5, 0.5, 0.35, 0.35), sl2pf = 10, nsplit = 3, iresplit = c(0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0), zisplit = 100,
+  roldmax = 0.25, nsplith = 5, sysplith = 1, shsplith = 2,
+  cnsplith = 1e-07, epsslug = 1e-04, epsarea = 1e-06, dsrise = 1,
+  htminbc = 500, rsampbc = 10, mdepbc = TRUE)
 }
 \arguments{
 \item{calpuff_inp}{the absolute path and filename for the working CALPUFF input file.}
