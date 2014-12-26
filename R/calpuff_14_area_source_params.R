@@ -17,18 +17,18 @@ calpuff_14_area_source_params <- function(calpuff_inp = "calpuff_template.txt",
                                           arsource_params = NULL,
                                           arsource_coords = NULL){
   
-  # Generate a vector list of calmet.inp keywords
+  # Generate a vector list of calpuff.inp keywords
   keywords <- c("NAR1", "IARU", "NSAR1", "NAR2")
   
   # Generate a vector list of the formatted replacements
   replacements <- c(nar1, iaru, nsar1, nar2)
   
-  # Modify all parameters in working calmet.inp vector
+  # Modify all parameters in working calpuff.inp vector
   calpuff_inp_working <- replace_in_inp(inp_file_working = calpuff_inp_working,
                                         keyword = keywords,
                                         replacement = replacements)
   
-  # Write the output to the same working calmet.inp file
+  # Write the output to the same working calpuff.inp file
   writeLines(calpuff_inp_working, con = calpuff_inp)
   
 }
