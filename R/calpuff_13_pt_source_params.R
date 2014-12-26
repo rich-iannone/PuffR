@@ -23,6 +23,9 @@ calpuff_13_pt_source_params <- function(calpuff_inp = "calpuff_template.txt",
                                         ptsource_fmfac = NULL,
                                         downwash_output = NULL){
 
+  # Read in the working calpuff.inp file as a character vector
+  calpuff_inp_working <- readLines(calpuff_inp, warn = FALSE)
+  
   # Generate a vector list of calpuff.inp keywords
   keywords <- c("NPT1", "IPTU", "NSPT1", "NPT2")
   
