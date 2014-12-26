@@ -107,6 +107,9 @@ calpuff_12_misc_disp_comp_params <- function(calpuff_inp = "calpuff_template.txt
                                              rsampbc,
                                              mdepbc){
  
+  # Read in the working calpuff.inp file as a character vector
+  calpuff_inp_working <- readLines(calpuff_inp, warn = FALSE)
+  
   # Generate a vector list of calmet.inp keywords
   keywords <- c("SYTDEP", "MHFTSZ", "JSUP", "CONK1", "CONK2", "TBD", "IURB1", "IURB2",
                 "ILANDUIN", "Z0IN", "XLAIIN", "ELEVIN", "XLATIN", "XLONIN", "ANEMHT",
