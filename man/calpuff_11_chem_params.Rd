@@ -9,8 +9,7 @@ calpuff_11_chem_params(calpuff_inp = "calpuff_template.txt", moz = 1,
   rnite1 = 0.2, rnite2 = 2, rnite3 = 2, mh2o2 = 1, bckh2o2 = c(1, 1,
   1, 1, 1, 1, 1, 1, 1, 1, 1, 1), bckpmf = c(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
   1), ofrac = c(0.15, 0.15, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2,
-  0.15), vcnx = c(50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50),
-  ndecay = 0)
+  0.15), vcnx = c(50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50))
 }
 \arguments{
 \item{calpuff_inp}{the absolute path and filename for the working CALPUFF input file.}
@@ -33,15 +32,13 @@ calpuff_11_chem_params(calpuff_inp = "calpuff_template.txt", moz = 1,
 
 \item{mh2o2}{the choice of ammonia data input (ignored unless mchem is 6 or 7): (0) use a monthly background H2O2 option, or (1) read hourly H2O2 concentrations from an H2O2.DAT file.}
 
-\item{bckh2o2}{}
+\item{bckh2o2}{monthly H2O2 concentrations as ppbV values (ignored unless mchem is 1 and either mh2o2 is 0 or mh2o2 is 1 and all hourly H2O2 data is missing).}
 
-\item{bckpmf}{}
+\item{bckpmf}{the average background fine particulate concentration, in units of ug/m3, for each month of the year (ignored unless mchem is 4 or 7).}
 
-\item{ofrac}{}
+\item{ofrac}{the average organic fraction of fine particulate matter for each month of the year (ignored unless mchem is 4 or 7).}
 
-\item{vcnx}{}
-
-\item{ndecay}{}
+\item{vcnx}{the average VOC to NOx ratio (after reaction) for each month of the year (ignored unless mchem is 4 or 7).}
 }
 \description{
 This function validates and writes CALPUFF parameters for atmospheric chemistry.
