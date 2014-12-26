@@ -14,7 +14,6 @@
 #' @param bckpmf the average background fine particulate concentration, in units of ug/m3, for each month of the year (ignored unless mchem is 4 or 7).
 #' @param ofrac the average organic fraction of fine particulate matter for each month of the year (ignored unless mchem is 4 or 7).
 #' @param vcnx the average VOC to NOx ratio (after reaction) for each month of the year (ignored unless mchem is 4 or 7).
-#' @param ndecay 
 #' @export calpuff_11_chem_params
 
 calpuff_11_chem_params <- function(calpuff_inp = "calpuff_template.txt",
