@@ -31,7 +31,7 @@ calpuff_15_line_source_params <- function(calpuff_inp = "calpuff_template.txt",
                                           fprimel = NULL,
                                           lnsource_params = NULL){
   
-  # Generate a vector list of calmet.inp keywords
+  # Generate a vector list of calpuff.inp keywords
   keywords <- c("NLN2", "NLINES", "ILNU", "NSLN1", "MXNSEG", "NLRISE",
                 "XL", "HBL", "WBL", "WML", "DXL", "FPRIMEL")
   
@@ -39,12 +39,12 @@ calpuff_15_line_source_params <- function(calpuff_inp = "calpuff_template.txt",
   replacements <- c(nln2, nlines, ilnu, nsln1, mxnseg, nlrise,
                     xl, hbl, wbl, wml, dxl, fprimel)
   
-  # Modify all parameters in working calmet.inp vector
+  # Modify all parameters in working calpuff.inp vector
   calpuff_inp_working <- replace_in_inp(inp_file_working = calpuff_inp_working,
                                         keyword = keywords,
                                         replacement = replacements)
   
-  # Write the output to the same working calmet.inp file
+  # Write the output to the same working calpuff.inp file
   writeLines(calpuff_inp_working, con = calpuff_inp)
   
 }
