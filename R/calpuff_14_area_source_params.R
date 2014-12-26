@@ -17,6 +17,9 @@ calpuff_14_area_source_params <- function(calpuff_inp = "calpuff_template.txt",
                                           arsource_params = NULL,
                                           arsource_coords = NULL){
   
+  # Read in the working calpuff.inp file as a character vector
+  calpuff_inp_working <- readLines(calpuff_inp, warn = FALSE)
+  
   # Generate a vector list of calpuff.inp keywords
   keywords <- c("NAR1", "IARU", "NSAR1", "NAR2")
   
