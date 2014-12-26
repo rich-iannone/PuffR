@@ -36,8 +36,7 @@ calpuff_11_chem_params <- function(calpuff_inp = "calpuff_template.txt",
                                    ofrac = c(0.15, 0.15, 0.20, 0.20, 0.20, 0.20,
                                              0.20, 0.20, 0.20, 0.20, 0.20, 0.15),
                                    vcnx = c(50.0, 50.0, 50.0, 50.0, 50.0, 50.0,
-                                            50.0, 50.0, 50.0, 50.0, 50.0, 50.0),
-                                   ndecay = 0){
+                                            50.0, 50.0, 50.0, 50.0, 50.0, 50.0)){
   
   # Read in the working calpuff.inp file as a character vector
   calpuff_inp_working <- readLines(calpuff_inp, warn = FALSE)
