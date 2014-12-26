@@ -42,6 +42,9 @@ calpuff_11_chem_params <- function(calpuff_inp = "calpuff_template.txt",
   # Read in the working calpuff.inp file as a character vector
   calpuff_inp_working <- readLines(calpuff_inp, warn = FALSE)
   
+  # Provide a value of 0 for 'ndecay'
+  ndecay <- 0
+  
   # Generate a vector list of calmet.inp keywords
   keywords <- c("MOZ", "BCKO3", "MNH3", "MAVGNH3", "BCKNH3", "RNITE1", "RNITE2", "RNITE3",
                 "MH2O2", "BCKH2O2", "BCKPMF", "OFRAC", "VCNX", "NDECAY")
