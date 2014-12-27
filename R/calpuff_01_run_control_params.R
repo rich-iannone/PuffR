@@ -56,9 +56,6 @@ calpuff_01_run_control_params <- function(calpuff_inp = "calpuff_template.txt",
                                           ioutu = 1,
                                           iovers = 2){
   
-  # Add require statement
-  require(lubridate)
-  
   # Transform TRUE or FALSE value for 'metrun' to string
   metrun <- ifelse(run_all_calmet_periods == TRUE, "T", "F")
   
