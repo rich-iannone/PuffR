@@ -49,6 +49,9 @@ calpuff_11_chem_params <- function(calpuff_inp = "calpuff_template.txt",
   # Generate a formatted character string for 'bcknh3'
   bcknh3 <- paste(bcknh3, collapse = ", ")
   
+  # Generate a formatted character string for 'bckh2o2'
+  bckh2o2 <- paste(bckh2o2, collapse = ", ")
+  
   # Generate a vector list of calmet.inp keywords
   keywords <- c("MOZ", "BCKO3", "MNH3", "MAVGNH3", "BCKNH3", "RNITE1", "RNITE2", "RNITE3",
                 "MH2O2", "BCKH2O2", "BCKPMF", "OFRAC", "VCNX", "NDECAY")
