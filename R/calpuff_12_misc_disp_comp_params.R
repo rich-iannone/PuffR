@@ -1,14 +1,14 @@
 #' Set miscellaneous CALPUFF dispersion and computational parameters
 #' @description This function validates and writes miscellaneous CALPUFF dispersion and computational parameters.
 #' @param calpuff_inp the absolute path and filename for the working CALPUFF input file.
-#' @param sytdep Horizontal size of puff (in units of meters) beyond which the time-dependent Heffter dispersion equations are used to determine sigma-y and sigma-z.
+#' @param sytdep the horizontal size of puff (in units of meters) beyond which the time-dependent Heffter dispersion equations are used to determine sigma-y and sigma-z.
 #' @param mhftsz 
-#' @param jsup 
-#' @param conk1 
-#' @param conk2 
+#' @param jsup the stability class used to determine plume growth rates for puffs above the boundary layer.
+#' @param conk1 the vertical dispersion constant for stable conditions.
+#' @param conk2 the vertical dispersion constant for neutral and unstable conditions.
 #' @param tbd 
-#' @param iurb1 
-#' @param iurb2 
+#' @param iurb1 the lower range of land use categories for which urban dispersion is assumed.
+#' @param iurb2 the upper range of land use categories for which urban dispersion is assumed.
 #' @param ilanduin 
 #' @param z0in 
 #' @param xlaiin 
