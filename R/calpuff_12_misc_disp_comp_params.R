@@ -9,7 +9,7 @@
 #' @param tbd 
 #' @param iurb1 the lower range of land use categories for which urban dispersion is assumed.
 #' @param iurb2 the upper range of land use categories for which urban dispersion is assumed.
-#' @param ilanduin 
+#' @param ilanduin the land use category for the modeling domain.
 #' @param z0in 
 #' @param xlaiin 
 #' @param elevin 
