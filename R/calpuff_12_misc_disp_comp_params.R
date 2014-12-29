@@ -9,15 +9,15 @@
 #' @param tbd 
 #' @param iurb1 the lower range of land use categories for which urban dispersion is assumed.
 #' @param iurb2 the upper range of land use categories for which urban dispersion is assumed.
-#' @param ilanduin the land use category for the modeling domain.
-#' @param z0in 
-#' @param xlaiin 
-#' @param elevin 
-#' @param xlatin 
-#' @param xlonin 
-#' @param anemht 
-#' @param isigmav 
-#' @param imixctdm 
+#' @param ilanduin the land use category for the modeling domain. Used for site characterization parameters with single-point Met data files and ignored unless metfm is either 2, 3, 4, or 5.
+#' @param z0in the roughness length (in units of meters) for the modeling domain. Used for site characterization parameters with single-point Met data files and ignored unless metfm is either 2, 3, 4, or 5.
+#' @param xlaiin the leaf area index for the modeling domain. Used for site characterization parameters with single-point Met data files and ignored unless metfm is either 2, 3, 4, or 5.
+#' @param elevin the elevation of the site (in units of meters ASL). Used for site characterization parameters with single-point Met data files and ignored unless metfm is either 2, 3, 4, or 5.
+#' @param xlatin the latitude of the site (in decimal degrees). Used for site characterization parameters with single-point Met data files and ignored unless metfm is either 2, 3, 4, or 5.
+#' @param xlonin the longitude of the site (in decimal degrees). Used for site characterization parameters with single-point Met data files and ignored unless metfm is either 2, 3, 4, or 5.
+#' @param anemht the anemometer height at the site (in units of meters ASL). Used for site characterization parameters with single-point Met data files and ignored unless metfm is either 2 or 3.
+#' @param isigmav the choice of which lateral turbulance data in PROFILE.DAT file to use: (0) read sigma-theta, or (1) read sigma-v. Used for site characterization parameters with single-point Met data files and ignored unless metfm is either 4 or 5, and mturbvw is either 1 or 3.
+#' @param imixctdm the choice of method for reading mixing heights: (0) read predicted, or (1) read observed. Used for site characterization parameters with single-point Met data files and ignored unless metfm is 4.
 #' @param xmxlen 
 #' @param xsamlen 
 #' @param mxnew 
