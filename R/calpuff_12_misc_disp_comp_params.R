@@ -2,11 +2,11 @@
 #' @description This function validates and writes miscellaneous CALPUFF dispersion and computational parameters.
 #' @param calpuff_inp the absolute path and filename for the working CALPUFF input file.
 #' @param sytdep the horizontal size of puff (in units of meters) beyond which the time-dependent Heffter dispersion equations are used to determine sigma-y and sigma-z.
-#' @param mhftsz 
+#' @param mhftsz the choice of whether to use the Heffter equation to calculate sigma z values.
 #' @param jsup the stability class used to determine plume growth rates for puffs above the boundary layer.
 #' @param conk1 the vertical dispersion constant for stable conditions.
 #' @param conk2 the vertical dispersion constant for neutral and unstable conditions.
-#' @param tbd 
+#' @param tbd the factor for determining the transition-point from Schulman-Scire to Huber-Snyder Building downwash schemes.
 #' @param iurb1 the lower range of land use categories for which urban dispersion is assumed.
 #' @param iurb2 the upper range of land use categories for which urban dispersion is assumed.
 #' @param ilanduin the land use category for the modeling domain. Used for site characterization parameters with single-point Met data files and ignored unless metfm is either 2, 3, 4, or 5.
@@ -18,40 +18,40 @@
 #' @param anemht the anemometer height at the site (in units of meters ASL). Used for site characterization parameters with single-point Met data files and ignored unless metfm is either 2 or 3.
 #' @param isigmav the choice of which lateral turbulance data in PROFILE.DAT file to use: (0) read sigma-theta, or (1) read sigma-v. Used for site characterization parameters with single-point Met data files and ignored unless metfm is either 4 or 5, and mturbvw is either 1 or 3.
 #' @param imixctdm the choice of method for reading mixing heights: (0) read predicted, or (1) read observed. Used for site characterization parameters with single-point Met data files and ignored unless metfm is 4.
-#' @param xmxlen 
-#' @param xsamlen 
-#' @param mxnew 
-#' @param mxsam 
-#' @param ncount 
-#' @param symin 
-#' @param szmin 
-#' @param szcap_m 
-#' @param svmin 
-#' @param swmin 
-#' @param cdiv 
-#' @param nlutibl 
-#' @param wscalm 
-#' @param xmaxzi 
-#' @param xminzi 
-#' @param wscat 
-#' @param plx0 
-#' @param ptg0 
-#' @param ppc 
-#' @param sl2pf 
-#' @param nsplit 
-#' @param iresplit 
-#' @param zisplit 
-#' @param roldmax 
-#' @param nsplith 
-#' @param sysplith 
-#' @param shsplith 
-#' @param cnsplith 
-#' @param epsslug 
-#' @param epsarea 
-#' @param dsrise 
-#' @param htminbc 
-#' @param rsampbc 
-#' @param mdepbc 
+#' @param xmxlen the maximum length of a slug (in meteorological grid cell units).
+#' @param xsamlen the maximum travel distance of a slug or puff (in meteorological grid cell units) during each time step.
+#' @param mxnew the maximum number of slugs or puffs released from one source during each time step.
+#' @param mxsam the maximum number of sampling steps for one puff or slug during each time step.
+#' @param ncount the number of iterations used when computing the transport wind for a sampling step that includes gradual rise.
+#' @param symin the minimum sigma y (in units of meters) for a new puff or slug.
+#' @param szmin the minimum sigma z (in units of meters) for a new puff or slug.
+#' @param szcap_m the maximum sigma z (in units of meters) that is permitted.
+#' @param svmin the default minimum turbulence velocities sigma v (in units of meters per second) for each stability class over land and over water.
+#' @param swmin the default minimum turbulence velocities sigma w (in units of meters per second) for each stability class over land and over water.
+#' @param cdiv the divergence criterion for dw/dz across the puff; used to initiate adjustment for horizontal convergence.
+#' @param nlutibl the search radius (in meteorological grid cell units) for nearest land and water cells.
+#' @param wscalm the minimum wind speed (in units of meters per second) allowed for non-calm conditions.
+#' @param xmaxzi the maximum mixing height (in units of meters).
+#' @param xminzi the minimum mixing height (in units of meters).
+#' @param wscat the upper-bound wind-speeds (in units of meters per second) for the the default wind speed classes.
+#' @param plx0 the default wind speed profile power-law exponent values for stability classes 1 through 6.
+#' @param ptg0 the default potential temperature gradient values for stable classes E and F.
+#' @param ppc the default plume path coefficients for each stability class (ignored unless the option for partial plume height terrain adjustment, mctadj, is selected by using the value 3).
+#' @param sl2pf the slug-to-puff transition criterion factor equal to sigma-y or length of a slug.
+#' @param nsplit the number of puffs that result every time a puff is split vertically.
+#' @param iresplit the time(s) of a day when split puffs are eligible to be split vertically once again.
+#' @param zisplit the minimum mixing height (in units of meters) for which vertical puff-splitting is allowed in the subsequent hour.
+#' @param roldmax the maximum value of ratio of the mixing height to the maximum mixing height experienced by the puff for which vertical puff-splitting is allowed in the subsequent hour.
+#' @param nsplith the number of puffs that result every time a puff is split horizontally.
+#' @param sysplith the minimum sigma-y (in meteorological grid cell units) of puff before horizontal puff-splitting is allowed.
+#' @param shsplith the minimum puff elongation rate (sysplith units per hour) due to wind shear before horizontal puff-splitting is allowed.
+#' @param cnsplith the minimum concentration (in units of grams per cubic meter) of each species within a puff before it may be split horizontally. Provide vector of length corresponding to the number of species; if a single value is provided, it will be applied to all species.
+#' @param epsslug the fractional convergence criterion for numerical slug sampling integration.
+#' @param epsarea the fractional convergence criterion for numerical area source integration.
+#' @param dsrise the trajectory step-length (in units of meters) used for numerical rise integration.
+#' @param htminbc the minimum height (in units of meters) to which boundary condition puffs are mixed as they are emitted (ignored unless mbcon is 2).
+#' @param rsampbc the search radious (in units of km) about a receptor for sampling the nearest boundary condition puff.
+#' @param mdepbc the choice of whether to perform a near-surface depletion adjustment to the concentration profile when sampling boundary condition puffs.
 #' @export calpuff_12_misc_disp_comp_params
 
 calpuff_12_misc_disp_comp_params <- function(calpuff_inp = "calpuff_template.txt",
