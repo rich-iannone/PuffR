@@ -9,4 +9,8 @@ calpuff_08_size_ddep_particles <- function(calpuff_inp = "calpuff_template.txt",
                                            species_geom_mass_mean_diam = NULL,
                                            species_geom_SD = NULL){
   
+  # Read in the working calpuff.inp file as a character vector
+  calpuff_inp_working <- readLines(calpuff_inp, warn = FALSE)
+  
+  
 }
