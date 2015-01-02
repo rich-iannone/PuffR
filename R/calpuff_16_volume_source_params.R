@@ -6,5 +6,9 @@ calpuff_16_volume_source_params <- function(calpuff_inp = "calpuff_template.txt"
   
   # Read in the working calpuff.inp file as a character vector
   calpuff_inp_working <- readLines(calpuff_inp, warn = FALSE)
+  
+  # Write the output to the same working calpuff.inp file
+  writeLines(calpuff_inp_working, con = calpuff_inp)
+  
 }
                                           
