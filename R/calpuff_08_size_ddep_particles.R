@@ -16,7 +16,7 @@ calpuff_08_size_ddep_particles <- function(calpuff_inp = "calpuff_template.txt",
   # chemical species
   default_params_ddep <- list(so4 = c(0.48, 2.0),
                               no3 = c(0.48, 2.0),
-                              pm25 = c(0.48, 2.0)
+                              pm25 = c(0.48, 2.0),
                               pm10 = c(0.48, 2.0))
   
   # Read in the working calpuff.inp file as a character vector
