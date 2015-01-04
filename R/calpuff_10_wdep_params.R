@@ -18,7 +18,7 @@ calpuff_10_wdep_params <- function(calpuff_inp = "calpuff_template.txt",
                               no2 = c(0.000510, 0),
                               hno3 = c(0.000060, 0),
                               no3 = c(0.000100, 0.000030),
-                              pm25 = c(0.000100, 0.000030)
+                              pm25 = c(0.000100, 0.000030),
                               pm10 = c(0.000100, 0.000030))
   
   # Read in the working calpuff.inp file as a character vector
