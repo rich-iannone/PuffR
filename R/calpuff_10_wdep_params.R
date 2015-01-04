@@ -1,6 +1,7 @@
 #' Set the CALPUFF parameters for wet deposition
 #' @description This function validates and writes CALPUFF parameters for wet deposition.
 #' @param calpuff_inp the absolute path and filename for the working CALPUFF input file.
+#' @param species_names a vector list of species for which wet deposition parameters will be supplied.
 #' @param species_scaveng_coeff_liquid_precip 
 #' @param species_scaveng_coeff_froze_precip 
 #' @export calpuff_10_wdep_params
