@@ -14,7 +14,7 @@ calpuff_10_wdep_params <- function(calpuff_inp = "calpuff_template.txt",
   # Generate default list of values for the scavenging coefficients when wet
   # deposition occurs via either liquid or frozen precipitation for a large number
   # of chemical species
-  default_params_wdep <- list(so2 = c(0.000030, 0)
+  default_params_wdep <- list(so2 = c(0.000030, 0),
                               so4 = c(0.000100, 0.000030),
                               no = c(0.000029, 0),
                               no2 = c(0.000510, 0),
