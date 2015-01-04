@@ -4,10 +4,13 @@
 \title{Set the CALPUFF size parameters for dry deposition of particles}
 \usage{
 calpuff_08_size_ddep_particles(calpuff_inp = "calpuff_template.txt",
-  species_geom_mass_mean_diam = NULL, species_geom_SD = NULL)
+  species_names = NULL, species_geom_mass_mean_diam = NULL,
+  species_geom_SD = NULL)
 }
 \arguments{
 \item{calpuff_inp}{the absolute path and filename for the working CALPUFF input file.}
+
+\item{species_names}{a vector list of species for which dry deposition size parameters will be supplied.}
 
 \item{species_geom_mass_mean_diam}{}
 
