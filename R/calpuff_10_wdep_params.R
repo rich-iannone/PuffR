@@ -6,6 +6,7 @@
 #' @export calpuff_10_wdep_params
 
 calpuff_10_wdep_params <- function(calpuff_inp = "calpuff_template.txt",
+                                   species_names = NULL,
                                    species_scaveng_coeff_liquid_precip = NULL,
                                    species_scaveng_coeff_froze_precip = NULL){
   
