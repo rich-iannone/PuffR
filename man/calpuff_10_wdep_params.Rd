@@ -5,16 +5,16 @@
 \usage{
 calpuff_10_wdep_params(calpuff_inp = "calpuff_template.txt",
   species_names = NULL, species_scaveng_coeff_liquid_precip = NULL,
-  species_scaveng_coeff_froze_precip = NULL)
+  species_scaveng_coeff_frozen_precip = NULL)
 }
 \arguments{
 \item{calpuff_inp}{the absolute path and filename for the working CALPUFF input file.}
 
 \item{species_names}{a vector list of species for which wet deposition parameters will be supplied.}
 
-\item{species_scaveng_coeff_liquid_precip}{}
+\item{species_scaveng_coeff_liquid_precip}{a vector list of scavenging coefficients from liquid precipitation (in 1/s units) each of the species provided in the 'species_names' object.}
 
-\item{species_scaveng_coeff_froze_precip}{}
+\item{species_scaveng_coeff_frozen_precip}{a vector list of scavenging coefficients from frozen precipitation (in 1/s units) each of the species provided in the 'species_names' object.}
 }
 \description{
 This function validates and writes CALPUFF parameters for wet deposition.
