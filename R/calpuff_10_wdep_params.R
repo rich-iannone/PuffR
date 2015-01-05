@@ -9,7 +9,7 @@
 calpuff_10_wdep_params <- function(calpuff_inp = "calpuff_template.txt",
                                    species_names = NULL,
                                    species_scaveng_coeff_liquid_precip = NULL,
-                                   species_scaveng_coeff_froze_precip = NULL){
+                                   species_scaveng_coeff_frozen_precip = NULL){
   
   # Generate default list of values for the scavenging coefficients when wet
   # deposition occurs via either liquid or frozen precipitation for a large number
