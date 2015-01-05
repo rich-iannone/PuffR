@@ -53,7 +53,7 @@ Install PuffR from GitHub using the `devtools` package:
 
 ```R
 require(devtools)
-install_github('PuffR', 'rich-iannone')
+install_github('rich-iannone/PuffR')
 ```
 
 It's early days so the package will be changing rapidly. I invite you to send me questions and comments about this. If you'd like to contribute, let me know and we can talk collaboration. Yeah, let's work together!
