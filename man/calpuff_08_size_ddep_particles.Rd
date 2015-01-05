@@ -12,9 +12,9 @@ calpuff_08_size_ddep_particles(calpuff_inp = "calpuff_template.txt",
 
 \item{species_names}{a vector list of species for which dry deposition size parameters will be supplied.}
 
-\item{species_geom_mass_mean_diam}{}
+\item{species_geom_mass_mean_diam}{a vector list of geometric mass mean diameters (in micron units) for each of the species provided in the 'species_names' object.}
 
-\item{species_geom_SD}{}
+\item{species_geom_SD}{a vector list of geometric standard deviation values (in micron units) for each of the species provided in the 'species_names' object.}
 }
 \description{
 This function validates and writes CALPUFF size parameters for dry deposition of particles.
