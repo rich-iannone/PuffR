@@ -2,8 +2,8 @@
 #' @description This function validates and writes CALPUFF parameters for wet deposition.
 #' @param calpuff_inp the absolute path and filename for the working CALPUFF input file.
 #' @param species_names a vector list of species for which wet deposition parameters will be supplied.
-#' @param species_scaveng_coeff_liquid_precip 
-#' @param species_scaveng_coeff_froze_precip 
+#' @param species_scaveng_coeff_liquid_precip a vector list of scavenging coefficients from liquid precipitation (in 1/s units) each of the species provided in the 'species_names' object.
+#' @param species_scaveng_coeff_frozen_precip a vector list of scavenging coefficients from frozen precipitation (in 1/s units) each of the species provided in the 'species_names' object.
 #' @export calpuff_10_wdep_params
 
 calpuff_10_wdep_params <- function(calpuff_inp = "calpuff_template.txt",
