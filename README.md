@@ -74,8 +74,7 @@ calmet_define_geophys(location_name = "Vancouver"
                       lat_lon_grid_loc = 1,
                       domain_width_m = 117000,
                       domain_height_m = 43250,
-                      cell_resolution_m = 500,
-                      download_SRTM = TRUE)
+                      cell_resolution_m = 500)
 ```
 Alternatively, if you elected to download the whole 11 GB set of SRTM V4 GeoTIFF zip files, you can reference the local folder that contains that archive:
 
